@@ -1,7 +1,6 @@
 import discord
 
 from waifu import WaifuAioClient
-
 from discord.ext import commands
 
 class Waifu(commands.Cog):
@@ -26,10 +25,10 @@ class Waifu(commands.Cog):
     
     # HIGHFIVE
     @commands.command(aliases = ['hifive','high-five','hf'] )
-    async def highfive(self, ctx):
+    async def highfive(self, ctx, member : discord.Member):
         async with WaifuAioClient() as client:
             sfw_highfive: str = await client.sfw(category = 'highfive')
-            await ctx.reply(sfw_highfive)
+            await ctx.reply(f'Heya {member.mention}, here is a high five!\n{sfw_highfive}')
     
     # HAPPY
     @commands.command()
@@ -62,29 +61,25 @@ class Waifu(commands.Cog):
     # KILL
     @commands.command(aliases = ['murder', 'slaughter'] )
     async def kill(self, ctx, member : discord.Member):
-        await ctx.reply(f'**You just killed** {member.mention}!')
-
         async with WaifuAioClient() as client:
             sfw_kill: str = await client.sfw(category = 'kill')
             await ctx.reply(sfw_kill)
+        await ctx.reply(f'**You just killed** {member.mention}!\n{sfw_kill}')
     
     # HUG
     @commands.command()
     async def hug(self, ctx, member : discord.Member):
-        await ctx.reply(f'**You just hugged** {member.mention}!')
-
         async with WaifuAioClient() as client:
             sfw_hug: str = await client.sfw(category = 'hug')
-            await ctx.send(sfw_hug)
+            await ctx.reply(f'**You just hugged** {member.mention}!\n{sfw_hug}')
     
     # WAVE
     @commands.command()
     async def wave(self, ctx, member : discord.Member ):
-        await ctx.reply(f'**You just waved at** {member.mention}!')
-
         async with WaifuAioClient() as client:
             sfw_wave: str = await client.sfw(category = 'wave')
             await ctx.send(sfw_wave)
+        await ctx.reply(f'**You just waved at** {member.mention}!\n{sfw_wave}')
 
 
 def setup(client):

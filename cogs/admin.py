@@ -1,4 +1,5 @@
 import discord
+
 from discord.ext import commands
 
 class Administration(commands.Cog):
@@ -13,28 +14,28 @@ class Administration(commands.Cog):
     @commands.has_any_role('admin')
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount)
-        print('LOG | CLEAR: A channel was cleared using this command.')
+        print('| CONSOLE | LOG - CLEAR: A channel was cleared using this command.')
 
     # KICK METHOD
     @commands.command()
     @commands.has_any_role('admin')
     async def kick(self, ctx, member : discord.Member, *, reason = None):
         if not member:
-            await ctx.send('Invalid Member.')
+            await ctx.reply('Invalid Member.')
         else:   
             await member.kick(reason = reason)
-            await ctx.send(f'Kicked {member.mention}')
-            print(f'LOG | KICK: A user was kicked! {discord.Member}')
+            await ctx.reply(f'Kicked {member.mention}')
+            print(f'| CONSOLE | LOG | KICK: A user was kicked! {discord.Member}')
         
     # BAN METHOD
     @commands.command()
     @commands.has_any_role('admin')
     async def ban(self, ctx, member : discord.Member, *, reason = None):
         if not member:
-            await ctx.send('Invalid Member.')
+            await ctx.reply('Invalid Member.')
         else:   
             await member.ban(reason = reason)
-            await ctx.send(f'Banned {member.mention}')
+            await ctx.reply(f'Banned {member.mention}')
 
     # UNBAN METHOD
     @commands.command()
@@ -48,7 +49,7 @@ class Administration(commands.Cog):
 
             if (user.name, user.discriminator) == (member_name, member_discriminator):
                 await ctx.guild.unban(user)
-                await ctx.send(f'Unbanned {user.mention}')
+                await ctx.reply(f'Unbanned {user.mention}')
                 return  
 
 def setup(client):

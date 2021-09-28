@@ -1,10 +1,12 @@
 import random
-from datetime import datetime
+import asyncio
 
+from datetime import datetime
 from discord.ext import commands
 
-class General(commands.Cog):
+# GENERAL COMMANDS
 
+class General(commands.Cog):
     def __init__(self, client):
         self.client = client
     
@@ -21,22 +23,20 @@ class General(commands.Cog):
     # EIGHT BALL METHOD
     @commands.command( aliases = ['8ball', 'eightball','🎱'] )
     async def _8ball(self, ctx, *, question):
+        await ctx.reply("**Awaiting Response from** 🎱 ...")
+        await asyncio.sleep(1)
         responses = ['It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes.',
                     'Outlook good.', 'Signs point to yes.', 'Reply hazy, try again.',
                     'Ask again later.','Can not predict now.', "Don't count on it.",
-                    'My reply is no.', 'My sources say no.', 'Obviously not.',]
+                    'My reply is no.', 'My sources say no.', 'Obviously not.',
+                    'I can not find a result for that, try again.','Try again.'
+                    'That is correct.','That is incorrect.','Indeed.',
+                    'Affirmative.','Negative.']
                     
         await ctx.reply(f'Question: **{question}**\nAnswer: {random.choice(responses)}')
+
         date_object = datetime.now()
-        print(f'{date_object} | CONSOLE | EIGHTBALL | LOG: EightBall was utilized!\nThe question was: {question}')
-
-    @commands.command( aliases = ['fascist','nazi'])
-    async def hitler(self, ctx):
-        responses = ['Last time ive seen a nazi it was Poppy.', 'Poppy was Hitler all Along?', 
-        'My Fascist Poppy Can not be this crazy!', 'Poppy Hated People that Dont Belong to His Kind?',
-        'Geez, Poppy, Fine Ill take you to See George Wallace for the 50th Time.', 'Poppy is a Dixiecrat']
-
-        await ctx.reply(f'{random.choice(responses)}')
+        print(f'{date_object} | CONSOLE | EIGHTBALL - LOG: EightBall was utilized!\nThe question was: {question}')
         
 def setup(client):
     client.add_cog(General(client))

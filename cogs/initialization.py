@@ -1,14 +1,17 @@
-import discord
 import os
+import discord
+
 from discord.ext import commands, tasks
+from datetime import datetime
 from itertools import cycle
 
-class Initialization(commands.Cog):
+# INITIALIZATION 
 
+class Initialization(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-        self.status = cycle(['with Scripts', 'with discord.py'])
+        self.status = cycle(['with Scripts', 'with Discord.py'])
 
     @commands.Cog.listener()
     # SELF MUST BE THE FIRST ARGUMENT IN THE 
@@ -16,9 +19,10 @@ class Initialization(commands.Cog):
     # IN YOUR CLASS TAKES!
     async def on_ready(self):
         self.change_status.start()
-        clear = lambda: os.system('cls')
+        clear = lambda: os.system('clear')
         clear()
-        print('CONNECTION ESTABLISHED.')
+        date_object = datetime.now()
+        print(f'{date_object}: CONNECTION ESTABLISHED.')
     
     @tasks.loop(seconds = 4)
     async def change_status(self):
