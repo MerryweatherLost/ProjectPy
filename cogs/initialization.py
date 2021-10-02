@@ -10,7 +10,6 @@ from itertools import cycle
 class Initialization(commands.Cog):
     def __init__(self, client):
         self.client = client
-
         self.status = cycle(['with Scripts', 'with Discord.py'])
 
     @commands.Cog.listener()
@@ -22,7 +21,7 @@ class Initialization(commands.Cog):
         clear = lambda: os.system('clear')
         clear()
         date_object = datetime.now()
-        print(f'{date_object}: CONNECTION ESTABLISHED.')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] CONNECTION ESTABLISHED.')
     
     @tasks.loop(seconds = 4)
     async def change_status(self):

@@ -16,7 +16,7 @@ class Administration(commands.Cog):
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount)
         date_object = datetime.now()
-        print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
 
     # KICK METHOD
     @commands.command()
@@ -28,7 +28,7 @@ class Administration(commands.Cog):
             await member.kick(reason = reason)
             await ctx.reply(f'Kicked {member.mention}!')
             date_object = datetime.now()
-            print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - KICK: A user was kicked! {member}')
+            print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] CONSOLE | LOG - KICK: A user was kicked! {member}')
         
     # BAN METHOD
     @commands.command()
@@ -40,7 +40,7 @@ class Administration(commands.Cog):
             await member.ban(reason = reason)
             await ctx.reply(f'Banned {member.mention}!')
             date_object = datetime.now()
-            print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - BAN: A user was banned! {member}')
+            print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] CONSOLE | LOG - BAN: A user was banned! {member}')
 
     # UNBAN METHOD
     @commands.command()
@@ -56,7 +56,7 @@ class Administration(commands.Cog):
                 await ctx.guild.unban(user)
                 await ctx.reply(f'Unbanned {user.mention}!')
                 date_object = datetime.now()
-                print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
+                print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
                 return  
 
 def setup(client):
