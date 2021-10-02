@@ -63,8 +63,7 @@ class Waifu(commands.Cog):
     async def kill(self, ctx, member : discord.Member):
         async with WaifuAioClient() as client:
             sfw_kill: str = await client.sfw(category = 'kill')
-            await ctx.reply(sfw_kill)
-        await ctx.reply(f'**You just killed** {member.mention}!\n{sfw_kill}')
+            await ctx.reply(f'**You just killed** {member.mention}!\n{sfw_kill}')
     
     # HUG
     @commands.command()
@@ -78,8 +77,14 @@ class Waifu(commands.Cog):
     async def wave(self, ctx, member : discord.Member ):
         async with WaifuAioClient() as client:
             sfw_wave: str = await client.sfw(category = 'wave')
-            await ctx.send(sfw_wave)
-        await ctx.reply(f'**You just waved at** {member.mention}!\n{sfw_wave}')
+            await ctx.reply(f'**You just waved at** {member.mention}!\n{sfw_wave}')
+    
+    # BONK
+    @commands.command()
+    async def bonk(self, ctx, member : discord.Member ):
+        async with WaifuAioClient() as client:
+            sfw_bonk: str = await client.sfw(category = 'bonk')
+            await ctx.reply(f'**You just bonked** {member.mention}!\n{sfw_bonk}')
 
 
 def setup(client):
