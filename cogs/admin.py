@@ -1,5 +1,6 @@
 import discord
 
+from datetime import datetime
 from discord.ext import commands
 
 class Administration(commands.Cog):
@@ -14,7 +15,8 @@ class Administration(commands.Cog):
     @commands.has_any_role('admin')
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount)
-        print('| CONSOLE | LOG - CLEAR: A channel was cleared using this command.')
+        date_object = datetime.now()
+        print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
 
     # KICK METHOD
     @commands.command()
@@ -24,8 +26,9 @@ class Administration(commands.Cog):
             await ctx.reply('Invalid Member.')
         else:   
             await member.kick(reason = reason)
-            await ctx.reply(f'Kicked {member.mention}')
-            print(f'| CONSOLE | LOG | KICK: A user was kicked! {discord.Member}')
+            await ctx.reply(f'Kicked {member.mention}!')
+            date_object = datetime.now()
+            print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - KICK: A user was kicked! {member}')
         
     # BAN METHOD
     @commands.command()
@@ -35,7 +38,9 @@ class Administration(commands.Cog):
             await ctx.reply('Invalid Member.')
         else:   
             await member.ban(reason = reason)
-            await ctx.reply(f'Banned {member.mention}')
+            await ctx.reply(f'Banned {member.mention}!')
+            date_object = datetime.now()
+            print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - BAN: A user was banned! {member}')
 
     # UNBAN METHOD
     @commands.command()
@@ -49,7 +54,9 @@ class Administration(commands.Cog):
 
             if (user.name, user.discriminator) == (member_name, member_discriminator):
                 await ctx.guild.unban(user)
-                await ctx.reply(f'Unbanned {user.mention}')
+                await ctx.reply(f'Unbanned {user.mention}!')
+                date_object = datetime.now()
+                print(f'{date_object.strftime("%H:%M:%S %b %d %Y")}: CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
                 return  
 
 def setup(client):
