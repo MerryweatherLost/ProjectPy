@@ -21,7 +21,7 @@ class Initialization(commands.Cog):
         clear = lambda: os.system('clear')
         clear()
         date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] CONNECTION ESTABLISHED.')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONNECTION ESTABLISHED.')
     
     @tasks.loop(seconds = 4)
     async def change_status(self):

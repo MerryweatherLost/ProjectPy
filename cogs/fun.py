@@ -1,5 +1,6 @@
 import random
 import asyncio
+import discord
 
 from discord.ext import commands
 from datetime import datetime
@@ -15,7 +16,12 @@ class Fun(commands.Cog):
         responses = [ 'Heads.','Tails.' ]
         answer = random.choice(responses)
         await ctx.reply(f'{answer}')
-        
+    
+    # PYTHON METHOD
+    @commands.command( aliases = ['py'] )
+    async def python(self, ctx):
+        await ctx.reply('Python is the language I was programmed in.') 
+
     # EIGHT BALL METHOD
     @commands.command( aliases = ['8ball', 'eightball','🎱'] )
     async def _8ball(self, ctx, *, question):
@@ -39,7 +45,7 @@ class Fun(commands.Cog):
         await ctx.reply(f'Question: **{question}**\nAnswer: {answer}')
     
         date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized!\nThe question was: {question}, The answer was: {answer}')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
 
 def setup(client):
     client.add_cog(Fun(client))
