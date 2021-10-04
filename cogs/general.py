@@ -19,6 +19,8 @@ class General(commands.Cog):
     @commands.command(help = 'Sends the github of the creator.', aliases = ['git'])
     async def github(self, ctx):
         await ctx.reply(f'Here is the GitHub of my creator: https://github.com/MerryweatherLost')
+
+    
         
 def setup(client):
     client.add_cog(General(client))
