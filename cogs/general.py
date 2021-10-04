@@ -11,12 +11,12 @@ class General(commands.Cog):
         self.client = client
     
     # PING METHOD
-    @commands.command(aliases = ['🏓'])
+    @commands.command(help = 'Pings the round client latency.', aliases = ['🏓'])
     async def ping(self, ctx):
         await ctx.reply(f'🏓 **Reported Latency:** {round(self.client.latency * 1000)}ms.')
 
     # GITHUB
-    @commands.command(aliases = ['git'])
+    @commands.command(help = 'Sends the github of the creator.', aliases = ['git'])
     async def github(self, ctx):
         await ctx.reply(f'Here is the GitHub of my creator: https://github.com/MerryweatherLost')
         
