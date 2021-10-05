@@ -9,7 +9,10 @@ class Anime(commands.cog):
     # DDLC - SFW
     @commands.command(help = 'Images of the Doki Doki Literature Club characters.')
     async def ddlc(self, ctx):
-        dokidoki = ['']
+        dokidoki = [
+            'https://cdn.discordapp.com/attachments/576096750331494420/895016615651979264/image5.jpg',
+            
+        ]
         DDLC = random.choice(dokidoki)
         embed = discord.Embed (
             title = 'DDLC',
