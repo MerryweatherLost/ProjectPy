@@ -12,7 +12,7 @@ class Akansfw(commands.Cog):
     @commands.is_nsfw()
     async def zettairyouiki(self, ctx):
         embed=discord.Embed(
-            title="Zettau Ryouiki", 
+            title="Zettai Ryouiki", 
             description="Here is the image!", 
             color=discord.Color.blue())
         embed.set_author(

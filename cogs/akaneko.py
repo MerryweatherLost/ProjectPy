@@ -14,7 +14,8 @@ class Akaneko(commands.Cog):
         embed = discord.Embed (
             title = "Wallpaper", 
             description = "Here is the image!", 
-            color = discord.Color.blue())
+            color = discord.Color.blue()
+            )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url)
