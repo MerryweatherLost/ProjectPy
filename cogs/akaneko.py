@@ -11,22 +11,62 @@ class Akaneko(commands.Cog):
     # WALLPAPER - SFW
     @commands.command(help = "Some safe for work wallpapers.")
     async def wallpaper(self, ctx):
-        await ctx.reply(hmtai.listHM("2_6","wallpaper"))
+        embed = discord.Embed (
+            title = "Wallpaper", 
+            description = "Here is the image!", 
+            color = discord.Color.blue())
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url)
+        embed.set_image (
+            url = akaneko.sfw.wallpapers() 
+        )
+        await ctx.reply(embed=embed)
     
     # MOBILE WALLPAPER - SFW
     @commands.command(help = "Some safe for work mobile walpapers.")
     async def mobilewallpaper(self, ctx):
-        await ctx.reply(hmtai.listHM("2_6","mobileWallpaper"))
+        embed = discord.Embed (
+            title = "Mobile Wallpaper", 
+            description = "Here is the image!", 
+            color = discord.Color.blue())
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url)
+        embed.set_image (
+            url = akaneko.sfw.mobileWallpapers()
+        )
+        await ctx.reply(embed=embed)
         
     # NEKO - SFW
     @commands.command(help = "Some safe for work neko images. - Request from Ho Chi Minh")
     async def akaneko(self, ctx):
-        await ctx.reply(akaneko.sfw.neko())
+        embed = discord.Embed (
+            title = "Neko", 
+            description = "Here is the image!", 
+            color = discord.Color.blue())
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url)
+        embed.set_image (
+            url = akaneko.sfw.neko(), 
+        )
+        await ctx.reply(embed=embed)
     
     # FOXGIRL - SFW
     @commands.command(help = "Some safe for work foxgirl images. - Request from Ho Chi Minh")
     async def akafoxgirl(self, ctx):
-        await ctx.reply(akaneko.sfw.foxgirl())
-        
+        embed = discord.Embed (
+            title = "Foxgirl", 
+            description = "Here is the image!", 
+            color = discord.Color.blue())
+        embed.set_author ( 
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url)
+        embed.set_image (
+            url = akaneko.sfw.foxgirl(), 
+        )
+        await ctx.reply(embed=embed)
+
 def setup(client):
     client.add_cog(Akaneko(client))

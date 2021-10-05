@@ -15,14 +15,35 @@ class Waifu(commands.Cog):
     async def waifu(self, ctx):
         async with WaifuAioClient() as client:
             sfw_waifu: str = await client.sfw(category='waifu')
-            await ctx.reply(sfw_waifu)
+            embed = discord.Embed (
+                title = "Waifu Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_waifu, 
+            )
+            await ctx.reply(embed=embed)
 
     # NEKO
     @commands.command(help = 'Neko Waifu image.')
     async def waifuneko(self, ctx):
         async with WaifuAioClient() as client:
             sfw_neko: str = await client.sfw(category='neko')
-            await ctx.reply(sfw_neko)
+            embed = discord.Embed (
+                title = "Neko Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_neko, 
+            )
+            await ctx.reply(embed=embed)
+
     
     # HIGHFIVE
     @commands.command(help = 'Give a high five to someone. EX: :highfive @member.', aliases = ['hifive','high-five','hf'] )
@@ -36,35 +57,85 @@ class Waifu(commands.Cog):
     async def waifuhappy(self, ctx):
         async with WaifuAioClient() as client:
             sfw_happy: str = await client.sfw(category = 'happy')
-            await ctx.reply(sfw_happy)
+            embed = discord.Embed (
+                title = "Happy Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_happy, 
+            )
+            await ctx.reply(embed=embed)
     
     # SMILE
     @commands.command(help = 'Smiling image of a waifu.', aliases = ['waifu🙂'])
     async def waifusmile(self, ctx):
         async with WaifuAioClient() as client:
             sfw_smile: str = await client.sfw(category = 'smile')
-            await ctx.reply(sfw_smile)
+            embed = discord.Embed (
+                title = "Smile Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_smile, 
+            )
+            await ctx.reply(embed=embed)
 
     # SMUG
     @commands.command(help = 'Smug image of a waifu. - My personal favorite.')
     async def waifusmug(self, ctx):
         async with WaifuAioClient() as client:
             sfw_smug: str = await client.sfw(category = 'smug')
-            await ctx.reply(sfw_smug)
+            embed = discord.Embed (
+                title = "Smug Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_smug, 
+            )
+            await ctx.reply(embed=embed)
 
     # DANCE
     @commands.command(help = 'Dance image of a waifu.')
     async def waifudance(self, ctx):
         async with WaifuAioClient() as client:
             sfw_dance: str = await client.sfw(category = 'smile')
-            await ctx.reply(sfw_dance)
+            embed = discord.Embed (
+                title = "Dancing Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_dance, 
+            )
+            await ctx.reply(embed=embed)
 
     # CRY
     @commands.command(help = 'Crying image of a waifu.')
     async def waifucry(self, ctx):
         async with WaifuAioClient() as client:
             sfw_cry: str = await client.sfw(category = 'cry')
-            await ctx.reply(sfw_cry)
+            embed = discord.Embed (
+                title = "Crying Image", 
+                description = "Here is the image!", 
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_cry, 
+            )
+            await ctx.reply(embed=embed)
 
     # KILL
     @commands.command(help = 'Kill a member in chat. EX: :kill @member.', aliases = ['murder', 'slaughter'] )
@@ -97,7 +168,17 @@ class Waifu(commands.Cog):
     # DEPRESSION
     @commands.command(help = 'Simulate crippiling depression.')
     async def depression(self, ctx):
-        await ctx.reply(hmtai.useHM("2_9","depression"))
+        embed=discord.Embed(
+            title="Depression Image", 
+            description="Here is the image!", 
+            color=discord.Color.blue())
+        embed.set_author(
+            name=ctx.author.display_name, 
+            icon_url=ctx.author.avatar_url)
+        embed.set_image(
+            url=hmtai.useHM("2_9","depression"), 
+        )
+        await ctx.reply(embed=embed)
 
 
 def setup(client):
