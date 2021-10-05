@@ -26,7 +26,7 @@ class Administration(commands.Cog):
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount)
         date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
     
     @clear.error
     async def clear_error(ctx, error):
@@ -41,7 +41,7 @@ class Administration(commands.Cog):
         await ctx.reply(f'Kicked **{member}!**')
         
         date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - KICK: A user was kicked! {member}')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - KICK: A user was kicked! {member}')
         
     # BAN METHOD
     @commands.command(help = "Bans a person from the server.")
@@ -51,7 +51,7 @@ class Administration(commands.Cog):
         await ctx.reply(f'Banned **{member}!**')
         
         date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - BAN: A user was banned! {member}')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - BAN: A user was banned! {member}')
     
     # TEMP BAN METHOD
     @commands.command(help = "Temporarily bans a person from the server. - (UNSTABLE)")
@@ -79,7 +79,7 @@ class Administration(commands.Cog):
                 await ctx.guild.unban(user)
                 await ctx.reply(f'Unbanned **{user.mention}!**')
                 date_object = datetime.now()
-                print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
+                print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
                 return  
 
 def setup(client):

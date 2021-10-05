@@ -45,7 +45,7 @@ class Fun(commands.Cog):
         await ctx.reply(f'Question: **{question}**\nAnswer: {answer}')
     
         date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
+        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )

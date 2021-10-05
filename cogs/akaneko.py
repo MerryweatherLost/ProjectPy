@@ -39,7 +39,7 @@ class Akaneko(commands.Cog):
         await ctx.reply(embed=embed)
         
     # NEKO - SFW
-    @commands.command(help = "Some safe for work neko images. - Request from Ho Chi Minh")
+    @commands.command(help = 'Some safe for work neko images.')
     async def akaneko(self, ctx):
         embed = discord.Embed (
             title = "Neko", 
@@ -54,7 +54,7 @@ class Akaneko(commands.Cog):
         await ctx.reply(embed=embed)
     
     # FOXGIRL - SFW
-    @commands.command(help = "Some safe for work foxgirl images. - Request from Ho Chi Minh")
+    @commands.command(help = 'Some safe for work foxgirl images.')
     async def akafoxgirl(self, ctx):
         embed = discord.Embed (
             title = "Foxgirl", 
