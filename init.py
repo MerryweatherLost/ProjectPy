@@ -1,6 +1,5 @@
 import os
 import datetime
-import discord
 
 from discord.ext import commands
 
@@ -66,4 +65,9 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.reply('Whoops, looks like I can not find that command! Try inputting it correctly, and remember, it can be case sensitive!')
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.reply('This command is on a cooldown! Wait a moment...')
+        
 client.run('ODkxNzAzMTE2MTAwMTU3NDkx.YVCNPQ.3AJF5N4SE6imB_jxvBuMk-ddNCg')

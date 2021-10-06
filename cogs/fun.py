@@ -20,13 +20,20 @@ class Fun(commands.Cog):
     # PYTHON METHOD
     @commands.command( help = "The language it was programmed in.", aliases = ['py'] )
     async def python(self, ctx):
-        await ctx.reply('Python is the language I was programmed in.') 
+        embed = discord.Embed (
+            title = 'Python Website',
+            description = 'Python is the language I was programmed in.',
+            url = 'https://www.python.org/',
+        )
+        await ctx.reply(embed = embed) 
 
     # EIGHT BALL METHOD
-    @commands.command( help = "8ball, takes in one argument, the question. EX: 8ball will I gain fortune?", name = "8ball", aliases = ['eightball','🎱'] )
+    @commands.command ( 
+        help = "8ball, takes in one argument, the question. EX: 8ball will I gain fortune?", 
+        name = "8ball", 
+        aliases = ['eightball','🎱'] 
+    )
     async def _8ball(self, ctx, *, question):
-        await ctx.reply("**Awaiting Response from** 🎱 <a:loading:893139868157354034> ...")
-        await asyncio.sleep(1)
         responses = [
             # POSITIVES
             'It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes.',
@@ -42,8 +49,16 @@ class Fun(commands.Cog):
             'No', 'That is incorrect.'
         ]
         answer = random.choice(responses)   
-        await ctx.reply(f'Question: **{question}**\nAnswer: {answer}')
-    
+        embed = discord.Embed (
+            title = "8-Ball", 
+            description = f'Question: **{question}**\nAnswer: **{answer}**', 
+            color = discord.Color.lighter_gray())
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+        )
+        await ctx.reply(embed = embed)
+        
         date_object = datetime.now()
         print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     

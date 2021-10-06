@@ -14,12 +14,9 @@ class General(commands.Cog):
     @commands.command(help = 'Pings the round client latency.', aliases = ['🏓'])
     async def ping(self, ctx):
         embed = discord.Embed (
-            title = 'Reported Latency',
-            description = f'🏓 **Pong!** {round(self.client.latency * 1000)}ms.', 
-            color = discord.Color.blue())
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url)
+            title = f'🏓 **Pong!** {round(self.client.latency * 1000)}ms.',
+            color = discord.Color.red()
+        )
         await ctx.reply(embed=embed)
 
     # GITHUB

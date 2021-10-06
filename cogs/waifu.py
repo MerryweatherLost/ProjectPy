@@ -25,11 +25,11 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_waifu, 
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
 
     # NEKO
     @commands.command(help = 'Neko Waifu image.')
-    async def waifuneko(self, ctx):
+    async def neko(self, ctx):
         async with WaifuAioClient() as client:
             sfw_neko: str = await client.sfw(category='neko')
             embed = discord.Embed (
@@ -42,7 +42,7 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_neko, 
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
 
     
     # HIGHFIVE
@@ -50,11 +50,11 @@ class Waifu(commands.Cog):
     async def highfive(self, ctx, member : discord.Member):
         async with WaifuAioClient() as client:
             sfw_highfive: str = await client.sfw(category = 'highfive')
-            await ctx.reply(f'Heya {member.mention}, here is a high five!\n{sfw_highfive}')
+            await ctx.reply(f'Heya {member.mention}, here is a high five!\n{sfw_highfive}')            
     
     # HAPPY
     @commands.command(help = 'Happy image of a waifu.')
-    async def waifuhappy(self, ctx):
+    async def happy(self, ctx):
         async with WaifuAioClient() as client:
             sfw_happy: str = await client.sfw(category = 'happy')
             embed = discord.Embed (
@@ -67,11 +67,11 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_happy, 
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
     
     # SMILE
-    @commands.command(help = 'Smiling image of a waifu.', aliases = ['waifu🙂'])
-    async def waifusmile(self, ctx):
+    @commands.command(help = 'Smiling image of a waifu.', aliases = ['🙂'])
+    async def smile(self, ctx):
         async with WaifuAioClient() as client:
             sfw_smile: str = await client.sfw(category = 'smile')
             embed = discord.Embed (
@@ -88,7 +88,7 @@ class Waifu(commands.Cog):
 
     # SMUG
     @commands.command(help = 'Smug image of a waifu. - My personal favorite.')
-    async def waifusmug(self, ctx):
+    async def smug(self, ctx):
         async with WaifuAioClient() as client:
             sfw_smug: str = await client.sfw(category = 'smug')
             embed = discord.Embed (
@@ -105,7 +105,7 @@ class Waifu(commands.Cog):
 
     # DANCE
     @commands.command(help = 'Dance image of a waifu.')
-    async def waifudance(self, ctx):
+    async def dance(self, ctx):
         async with WaifuAioClient() as client:
             sfw_dance: str = await client.sfw(category = 'smile')
             embed = discord.Embed (
@@ -122,7 +122,7 @@ class Waifu(commands.Cog):
 
     # CRY
     @commands.command(help = 'Crying image of a waifu.')
-    async def waifucry(self, ctx):
+    async def cry(self, ctx):
         async with WaifuAioClient() as client:
             sfw_cry: str = await client.sfw(category = 'cry')
             embed = discord.Embed (
@@ -163,20 +163,30 @@ class Waifu(commands.Cog):
     async def bonk(self, ctx, member : discord.Member ):
         async with WaifuAioClient() as client:
             sfw_bonk: str = await client.sfw(category = 'bonk')
-            await ctx.reply(f'**You just bonked** {member.mention}!\n{sfw_bonk}')
+            await ctx.reply(f'**You just bonked** {member.mention}!')
+            embed = discord.Embed ( 
+                title = 'Bonk Image',
+                color = discord.Color.blue())
+            embed.set_author (
+                name = ctx.author.display_name, 
+                icon_url = ctx.author.avatar_url)
+            embed.set_image (
+                url = sfw_bonk, 
+            )
+            await ctx.reply(embed = embed)
         
     # DEPRESSION
     @commands.command(help = 'Simulate crippiling depression.')
     async def depression(self, ctx):
         embed=discord.Embed(
-            title="Depression Image", 
-            description="Here is the image!", 
-            color=discord.Color.blue())
+            title = "Depression Image", 
+            description = "Here is the image!", 
+            color = discord.Color.blue())
         embed.set_author(
-            name=ctx.author.display_name, 
-            icon_url=ctx.author.avatar_url)
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url)
         embed.set_image(
-            url=hmtai.useHM("2_9","depression"), 
+            url = hmtai.useHM("2_9","depression"), 
         )
         await ctx.reply(embed=embed)
 

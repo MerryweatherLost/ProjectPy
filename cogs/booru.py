@@ -3,16 +3,18 @@ import discord
 from discord.ext import commands
 from pybooru import Danbooru
 
+dancli = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
+
 class nsfwBooru(commands.Cog):
     def __init__(self, client):
         self.client = client
     
     # ZETTAI RYOUIKI - NSFW
     @commands.command(help = "(NSFW ONLY) Do I even need to explain?", aliases = ['thighhighs','thigh-highs','zr'])
+    @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def zettairyouiki(self, ctx):
-        client = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
-        posts = client.post_list (
+        posts = dancli.post_list (
             tags = 'zettai_ryouiki solo', 
             limit = 1, 
             random = True
@@ -39,10 +41,10 @@ class nsfwBooru(commands.Cog):
     
     # UNIFORM - NSFW
     @commands.command(help = "(NSFW ONLY) uniform time.")
+    @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def uniform(self, ctx):
-        client = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
-        posts = client.post_list (
+        posts = dancli.post_list (
             tags = 'uniform 1girl', 
             limit = 1, 
             random = True
@@ -68,11 +70,11 @@ class nsfwBooru(commands.Cog):
         await ctx.reply(embed = embed)
     
     # AHEGAO - NSFW
-    @commands.command(help = "(NSFW ONLY)")
+    @commands.command(help = "(NSFW ONLY) facial expressions.")
+    @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def ahegao(self, ctx):
-        client = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
-        posts = client.post_list (
+        posts = dancli.post_list (
             tags = 'ahegao', 
             limit = 1, 
             random = True
@@ -99,10 +101,10 @@ class nsfwBooru(commands.Cog):
 
     # GIF - NSFW
     @commands.command(help = "(NSFW ONLY) GIF images.", aliases = ['gifnsfw'])
+    @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def gif(self, ctx):
-        client = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
-        posts = client.post_list (
+        posts = dancli.post_list (
             tags = 'animated_gif 1girl', 
             limit = 1, 
             random = True
@@ -129,10 +131,10 @@ class nsfwBooru(commands.Cog):
     
     # DOUJIN - NSFW
     @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
+    @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def doujin(self, ctx):
-        client = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
-        posts = client.post_list (
+        posts = dancli.post_list (
             tags = 'comic sex', 
             limit = 1, 
             random = True
@@ -160,10 +162,10 @@ class nsfwBooru(commands.Cog):
     
     # JAHY - QUESTIONABLE
     @commands.command(help = "(NSFW ONLY) Jahy, Jahy, Jahy.")
+    @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def jahy(self, ctx):
-        client = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
-        posts = client.post_list (
+        posts = dancli.post_list (
             tags = 'jahy', 
             limit = 1, 
             random = True
