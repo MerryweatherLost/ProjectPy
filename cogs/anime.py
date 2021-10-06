@@ -1,7 +1,8 @@
 import discord
 import random
-from discord.ext import commands
 
+from discord.ext import commands
+    
 class Anime(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -11,16 +12,16 @@ class Anime(commands.Cog):
     async def coffee(self, ctx):
         embed = discord.Embed (
             title = 'Coffee',
-            description = 'Have some coffee! ☕' ,
+            description = 'Have some coffee! ☕',
             color = discord.Color.green()
-        )
+            )
         embed.set_author (
             name = ctx.author.display_name,
-            icon_url = ctx.author.avatar.url
-        )
+            icon_url = ctx.author.avatar_url
+            )
         embed.set_image (
-            url = 'https://cdn.discordapp.com/attachments/894676653291229224/895055299671646218/unknown.png'
-        )
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895067885549019157/6dubb6nhxjr71_waifu2x_2x_png.png'
+            )
         await ctx.reply(embed = embed)
 
     # DDLC - SFW
