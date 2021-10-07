@@ -18,7 +18,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -35,7 +35,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Neko Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -60,7 +60,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Happy Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -77,7 +77,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Smile Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -94,7 +94,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Smug Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -111,7 +111,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Dancing Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -128,7 +128,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Crying Image", 
                 description = "Here is the image!", 
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -166,7 +166,7 @@ class Waifu(commands.Cog):
             await ctx.reply(f'**You just bonked** {member.mention}!')
             embed = discord.Embed ( 
                 title = 'Bonk Image',
-                color = discord.Color.blue())
+                color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -181,7 +181,7 @@ class Waifu(commands.Cog):
         embed=discord.Embed(
             title = "Depression Image", 
             description = "Here is the image!", 
-            color = discord.Color.blue())
+            color = discord.Color.dark_teal())
         embed.set_author(
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url)

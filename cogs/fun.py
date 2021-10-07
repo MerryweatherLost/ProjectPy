@@ -48,7 +48,7 @@ class Fun(commands.Cog):
             'Obviously not.', 'Negative.','Absolutely false.','Decidedly not.',
             'No', 'That is incorrect.'
         ]
-        answer = random.choice(responses)   
+        answer = random.choice(responses)
         embed = discord.Embed (
             title = "8-Ball", 
             description = f'Question: **{question}**\nAnswer: **{answer}**', 

@@ -1,7 +1,6 @@
 
 import discord
 
-from discord import message
 from discord.ext import commands
 
 # GENERAL COMMANDS
@@ -24,7 +23,5 @@ class General(commands.Cog):
     async def github(self, ctx):
         await ctx.reply(f'Here is the GitHub of my creator: https://github.com/MerryweatherLost')
 
-    
-        
 def setup(client):
     client.add_cog(General(client))

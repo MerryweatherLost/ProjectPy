@@ -1,31 +1,52 @@
 import discord
 
+from pygelbooru import Gelbooru
 from discord.ext import commands
-from pybooru import Danbooru
 
-dancli = Danbooru ('danbooru', username = 'Kettenrad', api_key = 'MHjmmDEju9x9Lc5R8ncuEwE7')
+gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
 
-class nsfwBooru(commands.Cog):
+class Booru(commands.Cog):
     def __init__(self, client):
         self.client = client
-    
-    # ZETTAI RYOUIKI - NSFW
-    @commands.command(help = "(NSFW ONLY) Do I even need to explain?", aliases = ['thighhighs','thigh-highs','zr'])
-    @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def zettairyouiki(self, ctx):
-        posts = dancli.post_list (
-            tags = 'zettai_ryouiki solo', 
-            limit = 1, 
-            random = True
+
+# SAFE FOR WORK SECTION
+    # WALLPAPER - SFW
+    @commands.command(help = "Some safe for work wallpapers.")
+    @commands.cooldown(rate = 1, per = 1.0)
+    async def wallpaper(self, ctx):
+        WALLPAPER = await gelbooru.random_post ( 
+            tags = ['wallpaper'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','cleavage'] 
         )
-        for post in posts:
-            ZETTAI = (post['file_url'])
-            
+        embed = discord.Embed (
+            title = "Wallpaper Image", 
+            description = "Here is the image!", 
+            color = discord.Color.light_grey()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = WALLPAPER, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        await ctx.reply(embed = embed)
+
+    # ZETTAI RYOUIKI - SFW  
+    @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
+    @commands.cooldown( rate = 1, per = 1.0 )
+    async def zettairyouiki(self, ctx):
+        ZETTAI = await gelbooru.random_post ( 
+            tags = ['1girl','thighhighs','highres'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+        )
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
-            color = discord.Color.blue()
+            color = discord.Color.light_grey()
             )
         embed.set_author (
             name = ctx.author.display_name, 
@@ -38,31 +59,79 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
-    
-    # UNIFORM - NSFW
-    @commands.command(help = "(NSFW ONLY) uniform time.")
-    @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def uniform(self, ctx):
-        posts = dancli.post_list (
-            tags = 'uniform 1girl', 
-            limit = 1, 
-            random = True
-        )
-        for post in posts:
-            UNIFORM = (post['file_url'])
 
+    # UNIFORM - SFW
+    @commands.command(help = "Uniform time.")
+    @commands.cooldown( rate = 1, per = 1.0 )
+    async def uniform(self, ctx):
+        UNIFORM = await gelbooru.random_post ( 
+            tags = ['1girl','uniform','highres'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+        )
         embed = discord.Embed (
-            title = "Uniform", 
+            title = "Zettai Ryouiki", 
             description = "Here is the image!", 
-            color = discord.Color.dark_green()
+            color = discord.Color.light_grey()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = UNIFORM 
+            url = UNIFORM, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        await ctx.reply(embed = embed)
+
+# NOT SAFE FOR WORK SECTION
+    # ZETTAI RYOUIKI - NSFW
+    @commands.command(help = "(NSFW ONLY) Do I even need to explain?", aliases = ['nsfwthighhighs','nsfwthigh-highs','nsfwzr'])
+    @commands.cooldown( rate = 1, per = 1.0 )
+    @commands.is_nsfw()
+    async def nsfwzettairyouiki(self, ctx):
+        NSFWZETTAI = await gelbooru.random_post ( 
+            tags = ['1girl','thighhighs','highres'],
+            exclude_tags = ['comic']
+        )
+        embed = discord.Embed (
+            title = "Zettai Ryouiki", 
+            description = "Here is the image!", 
+            color = discord.Color.blue()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = NSFWZETTAI, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        await ctx.reply(embed = embed)
+    
+    # UNIFORM - NSFW
+    @commands.command(help = "(NSFW ONLY) uniform time.")
+    @commands.cooldown( rate = 1, per = 1.0 )
+    @commands.is_nsfw()
+    async def nsfwuniform(self, ctx):
+        NSFWUNIFORM = await gelbooru.random_post ( 
+            tags = ['1girl','uniform','highres'],
+            exclude_tags = ['comic']
+        )
+        embed = discord.Embed (
+            title = "Uniform Image", 
+            description = "Here is the image!", 
+            color = discord.Color.blue()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = NSFWUNIFORM, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -74,25 +143,21 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def ahegao(self, ctx):
-        posts = dancli.post_list (
-            tags = 'ahegao', 
-            limit = 1, 
-            random = True
+        AHEGAO = await gelbooru.random_post ( 
+            tags = ['ahegao','highres'],
+            exclude_tags = ['comic']
         )
-        for post in posts:
-            AHEGAO = (post['file_url'])
-
         embed = discord.Embed (
-            title = "Ahegao", 
+            title = "Ahegao Image", 
             description = "Here is the image!", 
-            color = discord.Color.greyple()
+            color = discord.Color.blue()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = AHEGAO
+            url = AHEGAO, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -103,26 +168,21 @@ class nsfwBooru(commands.Cog):
     @commands.command(help = "(NSFW ONLY) GIF images.", aliases = ['gifnsfw'])
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
-    async def gif(self, ctx):
-        posts = dancli.post_list (
-            tags = 'animated_gif 1girl', 
-            limit = 1, 
-            random = True
+    async def nsfwgif(self, ctx):
+        GIF = await gelbooru.random_post ( 
+            tags = ['animated_gif','highres']
         )
-        for post in posts:
-            GIF = (post['file_url'])
-
         embed = discord.Embed (
             title = "GIF Image", 
             description = "Here is the image!", 
-            color = discord.Color.greyple()
+            color = discord.Color.blue()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = GIF
+            url = GIF, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -134,56 +194,20 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def doujin(self, ctx):
-        posts = dancli.post_list (
-            tags = 'comic sex', 
-            limit = 1, 
-            random = True
+        MANGA = await gelbooru.random_post ( 
+            tags = ['comic','highres']
         )
-        for post in posts:
-            MANGA = (post['file_url'])
-
         embed = discord.Embed (
-            title = "Manga Image", 
+            title = "Doujin Image", 
             description = "Here is the image!", 
-            color = discord.Color.greyple()
+            color = discord.Color.blue()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = MANGA
-        )
-        embed.set_thumbnail (
-            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
-        )
-        await ctx.reply(embed = embed)
-     
-    
-    # JAHY - QUESTIONABLE
-    @commands.command(help = "(NSFW ONLY) Jahy, Jahy, Jahy.")
-    @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def jahy(self, ctx):
-        posts = dancli.post_list (
-            tags = 'jahy', 
-            limit = 1, 
-            random = True
-        )
-        for post in posts:
-            JAHY = (post['file_url'])
-
-        embed = discord.Embed (
-            title = "Jahy Image", 
-            description = "Here is the image!", 
-            color = discord.Color.greyple()
-            )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-            )
-        embed.set_image (
-            url = JAHY
+            url = MANGA, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -191,4 +215,4 @@ class nsfwBooru(commands.Cog):
         await ctx.reply(embed = embed)
 
 def setup(client):
-    client.add_cog(nsfwBooru(client))
+    client.add_cog(Booru(client))
