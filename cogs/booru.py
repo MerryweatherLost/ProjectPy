@@ -69,7 +69,7 @@ class Booru(commands.Cog):
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
         )
         embed = discord.Embed (
-            title = "Zettai Ryouiki", 
+            title = "Uniform", 
             description = "Here is the image!", 
             color = discord.Color.light_grey()
             )
@@ -84,6 +84,58 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
+
+    # CAR - SFW
+    @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
+    @commands.cooldown(rate = 1, per = 1.0)
+    async def car(self, ctx):
+        CAR = await gelbooru.random_post ( 
+            tags = ['car'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+        )
+        embed = discord.Embed (
+            title = "Car Image", 
+            description = "Here is the image!", 
+            color = discord.Color.light_grey()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = CAR, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        await ctx.reply(embed = embed)
+
+    # GUN - SFW
+    @commands.command(help = 'Gun images.', aliases = ['pew'])
+    @commands.cooldown(rate = 1, per = 1.0)
+    async def car(self, ctx):
+        GUN = await gelbooru.random_post ( 
+            tags = ['gun'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+        )
+        embed = discord.Embed (
+            title = "Gun Image", 
+            description = "Here is the image!", 
+            color = discord.Color.light_grey()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = GUN, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        await ctx.reply(embed = embed)
+        
+
 
 # NOT SAFE FOR WORK SECTION
     # ZETTAI RYOUIKI - NSFW
