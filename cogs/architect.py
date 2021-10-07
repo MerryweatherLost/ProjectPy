@@ -1,7 +1,7 @@
 import discord
-import asyncio
+
 from discord.ext import commands
-from datetime import datetime
+from ConsoleLib import Time
 
 class Architect(commands.Cog):
     def __init__(self, client):
@@ -12,8 +12,8 @@ class Architect(commands.Cog):
     async def architectban(self, ctx, member : discord.Member, *, reason = None):
             await member.ban(reason = reason)
             await ctx.reply(f'Banned {member.mention}!')
-            date_object = datetime.now()
-            print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - ABAN: A user was banned by the Architect! {member}')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: ARCHITECT.PY - LOG: ABan was utilized! [Member: {member}]')
+    
         
 def setup(client):
     client.add_cog(Architect(client))

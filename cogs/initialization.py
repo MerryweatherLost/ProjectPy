@@ -2,7 +2,7 @@ import os
 import discord
 
 from discord.ext import commands, tasks
-from datetime import datetime
+from ConsoleLib import Time
 from itertools import cycle
 
 # INITIALIZATION 
@@ -20,8 +20,7 @@ class Initialization(commands.Cog):
         self.change_status.start()
         clear = lambda: os.system('clear')
         clear()
-        date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONNECTION ESTABLISHED.')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONNECTION ESTABLISHED.')
     
     @tasks.loop(seconds = 4)
     async def change_status(self):

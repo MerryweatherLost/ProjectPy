@@ -1,7 +1,9 @@
 import discord
 
+from ConsoleLib import Time
 from pygelbooru import Gelbooru
 from discord.ext import commands
+
 
 gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
 
@@ -34,6 +36,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized! \n[Raw Data: {WALLPAPER}]')
 
     # ZETTAI RYOUIKI - SFW  
     @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
@@ -60,6 +63,9 @@ class Booru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized! \n[Raw Data: {ZETTAI}]')
+
+
     # UNIFORM - SFW
     @commands.command(help = "Uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
@@ -84,6 +90,9 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized! \n[Raw Data: {UNIFORM}]')
+
 
     # CAR - SFW
     @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
@@ -110,10 +119,12 @@ class Booru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized! \n[Raw Data: {CAR}]')
+
     # GUN - SFW
     @commands.command(help = 'Gun images.', aliases = ['pew'])
     @commands.cooldown(rate = 1, per = 1.0)
-    async def car(self, ctx):
+    async def gun(self, ctx):
         GUN = await gelbooru.random_post ( 
             tags = ['gun'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
@@ -135,6 +146,7 @@ class Booru(commands.Cog):
         )
         await ctx.reply(embed = embed)
         
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized! \n[Raw Data: {GUN}]')
 
 
 # NOT SAFE FOR WORK SECTION
@@ -163,6 +175,9 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized! \n[Raw Data: {NSFWZETTAI}]')
+
     
     # UNIFORM - NSFW
     @commands.command(help = "(NSFW ONLY) uniform time.")
@@ -189,6 +204,9 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized! \n[Raw Data: {NSFWUNIFORM}]')
+
     
     # AHEGAO - NSFW
     @commands.command(help = "(NSFW ONLY) facial expressions.")
@@ -216,6 +234,9 @@ class Booru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized! \n[Raw Data: {AHEGAO}]')
+
+
     # GIF - NSFW
     @commands.command(help = "(NSFW ONLY) GIF images.", aliases = ['gifnsfw'])
     @commands.cooldown( rate = 1, per = 1.0 )
@@ -240,7 +261,9 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
-    
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized! \n[Raw Data: {GIF}]')
+
     # DOUJIN - NSFW
     @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
     @commands.cooldown( rate = 1, per = 1.0 )
@@ -265,6 +288,8 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized! \n[Raw Data: {MANGA}]')
 
 def setup(client):
     client.add_cog(Booru(client))

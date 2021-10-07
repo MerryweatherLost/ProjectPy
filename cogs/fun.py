@@ -3,7 +3,7 @@ import asyncio
 import discord
 
 from discord.ext import commands
-from datetime import datetime
+from ConsoleLib import Time
 
 class Fun(commands.Cog):
     def __init__(self, client):
@@ -16,7 +16,9 @@ class Fun(commands.Cog):
         responses = [ 'Heads.','Tails.' ]
         answer = random.choice(responses)
         await ctx.reply(f'{answer}')
-    
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized! [ Coin: {answer} ]')
+   
     # PYTHON METHOD
     @commands.command( help = "The language it was programmed in.", aliases = ['py'] )
     async def python(self, ctx):
@@ -58,9 +60,8 @@ class Fun(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         await ctx.reply(embed = embed)
-        
-        date_object = datetime.now()
-        print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )

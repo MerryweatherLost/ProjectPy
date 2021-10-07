@@ -16,7 +16,7 @@ class General(commands.Cog):
             title = f'🏓 **Pong!** {round(self.client.latency * 1000)}ms.',
             color = discord.Color.red()
         )
-        await ctx.reply(embed=embed)
+        await ctx.reply(embed = embed)
 
     # GITHUB
     @commands.command(help = 'Sends the github of the creator.', aliases = ['git'])
