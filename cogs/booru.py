@@ -173,7 +173,7 @@ class Booru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gatgirl (NSFW) was utilized! \n[Raw Data: {CATGIRL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized! \n[Raw Data: {CATGIRL}]')
 
 def setup(client):
     client.add_cog(Booru(client))
