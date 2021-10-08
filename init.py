@@ -1,10 +1,11 @@
 import os
 import datetime
+import discord 
 
 from discord.ext import commands
 from pretty_help import PrettyHelp
     
-client = commands.Bot(command_prefix = ':', help_command = PrettyHelp())
+client = commands.Bot(command_prefix = ':', help_command = PrettyHelp(dm_help = True))
 
 @client.command(help = 'Loads package.')
 @commands.is_owner()

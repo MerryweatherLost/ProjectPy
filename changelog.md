@@ -25,3 +25,5 @@
 - AnimeSelect along with a `AnimeList (class)`, which currently contains `coffee` and `ddlc` methods.
   
 - `renault` command. What else is there to say?
+  
+- Fixed typos in the `booru` section.
