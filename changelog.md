@@ -1,0 +1,27 @@
+## [ *Project Py* ]
+
+## [LEGACY] - ~ 2021-08-09
+
+- Added gitignore
+  
+- Laid framework for the bot itself. `(init.py)`
+
+- Added cogs and a command handler.
+
+- Added ConsoleLib along with `Time (class)` and `Essentials (class)`, clearing up some clutter.
+
+## [0.5.0] - 2021-08-10
+
+- **NSFW** Gelbooru and **SFW** Gelbooru commands have been split. See `booru` and `nsfwbooru`.
+  
+- Fun commands have `message: discord.Message` designation for deletion and editing.
+  
+- New `catgirl`, and `nsfwcatgirl` command, Nya! See `booru` and `nsfwbooru` respectively.
+  
+- New Help Command with assistance from `PrettyHelp`, more easy to read on the eyes.
+  
+- New profile picture for the project.
+  
+- AnimeSelect along with a `AnimeList (class)`, which currently contains `coffee` and `ddlc` methods.
+  
+- `renault` command. What else is there to say?

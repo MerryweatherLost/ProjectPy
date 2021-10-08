@@ -154,7 +154,7 @@ class Booru(commands.Cog):
     async def catgirl(self, ctx):
         CATGIRL = await gelbooru.random_post ( 
             tags = ['cat_girl','highres'],
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis'] 
         )
         embed = discord.Embed (
             title = "Catgirl Image", 
