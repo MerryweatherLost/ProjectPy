@@ -4,157 +4,162 @@ from ConsoleLib import Time
 from pygelbooru import Gelbooru
 from discord.ext import commands
 
-
 gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
 
-class Booru(commands.Cog):
+class nsfwBooru(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-# SAFE FOR WORK SECTION
-    # WALLPAPER - SFW
-    @commands.command(help = "Some safe for work wallpapers.")
-    @commands.cooldown(rate = 1, per = 1.0)
-    async def wallpaper(self, ctx):
-        WALLPAPER = await gelbooru.random_post ( 
-            tags = ['wallpaper'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','cleavage'] 
-        )
-        embed = discord.Embed (
-            title = "Wallpaper Image", 
-            description = "Here is the image!", 
-            color = discord.Color.light_grey()
-            )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-            )
-        embed.set_image (
-            url = WALLPAPER, 
-        )
-        embed.set_thumbnail (
-            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
-        )
-        await ctx.reply(embed = embed)
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized! \n[Raw Data: {WALLPAPER}]')
-
-    # ZETTAI RYOUIKI - SFW  
-    @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
+# NOT SAFE FOR WORK SECTION
+    # ZETTAI RYOUIKI - NSFW
+    @commands.command(help = "(NSFW ONLY) Do I even need to explain?", aliases = ['nsfwthighhighs','nsfwthigh-highs','nsfwzr'])
     @commands.cooldown( rate = 1, per = 1.0 )
-    async def zettairyouiki(self, ctx):
-        ZETTAI = await gelbooru.random_post ( 
-            tags = ['1girl','thighhighs','highres'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+    @commands.is_nsfw()
+    async def nsfwzettairyouiki(self, ctx):
+        NSFWZETTAI = await gelbooru.random_post ( 
+            tags = ['1girl','thighhighs','highres'],
+            exclude_tags = ['comic']
         )
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
-            color = discord.Color.light_grey()
+            color = discord.Color.gold()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = ZETTAI, 
+            url = NSFWZETTAI, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized! \n[Raw Data: {ZETTAI}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized! \n[Raw Data: {NSFWZETTAI}]')
 
-
-    # UNIFORM - SFW
-    @commands.command(help = "Uniform time.")
+    
+    # UNIFORM - NSFW
+    @commands.command(help = "(NSFW ONLY) uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
-    async def uniform(self, ctx):
-        UNIFORM = await gelbooru.random_post ( 
-            tags = ['1girl','uniform','highres'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+    @commands.is_nsfw()
+    async def nsfwuniform(self, ctx):
+        NSFWUNIFORM = await gelbooru.random_post ( 
+            tags = ['1girl','uniform','highres'],
+            exclude_tags = ['comic']
         )
         embed = discord.Embed (
-            title = "Uniform", 
+            title = "Uniform Image", 
             description = "Here is the image!", 
-            color = discord.Color.light_grey()
+            color = discord.Color.gold()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = UNIFORM, 
+            url = NSFWUNIFORM, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized! \n[Raw Data: {UNIFORM}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized! \n[Raw Data: {NSFWUNIFORM}]')
 
-
-    # CAR - SFW
-    @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
-    @commands.cooldown(rate = 1, per = 1.0)
-    async def car(self, ctx):
-        CAR = await gelbooru.random_post ( 
-            tags = ['car'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+    
+    # AHEGAO - NSFW
+    @commands.command(help = "(NSFW ONLY) facial expressions.")
+    @commands.cooldown( rate = 1, per = 1.0 )
+    @commands.is_nsfw()
+    async def ahegao(self, ctx):
+        AHEGAO = await gelbooru.random_post ( 
+            tags = ['ahegao','highres'],
+            exclude_tags = ['comic']
         )
         embed = discord.Embed (
-            title = "Car Image", 
+            title = "Ahegao Image", 
             description = "Here is the image!", 
-            color = discord.Color.light_grey()
+            color = discord.Color.gold()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = CAR, 
+            url = AHEGAO, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized! \n[Raw Data: {CAR}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized! \n[Raw Data: {AHEGAO}]')
 
-    # GUN - SFW
-    @commands.command(help = 'Gun images.', aliases = ['pew'])
-    @commands.cooldown(rate = 1, per = 1.0)
-    async def gun(self, ctx):
-        GUN = await gelbooru.random_post ( 
-            tags = ['gun'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+
+    # GIF - NSFW
+    @commands.command(help = "(NSFW ONLY) GIF images.", aliases = ['gifnsfw'])
+    @commands.cooldown( rate = 1, per = 1.0 )
+    @commands.is_nsfw()
+    async def nsfwgif(self, ctx):
+        GIF = await gelbooru.random_post ( 
+            tags = ['animated_gif','highres']
         )
         embed = discord.Embed (
-            title = "Gun Image", 
+            title = "GIF Image", 
             description = "Here is the image!", 
-            color = discord.Color.light_grey()
+            color = discord.Color.gold()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = GUN, 
+            url = GIF, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
-        
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized! \n[Raw Data: {GUN}]')
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized! \n[Raw Data: {GIF}]')
+
+    # DOUJIN - NSFW
+    @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
+    @commands.cooldown( rate = 1, per = 1.0 )
+    @commands.is_nsfw()
+    async def doujin(self, ctx):
+        MANGA = await gelbooru.random_post ( 
+            tags = ['comic','highres']
+        )
+        embed = discord.Embed (
+            title = "Doujin Image", 
+            description = "Here is the image!", 
+            color = discord.Color.gold()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = MANGA, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized! \n[Raw Data: {MANGA}]')
 
     # CATGIRL - NSFW
-    @commands.command(help = "Catgirls.", aliases = ['cat'])
+    @commands.command(help = "(NSFW ONLY) catgirls.", aliases = ['nsfwcat','catgirlnsfw'])
     @commands.cooldown(rate = 1, per = 1.0)
-    async def catgirl(self, ctx):
+    @commands.is_nsfw()
+    async def nsfwcatgirl(self, ctx):
         CATGIRL = await gelbooru.random_post ( 
             tags = ['cat_girl','highres'],
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+            exclude_tags = ['comic']
         )
         embed = discord.Embed (
             title = "Catgirl Image", 
@@ -176,4 +181,4 @@ class Booru(commands.Cog):
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gatgirl (NSFW) was utilized! \n[Raw Data: {CATGIRL}]')
 
 def setup(client):
-    client.add_cog(Booru(client))
+    client.add_cog(nsfwBooru(client))

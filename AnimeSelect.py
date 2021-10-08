@@ -1,5 +1,7 @@
 import random
 
+from pygelbooru import Gelbooru
+
 class AnimeList:
     def DokiDoki():
         dokidoki = [
@@ -12,7 +14,8 @@ class AnimeList:
             'https://cdn.discordapp.com/attachments/862584354211364894/895054158640599060/R.png',
             'https://cdn.discordapp.com/attachments/862584354211364894/895054243956940830/R.png',
             'https://cdn.discordapp.com/attachments/862584354211364894/895054625579859978/monika_natsuki_sayori_and_yuri_doki_doki_literature_club_drawn_by_hushabye__8b0a188cd0ee2fa8938b926f.png',
-            'https://cdn.discordapp.com/attachments/862584354211364894/895054962642526279/ddlc1_by_yorieofthecastle-dbulcc1.png']
+            'https://cdn.discordapp.com/attachments/862584354211364894/895054962642526279/ddlc1_by_yorieofthecastle-dbulcc1.png'
+        ]
         ddlcRan = random.choice(dokidoki)
         return ddlcRan
 

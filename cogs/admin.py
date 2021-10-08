@@ -22,11 +22,11 @@ class DurationConverter(commands.Converter):
 
         Raises
         ------
-            BadArgument: `str`,
+            BadArgument:
 
-            The error comes from a invalid duration set, such as a value that does not equate to a `float`.
+                The error comes from a invalid duration set, such as a value that does not equate to a `float`.
     """
-    
+
     async def convert(self, ctx, argument):
         amount = argument[:-1]
         unit = argument[-1]

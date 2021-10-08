@@ -3,6 +3,7 @@ import asyncio
 import discord
 
 from discord.ext import commands
+
 from ConsoleLib import Time
 from ConsoleLib import Essentials
 
@@ -11,11 +12,11 @@ class Fun(commands.Cog):
         self.client = client
 
     @commands.command( help = "Coin Tosser.", aliases = ['flipcoin', 'coinflip', 'coin', 'headstails','<a:CoinToss:893194255345012818>'] )
-    async def cointoss(self, ctx):
-        await ctx.reply("**Flipping Coin...** <a:CoinToss:893194255345012818>")
+    async def cointoss(self, ctx,):
+        message: discord.Message = await ctx.reply("**Flipping Coin...** <a:CoinToss:893194255345012818>")
         await asyncio.sleep(1)
         answer = Essentials.CoinToss()
-        await ctx.reply(f'{answer}')
+        await message.edit(content = f'{answer}')
 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized! [ Coin: {answer} ]')
    
@@ -36,6 +37,8 @@ class Fun(commands.Cog):
         aliases = ['eightball','🎱'] 
     )
     async def _8ball(self, ctx, *, question):
+        message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')  
+        await asyncio.sleep(1)     
         answer = Essentials.response8ball()
         embed = discord.Embed (
             title = "8-Ball", 
@@ -45,8 +48,7 @@ class Fun(commands.Cog):
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
         )
-        await ctx.reply(embed = embed)
-
+        await message.edit(content = None, embed = embed) 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
