@@ -1,4 +1,5 @@
 from datetime import datetime
+import random
 
 class Time:
     """
@@ -27,6 +28,54 @@ class Time:
         return formTime
 
 class Essentials:
-    def roundTrip(self):
-        roundtrip = round(self.client.latency * 1000) + 'ms.'
-        return roundtrip
+    def response8ball():
+        """
+        Responses handler for a randomized 8ball.
+
+        Variables
+        ---------
+        responses: `str`, `list`,
+
+        List of literal strings to pull from later on.
+
+        response8ball: `var`,
+
+        Picks one literal string from a `random.choice` function.
+        """
+        responses = [
+            # POSITIVES
+            'It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes.',
+            'Outlook good.', 'Signs point to yes.', 'That is correct.',
+            'Indeed.', 'Affirmative.',
+            # NEUTRALS
+            'Reply hazy, try again.',
+            'Ask again later.','Can not predict now.', 
+            'I can not find a result for that, try again.','Try again.',
+            # NEGATIVES
+            "Don't count on it.", 'My reply is no.', 'My sources say no.', 
+            'Obviously not.', 'Negative.','Absolutely false.','Decidedly not.',
+            'No.', 'That is incorrect.'
+        ]
+        response8ball = random.choice(responses)
+
+        return response8ball
+
+    def CoinToss():
+        """
+        Responses handler for a randomized 8ball.
+
+        Variables
+        ---------
+        responses: `str`, `list`,
+
+        List of literal strings to pull from later on.
+
+        coinflip: `var`,
+
+        Picks one literal string from a `random.choice` function.
+        """
+        responses = [ 'Heads.','Tails.' ]
+        
+        coinflip = random.choice(responses)
+        
+        return coinflip

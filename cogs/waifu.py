@@ -188,7 +188,7 @@ class Waifu(commands.Cog):
         embed.set_image(
             url = hmtai.useHM("2_9","depression"), 
         )
-        await ctx.reply(embed=embed)
+        await ctx.reply(embed = embed)
 
 
 def setup(client):
