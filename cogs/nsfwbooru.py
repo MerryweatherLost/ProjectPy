@@ -157,7 +157,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown(rate = 1, per = 1.0)
     @commands.is_nsfw()
     async def nsfwcatgirl(self, ctx):
-        CATGIRL = await gelbooru.random_post ( 
+        NSFWCATGIRL = await gelbooru.random_post ( 
             tags = ['cat_girl','highres'],
             exclude_tags = ['comic']
         )
@@ -171,14 +171,14 @@ class nsfwBooru(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = CATGIRL, 
+            url = NSFWCATGIRL, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gatgirl (NSFW) was utilized! \n[Raw Data: {CATGIRL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized! \n[Raw Data: {NSFWCATGIRL}]')
 
 def setup(client):
     client.add_cog(nsfwBooru(client))
