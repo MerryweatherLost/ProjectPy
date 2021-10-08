@@ -44,7 +44,7 @@ class Booru(commands.Cog):
     async def zettairyouiki(self, ctx):
         ZETTAI = await gelbooru.random_post ( 
             tags = ['1girl','thighhighs','highres'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
@@ -72,7 +72,7 @@ class Booru(commands.Cog):
     async def uniform(self, ctx):
         UNIFORM = await gelbooru.random_post ( 
             tags = ['1girl','uniform','highres'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         embed = discord.Embed (
             title = "Uniform", 
@@ -100,7 +100,7 @@ class Booru(commands.Cog):
     async def car(self, ctx):
         CAR = await gelbooru.random_post ( 
             tags = ['car'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         embed = discord.Embed (
             title = "Car Image", 
@@ -127,7 +127,7 @@ class Booru(commands.Cog):
     async def gun(self, ctx):
         GUN = await gelbooru.random_post ( 
             tags = ['gun'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic'] 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         embed = discord.Embed (
             title = "Gun Image", 
@@ -154,7 +154,7 @@ class Booru(commands.Cog):
     async def catgirl(self, ctx):
         CATGIRL = await gelbooru.random_post ( 
             tags = ['cat_girl','highres'],
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis'] 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
         )
         embed = discord.Embed (
             title = "Catgirl Image", 
