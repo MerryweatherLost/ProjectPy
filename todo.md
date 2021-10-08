@@ -19,7 +19,7 @@ This is going to be a while... Before that I need to complete the following task
 - Set classes with the gelbooru imports.
     When requesting, I should do something like this.
     Class.GIF()
-    Calling a function to grab my gif images to clean clutter.
+    Calling a function to grab my images to clean clutter.
 
 - Add more Gelbooru commands.
 - Find a good handler with an explicit rating to safe `-PRIORITY!-`

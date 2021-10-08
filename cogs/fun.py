@@ -4,17 +4,17 @@ import discord
 
 from discord.ext import commands
 from ConsoleLib import Time
+from ConsoleLib import Essentials
 
 class Fun(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command( help = "Coin Tosser.", aliases = ['flipcoin', 'coinflip', 'coin', 'headstails'] )
+    @commands.command( help = "Coin Tosser.", aliases = ['flipcoin', 'coinflip', 'coin', 'headstails','<a:CoinToss:893194255345012818>'] )
     async def cointoss(self, ctx):
         await ctx.reply("**Flipping Coin...** <a:CoinToss:893194255345012818>")
         await asyncio.sleep(1)
-        responses = [ 'Heads.','Tails.' ]
-        answer = random.choice(responses)
+        answer = Essentials.CoinToss()
         await ctx.reply(f'{answer}')
 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized! [ Coin: {answer} ]')
@@ -36,21 +36,7 @@ class Fun(commands.Cog):
         aliases = ['eightball','🎱'] 
     )
     async def _8ball(self, ctx, *, question):
-        responses = [
-            # POSITIVES
-            'It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes.',
-            'Outlook good.', 'Signs point to yes.', 'That is correct.',
-            'Indeed.', 'Affirmative.',
-            # NEUTRALS
-            'Reply hazy, try again.',
-            'Ask again later.','Can not predict now.', 
-            'I can not find a result for that, try again.','Try again.',
-            # NEGATIVES
-            "Don't count on it.", 'My reply is no.', 'My sources say no.', 
-            'Obviously not.', 'Negative.','Absolutely false.','Decidedly not.',
-            'No', 'That is incorrect.'
-        ]
-        answer = random.choice(responses)
+        answer = Essentials.response8ball()
         embed = discord.Embed (
             title = "8-Ball", 
             description = f'Question: **{question}**\nAnswer: **{answer}**', 
