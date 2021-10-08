@@ -49,7 +49,11 @@ class Anime(commands.Cog):
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized! \n[Raw Data: {DDLC}]')
-  
+    
+    # RENAULT - SFW
+    @commands.command(help = 'Renault. Renault.')
+    async def renault(self, ctx):
+        await ctx.reply('https://cdn.discordapp.com/attachments/879488846453174282/895849572033781822/renault.png')
 
 def setup(client):
     client.add_cog(Anime(client))
