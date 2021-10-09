@@ -22,6 +22,9 @@ class Akaneko(commands.Cog):
         embed.set_image (
             url = AKANEKO
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
         
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized! \n[Raw Data: {AKANEKO}]')
@@ -40,6 +43,9 @@ class Akaneko(commands.Cog):
         embed.set_image (
             url = AKANEKO
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
     
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized! \n[Raw Data: {AKANEKO}]')
@@ -57,6 +63,9 @@ class Akaneko(commands.Cog):
             icon_url = ctx.author.avatar_url)
         embed.set_image (
             url = AKANEKO
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 

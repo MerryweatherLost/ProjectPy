@@ -27,6 +27,21 @@ class Time:
 
         return formTime
 
+    def timeFormatUniversial():
+        """
+        Sets the time format, UTC.
+
+        Variables
+        -----------
+        formTime:
+            variable from date_object.strftime("%H:%M:%S - %b %d %Y") to cut down drastically on size. 
+            It will be used in console logging. 
+        """
+        date_object = datetime.utcnow()
+        formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
+
+        return formTime
+
 class Essentials:
     def response8ball():
         """
@@ -59,6 +74,12 @@ class Essentials:
         response8ball = random.choice(responses)
 
         return response8ball
+
+    def ballImage():
+
+        ballImage = 'https://cdn.discordapp.com/attachments/576096750331494420/896414018133196800/8b.png'
+        
+        return ballImage
 
     def CoinToss():
         """

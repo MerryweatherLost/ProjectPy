@@ -1,6 +1,6 @@
 ## [ *Project Py* ]
 
-## [LEGACY] - ~ 2021-08-09
+## [LEGACY] - ~ 2021-10-09
 
 - Added gitignore
   
@@ -10,7 +10,7 @@
 
 - Added ConsoleLib along with `Time (class)` and `Essentials (class)`, clearing up some clutter.
 
-## [0.5.0] - 2021-08-10
+## [0.5.0] - 2021-10-09
 
 - **NSFW** Gelbooru and **SFW** Gelbooru commands have been split. See `booru` and `nsfwbooru`.
   
@@ -28,4 +28,12 @@
   
 - Fixed typos in the `booru` section.
   
+## [0.6.0] - 2021-10-09
+
 - New `avatar` command, which pulls the avatar from a person. Found in the `Fun (class)` category.
+  
+- Added timestamps to embeds.
+  
+- New `ballImage` def to pull a thumbnail image for `8ball`.
+  
+- 

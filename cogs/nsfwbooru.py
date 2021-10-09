@@ -35,6 +35,9 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized! \n[Raw Data: {NSFWZETTAI}]')
@@ -63,6 +66,9 @@ class nsfwBooru(commands.Cog):
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -93,6 +99,9 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized! \n[Raw Data: {AHEGAO}]')
@@ -121,6 +130,9 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized! \n[Raw Data: {GIF}]')
@@ -147,6 +159,9 @@ class nsfwBooru(commands.Cog):
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -175,6 +190,9 @@ class nsfwBooru(commands.Cog):
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 

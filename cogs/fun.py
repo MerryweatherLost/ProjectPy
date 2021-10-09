@@ -1,8 +1,10 @@
+from operator import is_
 import random
 import asyncio
 import discord
 
 from discord.ext import commands
+from discord.ext.commands.core import guild_only
 
 from ConsoleLib import Time
 from ConsoleLib import Essentials
@@ -28,6 +30,9 @@ class Fun(commands.Cog):
             description = 'Python is the language I was programmed in.',
             url = 'https://www.python.org/',
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed) 
 
     # EIGHT BALL METHOD
@@ -42,11 +47,18 @@ class Fun(commands.Cog):
         answer = Essentials.response8ball()
         embed = discord.Embed (
             title = "8-Ball", 
-            description = f'Question: **{question}**\nAnswer: **{answer}**', 
-            color = discord.Color.lighter_gray())
+            description = f'Question: **{question}**\nAnswer: **{answer}**',
+            color = discord.Color.default()
+        )
+        embed.set_thumbnail (
+            url = Essentials.ballImage(),            
+        )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await message.edit(content = None, embed = embed) 
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')

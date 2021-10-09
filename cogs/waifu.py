@@ -4,6 +4,8 @@ import hmtai
 from waifu import WaifuAioClient
 from discord.ext import commands
 
+from ConsoleLib import Time
+
 class Waifu(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -25,6 +27,9 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_waifu, 
             )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
+            )
             await ctx.reply(embed = embed)
 
     # NEKO
@@ -41,6 +46,9 @@ class Waifu(commands.Cog):
                 icon_url = ctx.author.avatar_url)
             embed.set_image (
                 url = sfw_neko, 
+            )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -67,6 +75,9 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_happy, 
             )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
+            )
             await ctx.reply(embed = embed)
     
     # SMILE
@@ -83,6 +94,9 @@ class Waifu(commands.Cog):
                 icon_url = ctx.author.avatar_url)
             embed.set_image (
                 url = sfw_smile, 
+            )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed=embed)
 
@@ -101,6 +115,9 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_smug, 
             )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
+            )
             await ctx.reply(embed=embed)
 
     # DANCE
@@ -118,6 +135,9 @@ class Waifu(commands.Cog):
             embed.set_image (
                 url = sfw_dance, 
             )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
+            )
             await ctx.reply(embed=embed)
 
     # CRY
@@ -134,6 +154,9 @@ class Waifu(commands.Cog):
                 icon_url = ctx.author.avatar_url)
             embed.set_image (
                 url = sfw_cry, 
+            )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed=embed)
 
@@ -163,15 +186,18 @@ class Waifu(commands.Cog):
     async def bonk(self, ctx, member : discord.Member ):
         async with WaifuAioClient() as client:
             sfw_bonk: str = await client.sfw(category = 'bonk')
-            await ctx.reply(f'**You just bonked** {member.mention}!')
             embed = discord.Embed ( 
                 title = 'Bonk Image',
+                description = f'**You just bonked** {member.mention}!',
                 color = discord.Color.dark_teal())
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
             embed.set_image (
                 url = sfw_bonk, 
+            )
+            embed.set_footer (
+                text = f'Project PY: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
         
@@ -187,6 +213,9 @@ class Waifu(commands.Cog):
             icon_url = ctx.author.avatar_url)
         embed.set_image(
             url = hmtai.useHM("2_9","depression"), 
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
