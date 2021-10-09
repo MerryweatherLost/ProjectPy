@@ -62,5 +62,20 @@ class Fun(commands.Cog):
         answer = random.choice(responses)   
         await ctx.reply(answer)
 
+    # AVATAR METHOD
+    @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
+    async def avatar(self, ctx):
+        embed = discord.Embed (
+            title = 'Profile Image',
+        )
+        embed.set_author (
+            name = ctx.author.display_name,
+            icon_url = ctx.author.avatar_url
+        )
+        embed.set_image (
+            url = ctx.author.avatar_url
+        )
+        await ctx.reply(embed = embed)
+
 def setup(client):
     client.add_cog(Fun(client))

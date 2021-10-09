@@ -27,3 +27,5 @@
 - `renault` command. What else is there to say?
   
 - Fixed typos in the `booru` section.
+  
+- New `avatar` command, which pulls the avatar from a person. Found in the `Fun (class)` category.
