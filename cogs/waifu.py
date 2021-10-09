@@ -1,5 +1,4 @@
 import discord
-from discord.ext.commands.core import is_nsfw
 import hmtai
 
 from waifu import WaifuAioClient
