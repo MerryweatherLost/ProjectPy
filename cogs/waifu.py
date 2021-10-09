@@ -308,7 +308,7 @@ class Waifu(commands.Cog):
 
             embed = discord.Embed (
                 title = 'Wave',
-                description = f'{AUTHOR} just waived at {MENTION}!',
+                description = f'{AUTHOR} just waved at {MENTION}!',
                 color = discord.Colour.red()
             )
             embed.set_author (
@@ -353,7 +353,7 @@ class Waifu(commands.Cog):
             )
 
             await ctx.reply(embed = embed)   
-            
+
             print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
         
     # DEPRESSION
