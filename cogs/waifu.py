@@ -291,6 +291,8 @@ class Waifu(commands.Cog):
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
 
+            await ctx.reply(embed = embed)   
+
             print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Hug was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HUG}]')
 
     
@@ -320,6 +322,8 @@ class Waifu(commands.Cog):
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
 
+            await ctx.reply(embed = embed)   
+
             print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Wave was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WAVE}]')
     
     # BONK
@@ -348,6 +352,8 @@ class Waifu(commands.Cog):
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
 
+            await ctx.reply(embed = embed)   
+            
             print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
         
     # DEPRESSION
