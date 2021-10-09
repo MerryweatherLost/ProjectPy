@@ -36,4 +36,6 @@
   
 - New `ballImage` def to pull a thumbnail image for `8ball`.
   
-- 
+- New NSFW commands for nekomini in `waifu.py`.
+  
+- `waifu.py` changes added, many new constructs for each command to make things cleaner.

@@ -163,7 +163,7 @@ class Booru(commands.Cog):
         
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized! \n[Raw Data: {GUN}]')
 
-    # CATGIRL - NSFW
+    # CATGIRL - SFW
     @commands.command(help = "Catgirls.", aliases = ['cat'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def catgirl(self, ctx):
