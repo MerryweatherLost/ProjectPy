@@ -1,10 +1,8 @@
-from operator import is_
 import random
 import asyncio
 import discord
 
 from discord.ext import commands
-from discord.ext.commands.core import guild_only
 
 from ConsoleLib import Time
 from ConsoleLib import Essentials
