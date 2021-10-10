@@ -39,3 +39,5 @@
 - New NSFW commands for nekomini in `waifu.py`.
   
 - `waifu.py` changes added, many new constructs for each command to make things cleaner.
+  
+- 

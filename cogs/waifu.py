@@ -213,6 +213,7 @@ class Waifu(commands.Cog):
             MENTION = member.mention
             DISPLAY = member.display_name
             AUTHOR = ctx.author.display_name
+            ROUNDTRIP = round(self.client.latency * 1000)
             
             embed = discord.Embed (
                 title = 'Highfive',
@@ -232,7 +233,7 @@ class Waifu(commands.Cog):
 
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
 
     # KILL
     @commands.command(help = 'Kill a member in chat. EX: :kill @member.', aliases = ['murder', 'slaughter'] )
