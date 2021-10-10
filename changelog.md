@@ -40,4 +40,16 @@
   
 - `waifu.py` changes added, many new constructs for each command to make things cleaner.
   
-- 
+- Refractor nearly completed.
+
+## [0.7.0] - 2021-10-10
+
+- New commands coming out of the woodwork!
+
+  - `toprole` command to return highest role of yourself.
+  
+  - `roles` command to get the number of roles for a person.
+  
+  - `.` command.
+
+- Multiple Roundtrips added to `waifu.py`

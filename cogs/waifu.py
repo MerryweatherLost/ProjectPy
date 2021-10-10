@@ -17,6 +17,7 @@ class Waifu(commands.Cog):
     async def waifu(self, ctx):
         async with WaifuAioClient() as client:
             WAIFU: str = await client.sfw(category='waifu')
+            ROUNDTRIP = round(self.client.latency * 1000)
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
@@ -32,7 +33,7 @@ class Waifu(commands.Cog):
             )
             await ctx.reply(embed = embed)
     
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized! \n[Raw Data: {WAIFU}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized! \n[Raw Data: {WAIFU}]')
 
     
     # NSFW
@@ -41,6 +42,7 @@ class Waifu(commands.Cog):
     async def nsfwwaifu(self, ctx):
         async with WaifuAioClient() as client:
             NSFW_WAIFU: str = await client.nsfw(category='waifu')
+            ROUNDTRIP = round(self.client.latency * 1000)
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
@@ -56,7 +58,7 @@ class Waifu(commands.Cog):
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized! \n[Raw Data: {NSFW_WAIFU}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized! \n[Raw Data: {NSFW_WAIFU}]')
 
 
     # NEKO
@@ -64,13 +66,18 @@ class Waifu(commands.Cog):
     async def neko(self, ctx):
         async with WaifuAioClient() as client:
             NEKO: str = await client.sfw(category='neko')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Neko Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                name = AUTHOR_NAME, 
+                icon_url = AUTHOR_IMAGE
+            )
             embed.set_image (
                 url = NEKO, 
             )
@@ -79,7 +86,7 @@ class Waifu(commands.Cog):
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized! \n[Raw Data: {NEKO}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized! \n[Raw Data: {NEKO}]')
 
     # NEKO - NSFW
     @commands.command(help = 'Neko Waifu image.', aliases = ['nsfwneko', 'nekomiminsfw'])
@@ -87,13 +94,17 @@ class Waifu(commands.Cog):
     async def nekonsfw(self, ctx):
         async with WaifuAioClient() as client:
             NSFW_NEKO: str = await client.nsfw(category = 'neko')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Neko Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url
+                name =  AUTHOR_NAME,
+                icon_url = AUTHOR_IMAGE
             )
             embed.set_image (
                 url = NSFW_NEKO, 
@@ -103,107 +114,143 @@ class Waifu(commands.Cog):
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized! \n[Raw Data: {NSFW_NEKO}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized! \n[Raw Data: {NSFW_NEKO}]')
     
     # HAPPY
     @commands.command(help = 'Happy image of a waifu.')
     async def happy(self, ctx):
         async with WaifuAioClient() as client:
-            sfw_happy: str = await client.sfw(category = 'happy')
+            HAPPY: str = await client.sfw(category = 'happy')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Happy Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                name =  AUTHOR_NAME,
+                icon_url = AUTHOR_IMAGE
+            )
             embed.set_image (
-                url = sfw_happy, 
+                url = HAPPY, 
             )
             embed.set_footer (
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
+        
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized! \n[Raw Data: {HAPPY}]')
     
     # SMILE
     @commands.command(help = 'Smiling image of a waifu.', aliases = ['🙂'])
     async def smile(self, ctx):
         async with WaifuAioClient() as client:
-            sfw_smile: str = await client.sfw(category = 'smile')
+            SMILE: str = await client.sfw(category = 'smile')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Smile Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                name =  AUTHOR_NAME,
+                icon_url = AUTHOR_IMAGE
+            )
             embed.set_image (
-                url = sfw_smile, 
+                url = SMILE, 
             )
             embed.set_footer (
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
+
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized! \n[Raw Data: {SMILE}]')
 
     # SMUG
     @commands.command(help = 'Smug image of a waifu. - My personal favorite.')
     async def smug(self, ctx):
         async with WaifuAioClient() as client:
-            sfw_smug: str = await client.sfw(category = 'smug')
+            SMUG: str = await client.sfw(category = 'smug')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Smug Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                name = AUTHOR_NAME,
+                icon_url = AUTHOR_IMAGE
+            )
             embed.set_image (
-                url = sfw_smug, 
+                url = SMUG, 
             )
             embed.set_footer (
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
+
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized! \n[Raw Data: {SMUG}]')
 
     # DANCE
     @commands.command(help = 'Dance image of a waifu.')
     async def dance(self, ctx):
         async with WaifuAioClient() as client:
-            sfw_dance: str = await client.sfw(category = 'smile')
+            DANCE: str = await client.sfw(category = 'smile')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Dancing Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                name = AUTHOR_NAME,
+                icon_url = AUTHOR_IMAGE
+            )
             embed.set_image (
-                url = sfw_dance, 
+                url = DANCE, 
             )
             embed.set_footer (
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
+
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized! \n[Raw Data: {DANCE}]')
 
     # CRY
     @commands.command(help = 'Crying image of a waifu.')
     async def cry(self, ctx):
         async with WaifuAioClient() as client:
-            sfw_cry: str = await client.sfw(category = 'cry')
+            CRY: str = await client.sfw(category = 'cry')
+            ROUNDTRIP = round(self.client.latency * 1000)
+            AUTHOR_NAME = ctx.author.display_name
+            AUTHOR_IMAGE = ctx.author.avatar_url
+
             embed = discord.Embed (
                 title = "Crying Image", 
                 description = "Here is the image!", 
                 color = discord.Color.dark_teal())
             embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                name = AUTHOR_NAME, 
+                icon_url = AUTHOR_IMAGE
+            )
             embed.set_image (
-                url = sfw_cry, 
+                url = CRY, 
             )
             embed.set_footer (
                 text = f'Project PY: {Time.timeFormatUniversial()}'
             )
-            await ctx.reply(embed=embed)
+            await ctx.reply(embed = embed)
+
+            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized! \n[Raw Data: {CRY}]')
+
 
     # HIGHFIVE
     @commands.command(help = 'Give a high five to someone. EX: :highfive @member.', aliases = ['hifive','high-five','hf'] )

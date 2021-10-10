@@ -40,8 +40,12 @@ class Fun(commands.Cog):
         aliases = ['eightball','🎱'] 
     )
     async def _8ball(self, ctx, *, question):
+        AUTHOR_NAME = ctx.author.display_name
+        AUTHOR_IMAGE = ctx.author.avatar_url
+
         message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')  
         await asyncio.sleep(1)     
+
         answer = Essentials.response8ball()
         embed = discord.Embed (
             title = "8-Ball", 
@@ -52,13 +56,14 @@ class Fun(commands.Cog):
             url = Essentials.ballImage(),            
         )
         embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
+            name = AUTHOR_NAME,
+            icon_url = AUTHOR_IMAGE
         )
         embed.set_footer (
             text = f'Project PY: {Time.timeFormatUniversial()}'
         )
         await message.edit(content = None, embed = embed) 
+        
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
@@ -74,18 +79,30 @@ class Fun(commands.Cog):
 
     # AVATAR METHOD
     @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
-    async def avatar(self, ctx):
+    async def avatar(self, ctx, member: commands.MemberConverter = None):
+        if (member == None):
+            PROFILE = ctx.author.display_name
+            IMAGE = ctx.author.avatar_url
+        else:
+            PROFILE = member.display_name
+            IMAGE = member.avatar_url
+
         embed = discord.Embed (
-            title = 'Profile Image',
+            title = f"{PROFILE}'s Profile Image",
         )
         embed.set_author (
             name = ctx.author.display_name,
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = ctx.author.avatar_url
+            url = IMAGE
         )
         await ctx.reply(embed = embed)
+        
+    # .
+    @commands.command(name = '.', help = '.')
+    async def dot(self, ctx):
+        await ctx.reply('.')  
 
 def setup(client):
     client.add_cog(Fun(client))
