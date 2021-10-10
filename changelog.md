@@ -53,3 +53,5 @@
   - `.` command.
 
 - Multiple Roundtrips added to `waifu.py`
+  
+- `Admin (class)` altered so that permissions are the parameters required instead of roles.
