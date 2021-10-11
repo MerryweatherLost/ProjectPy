@@ -22,3 +22,15 @@ class AnimeList:
     def Coffee():
         coffee = 'https://cdn.discordapp.com/attachments/576096750331494420/895067885549019157/6dubb6nhxjr71_waifu2x_2x_png.png'
         return coffee
+
+    def AppleJuice():
+        apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
+        return apple
+
+    def Dhar():
+        dharquote = ['Your life doesn’t get better by chance. It gets better by change.','You can’t turn a negative mindset into positive actions.','Your past does not equal your future unless you decide to live there.',
+        'Failure is an event, not a person.','Water the flowers, not the weeds.','Train your mind. Your body will follow.']
+
+        dharrand = random.choice(dharquote)
+
+        return dharrand
