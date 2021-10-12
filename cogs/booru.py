@@ -1,4 +1,5 @@
 import discord
+from AnimeSelect import AnimeGelbooru
 
 from ConsoleLib import Time
 from pygelbooru import Gelbooru
@@ -16,10 +17,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Some safe for work wallpapers.")
     @commands.cooldown(rate = 1, per = 1.0)
     async def wallpaper(self, ctx):
-        WALLPAPER = await gelbooru.random_post ( 
-            tags = ['wallpaper'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','cleavage'] 
-        )
+        WALLPAPER = AnimeGelbooru.WALLPAPER()
         embed = discord.Embed (
             title = "Wallpaper Image", 
             description = "Here is the image!", 
@@ -45,10 +43,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
     @commands.cooldown( rate = 1, per = 1.0 )
     async def zettairyouiki(self, ctx):
-        ZETTAI = await gelbooru.random_post ( 
-            tags = ['1girl','thighhighs','highres'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
-        )
+        ZETTAI = AnimeGelbooru.ZETTAI()
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
@@ -76,10 +71,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
     async def uniform(self, ctx):
-        UNIFORM = await gelbooru.random_post ( 
-            tags = ['1girl','uniform','highres'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
-        )
+        UNIFORM = AnimeGelbooru.UNIFORM()
         embed = discord.Embed (
             title = "Uniform", 
             description = "Here is the image!", 
@@ -107,10 +99,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def car(self, ctx):
-        CAR = await gelbooru.random_post ( 
-            tags = ['car'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
-        )
+        CAR = AnimeGelbooru.CAR()
         embed = discord.Embed (
             title = "Car Image", 
             description = "Here is the image!", 
@@ -137,10 +126,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'Gun images.', aliases = ['pew'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def gun(self, ctx):
-        GUN = await gelbooru.random_post ( 
-            tags = ['gun'], 
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
-        )
+        GUN = await AnimeGelbooru.GUN()
         embed = discord.Embed (
             title = "Gun Image", 
             description = "Here is the image!", 
@@ -167,10 +153,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Catgirls.", aliases = ['cat'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def catgirl(self, ctx):
-        CATGIRL = await gelbooru.random_post ( 
-            tags = ['cat_girl','highres'],
-            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
-        )
+        CATGIRL = await AnimeGelbooru.CATGIRL()
         embed = discord.Embed (
             title = "Catgirl Image", 
             description = "Here is the image!", 

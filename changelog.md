@@ -55,3 +55,11 @@
 - Multiple Roundtrips added to `waifu.py`
   
 - `Admin (class)` altered so that permissions are the parameters required instead of roles.
+
+## [0.8.0] - 2021-10-11
+
+- More refractoring.
+
+- New class `AnimeGelbooru (class)` to serve to call methods from Gelbooru imageboard.
+
+- More roundtrip additions to keep code clean.

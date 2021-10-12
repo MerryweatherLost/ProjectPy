@@ -68,6 +68,7 @@ class Fun(commands.Cog):
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
+    @commands.has_any_role('The Architect')
     async def poppy(self, ctx):
         responses = [
             'Literally Poppy.','Last time I heard of Poppy was when he was meeting David Duke.',

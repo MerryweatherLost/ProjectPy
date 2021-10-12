@@ -83,7 +83,7 @@ class Essentials:
 
     def CoinToss():
         """
-        Responses handler for a randomized 8ball.
+        Responses handler for a randomized coinflip.
 
         Variables
         ---------

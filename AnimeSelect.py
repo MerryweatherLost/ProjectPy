@@ -2,6 +2,8 @@ import random
 
 from pygelbooru import Gelbooru
 
+gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
+
 class AnimeList:
     def DokiDoki():
         dokidoki = [
@@ -18,15 +20,12 @@ class AnimeList:
         ]
         ddlcRan = random.choice(dokidoki)
         return ddlcRan
-
     def Coffee():
         coffee = 'https://cdn.discordapp.com/attachments/576096750331494420/895067885549019157/6dubb6nhxjr71_waifu2x_2x_png.png'
         return coffee
-
     def AppleJuice():
         apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
         return apple
-
     def Dhar():
         dharquote = ['Your life doesn’t get better by chance. It gets better by change.','You can’t turn a negative mindset into positive actions.','Your past does not equal your future unless you decide to live there.',
         'Failure is an event, not a person.','Water the flowers, not the weeds.','Train your mind. Your body will follow.']
@@ -34,3 +33,49 @@ class AnimeList:
         dharrand = random.choice(dharquote)
 
         return dharrand
+    def Renault():
+        renault = 'https://cdn.discordapp.com/attachments/879488846453174282/895849572033781822/renault.png'
+        return renault
+class AnimeGelbooru:
+    """Returns images specified through Gelbooru."""
+    async def WALLPAPER() -> str:
+        wallpaper = await gelbooru.random_post ( 
+            tags = ['wallpaper'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','cleavage'] 
+        )
+        return wallpaper
+    async def ZETTAI() -> str:
+        """Absolute Territory, Absolute Territory..."""
+        zettai = await gelbooru.random_post ( 
+            tags = ['1girl','thighhighs','highres'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
+        )
+        return zettai
+    async def UNIFORM() -> str:
+        """Returns uniform images through Gelbooru."""
+        uniform = await gelbooru.random_post ( 
+            tags = ['1girl','uniform','highres'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
+        )
+        return uniform
+    async def CAR() -> str:
+        """Returns a car image through Gelbooru."""
+        car = await gelbooru.random_post ( 
+            tags = ['car'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
+        )
+        return car
+    async def GUN() -> str:
+        """Returns a gun image through Gelbooru."""
+        gun = await gelbooru.random_post ( 
+            tags = ['gun'], 
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
+        )
+        return gun
+    async def CATGIRL() -> str:
+        """Returns a catgirl image through Gelbooru."""    
+        cat = await gelbooru.random_post ( 
+            tags = ['cat_girl','highres'],
+            exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
+        )
+        return cat

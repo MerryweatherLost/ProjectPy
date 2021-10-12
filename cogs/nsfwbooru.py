@@ -16,6 +16,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def nsfwzettairyouiki(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
         NSFWZETTAI = await gelbooru.random_post ( 
             tags = ['1girl','thighhighs','highres'],
             exclude_tags = ['comic']
@@ -40,7 +41,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized! \n[Raw Data: {NSFWZETTAI}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized! \n[Raw Data: {NSFWZETTAI}]')
 
     
     # UNIFORM - NSFW
@@ -48,6 +49,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def nsfwuniform(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
         NSFWUNIFORM = await gelbooru.random_post ( 
             tags = ['1girl','uniform','highres'],
             exclude_tags = ['comic']
@@ -72,7 +74,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized! \n[Raw Data: {NSFWUNIFORM}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized! \n[Raw Data: {NSFWUNIFORM}]')
 
     
     # AHEGAO - NSFW
@@ -80,6 +82,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def ahegao(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
         AHEGAO = await gelbooru.random_post ( 
             tags = ['ahegao','highres'],
             exclude_tags = ['comic']
@@ -104,7 +107,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized! \n[Raw Data: {AHEGAO}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized! \n[Raw Data: {AHEGAO}]')
 
 
     # GIF - NSFW
@@ -112,6 +115,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def nsfwgif(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
         GIF = await gelbooru.random_post ( 
             tags = ['animated_gif','highres']
         )
@@ -135,13 +139,14 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized! \n[Raw Data: {GIF}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized! \n[Raw Data: {GIF}]')
 
     # DOUJIN - NSFW
     @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def doujin(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
         MANGA = await gelbooru.random_post ( 
             tags = ['comic','highres']
         )
@@ -165,13 +170,14 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized! \n[Raw Data: {MANGA}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized! \n[Raw Data: {MANGA}]')
 
     # CATGIRL - NSFW
     @commands.command(help = "(NSFW ONLY) catgirls.", aliases = ['nsfwcat','catgirlnsfw'])
     @commands.cooldown(rate = 1, per = 1.0)
     @commands.is_nsfw()
     async def nsfwcatgirl(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
         NSFWCATGIRL = await gelbooru.random_post ( 
             tags = ['cat_girl','highres'],
             exclude_tags = ['comic']
@@ -196,7 +202,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized! \n[Raw Data: {NSFWCATGIRL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized! \n[Raw Data: {NSFWCATGIRL}]')
 
 def setup(client):
     client.add_cog(nsfwBooru(client))
