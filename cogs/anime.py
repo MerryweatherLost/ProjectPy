@@ -1,9 +1,10 @@
 import discord
 
-from ConsoleLib import Time
-from ConsoleLib import Essentials
+from library.ConsoleLib import Time
+from library.ConsoleLib import Essentials
 
-from AnimeSelect import AnimeList
+from library.AnimeSelect import AnimeList
+
 from discord.ext import commands
     
 class Anime(commands.Cog):
@@ -56,7 +57,7 @@ class Anime(commands.Cog):
         DHAR = AnimeList.Dhar()
         embed = discord.Embed (
             title = 'Dhar Mann',
-            description = f'Hey Dhar Mann fam!: {DHAR}',
+            description = f'**Hey Dhar Mann fam!** \n**Quote:** {DHAR}',
             color = discord.Color.default()
         )
         embed.set_author (
@@ -94,6 +95,11 @@ class Anime(commands.Cog):
     @commands.command(help = 'Renault. Renault.')
     async def renault(self, ctx):
         await ctx.reply(AnimeList.Renault())
+
+    # BIDEN - SFW
+    @commands.command(help = 'Sends biden image.')
+    async def biden(self, ctx):
+        await ctx.reply(AnimeList.Biden())
 
 def setup(client):
     client.add_cog(Anime(client))

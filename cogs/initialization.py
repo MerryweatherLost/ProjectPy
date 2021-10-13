@@ -2,7 +2,7 @@ import os
 import discord
 
 from discord.ext import commands, tasks
-from ConsoleLib import Time
+from library.ConsoleLib import Time
 from itertools import cycle
 
 # INITIALIZATION 

@@ -1,12 +1,8 @@
 import discord
-from AnimeSelect import AnimeGelbooru
-
-from ConsoleLib import Time
-from pygelbooru import Gelbooru
 from discord.ext import commands
 
-
-gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
+from library.ConsoleLib import Time
+from library.AnimeSelect import AnimeGelbooru
 
 class Booru(commands.Cog):
     def __init__(self, client):

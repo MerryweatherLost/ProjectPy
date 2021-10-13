@@ -1,8 +1,8 @@
 import discord
 
-from ConsoleLib import Time
 from pygelbooru import Gelbooru
 from discord.ext import commands
+from library.ConsoleLib import Time
 
 gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
 

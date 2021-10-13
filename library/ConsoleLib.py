@@ -1,4 +1,5 @@
 from datetime import datetime
+from discord.ext import commands
 import random
 
 class Time:
@@ -14,12 +15,12 @@ class Time:
     
     def timeFormat():
         """
-        Sets the time format.
+        Sets the time format and returns a String version for the console.
 
         Variables
         -----------
         formTime:
-            variable from date_object.strftime("%H:%M:%S - %b %d %Y") to cut down drastically on size. 
+            variable from `date_object.strftime()` to cut down drastically on size. 
             It will be used in console logging. 
         """
         date_object = datetime.now()
@@ -100,3 +101,34 @@ class Essentials:
         coinflip = random.choice(responses)
         
         return coinflip
+
+class DurationConverter(commands.Converter):
+    """
+    Duration Converter
+    ------------------
+    A Duration Converter meant to count the number of amounts and units from an argument.
+
+        Variables
+        ---------
+            amount: `float`,
+
+            The number passed in first to delegate how much.
+
+            unit: `str`,
+            
+            The unit after the amount in seconds or minutes `s, m`.
+
+        Raises
+        ------
+            BadArgument:
+
+                The error comes from a invalid duration set, such as a value that does not equate to a `float`.
+    """
+    async def convert(self, ctx, argument):
+        amount = argument[:-1]
+        unit = argument[-1]
+
+        if amount.isdigit() and unit in ['s','m']:
+            return (int(amount), unit)
+        
+        raise commands.BadArgument(message = 'Not a valid duration.')

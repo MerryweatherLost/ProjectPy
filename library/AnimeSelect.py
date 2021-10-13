@@ -21,8 +21,28 @@ class AnimeList:
         ddlcRan = random.choice(dokidoki)
         return ddlcRan
     def Coffee():
-        coffee = 'https://cdn.discordapp.com/attachments/576096750331494420/895067885549019157/6dubb6nhxjr71_waifu2x_2x_png.png'
-        return coffee
+        coffee = [
+            'https://cdn.discordapp.com/attachments/576096750331494420/895067885549019157/6dubb6nhxjr71_waifu2x_2x_png.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501307491979344/cca0af7ac2ff43951f24021750b64dd4.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501307257102376/831a570c1b2d070936f335a75e70db0c.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501307013840956/96a685b30173b1736996d67cfaaad104.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501306837684224/3d4dae0a174dbdbc15ce82d3727de7c1.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501306476957716/7e5444a98a1588af3e13e586ba7d1389.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501306154016768/317bf7b5ffd53f81062e1ad749d3c28a.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501305864593458/c7695e3cdabf4152f848acce6dc10350.jpeg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501305545818202/fe1f0e84b9266b70f402ada8bf199b7f.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501305155751997/c0b069c207ca9e5888c5c16cec7d652e.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501222255345744/a3e469698c54f1fb41f0420c0b29a58f.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501221940777031/23c7df5edc99a118666041a1f588f12e.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501221701681183/25a2aaeda9df3e76807946a54d4833bb.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501221508759612/947654ea7fb9f156b3fcd97d6c2bbaae.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501220921565224/0d5449049de3134150257ed9d454edd4.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501220640530452/11d52368e8e1446073e6ed0e3604f209.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501220380495872/58924ca6a0a559f01c720e3fec640ec8.jpg'
+            ]
+        coffeerand = random.choice(coffee)
+
+        return coffeerand
     def AppleJuice():
         apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
         return apple
@@ -36,6 +56,10 @@ class AnimeList:
     def Renault():
         renault = 'https://cdn.discordapp.com/attachments/879488846453174282/895849572033781822/renault.png'
         return renault
+    def Biden():
+        biden = 'https://cdn.discordapp.com/attachments/576096750331494420/897532315666898994/P20210303AS-1901-cropped.png'
+        return biden
+        
 class AnimeGelbooru:
     """Returns images specified through Gelbooru."""
     async def WALLPAPER() -> str:

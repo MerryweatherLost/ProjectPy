@@ -4,8 +4,8 @@ import discord
 
 from discord.ext import commands
 
-from ConsoleLib import Time
-from ConsoleLib import Essentials
+from library.ConsoleLib import Time
+from library.ConsoleLib import Essentials
 
 class Fun(commands.Cog):
     def __init__(self, client):

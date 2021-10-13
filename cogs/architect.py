@@ -1,7 +1,7 @@
 import discord
 
 from discord.ext import commands
-from ConsoleLib import Time
+from library.ConsoleLib import Time
 
 class Architect(commands.Cog):
     def __init__(self, client):

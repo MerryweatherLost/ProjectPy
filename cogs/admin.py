@@ -1,42 +1,10 @@
 import discord
 import asyncio
 
-from discord import permissions
+from library.ConsoleLib import Time
+from library.ConsoleLib import DurationConverter
 
-from ConsoleLib import Time
 from discord.ext import commands
-
-class DurationConverter(commands.Converter):
-    """
-    Duration Converter
-    ------------------
-    A Duration Converter meant to count the number of amounts and units from an argument.
-
-        Variables
-        ---------
-            amount: `float`,
-
-            The number passed in first to delegate how much.
-
-            unit: `str`,
-            
-            The unit after the amount in seconds or minutes `s, m`.
-
-        Raises
-        ------
-            BadArgument:
-
-                The error comes from a invalid duration set, such as a value that does not equate to a `float`.
-    """
-
-    async def convert(self, ctx, argument):
-        amount = argument[:-1]
-        unit = argument[-1]
-
-        if amount.isdigit() and unit in ['s','m']:
-            return (int(amount), unit)
-        
-        raise commands.BadArgument(message = 'Not a valid duration.')
 
 class Administration(commands.Cog):
     def __init__(self, client):
