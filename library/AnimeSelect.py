@@ -21,6 +21,7 @@ class AnimeList:
         ddlcRan = random.choice(dokidoki)
         return ddlcRan
     def Coffee():
+        """Girls holding coffee. Particularly office workers."""
         coffee = [
             'https://cdn.discordapp.com/attachments/576096750331494420/895067885549019157/6dubb6nhxjr71_waifu2x_2x_png.png',
             'https://cdn.discordapp.com/attachments/576096750331494420/897501307491979344/cca0af7ac2ff43951f24021750b64dd4.jpg',
@@ -44,9 +45,11 @@ class AnimeList:
 
         return coffeerand
     def AppleJuice():
+        """Girls holding apple juice. - Request"""
         apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
         return apple
     def Dhar():
+        """Dhars most famous quotes and his FACE."""
         dharquote = ['Your life doesn’t get better by chance. It gets better by change.','You can’t turn a negative mindset into positive actions.','Your past does not equal your future unless you decide to live there.',
         'Failure is an event, not a person.','Water the flowers, not the weeds.','Train your mind. Your body will follow.']
 
@@ -54,9 +57,11 @@ class AnimeList:
 
         return dharrand
     def Renault():
+        """Originally a meme."""
         renault = 'https://cdn.discordapp.com/attachments/879488846453174282/895849572033781822/renault.png'
         return renault
     def Biden():
+        """Load of Malarkey."""
         biden = 'https://cdn.discordapp.com/attachments/576096750331494420/897532315666898994/P20210303AS-1901-cropped.png'
         return biden
         

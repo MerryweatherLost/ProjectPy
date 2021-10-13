@@ -4,15 +4,12 @@ import random
 
 class Time:
     """
-
     ConsoleLib.Time
     ~~~~~~~~~~~~~~~~~~~~~
     Time class for the Console Library.
 
     Created by: Raymond Allison
-
     """
-    
     def timeFormat():
         """
         Sets the time format and returns a String version for the console.
@@ -25,7 +22,6 @@ class Time:
         """
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
-
         return formTime
 
     def timeFormatUniversial():
@@ -40,7 +36,6 @@ class Time:
         """
         date_object = datetime.utcnow()
         formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
-
         return formTime
 
 class Essentials:
@@ -73,13 +68,11 @@ class Essentials:
             'No.', 'That is incorrect.'
         ]
         response8ball = random.choice(responses)
-
         return response8ball
 
     def ballImage():
-
+        """Just returns an 8ball image."""
         ballImage = 'https://cdn.discordapp.com/attachments/576096750331494420/896414018133196800/8b.png'
-        
         return ballImage
 
     def CoinToss():
@@ -97,9 +90,7 @@ class Essentials:
         Picks one literal string from a `random.choice` function.
         """
         responses = [ 'Heads.','Tails.' ]
-        
         coinflip = random.choice(responses)
-        
         return coinflip
 
 class DurationConverter(commands.Converter):

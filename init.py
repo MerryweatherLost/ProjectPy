@@ -1,11 +1,11 @@
 import os
 import datetime
-import discord 
 
 from discord.ext import commands
 from pretty_help import PrettyHelp
     
-client = commands.Bot(command_prefix = ':', help_command = PrettyHelp(), case_insensitive = True)
+client = commands.Bot (
+    command_prefix = ':', help_command = PrettyHelp(), case_insensitive = True)
 
 @client.command(help = 'Loads package.')
 @commands.is_owner()
@@ -50,6 +50,26 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.reply('Whoops, looks like I can not find that command! Try inputting it correctly, and remember, it can be case sensitive!')
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.NSFWChannelRequired):
+        await ctx.reply('Seems like this command needs a NSFW channel.')
+
+@client.event 
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.reply('You are missing permissions for this command.')
+
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.UserNotFound):
+        await ctx.reply('Unfortunately, I can not find this member, try again and check the user.')
+
+@client.event
+async def on_command_erro(ctx, error):
+    if isinstance(error, commands.TooManyArguments):
+        await ctx.reply('Too many arguments within this response, check the required amount.')
+        
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
