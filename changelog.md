@@ -56,10 +56,14 @@
   
 - `Admin (class)` altered so that permissions are the parameters required instead of roles.
 
-## [0.8.0] - 2021-10-11
+## [0.8.0] - 2021-10-11 - 2021-10-13
 
 - More refractoring.
 
 - New class `AnimeGelbooru (class)` to serve to call methods from Gelbooru imageboard.
 
 - More roundtrip additions to keep code clean.
+
+- New descriptions to the AnimeSelect library. `using """..."""`
+
+- 
