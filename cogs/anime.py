@@ -99,7 +99,13 @@ class Anime(commands.Cog):
     # BIDEN - SFW
     @commands.command(help = 'Sends biden image.')
     async def biden(self, ctx):
-        await ctx.reply(AnimeList.Biden())
+        biden = discord.Embed (
+            color = discord.Color.blue()
+        )
+        biden.set_image (
+            url = AnimeList.Biden()
+        )
+        await ctx.reply(embed = biden)
 
 def setup(client):
     client.add_cog(Anime(client))

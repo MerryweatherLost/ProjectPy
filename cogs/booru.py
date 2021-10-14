@@ -13,7 +13,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Some safe for work wallpapers.")
     @commands.cooldown(rate = 1, per = 1.0)
     async def wallpaper(self, ctx):
-        WALLPAPER = AnimeGelbooru.WALLPAPER()
+        WALLPAPER = await AnimeGelbooru.WALLPAPER()
         embed = discord.Embed (
             title = "Wallpaper Image", 
             description = "Here is the image!", 
@@ -67,7 +67,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
     async def uniform(self, ctx):
-        UNIFORM = AnimeGelbooru.UNIFORM()
+        UNIFORM = await AnimeGelbooru.UNIFORM()
         embed = discord.Embed (
             title = "Uniform", 
             description = "Here is the image!", 
@@ -95,7 +95,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def car(self, ctx):
-        CAR = AnimeGelbooru.CAR()
+        CAR = await AnimeGelbooru.CAR()
         embed = discord.Embed (
             title = "Car Image", 
             description = "Here is the image!", 
