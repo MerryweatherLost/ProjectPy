@@ -5,12 +5,14 @@ from discord.ext import commands, tasks
 from library.ConsoleLib import Time
 from itertools import cycle
 
+from private.config import status
+
 # INITIALIZATION 
 
 class Initialization(commands.Cog):
     def __init__(self, client):
         self.client = client
-        self.status = cycle(['with Scripts', 'with Discord.py'])
+        self.status = cycle(status)
 
     @commands.Cog.listener()
     # SELF MUST BE THE FIRST ARGUMENT IN THE 
