@@ -29,7 +29,7 @@ class Waifu(commands.Cog):
                 url = WAIFU, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
     
@@ -54,7 +54,7 @@ class Waifu(commands.Cog):
                 url = NSFW_WAIFU, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -82,7 +82,7 @@ class Waifu(commands.Cog):
                 url = NEKO, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -110,7 +110,7 @@ class Waifu(commands.Cog):
                 url = NSFW_NEKO, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -137,7 +137,7 @@ class Waifu(commands.Cog):
                 url = HAPPY, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
         
@@ -164,7 +164,7 @@ class Waifu(commands.Cog):
                 url = SMILE, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -191,7 +191,7 @@ class Waifu(commands.Cog):
                 url = SMUG, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -218,7 +218,7 @@ class Waifu(commands.Cog):
                 url = DANCE, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -245,7 +245,7 @@ class Waifu(commands.Cog):
                 url = CRY, 
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
             await ctx.reply(embed = embed)
 
@@ -275,7 +275,7 @@ class Waifu(commands.Cog):
                 url = HIGHFIVE
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
 
             await ctx.reply(embed = embed)   
@@ -305,7 +305,7 @@ class Waifu(commands.Cog):
                 url = KILL
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
 
             await ctx.reply(embed = embed)   
@@ -335,7 +335,7 @@ class Waifu(commands.Cog):
                 url = HUG
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
 
             await ctx.reply(embed = embed)   
@@ -366,7 +366,7 @@ class Waifu(commands.Cog):
                 url = WAVE
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
 
             await ctx.reply(embed = embed)   
@@ -396,7 +396,7 @@ class Waifu(commands.Cog):
                 url = BONK
             )
             embed.set_footer (
-                text = f'Project PY: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.timeFormatUniversial()}'
             )
 
             await ctx.reply(embed = embed)   
@@ -417,7 +417,7 @@ class Waifu(commands.Cog):
             url = hmtai.useHM("2_9","depression"), 
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 

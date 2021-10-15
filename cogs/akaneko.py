@@ -23,7 +23,7 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
         
@@ -44,7 +44,7 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
     
@@ -65,7 +65,7 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 

@@ -30,7 +30,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized! \n[Raw Data: {WALLPAPER}]')
@@ -56,7 +56,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -84,7 +84,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -112,7 +112,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -139,7 +139,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
         
@@ -166,7 +166,7 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 

@@ -29,7 +29,7 @@ class Fun(commands.Cog):
             url = 'https://www.python.org/',
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed) 
 
@@ -60,7 +60,7 @@ class Fun(commands.Cog):
             icon_url = AUTHOR_IMAGE
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await message.edit(content = None, embed = embed) 
         
