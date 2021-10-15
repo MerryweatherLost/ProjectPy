@@ -66,4 +66,26 @@
 
 - New descriptions to the AnimeSelect library. `using """..."""`
 
-- 
+## [0.9.0] - 2021-10-14
+
+- More refractoring.
+
+- Biden Command (*What a Load of Malarkey Jack!*)
+
+- Trump Command (*Wrong!*)
+
+- Positivity Quote Command in `Anime (class)`, trigger by using `positivity`.
+
+- Also, note that you can now trigger commands with whitespace. EX: `: rundir`
+
+- `AnimeSelect (Library)` now has more content to facilitate new commands.
+
+- New `coffee` image of another business image.
+
+- More `ROUNDTRIP (CONSTANT)`
+
+- Added `waifuspecial` command that adds handpicked images from myself.
+
+## [1.0.0] - RELEASE - 2021-10-15
+
+- 24/7 Release.

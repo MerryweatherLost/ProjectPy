@@ -1,3 +1,4 @@
+import asyncio
 import discord
 
 from library.ConsoleLib import Time
@@ -15,6 +16,7 @@ class Anime(commands.Cog):
     @commands.command(help = 'Emotional Relief.')
     async def coffee(self, ctx):
         COFFEE = AnimeList.Coffee()
+        ROUNDTRIP = round(self.client.latency * 1000)
         embed = discord.Embed (
             title = 'Coffee',
             description = 'Have some coffee! ☕',
@@ -27,14 +29,18 @@ class Anime(commands.Cog):
         embed.set_image (
             url = COFFEE
             )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized! \n[Raw Data: {COFFEE}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized! \n[Raw Data: {COFFEE}]')
 
     # APPLEJUICE - SFW
     @commands.command(help = 'Emotional Relief.')
     async def applejuice(self, ctx):
         APPL = AnimeList.AppleJuice()
+        ROUNDTRIP = round(self.client.latency * 1000)
         embed = discord.Embed (
             title = 'Apple Juice',
             description = 'Have some apple juice! 🍎',
@@ -47,14 +53,18 @@ class Anime(commands.Cog):
         embed.set_image (
             url = APPL
             )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized! \n[Raw Data: {APPL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized! \n[Raw Data: {APPL}]')
 
     # DHARMANN - SFW
     @commands.command(help = 'Emotional Relief.')
     async def dhar(self, ctx):
         DHAR = AnimeList.Dhar()
+        ROUNDTRIP = round(self.client.latency * 1000)
         embed = discord.Embed (
             title = 'Dhar Mann',
             description = f'**Hey Dhar Mann fam!** \n**Quote:** {DHAR}',
@@ -67,14 +77,18 @@ class Anime(commands.Cog):
         embed.set_image (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png'
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized! \n[Raw Data: {DHAR}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized! \n[Raw Data: {DHAR}]')
 
     # DDLC - SFW
     @commands.command(help = 'Images of the Doki Doki Literature Club characters.')
     async def ddlc(self, ctx):
         DDLC = AnimeList.DokiDoki()
+        ROUNDTRIP = round(self.client.latency * 1000)
         embed = discord.Embed (
             title = 'DDLC',
             description = 'Here is the image!',
@@ -87,25 +101,58 @@ class Anime(commands.Cog):
         embed.set_image (
             url = DDLC
         )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized! \n[Raw Data: {DDLC}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized! \n[Raw Data: {DDLC}]')
     
-    # RENAULT - SFW
-    @commands.command(help = 'Renault. Renault.')
-    async def renault(self, ctx):
-        await ctx.reply(AnimeList.Renault())
+    # POSITIVITY - SFW
+    @commands.command(help = 'Sends positive message.')
+    async def positivity(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
+        POSIMG = AnimeList.PositivityImage()
+        POSINFO = AnimeList.PositivityInfo()
+        POSMSG = AnimeList.Positivity()
+        embed = discord.Embed (
+            title = 'Positive Message',
+            description = f'**{POSINFO}** \n{POSMSG}',
+            color = discord.Color.green()
+        )
+        embed.set_image (
+            url = POSIMG
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
+        await ctx.reply(embed = embed)
 
-    # BIDEN - SFW
-    @commands.command(help = 'Sends biden image.')
-    async def biden(self, ctx):
-        biden = discord.Embed (
-            color = discord.Color.blue()
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
+    
+    # SPECIALWAIFU - SFW
+    @commands.command(help = 'List of handpicked, pristine waifus.', aliases = ['waifuspec','specwaifu','wspec'])
+    async def specialwaifu(self, ctx):
+        ROUNDTRIP = round(self.client.latency * 1000)
+        WAIFUSPECIAL = AnimeList.SpecialWaifu()
+        embed = discord.Embed (
+            title = 'Special Waifu Image',
+            description = 'Here is the image!',
+            color = discord.Color.gold()
         )
-        biden.set_image (
-            url = AnimeList.Biden()
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
         )
-        await ctx.reply(embed = biden)
+        embed.set_image (
+            url = WAIFUSPECIAL
+        )
+        embed.set_footer (
+            text = f'Project PY: {Time.timeFormatUniversial()}'
+        )
+        await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized! \n[Raw Data: {WAIFUSPECIAL}]')
 
 def setup(client):
     client.add_cog(Anime(client))

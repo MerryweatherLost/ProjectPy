@@ -3,9 +3,15 @@ import datetime
 
 from discord.ext import commands
 from pretty_help import PrettyHelp
-    
+
+from private.config import config
+
 client = commands.Bot (
-    command_prefix = ':', help_command = PrettyHelp(), case_insensitive = True)
+    command_prefix = ':', 
+    help_command = PrettyHelp(), 
+    case_insensitive = True,
+    strip_after_prefix = True
+)
 
 @client.command(help = 'Loads package.')
 @commands.is_owner()
@@ -75,4 +81,4 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         await ctx.reply('This command is on a cooldown! Wait a moment...')
         
-client.run('ODkxNzAzMTE2MTAwMTU3NDkx.YVCNPQ.3AJF5N4SE6imB_jxvBuMk-ddNCg')
+client.run(config)

@@ -39,7 +39,8 @@ class AnimeList:
             'https://cdn.discordapp.com/attachments/576096750331494420/897501221508759612/947654ea7fb9f156b3fcd97d6c2bbaae.jpg',
             'https://cdn.discordapp.com/attachments/576096750331494420/897501220921565224/0d5449049de3134150257ed9d454edd4.jpg',
             'https://cdn.discordapp.com/attachments/576096750331494420/897501220640530452/11d52368e8e1446073e6ed0e3604f209.jpg',
-            'https://cdn.discordapp.com/attachments/576096750331494420/897501220380495872/58924ca6a0a559f01c720e3fec640ec8.jpg'
+            'https://cdn.discordapp.com/attachments/576096750331494420/897501220380495872/58924ca6a0a559f01c720e3fec640ec8.jpg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898168752061952040/f507e8e194925763c0e369652798f1d8.jpg',
             ]
         coffeerand = random.choice(coffee)
 
@@ -56,15 +57,58 @@ class AnimeList:
         dharrand = random.choice(dharquote)
 
         return dharrand
-    def Renault():
-        """Originally a meme."""
-        renault = 'https://cdn.discordapp.com/attachments/879488846453174282/895849572033781822/renault.png'
-        return renault
-    def Biden():
-        """Load of Malarkey."""
-        biden = 'https://cdn.discordapp.com/attachments/576096750331494420/897532315666898994/P20210303AS-1901-cropped.png'
-        return biden
-        
+    def Positivity():
+        quotes = [
+            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient."
+            ]
+        randquote = random.choice(quotes)
+
+        return randquote
+    def PositivityInfo():
+        desc = [
+            'Here is the random quote for today!',
+            'Hello, here is the random quote for today!',
+            'Good day, here is the random quote.',
+            'I hope you enjoy this random quote!',
+            'I believe you will find inspiration in this quote!',
+            'I hope you find use of this quote!'
+            ]
+        description = random.choice(desc)
+        return description
+    def PositivityImage():
+        image = 'https://cdn.discordapp.com/attachments/576096750331494420/898168889949683712/aea15abed7ea5b475c484af72102f70c.jpg'
+        return image
+    def SpecialWaifu():
+        """My best images I could find."""
+        list = [
+            'https://cdn.discordapp.com/attachments/576096750331494420/898346718024843304/7d0955b149e32b04539819597df91a7a.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898348448745664534/66922995_p0.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898348469406814248/55093576_p13.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898348516219441172/93407491_p0.jpeg',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898348712894550026/fi6.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898348984924512266/54ad5dd82190c943106fcf677307bada.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898349934003257384/261d4f78a3ac357e819480d8f99dade0.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898350804505866300/08d3dfaae342ce58c2da475a160438e4.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898351323836215336/c524ea6162e47e221f0b0b808717dd8d.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898351550542536734/01a3fe9b0be78ac93636510e8779e75c.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898351973013798982/32ad0eef353ef7c429ce17295b6c9970.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898352427261120512/unknown.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898352854748770344/806095565d6bb77d942b07d291ccf99b.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898354151019405342/unknown.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898354623566479390/unknown.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898356735360782366/14f5b7c6591f126b35fed3ef2753e81b.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898361536555397140/2xcan3_waifu2x_2x_2n_png.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898361537486520330/2xcan2_waifu2x_2x_2n_jpg.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898361539684352000/2xcan_waifu2x_2x_2n_jpg.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898361541898956850/2xcan4_waifu2x_2x_2n_jpg.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898361805385109544/unknown.png',
+            'https://cdn.discordapp.com/attachments/576096750331494420/898361933135245392/unknown.png',
+            ]
+        waifuspecial = random.choice(list)
+        return waifuspecial
+    def HatersGonnaHate() -> str:
+        img = 'https://cdn.discordapp.com/attachments/576096750331494420/898361152306814976/hgh.gif'
+        return img
 class AnimeGelbooru:
     """Returns images specified through Gelbooru."""
     async def WALLPAPER() -> str:
@@ -108,3 +152,5 @@ class AnimeGelbooru:
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
         )
         return cat
+
+    
