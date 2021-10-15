@@ -39,7 +39,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
     @commands.cooldown( rate = 1, per = 1.0 )
     async def zettairyouiki(self, ctx):
-        ZETTAI = AnimeGelbooru.ZETTAI()
+        ZETTAI = await AnimeGelbooru.ZETTAI()
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 

@@ -1,11 +1,15 @@
 import os
 import datetime
+import discord
+import asyncio
 
 from discord.ext import commands
 from pretty_help import PrettyHelp
 
 from private.config import config
 from private.config import prefix
+
+from library.ConsoleLib import Time
 
 client = commands.Bot (
     command_prefix = prefix, 
@@ -46,40 +50,42 @@ async def on_member_join(member):
 async def on_member_remove(member):
     date_object = datetime.now()
     print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
-
+        
 @client.event
 async def on_command_error(ctx, error):
+    message: discord.Message = await ctx.reply('Hold on! An error has occured within the bot! Awaiting reason... <a:loading:893139868157354034>')
+
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.reply('Please pass in the required arguments.')
+        msg = 'Please pass in the required arguments.'
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Insufficient Args!') 
 
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        await ctx.reply('Whoops, looks like I can not find that command! Try inputting it correctly, and remember, it can be case sensitive!')
+    elif isinstance(error, commands.MissingPermissions):
+        msg = 'You are missing permissions for this command.'
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Missing Permissions!') 
 
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.NSFWChannelRequired):
-        await ctx.reply('Seems like this command needs a NSFW channel.')
+    elif isinstance(error, commands.UserNotFound):
+        msg = 'Unfortunately, I can not find this member, try again and check the user.'
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Member not located!') 
 
-@client.event 
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.reply('You are missing permissions for this command.')
+    elif isinstance(error, commands.TooManyArguments):
+        msg = 'Too many arguments within this response, check the required amount.'
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Too Many Args!') 
 
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.UserNotFound):
-        await ctx.reply('Unfortunately, I can not find this member, try again and check the user.')
+    elif isinstance(error, commands.CommandNotFound):
+        msg = 'Whoops, looks like I can not find that command! Try inputting it correctly, or check t!help or ask **Edelweiss#1337** for assistance!'
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Command Not Found!') 
 
-@client.event
-async def on_command_erro(ctx, error):
-    if isinstance(error, commands.TooManyArguments):
-        await ctx.reply('Too many arguments within this response, check the required amount.')
-        
-@client.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandOnCooldown):
-        await ctx.reply('This command is on a cooldown! Wait a moment...')
-        
+    elif isinstance(error, commands.CommandOnCooldown):
+        msg = 'This command is on a cooldown! Wait a moment... (1 second).'
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Cooldown!') 
+
+    elif isinstance(error, commands.NSFWChannelRequired):
+        msg = 'Seems like this command needs a NSFW channel.'  
+        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: NSFW Channel Required!')   
+    else:
+        msg = "I can not pick up this error from my handler! Notify **Edelweiss#1337!**"
+        print(error)
+    await asyncio.sleep(1)
+    await message.edit(content = msg)
+    
 client.run(config)

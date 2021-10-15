@@ -9,7 +9,7 @@ from library.ConsoleLib import Time
 class Waifu(commands.Cog):
     def __init__(self, client):
         self.client = client
-
+        
     ## WAIFU GENERATOR
 
     # GENERAL
