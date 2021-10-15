@@ -6,6 +6,7 @@ from library.ConsoleLib import Time
 from itertools import cycle
 
 from private.config import status
+from private.config import consoleclr
 
 # INITIALIZATION 
 
@@ -20,7 +21,7 @@ class Initialization(commands.Cog):
     # IN YOUR CLASS TAKES!
     async def on_ready(self):
         self.change_status.start()
-        clear = lambda: os.system('clear')
+        clear = lambda: os.system(consoleclr)
         clear()
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONNECTION ESTABLISHED.')
     
