@@ -1,7 +1,12 @@
+import discord
+import random
+
 from datetime import datetime
 from discord.ext import commands
-import random
-import discord
+
+
+def __init__(self, client):
+    self.client = client
 
 class Time:
     """
@@ -141,3 +146,9 @@ class DurationConverter(commands.Converter):
             return (int(amount), unit)
         
         raise commands.BadArgument(message = 'Not a valid duration.')
+
+class Roundtrip: 
+    def rt(self):
+        roundtrip = round(self.client.latency * 1000)
+        return roundtrip
+    

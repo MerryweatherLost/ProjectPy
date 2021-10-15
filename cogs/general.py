@@ -4,6 +4,7 @@ import discord
 from discord.ext import commands
 from library.ConsoleLib import Time
 from library.ConsoleLib import Color
+from library.ConsoleLib import Roundtrip
 
 # GENERAL COMMANDS
 
@@ -15,7 +16,7 @@ class General(commands.Cog):
     @commands.command(help = 'Pings the round client latency.', aliases = ['🏓'])
     async def ping(self, ctx):
         embed = discord.Embed (
-            description = f'⚪ **Pong! {round(self.client.latency * 1000)}ms.**',
+            description = f'⚪ **Pong! {Roundtrip.rt(self)}ms.**',
             color = Color.white
         )
         embed.set_footer (

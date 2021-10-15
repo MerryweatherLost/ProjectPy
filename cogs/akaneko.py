@@ -2,6 +2,8 @@ import discord
 import akaneko
 
 from library.ConsoleLib import Time
+from library.ConsoleLib import Roundtrip
+
 from discord.ext import commands
 
 class Akaneko(commands.Cog):
@@ -27,7 +29,7 @@ class Akaneko(commands.Cog):
         )
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized! \n[Raw Data: {AKANEKO}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized! \n[Raw Data: {AKANEKO}]')
         
     # NEKO - SFW
     @commands.command(help = 'Some safe for work neko images.')
@@ -48,7 +50,7 @@ class Akaneko(commands.Cog):
         )
         await ctx.reply(embed = embed)
     
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized! \n[Raw Data: {AKANEKO}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized! \n[Raw Data: {AKANEKO}]')
     
     # FOXGIRL - SFW
     @commands.command(help = 'Some safe for work foxgirl images.')
@@ -69,7 +71,7 @@ class Akaneko(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized! \n[Raw Data: {AKANEKO}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized! \n[Raw Data: {AKANEKO}]')
 
 def setup(client):
     client.add_cog(Akaneko(client))

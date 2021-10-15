@@ -3,6 +3,7 @@ import asyncio
 
 from library.ConsoleLib import Time
 from library.ConsoleLib import DurationConverter
+from library.ConsoleLib import Roundtrip
 
 from discord.ext import commands
 
@@ -17,8 +18,9 @@ class Administration(commands.Cog):
     @commands.has_permissions(manage_messages = True)
     async def clear(self, ctx, amount = 5):
         message = discord.Message
+        await message.delete()
         await ctx.channel.purge(limit = amount)
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
     
     @clear.error
     async def clear_error(ctx, error):
@@ -34,7 +36,7 @@ class Administration(commands.Cog):
         else:
             await member.kick(reason = reason)
             await ctx.reply(f'Kicked **{member}!**')
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - KICK: A user was kicked! {member}')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - KICK: A user was kicked! {member}')
         
     @kick.error
     async def kick_error(ctx, error):
@@ -50,7 +52,7 @@ class Administration(commands.Cog):
         else:    
             await ctx.guild.ban(member, reason = reason)
             await ctx.reply(f'Banned **{member}!**')
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - BAN: A user was banned! {member}')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - BAN: A user was banned! {member}')
     
     # TEMP BAN METHOD
     @commands.command(help = "Temporarily bans a person from the server. - (UNSTABLE)")
@@ -66,7 +68,7 @@ class Administration(commands.Cog):
             await ctx.reply(f'**{member}!** has been banned for **{amount}{unit}.**')
             await asyncio.sleep(amount * multiplier[unit])
             await ctx.guild.unban(member)
-            print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned! {member}')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned! {member}')
 
     # UNBAN METHOD
     @commands.command(help = "Unbans a person from the server.")
@@ -85,7 +87,7 @@ class Administration(commands.Cog):
                     await ctx.guild.unban(user)
                     await ctx.reply(f'Unbanned **{user.mention}!**')
                     
-                    print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
+                    print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned! {member}')
                     return  
 
 def setup(client):

@@ -6,6 +6,7 @@ from discord.ext import commands
 
 from library.ConsoleLib import Time
 from library.ConsoleLib import Essentials
+from library.ConsoleLib import Roundtrip
 
 class Fun(commands.Cog):
     def __init__(self, client):
@@ -18,7 +19,7 @@ class Fun(commands.Cog):
         answer = Essentials.CoinToss()
         await message.edit(content = f'{answer}')
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized! [ Coin: {answer} ]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized! [ Coin: {answer} ]')
    
     # PYTHON METHOD
     @commands.command( help = "The language it was programmed in.", aliases = ['py'] )
@@ -66,7 +67,7 @@ class Fun(commands.Cog):
         await message.delete()
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )

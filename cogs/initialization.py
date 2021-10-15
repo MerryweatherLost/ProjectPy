@@ -2,7 +2,10 @@ import os
 import discord
 
 from discord.ext import commands, tasks
+
 from library.ConsoleLib import Time
+from library.ConsoleLib import Roundtrip
+
 from itertools import cycle
 
 from private.config import status
@@ -23,7 +26,7 @@ class Initialization(commands.Cog):
         self.change_status.start()
         clear = lambda: os.system(consoleclr)
         clear()
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONNECTION ESTABLISHED.')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED.')
     
     @tasks.loop(seconds = 4)
     async def change_status(self):
