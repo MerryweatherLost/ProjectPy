@@ -5,9 +5,9 @@ from discord.ext import commands
 from pretty_help import PrettyHelp
 
 from private.config import config
-
+from private.config import prefix
 client = commands.Bot (
-    command_prefix = ':', 
+    command_prefix = prefix, 
     help_command = PrettyHelp(), 
     case_insensitive = True,
     strip_after_prefix = True
