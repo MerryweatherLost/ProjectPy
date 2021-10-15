@@ -30,7 +30,7 @@ class Anime(commands.Cog):
             url = COFFEE
             )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -54,7 +54,7 @@ class Anime(commands.Cog):
             url = APPL
             )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -78,7 +78,7 @@ class Anime(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png'
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -102,7 +102,7 @@ class Anime(commands.Cog):
             url = DDLC
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -124,7 +124,7 @@ class Anime(commands.Cog):
             url = POSIMG
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
@@ -148,7 +148,7 @@ class Anime(commands.Cog):
             url = WAIFUSPECIAL
         )
         embed.set_footer (
-            text = f'Project PY: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
         await ctx.reply(embed = embed)
 
