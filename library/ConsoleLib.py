@@ -108,7 +108,7 @@ class Color:
     """`class` meant to handle requests for colors."""
     white = discord.Color.from_rgb(230,230,230)
     """Returns a factory setting of a white color for RGB. `tuple`"""
-    tachibana,tachi = discord.Color.from_rgb(235, 179, 82)
+    tachi = discord.Color.from_rgb(235, 179, 82)
     """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
 
 class DurationConverter(commands.Converter):
