@@ -89,3 +89,11 @@
 ## [1.0.0] - RELEASE - 2021-10-15
 
 - 24/7 Release.
+
+- Let the stable build commence! Hayate!
+
+- Configuration set in private folder.
+
+- New token for Tachibana, protected and secured.
+
+- `tachibana` command exclusive to Tachibana.
