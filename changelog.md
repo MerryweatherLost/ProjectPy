@@ -105,3 +105,7 @@
 - Seperated Development build 'Project PY' and 'Tachibana'. They operate independently now.
 
 - From now on, pull requests will be used for new changes.
+
+## [1.1.0] - 2021-10-**
+
+- 
