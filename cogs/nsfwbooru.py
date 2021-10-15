@@ -41,7 +41,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized! \n[Raw Data: {NSFWZETTAI}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWZETTAI}]')
 
     
     # UNIFORM - NSFW
@@ -73,7 +73,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized! \n[Raw Data: {NSFWUNIFORM}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWUNIFORM}]')
 
     
     # AHEGAO - NSFW
@@ -105,7 +105,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized! \n[Raw Data: {AHEGAO}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {AHEGAO}]')
 
 
     # GIF - NSFW
@@ -136,7 +136,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized! \n[Raw Data: {GIF}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {GIF}]')
 
     # DOUJIN - NSFW
     @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
@@ -166,7 +166,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized! \n[Raw Data: {MANGA}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {MANGA}]')
 
     # CATGIRL - NSFW
     @commands.command(help = "(NSFW ONLY) catgirls.", aliases = ['nsfwcat','catgirlnsfw'])
@@ -197,7 +197,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized! \n[Raw Data: {NSFWCATGIRL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWCATGIRL}]')
 
 def setup(client):
     client.add_cog(nsfwBooru(client))

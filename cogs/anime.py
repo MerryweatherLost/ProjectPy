@@ -34,7 +34,7 @@ class Anime(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized! \n[Raw Data: {COFFEE}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized in #{ctx.channel}! \n[Raw Data: {COFFEE}]')
 
     # APPLEJUICE - SFW
     @commands.command(help = 'Emotional Relief.')
@@ -57,7 +57,7 @@ class Anime(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized! \n[Raw Data: {APPL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized in #{ctx.channel}! \n[Raw Data: {APPL}]')
 
     # DHARMANN - SFW
     @commands.command(help = 'Emotional Relief.')
@@ -80,7 +80,7 @@ class Anime(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized! \n[Raw Data: {DHAR}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized in #{ctx.channel}! \n[Raw Data: {DHAR}]')
 
     # DDLC - SFW
     @commands.command(help = 'Images of the Doki Doki Literature Club characters.')
@@ -103,7 +103,7 @@ class Anime(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized! \n[Raw Data: {DDLC}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized in #{ctx.channel}! \n[Raw Data: {DDLC}]')
     
     # POSITIVITY - SFW
     @commands.command(help = 'Sends positive message.')
@@ -124,7 +124,7 @@ class Anime(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized in #{ctx.channel}! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
     
     # SPECIALWAIFU - SFW
     @commands.command(help = 'List of handpicked, pristine waifus.', aliases = ['waifuspec','specwaifu','wspec'])
@@ -147,7 +147,7 @@ class Anime(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized! \n[Raw Data: {WAIFUSPECIAL}]')
+        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized in #{ctx.channel}! \n[Raw Data: {WAIFUSPECIAL}]')
 
 def setup(client):
     client.add_cog(Anime(client))

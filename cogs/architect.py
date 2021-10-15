@@ -13,7 +13,7 @@ class Architect(commands.Cog):
     async def architectban(self, ctx, member : discord.Member, *, reason = None):
             await member.ban(reason = reason)
             await ctx.reply(f'Banned {member.mention}!')
-            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ARCHITECT.PY - LOG: ABan was utilized! [Member: {member}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ARCHITECT.PY - LOG: ABan was utilized in #{ctx.channel}! [Member: {member}]')
     
         
 def setup(client):

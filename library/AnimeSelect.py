@@ -1,5 +1,5 @@
 import random
-
+import akaneko
 from pygelbooru import Gelbooru
 
 gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
@@ -59,7 +59,14 @@ class AnimeList:
         return dharrand
     def Positivity():
         quotes = [
-            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient."
+            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient.",
+            "Miracles happen to those who believe in them.",
+            "One small positive thought can change your whole day.",
+            "Believe you can and you’re halfway there.",
+            "If you are positive, you’ll see opportunities instead of obstacles.",
+            "Write it on your heart that every day is the best day in the year.",
+            "Accentuate the positive, Eliminate the Negative, latch onto the affirmative.",
+            "A positive atmosphere nurtures a positive attitude, which is required to take positive action.",
             ]
         randquote = random.choice(quotes)
 
@@ -111,6 +118,7 @@ class AnimeList:
     def HatersGonnaHate() -> str:
         img = 'https://cdn.discordapp.com/attachments/576096750331494420/898361152306814976/hgh.gif'
         return img
+
 class AnimeGelbooru:
     """Returns images specified through Gelbooru."""
     async def WALLPAPER() -> str:
@@ -155,4 +163,15 @@ class AnimeGelbooru:
         )
         return cat
 
-    
+class AkanekoNSFW:
+    def school():
+        """NSFW Schoolgirls."""
+        school = akaneko.nsfw.school()
+        return school
+    def maid():
+        """NSFW Maid."""
+        maid = akaneko.nsfw.maid()
+        return maid
+    def gif():
+        gif = akaneko.nsfw.gif()
+        return gif
