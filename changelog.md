@@ -97,3 +97,11 @@
 - New token for Tachibana, protected and secured.
 
 - `tachibana` command exclusive to Tachibana.
+
+- New `Color (class)` to handle specific color requests.
+
+- Private folder config updated for prefixes and status updates.
+
+- Seperated Development build 'Project PY' and 'Tachibana'. They operate independently now.
+
+- From now on, pull requests will be used for new changes.
