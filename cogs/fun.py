@@ -43,8 +43,7 @@ class Fun(commands.Cog):
         AUTHOR_NAME = ctx.author.display_name
         AUTHOR_IMAGE = ctx.author.avatar_url
 
-        message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')  
-        await asyncio.sleep(1)     
+        message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')    
 
         answer = Essentials.response8ball()
         embed = discord.Embed (
@@ -62,7 +61,10 @@ class Fun(commands.Cog):
         embed.set_footer (
             text = f'Tachibana: {Time.timeFormatUniversial()}'
         )
-        await message.edit(content = None, embed = embed) 
+        await asyncio.sleep(1)   
+
+        await message.delete()
+        await ctx.reply(embed = embed)
         
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
     

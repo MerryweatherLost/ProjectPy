@@ -2,6 +2,8 @@
 import discord
 
 from discord.ext import commands
+from library.ConsoleLib import Time
+from library.ConsoleLib import Color
 
 # GENERAL COMMANDS
 
@@ -13,8 +15,11 @@ class General(commands.Cog):
     @commands.command(help = 'Pings the round client latency.', aliases = ['🏓'])
     async def ping(self, ctx):
         embed = discord.Embed (
-            title = f'🏓 **Pong!** {round(self.client.latency * 1000)}ms.',
-            color = discord.Color.red()
+            description = f'⚪ **Pong! {round(self.client.latency * 1000)}ms.**',
+            color = Color.white
+        )
+        embed.set_footer (
+            text = f"Tachibana: {Time.pureTimeUniversial()}"
         )
         await ctx.reply(embed = embed)
 

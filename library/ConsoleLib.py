@@ -1,6 +1,7 @@
 from datetime import datetime
 from discord.ext import commands
 import random
+import discord
 
 class Time:
     """
@@ -36,6 +37,18 @@ class Time:
         """
         date_object = datetime.utcnow()
         formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
+        return formTime
+    def pureTimeUniversial():
+        """
+        Sets the time format, UTC.
+
+        Variables
+        -----------
+        formTime:
+            variable from date_object.strftime("%H:%M:%S) in UTC to cut down on size.
+        """
+        date_object = datetime.utcnow()
+        formTime = date_object.strftime("%H:%M UTC")
         return formTime
 
 class Essentials:
@@ -90,6 +103,13 @@ class Essentials:
         responses = [ 'Heads.','Tails.' ]
         coinflip = random.choice(responses)
         return coinflip
+
+class Color:
+    """`class` meant to handle requests for colors."""
+    white = discord.Color.from_rgb(230,230,230)
+    """Returns a factory setting of a white color for RGB. `tuple`"""
+    tachibana,tachi = discord.Color.from_rgb(235, 179, 82)
+    """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
 
 class DurationConverter(commands.Converter):
     """

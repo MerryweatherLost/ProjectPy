@@ -44,48 +44,98 @@ for filename in os.listdir('./cogs'):
 @client.event
 async def on_member_join(member):
     date_object = datetime.now()
-    print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
+    print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
 
 @client.event
 async def on_member_remove(member):
     date_object = datetime.now()
-    print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
+    print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
         
 @client.event
 async def on_command_error(ctx, error):
+    ROUNDTRIP = round(client.latency * 1000)
     message: discord.Message = await ctx.reply('Hold on! An error has occured within the bot! Awaiting reason... <a:loading:893139868157354034>')
-
     if isinstance(error, commands.MissingRequiredArgument):
         msg = 'Please pass in the required arguments.'
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Insufficient Args!') 
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Insufficient Args!') 
 
     elif isinstance(error, commands.MissingPermissions):
         msg = 'You are missing permissions for this command.'
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Missing Permissions!') 
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Missing Permissions!') 
 
     elif isinstance(error, commands.UserNotFound):
         msg = 'Unfortunately, I can not find this member, try again and check the user.'
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Member not located!') 
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Member not located!') 
 
     elif isinstance(error, commands.TooManyArguments):
         msg = 'Too many arguments within this response, check the required amount.'
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Too Many Args!') 
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Too Many Args!') 
 
     elif isinstance(error, commands.CommandNotFound):
         msg = 'Whoops, looks like I can not find that command! Try inputting it correctly, or check t!help or ask **Edelweiss#1337** for assistance!'
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Command Not Found!') 
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Command Not Found!') 
 
     elif isinstance(error, commands.CommandOnCooldown):
         msg = 'This command is on a cooldown! Wait a moment... (1 second).'
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Cooldown!') 
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Cooldown!') 
 
     elif isinstance(error, commands.NSFWChannelRequired):
         msg = 'Seems like this command needs a NSFW channel.'  
-        print(f'[{Time.timeFormat()}] [ Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: NSFW Channel Required!')   
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: NSFW Channel Required!')   
     else:
         msg = "I can not pick up this error from my handler! Notify **Edelweiss#1337!**"
+        embed = discord.Embed (
+            description = msg
+        )
+        embed.set_footer (
+            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+        )
         print(error)
+
     await asyncio.sleep(1)
-    await message.edit(content = msg)
+    await message.delete()
+    await ctx.reply(embed = embed)
     
 client.run(config)

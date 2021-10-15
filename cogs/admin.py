@@ -16,6 +16,7 @@ class Administration(commands.Cog):
     @commands.command(help = "Clears an amount of messages.")
     @commands.has_permissions(manage_messages = True)
     async def clear(self, ctx, amount = 5):
+        message = discord.Message
         await ctx.channel.purge(limit = amount)
         print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE | LOG - CLEAR: A channel was cleared using this command!')
     
