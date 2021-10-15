@@ -106,7 +106,7 @@ async def on_command_error(ctx, error):
         print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Command Not Found!') 
 
     elif isinstance(error, commands.CommandOnCooldown):
-        msg = 'This command is on a cooldown! Wait a moment... (1 second).'
+        msg = 'This command is on a cooldown! Wait a moment...'
         embed = discord.Embed (
             description = msg
         )

@@ -111,3 +111,15 @@
 - New `Roundtrip (class)` to facilitate latency and make code cleaner.
 
 - `Color (class)` additions.
+
+- New `akaneko` Commands.
+
+  - `nsfwschool` command, which returns schoolgirls.
+  
+  - `nsfwmaid` command, which returns maids.
+  
+  - `nsfwgif`, command, which returns gifs.
+
+- This ones a big one. Added `states and territories (classes)` and all state flags and territory flags of the United States of America.
+  
+- Added PoliticalSelect to suppliment the afformentioned.
