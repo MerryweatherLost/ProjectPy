@@ -108,4 +108,6 @@
 
 ## [1.1.0] - 2021-10-**
 
-- 
+- New `Roundtrip (class)` to facilitate latency and make code cleaner.
+
+- `Color (class)` additions.
