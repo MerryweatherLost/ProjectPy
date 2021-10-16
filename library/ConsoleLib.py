@@ -1,4 +1,5 @@
 import sys
+import time
 import random
 import discord
 
@@ -170,5 +171,30 @@ class InitProg:
         sys.stdout.write("#" * (44 - progress_x) + "]\n")
         sys.stdout.flush()    
 
-    
-    
+class Handler:
+    def loadCommands():
+        InitProg.startProgress(u'\u001b[33mInitializing Commands\u001b[0m')
+        set = 0
+
+        # LOOP TO REACH PROCESS
+        while (set != 100):
+            time.sleep(0.0001)
+            InitProg.progress(x = set)
+            set += 5
+
+        # COMPLETE PROCESS
+        InitProg.endProgress()
+
+    def awaitingEvents():
+        InitProg.startProgress(u'\u001b[33mAwaiting Events\u001b[0m')
+        set = 0
+
+        # LOOP TO REACH PROCESS
+        while (set != 100):
+            time.sleep(0.0001)
+            InitProg.progress(x = set)
+            set += 5
+
+        # COMPLETE PROCESS
+        InitProg.endProgress()
+        time.sleep(0.001)

@@ -6,9 +6,12 @@ from discord.ext import commands
 
 from private.config import config
 from private.config import prefix
+from private.config import consoleclr
 
 from library.ConsoleLib import Time
 from library.ConsoleLib import Color
+from library.ConsoleLib import InitProg
+from library.ConsoleLib import Handler
 
 from pretty_help import PrettyHelp
 
@@ -18,6 +21,11 @@ client = commands.Bot (
     case_insensitive = True,
     strip_after_prefix = True
 )
+
+clear = lambda: os.system(consoleclr)
+clear()
+
+Handler.loadCommands()
 
 @client.command(help = 'Loads package.')
 @commands.is_owner()
@@ -130,5 +138,7 @@ async def on_command_error(ctx, error):
     await asyncio.sleep(1)
     await message.delete()
     await ctx.reply(embed = embed)
-    
+
+Handler.awaitingEvents()
+
 client.run(config)
