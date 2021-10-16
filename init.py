@@ -1,10 +1,8 @@
 import os
-import datetime
 import discord
 import asyncio
 
 from discord.ext import commands
-from pretty_help import PrettyHelp
 
 from private.config import config
 from private.config import prefix
@@ -12,9 +10,11 @@ from private.config import prefix
 from library.ConsoleLib import Time
 from library.ConsoleLib import Color
 
+from pretty_help import PrettyHelp
+
 client = commands.Bot (
     command_prefix = prefix, 
-    help_command = PrettyHelp(color = Color.tachi), 
+    help_command = PrettyHelp (color = Color.tachi), 
     case_insensitive = True,
     strip_after_prefix = True
 )
@@ -44,17 +44,14 @@ for filename in os.listdir('./cogs'):
 
 @client.event
 async def on_member_join(member):
-    date_object = datetime.now()
-    print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
+    print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
 
 @client.event
 async def on_member_remove(member):
-    date_object = datetime.now()
-    print(f'[{date_object.strftime("%H:%M:%S - %b %d %Y")}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
+    print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
         
 @client.event
 async def on_command_error(ctx, error):
-    ROUNDTRIP = round(client.latency * 1000)
     message: discord.Message = await ctx.reply('Hold on! An error has occured within the bot! Awaiting reason... <a:loading:893139868157354034>')
     if isinstance(error, commands.MissingRequiredArgument):
         msg = 'Please pass in the required arguments.'
@@ -127,7 +124,7 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Required Attention to Unknown Error!')   
+        print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Required Attention to Unknown Error!')   
         print(error)
 
     await asyncio.sleep(1)

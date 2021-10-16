@@ -22,9 +22,9 @@ class Administration(commands.Cog):
     @commands.has_permissions(manage_messages = True)
     @commands.cooldown(rate = 1, per = 5)
     async def clear(self, ctx, amount = 5):
-        if (amount >= Admin.clearlimit):
+        if (amount > Admin.clearlimit):
             embed = discord.Embed (
-                description = f'Woah! too many requests! Try something less than {Admin.clearlimit}.',
+                description = f'Woah! too many requests! Try something less than or equal to {Admin.clearlimit}.',
                 color = Color.tachi
             )
             embed.set_footer (
@@ -46,13 +46,13 @@ class Administration(commands.Cog):
     # KICK METHOD
     @commands.command(help = "Kicks a person from the server.")
     @commands.has_permissions(kick_members = True)
-    async def kick(self, ctx, member : discord.Member, *, reason = None):
+    async def kick(self, ctx, member : commands.MemberConverter, *, reason = None):
         if (member == ctx.author):
             await ctx.reply('You can not kick yourself!')
         else:
             await member.kick(reason = reason)
             await ctx.reply(f'Kicked **{member}!**')
-            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - KICK: A user was kicked in #{ctx.channel}! [{member}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - KICK: A user was kicked in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
         
     @kick.error
     async def kick_error(ctx, error):
@@ -65,26 +65,43 @@ class Administration(commands.Cog):
     async def ban(self, ctx, member : commands.MemberConverter, *, reason = None):
         if (member == ctx.author):
             await ctx.reply('You can not ban yourself!')
-        else:    
+        else:
+            embed = discord.Embed (
+                description = f'Banned **{member}**, the reason was: **{reason}**',
+                color = Color.tachi
+            )
+            embed.set_footer (
+                text = f'Tachibana Administration Protocol: {Time.timeFormatUniversial()}'
+            )    
             await ctx.guild.ban(member, reason = reason)
             await ctx.reply(f'Banned **{member}!**')
-            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - BAN: A user was banned in #{ctx.channel}! [{member}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - BAN: A user was banned in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
     
     # TEMP BAN METHOD
     @commands.command(help = "Temporarily bans a person from the server. - (UNSTABLE)")
     @commands.has_permissions(ban_members = True)
-    async def tempban(self, ctx, member: commands.MemberConverter, duration: DurationConverter):
+    async def tempban(self, ctx, member: commands.MemberConverter, duration: DurationConverter, *, reason = None):
         if (member == ctx.author):
             await ctx.reply('You can not tempban yourself dummy!')
         else:
             multiplier = {'s': 1, 'm': 60}
             amount, unit = duration
 
-            await ctx.guild.ban(member)
-            await ctx.reply(f'**{member}!** has been banned for **{amount}{unit}.**')
+            embed = discord.Embed (
+                description = f'**{member}!** has been banned for **{amount}{unit}.**',
+                color = Color.tachi
+            )
+            embed.set_footer (
+                text = f'Tachibana Administration Protocol: {Time.timeFormatUniversial()}'
+            )
+
+            await ctx.guild.ban(member, reason = reason)
+            await ctx.reply(embed = embed)
+
             await asyncio.sleep(amount * multiplier[unit])
+
             await ctx.guild.unban(member)
-            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned in #{ctx.channel}! [{member}]')
+            print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
 
     # UNBAN METHOD
     @commands.command(help = "Unbans a person from the server.")
@@ -100,8 +117,15 @@ class Administration(commands.Cog):
                 user = ban_entry.user
 
                 if (user.name, user.discriminator) == (member_name, member_discriminator):
+                    embed = discord.Embed (
+                        description = f'Unbanned **{user.mention}!**',
+                        color = Color.tachi
+                    )
+                    embed.set_footer (
+                        text = f'Tachibana Administration Protocol: {Time.timeFormatUniversial()}'
+                    )
                     await ctx.guild.unban(user)
-                    await ctx.reply(f'Unbanned **{user.mention}!**')
+                    await ctx.reply(embed = embed)
                     
                     print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned in #{ctx.channel}! [{member}]')
                     return  
