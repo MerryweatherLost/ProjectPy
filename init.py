@@ -10,10 +10,11 @@ from private.config import config
 from private.config import prefix
 
 from library.ConsoleLib import Time
+from library.ConsoleLib import Color
 
 client = commands.Bot (
     command_prefix = prefix, 
-    help_command = PrettyHelp(), 
+    help_command = PrettyHelp(color = Color.tachi), 
     case_insensitive = True,
     strip_after_prefix = True
 )

@@ -108,18 +108,16 @@ class Fun(commands.Cog):
     @commands.command(help = 'Returns state flags. (information coming soon...)')
     async def state(self, ctx, *, name):
         embed = discord.Embed ()
-        embed.set_image (
-            url = States.states(str.lower(name))
-        )
+        embed.set_image(url = States.states(str.lower(name)))
+
         await ctx.reply(embed = embed)
         print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {name}]')
 
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
     async def territory(self, ctx, *, name):
         embed = discord.Embed ()
-        embed.set_image (
-            url = States.territories(str.lower(name))
-        )
+        embed.set_image(url = States.territories(str.lower(name)))
+        
         await ctx.reply(embed = embed)
         print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {name}]')
 

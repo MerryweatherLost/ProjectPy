@@ -1,5 +1,7 @@
-import discord
 import asyncio
+
+import discord
+from discord.ext import commands
 
 from library.ConsoleLib import Time
 from library.ConsoleLib import Color
@@ -7,7 +9,7 @@ from library.ConsoleLib import DurationConverter
 from library.ConsoleLib import Roundtrip
 
 from settings.Settings import Admin
-from discord.ext import commands
+
 
 class Administration(commands.Cog):
     def __init__(self, client):

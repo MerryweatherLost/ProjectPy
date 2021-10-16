@@ -123,3 +123,5 @@
 - This ones a big one. Added `states and territories (classes)` and all state flags and territory flags of the United States of America.
   
 - Added PoliticalSelect to suppliment the afformentioned.
+  
+- Refractor, and forced "tachi" color.
