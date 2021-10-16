@@ -5,7 +5,6 @@ import discord
 from datetime import datetime
 from discord.ext import commands
 
-
 def __init__(self, client):
     self.client = client
 
@@ -170,3 +169,6 @@ class InitProg:
     def endProgress():
         sys.stdout.write("#" * (44 - progress_x) + "]\n")
         sys.stdout.flush()    
+
+    
+    

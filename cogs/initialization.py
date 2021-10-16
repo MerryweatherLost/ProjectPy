@@ -1,7 +1,8 @@
 import os
-import sys
 import discord
 import asyncio 
+
+from playsound import playsound
 
 from discord.ext import commands, tasks
 
@@ -32,6 +33,9 @@ class Initialization(commands.Cog):
         clear()
 
         # START PROCESS
+        print('Put hard work into anything you do.')
+        playsound('setup.wav')
+        clear()
         InitProg.startProgress(u'\u001b[33mInitializing Client\u001b[0m')
         set = 0
 

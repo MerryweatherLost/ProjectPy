@@ -43,11 +43,11 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
 @client.event
-async def on_member_join(member):
+async def on_member_join(member: discord.Member):
     print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
 
 @client.event
-async def on_member_remove(member):
+async def on_member_remove(member: discord.Member):
     print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
         
 @client.event
