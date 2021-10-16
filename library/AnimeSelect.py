@@ -162,6 +162,48 @@ class AnimeGelbooru:
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
         )
         return cat
+class AnimeNSFWGel:
+    """Imports not safe for work images."""
+    async def nsfwzettai() -> str:
+        """Imports NSFW thighhighs."""
+        zettairyo = await gelbooru.random_post ( 
+            tags = ['1girl','zettai_ryouiki','highres'],
+            exclude_tags = ['comic']
+        )
+        return zettairyo
+    async def nsfwuniform() -> str:
+        """Returns NSFW uniform types. School, nurses, military..."""
+        uniform = await gelbooru.random_post ( 
+            tags = ['1girl','uniform','highres'],
+            exclude_tags = ['comic']
+        )
+        return uniform
+    async def ahegao() -> str:
+        """Ahegao images, mainly facial."""
+        ahegao = await gelbooru.random_post ( 
+            tags = ['ahegao','highres'],
+            exclude_tags = ['comic']
+        )
+        return ahegao
+    async def nsfwgif() -> str:
+        """Not safe for work gif images."""
+        gif = await gelbooru.random_post ( 
+            tags = ['animated_gif','highres']
+        )
+        return gif
+    async def doujinshi() -> str:
+        """Not safe for work comics."""
+        doujin = await gelbooru.random_post ( 
+            tags = ['comic','highres']
+        )
+        return doujin
+    async def nsfwcatgirl() -> str:
+        """Not safe for work catgirls."""
+        catgirl = await gelbooru.random_post ( 
+            tags = ['cat_girl','highres'],
+            exclude_tags = ['comic']
+        )
+        return catgirl
 
 class AkanekoNSFW:
     def school():
@@ -173,5 +215,6 @@ class AkanekoNSFW:
         maid = akaneko.nsfw.maid()
         return maid
     def gif():
+        """NSFW gifs."""
         gif = akaneko.nsfw.gif()
         return gif

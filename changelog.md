@@ -125,3 +125,5 @@
 - Added PoliticalSelect to suppliment the afformentioned.
   
 - Refractor, and forced "tachi" color.
+
+- Refractor in `AnimeSelect (library)`, and new defs and new `AnimeNSFWGel (class)` to handle requests in `nsfwbooru`.

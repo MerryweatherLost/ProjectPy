@@ -1,11 +1,10 @@
 import discord
-
-from pygelbooru import Gelbooru
 from discord.ext import commands
+
 from library.ConsoleLib import Time
 from library.ConsoleLib import Roundtrip
 
-gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
+from library.AnimeSelect import AnimeNSFWGel
 
 class nsfwBooru(commands.Cog):
     def __init__(self, client):
@@ -17,10 +16,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def nsfwzettairyouiki(self, ctx):
-        NSFWZETTAI = await gelbooru.random_post ( 
-            tags = ['1girl','thighhighs','highres'],
-            exclude_tags = ['comic']
-        )
+        NSFWZETTAI = await AnimeNSFWGel.nsfwzettai()
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
@@ -49,10 +45,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def nsfwuniform(self, ctx):
-        NSFWUNIFORM = await gelbooru.random_post ( 
-            tags = ['1girl','uniform','highres'],
-            exclude_tags = ['comic']
-        )
+        NSFWUNIFORM = AnimeNSFWGel.nsfwuniform()
         embed = discord.Embed (
             title = "Uniform Image", 
             description = "Here is the image!", 
@@ -81,10 +74,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def ahegao(self, ctx):
-        AHEGAO = await gelbooru.random_post ( 
-            tags = ['ahegao','highres'],
-            exclude_tags = ['comic']
-        )
+        AHEGAO = AnimeNSFWGel.ahegao()
         embed = discord.Embed (
             title = "Ahegao Image", 
             description = "Here is the image!", 
@@ -113,9 +103,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def nsfwgif(self, ctx):
-        GIF = await gelbooru.random_post ( 
-            tags = ['animated_gif','highres']
-        )
+        GIF = AnimeNSFWGel.nsfwgif()
         embed = discord.Embed (
             title = "GIF Image", 
             description = "Here is the image!", 
@@ -143,9 +131,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown( rate = 1, per = 1.0 )
     @commands.is_nsfw()
     async def doujin(self, ctx):
-        MANGA = await gelbooru.random_post ( 
-            tags = ['comic','highres']
-        )
+        MANGA = AnimeNSFWGel.doujinshi()
         embed = discord.Embed (
             title = "Doujin Image", 
             description = "Here is the image!", 
@@ -173,10 +159,7 @@ class nsfwBooru(commands.Cog):
     @commands.cooldown(rate = 1, per = 1.0)
     @commands.is_nsfw()
     async def nsfwcatgirl(self, ctx):
-        NSFWCATGIRL = await gelbooru.random_post ( 
-            tags = ['cat_girl','highres'],
-            exclude_tags = ['comic']
-        )
+        NSFWCATGIRL = AnimeNSFWGel.nsfwcatgirl()
         embed = discord.Embed (
             title = "Catgirl Image", 
             description = "Here is the image!", 
