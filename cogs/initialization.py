@@ -1,9 +1,12 @@
 import os
+import sys
 import discord
+import asyncio 
 
 from discord.ext import commands, tasks
 
 from library.ConsoleLib import Time
+from library.ConsoleLib import InitProg
 from library.ConsoleLib import Roundtrip
 
 from itertools import cycle
@@ -23,11 +26,29 @@ class Initialization(commands.Cog):
     # FIRST ARGUMENT THAT YOUR FUNCTIONS 
     # IN YOUR CLASS TAKES!
     async def on_ready(self):
+        # CLEAR COMMAND
         self.change_status.start()
         clear = lambda: os.system(consoleclr)
         clear()
+
+        # START PROCESS
+        InitProg.startProgress(u'\u001b[33mInitializing Client\u001b[0m')
+        set = 0
+
+        # LOOP TO REACH PROCESS
+        while (set != 100):
+            await asyncio.sleep(0.01)
+            InitProg.progress(x = set)
+            set += 1
+
+        # COMPLETE PROCESS
+        InitProg.endProgress()
+        print(f'Loading Complete! Good Day, Edelweiss!\n')
+        await asyncio.sleep(0.5)
+
+        # PRINT ESTABLISHMENT
         print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED.')
-    
+   
     @tasks.loop(seconds = 4)
     async def change_status(self):
         await self.client.change_presence(activity = discord.Game(next(self.status)))

@@ -127,3 +127,5 @@
 - Refractor, and forced "tachi" color.
 
 - Refractor in `AnimeSelect (library)`, and new defs and new `AnimeNSFWGel (class)` to handle requests in `nsfwbooru`.
+  
+- Amazing progress bar, and a class to go with it.

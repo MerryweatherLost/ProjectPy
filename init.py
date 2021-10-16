@@ -64,7 +64,6 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Insufficient Args!') 
 
     elif isinstance(error, commands.MissingPermissions):
         msg = 'You are missing permissions for this command.'
@@ -74,7 +73,6 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Missing Permissions!') 
 
     elif isinstance(error, commands.UserNotFound):
         msg = 'Unfortunately, I can not find this member, try again and check the user.'
@@ -84,7 +82,6 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Member not located!') 
 
     elif isinstance(error, commands.TooManyArguments):
         msg = 'Too many arguments within this response, check the required amount.'
@@ -94,7 +91,6 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Too Many Args!') 
 
     elif isinstance(error, commands.CommandNotFound):
         msg = 'Whoops, looks like I can not find that command! Try inputting it correctly, or check t!help or ask **Edelweiss#1337** for assistance!'
@@ -104,7 +100,6 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Command Not Found!') 
 
     elif isinstance(error, commands.CommandOnCooldown):
         msg = 'This command is on a cooldown! Wait a moment...'
@@ -114,7 +109,6 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Cooldown!') 
 
     elif isinstance(error, commands.NSFWChannelRequired):
         msg = 'Seems like this command needs a NSFW channel.'  
@@ -124,7 +118,7 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: NSFW Channel Required!')   
+
     else:
         msg = "I can not pick up this error from my handler! Notify **Edelweiss#1337!**"
         embed = discord.Embed (
@@ -133,6 +127,7 @@ async def on_command_error(ctx, error):
         embed.set_footer (
             text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
         )
+        print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Required Attention to Unknown Error!')   
         print(error)
 
     await asyncio.sleep(1)
