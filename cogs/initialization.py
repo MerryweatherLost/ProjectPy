@@ -15,6 +15,8 @@ from itertools import cycle
 from private.config import status
 from private.config import consoleclr
 
+from settings.Settings import General
+
 # INITIALIZATION 
 
 class Initialization(commands.Cog):
@@ -33,7 +35,7 @@ class Initialization(commands.Cog):
         clear()
 
         # START PROCESS
-        print('Put hard work into anything you do.')
+        print(General.quote())
         playsound('setup.wav')
         clear()
         InitProg.startProgress(u'\u001b[33mInitializing Client\u001b[0m')
