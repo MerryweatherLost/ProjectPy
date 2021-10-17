@@ -12,9 +12,9 @@ class General:
     # Console
     def quote():
         quotelist = [
-            'Put work into everything that you do.',
-            'We created this message just for you.',
-            'America grew up listening to us. It still does.',
+            u'\u001b[33;1mPut work into everything that you do.\u001b[0m',
+            u'\u001b[33;1mWe created this message just for you.\u001b[0m',
+            u'\u001b[33;1mAmerica grew up listening to us. It still does.\u001b[0m',
         ]
         quote = random.choice(quotelist)
         return quote

@@ -38,7 +38,7 @@ class Initialization(commands.Cog):
         print(General.quote())
         playsound('setup.wav')
         clear()
-        InitProg.startProgress(u'\u001b[33mInitializing Client\u001b[0m')
+        InitProg.startProgress(u'\u001b[33;1mInitializing Client\u001b[0m')
         set = 0
 
         # LOOP TO REACH PROCESS

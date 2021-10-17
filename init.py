@@ -2,6 +2,20 @@ import os
 import discord
 import asyncio
 
+import itertools
+import threading
+import time
+import sys
+
+def animate():
+    for c in itertools.cycle(['|', '/', '-', '\\']):
+        if done:
+            break
+        sys.stdout.write('\rFinding Command: ' + c)
+        sys.stdout.flush()
+        time.sleep(0.2)
+    sys.stdout.write('\rDone. Starting Client...')
+
 from discord.ext import commands
 
 from private.config import config
@@ -45,6 +59,12 @@ async def reload(extension):
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
+        t = threading.Thread(target=animate)
+        done = False
+        t.start()
+        time.sleep(0.1)
+        done = True
+        print(f' Loaded {filename}!')
 
 @client.event
 async def on_member_join(member: discord.Member):

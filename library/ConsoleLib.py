@@ -154,17 +154,17 @@ class Roundtrip:
 class InitProg:
     def startProgress(title):
         global progress_x
-        sys.stdout.write(title + ": [" + "-"*44 + "]" + chr(8)*45)
+        sys.stdout.write(title + ": |" + " "*44 + "|" + chr(8)*45)
         sys.stdout.flush()
         progress_x = 0
 
     def progress(x):
         global progress_x
         x = int(x * 44 // 100)
-        sys.stdout.write("#" * (x - progress_x))
+        sys.stdout.write("█" * (x - progress_x))
         sys.stdout.flush()
         progress_x = x
 
     def endProgress():
-        sys.stdout.write("#" * (44 - progress_x) + "]\n")
+        sys.stdout.write("█" * (44 - progress_x) + "|\n")
         sys.stdout.flush()    
