@@ -29,7 +29,7 @@ class Math(commands.Cog):
         if (dropon == False):
             embed = discord.Embed (description = '**Invalid Operator!**')
         elif (dropon == True): 
-            embed = discord.Embed (description = f'The result is: {result}')
+            embed = discord.Embed (description = f'**The result is:** {result}')
 
         await ctx.reply(embed = embed)
 
