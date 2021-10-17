@@ -137,3 +137,5 @@
 - New `math` and `mathround` commands added. Arithmetic only (for now.)
 
 - New `weather` command. Advanced weather command achieved.
+
+- Visualizes the way initialization is done.
