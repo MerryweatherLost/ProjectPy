@@ -1,5 +1,6 @@
-
 import discord
+
+import python_weather
 
 from discord.ext import commands
 from library.ConsoleLib import Time
@@ -28,7 +29,45 @@ class General(commands.Cog):
     @commands.command(help = 'Sends the github of the creator.', aliases = ['git'])
     async def github(self, ctx):
         await ctx.reply(f'Here is the GitHub of my creator: https://github.com/MerryweatherLost')
-        
+
+    # WEATHER
+    @commands.command(help = 'Sends weather information of a city. (Quotes needed in the city parameter.)')
+    async def weather(self, ctx, city, standard = None):
+        if (standard != None):
+            str.lower(standard)
+        else:
+            standard = 'imperial'
+            
+        if (standard == 'metric'): STANDARD = python_weather.METRIC
+        elif (standard == 'imperial'): STANDARD = python_weather.IMPERIAL
+        elif (standard == None): STANDARD = python_weather.IMPERIAL
+        else: STANDARD = python_weather.IMPERIAL
+
+        client = python_weather.Client(format = STANDARD)
+        weather = await client.find(city)
+
+        wembed = discord.Embed (
+            title = (f'{str(weather.location_name)}'),
+            description = (f'**Temperature for Today:** {weather.current.temperature}{STANDARD}'),
+            color = Color.weather
+        )
+        wembed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/899394919012118548/wther.png'
+        )
+        # TOP FIELD
+        wembed.add_field (name = 'Skies ☁️', value = weather.current.sky_text)
+        wembed.add_field (name = 'Precipitation 🌧️', value = f'{weather.current.humidity}{"%"}')
+        wembed.add_field (name = 'Wind Display 🚩', value = weather.current.wind_display)
+        # BOTTOM FIELD
+        wembed.add_field (name = 'Source', value = weather.provider)
+        wembed.add_field (name = 'Feels Like', value = f'{weather.current.feels_like}{STANDARD}')
+        wembed.add_field (name = 'Observation Point', value = weather.current.observation_point)
+
+        wembed.set_footer (text = f'Date: {weather.current.date} Alerts: {weather.alert_message}')
+
+        await ctx.reply(embed = wembed)
+        await client.close()
+
     # TOP DOG METHOD
     @commands.command(help = 'Returns highest role.', aliases = ['tr'])
     async def toprole(self, ctx, member: commands.MemberConverter = None):

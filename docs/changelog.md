@@ -135,3 +135,5 @@
 - Major shortening of words and a large refractor for stuff to make sense.
 
 - New `math` and `mathround` commands added. Arithmetic only (for now.)
+
+- New `weather` command. Advanced weather command achieved.

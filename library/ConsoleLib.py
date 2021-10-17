@@ -112,6 +112,8 @@ class Color:
     """Returns a factory setting of a white color for RGB. `tuple`"""
     tachi = discord.Color.from_rgb(235, 179, 82)
     """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
+    weather = discord.Color.from_rgb(113, 175, 222)
+    """Returns a factory setting of a signature Weather color for RGB. `tuple`"""
 
 class DurationConverter(commands.Converter):
     """
