@@ -106,7 +106,7 @@
 
 - From now on, pull requests will be used for new changes.
 
-## [1.1.0] - 2021-10-15 - 2021-10-**
+## [1.1.0] - 2021-10-15 - 2021-10-20
 
 - New `Roundtrip (class)` to facilitate latency and make code cleaner.
 
