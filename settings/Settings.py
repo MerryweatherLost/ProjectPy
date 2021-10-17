@@ -14,9 +14,6 @@ class General:
         quotelist = [
             'Put work into everything that you do.',
             'We created this message just for you.',
-            'Clear skies in the console.',
-            'How do we come up with this stuff?',
-            'Where do we go from here?',
             'America grew up listening to us. It still does.',
         ]
         quote = random.choice(quotelist)
