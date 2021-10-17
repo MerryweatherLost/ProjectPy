@@ -49,7 +49,7 @@ class Initialization(commands.Cog):
 
         # COMPLETE PROCESS
         InitProg.endProgress()
-        print(f'Loading Complete! Good Day, Edelweiss!\n')
+        print(f'Loading Complete! Welcome Back, Edelweiss!\n')
         await asyncio.sleep(0.5)
 
         # PRINT ESTABLISHMENT
