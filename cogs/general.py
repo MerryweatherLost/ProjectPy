@@ -20,7 +20,7 @@ class General(commands.Cog):
             color = Color.white
         )
         embed.set_footer (
-            text = f"Tachibana: {Time.pureTimeUniversial()}"
+            text = f"Tachibana: {Time.timeUTC()}"
         )
         await ctx.reply(embed = embed)
 

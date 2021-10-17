@@ -30,11 +30,11 @@ class Anime(commands.Cog):
             url = COFFEE
             )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized in #{ctx.channel}! \n[Raw Data: {COFFEE}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized in #{ctx.channel}! \n[Raw Data: {COFFEE}]')
 
     # APPLEJUICE - SFW
     @commands.command(help = 'Emotional Relief.')
@@ -53,11 +53,11 @@ class Anime(commands.Cog):
             url = APPL
             )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized in #{ctx.channel}! \n[Raw Data: {APPL}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized in #{ctx.channel}! \n[Raw Data: {APPL}]')
 
     # DHARMANN - SFW
     @commands.command(help = 'Emotional Relief.')
@@ -76,11 +76,11 @@ class Anime(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized in #{ctx.channel}! \n[Raw Data: {DHAR}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized in #{ctx.channel}! \n[Raw Data: {DHAR}]')
 
     # DDLC - SFW
     @commands.command(help = 'Images of the Doki Doki Literature Club characters.')
@@ -99,11 +99,11 @@ class Anime(commands.Cog):
             url = DDLC
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized in #{ctx.channel}! \n[Raw Data: {DDLC}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized in #{ctx.channel}! \n[Raw Data: {DDLC}]')
     
     # POSITIVITY - SFW
     @commands.command(help = 'Sends positive message.')
@@ -120,11 +120,11 @@ class Anime(commands.Cog):
             url = POSIMG
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized in #{ctx.channel}! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized in #{ctx.channel}! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
     
     # SPECIALWAIFU - SFW
     @commands.command(help = 'List of handpicked, pristine waifus.', aliases = ['waifuspec','specwaifu','wspec'])
@@ -143,11 +143,11 @@ class Anime(commands.Cog):
             url = WAIFUSPECIAL
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized in #{ctx.channel}! \n[Raw Data: {WAIFUSPECIAL}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized in #{ctx.channel}! \n[Raw Data: {WAIFUSPECIAL}]')
 
 def setup(client):
     client.add_cog(Anime(client))

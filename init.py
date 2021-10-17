@@ -48,11 +48,11 @@ for filename in os.listdir('./cogs'):
 
 @client.event
 async def on_member_join(member: discord.Member):
-    print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
+    print(f'[{Time.timeCST()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: JOIN | LOG: Member {member} has joined the server!')
 
 @client.event
 async def on_member_remove(member: discord.Member):
-    print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
+    print(f'[{Time.timeCST()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: LEAVE | LOG: Member {member} has left the server!')
         
 @client.event
 async def on_command_error(ctx, error):
@@ -63,7 +63,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     elif isinstance(error, commands.MissingPermissions):
@@ -72,7 +72,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     elif isinstance(error, commands.UserNotFound):
@@ -81,7 +81,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     elif isinstance(error, commands.TooManyArguments):
@@ -90,7 +90,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     elif isinstance(error, commands.CommandNotFound):
@@ -99,7 +99,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     elif isinstance(error, commands.CommandOnCooldown):
@@ -108,7 +108,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     elif isinstance(error, commands.NSFWChannelRequired):
@@ -117,7 +117,7 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
 
     else:
@@ -126,9 +126,9 @@ async def on_command_error(ctx, error):
             description = msg
         )
         embed.set_footer (
-            text = f'Tachibana Error Reporting: {Time.pureTimeUniversial()}'
+            text = f'Tachibana Error Reporting: {Time.timeUTC()}'
         )
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Required Attention to Unknown Error!')   
+        print(f'[{Time.timeCST()}] [Roundtrip: {round(client.latency * 1000)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Required Attention to Unknown Error!')   
         print(error)
 
     await asyncio.sleep(1)

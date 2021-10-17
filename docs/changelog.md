@@ -128,6 +128,8 @@
 
 - Refractor in `AnimeSelect (library)`, and new defs and new `AnimeNSFWGel (class)` to handle requests in `nsfwbooru`.
   
-- Amazing progress bar, and a class to go with it.
+- Amazing progress bar.
 
 - Music added on startup.
+
+- Major shortening of words and a large refractor for stuff to make sense.

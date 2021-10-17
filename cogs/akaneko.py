@@ -5,7 +5,7 @@ from library.ConsoleLib import Time
 from library.ConsoleLib import Color
 from library.ConsoleLib import Roundtrip
 
-from library.AnimeSelect import AkanekoNSFW
+from library.AnimeSelect import AkaNSFW
 
 from discord.ext import commands
 
@@ -28,11 +28,11 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
         
     # NEKO - SFW
     @commands.command(help = 'Some safe for work neko images.')
@@ -49,11 +49,11 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
     
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
     
     # FOXGIRL - SFW
     @commands.command(help = 'Some safe for work foxgirl images.')
@@ -70,16 +70,16 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
 
     # SCHOOL - NSFW
     @commands.command(help = 'Not safe for work school images.')
     async def akaschool(self, ctx):
-        AKASCHOOL = AkanekoNSFW.school()
+        AKASCHOOL = AkaNSFW.school()
         school = discord.Embed (
             title = "School Image",
             description = "Here is the image!",
@@ -93,16 +93,16 @@ class Akaneko(commands.Cog):
             url = AKASCHOOL
         )
         school.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = school)        
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: School was utilized in #{ctx.channel}! \n[Raw Data: {AKASCHOOL}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: School was utilized in #{ctx.channel}! \n[Raw Data: {AKASCHOOL}]')
 
     # MAID - NSFW
     @commands.command(help = 'Not safe for work school images.')
     async def akamaid(self, ctx):
-        AKAMAID = AkanekoNSFW.maid()
+        AKAMAID = AkaNSFW.maid()
         school = discord.Embed (
             title = "Maid Image",
             description = "Here is the image!",
@@ -116,16 +116,16 @@ class Akaneko(commands.Cog):
             url = AKAMAID
         )
         school.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = school)        
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akamaid was utilized in #{ctx.channel}! \n[Raw Data: {AKAMAID}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akamaid was utilized in #{ctx.channel}! \n[Raw Data: {AKAMAID}]')
         
     # GIF - NSFW
     @commands.command(help = 'Not safe for work school images.')
     async def akagif(self, ctx):
-        AKAGIF = AkanekoNSFW.gif()
+        AKAGIF = AkaNSFW.gif()
         school = discord.Embed (
             title = "GIF Image",
             description = "Here is the image!",
@@ -139,11 +139,11 @@ class Akaneko(commands.Cog):
             url = AKAGIF
         )
         school.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = school)        
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akagif was utilized in #{ctx.channel}! \n[Raw Data: {AKAGIF}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akagif was utilized in #{ctx.channel}! \n[Raw Data: {AKAGIF}]')
 
 def setup(client):
     client.add_cog(Akaneko(client))

@@ -18,7 +18,7 @@ class Time:
     Created by: Raymond Allison
     """
     
-    def timeFormat():
+    def timeCST():
         """
         Sets the time format and returns a String version for the console.
 
@@ -31,7 +31,7 @@ class Time:
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
         return formTime
-    def timeFormatUniversial():
+    def dateTimeUTC():
         """
         Sets the time format, UTC.
 
@@ -44,7 +44,7 @@ class Time:
         date_object = datetime.utcnow()
         formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
         return formTime
-    def pureTimeUniversial():
+    def timeUTC():
         """
         Sets the time format, UTC.
 
@@ -58,7 +58,7 @@ class Time:
         return formTime
 
 class Essentials:
-    def response8ball():
+    def eightball():
         """
         Responses handler for a randomized 8ball.
 
@@ -98,10 +98,6 @@ class Essentials:
 
         Variables
         ---------
-        responses: `str`, `list`,
-
-        List of literal strings to pull from later on.
-
         coinflip: `var`,
 
         Picks one literal string from a `random.choice` function.

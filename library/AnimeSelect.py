@@ -115,12 +115,10 @@ class AnimeList:
             ]
         waifuspecial = random.choice(list)
         return waifuspecial
-    def HatersGonnaHate() -> str:
-        img = 'https://cdn.discordapp.com/attachments/576096750331494420/898361152306814976/hgh.gif'
-        return img
 
-class AnimeGelbooru:
-    """Returns images specified through Gelbooru."""
+class AnimeGel:
+    """Returns images specified through Gelbooru.
+    This inherits from: :exc:`Gelbooru`"""
     async def WALLPAPER() -> str:
         wallpaper = await gelbooru.random_post ( 
             tags = ['wallpaper'], 
@@ -163,7 +161,8 @@ class AnimeGelbooru:
         )
         return cat
 class AnimeNSFWGel:
-    """Imports not safe for work images."""
+    """Imports not safe for work images.\n
+    This inherits from: :exc:`Gelbooru`"""
     async def nsfwzettai() -> str:
         """Imports NSFW thighhighs."""
         zettairyo = await gelbooru.random_post ( 
@@ -205,7 +204,7 @@ class AnimeNSFWGel:
         )
         return catgirl
 
-class AkanekoNSFW:
+class AkaNSFW:
     def school():
         """NSFW Schoolgirls."""
         school = akaneko.nsfw.school()
