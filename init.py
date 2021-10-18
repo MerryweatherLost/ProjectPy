@@ -64,7 +64,7 @@ for filename in os.listdir('./cogs'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' Loaded {filename}!')
+        print(f' Finished loading {filename}!')
 
 @client.event
 async def on_member_join(member: discord.Member):

@@ -1,11 +1,14 @@
 import discord
-
 import python_weather
 
 from discord.ext import commands
+from discord.ext.commands.core import is_owner
+
 from library.ConsoleLib import Time
 from library.ConsoleLib import Color
 from library.ConsoleLib import Roundtrip
+
+from library.WeatherSelect import Weather
 
 # GENERAL COMMANDS
 
@@ -38,34 +41,46 @@ class General(commands.Cog):
         else:
             standard = 'imperial'
 
-        if (standard == 'metric'): STANDARD = python_weather.METRIC
-        elif (standard == 'imperial'): STANDARD = python_weather.IMPERIAL
-        elif (standard == None): STANDARD = python_weather.IMPERIAL
-        else: STANDARD = python_weather.IMPERIAL
+        if (standard == 'metric'): STN = Weather.metric
+        elif (standard == 'imperial'): STN = Weather.imperial
+        else: STN = Weather.imperial
 
-        client = python_weather.Client(format = STANDARD)
+        client = python_weather.Client(format = STN)
         weather = await client.find(city)
 
         wembed = discord.Embed (
-            title = (f'{str(weather.location_name)}'),
-            description = (f'**Temperature for Today:** {weather.current.temperature}{STANDARD}'),
+            title = (f'{str(weather.current.observation_point)}'),
+            description = (f'**Temperature for Today:** {weather.current.temperature}{STN}'),
             color = Color.weather
         )
         wembed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/899394919012118548/wther.png'
         )
         # TOP FIELD
-        wembed.add_field (name = 'Skies ☁️', value = weather.current.sky_text)
-        wembed.add_field (name = 'Precipitation 🌧️', value = f'{weather.current.humidity}{"%"}')
-        wembed.add_field (name = 'Wind Display 🚩', value = weather.current.wind_display)
+        wembed.add_field (
+            name = 'Skies ☁️', value = weather.current.sky_text
+        )
+        wembed.add_field (
+            name = 'Precipitation 🌧️', value = f'{weather.current.humidity}{"%"}'
+        )
+        wembed.add_field (
+            name = 'Wind Display 🚩', value = weather.current.wind_display
+        )
         # BOTTOM FIELD
-        wembed.add_field (name = 'Source', value = weather.provider)
-        wembed.add_field (name = 'Feels Like', value = f'{weather.current.feels_like}{STANDARD}')
-        wembed.add_field (name = 'Observation Point', value = weather.current.observation_point)
+        wembed.add_field (
+            name = 'Source', value = weather.provider
+        )
+        wembed.add_field (
+            name = 'Feels Like', value = f'{weather.current.feels_like}{STN}'
+        )
+        wembed.add_field (
+            name = 'Observation Point', value = weather.current.observation_point
+        )
 
         wembed.set_footer (text = f'Date: {weather.current.date} Alerts: {weather.alert_message}')
 
         await ctx.reply(embed = wembed)
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WEATHER - LOG: weather was utilized in #{ctx.channel}!\n[Location: {weather.current.observation_point} ] [Temperature: {weather.current.temperature}°{STN}] [Windspeed: {weather.current.wind_display}]')
         await client.close()
 
     # TOP DOG METHOD
@@ -76,6 +91,18 @@ class General(commands.Cog):
         else:
             await ctx.reply(f'**Highest Role:** {member.top_role}')
 
+    @commands.command(help = 'Checks for voice status.')
+    @is_owner()
+    async def voicestatus(self, ctx, member: commands.MemberConverter = None):
+        if (member == None):
+            VOICE = ctx.author.voice
+            ADDRESS = 'Your'
+        else:
+            VOICE = member.voice
+            ADDRESS = 'Their'
+
+        embed = discord.Embed (description = f'**{ADDRESS} status in voice is:** {VOICE}')
+        await ctx.reply(embed = embed)
     # ROLES
     @commands.command(help = 'Returns a number roles of a user or if not implimented, yours.')
     async def roles(self, ctx, member: commands.MemberConverter = None):
