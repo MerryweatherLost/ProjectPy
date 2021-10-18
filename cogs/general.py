@@ -37,7 +37,7 @@ class General(commands.Cog):
             str.lower(standard)
         else:
             standard = 'imperial'
-            
+
         if (standard == 'metric'): STANDARD = python_weather.METRIC
         elif (standard == 'imperial'): STANDARD = python_weather.IMPERIAL
         elif (standard == None): STANDARD = python_weather.IMPERIAL

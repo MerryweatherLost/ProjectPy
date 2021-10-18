@@ -21,7 +21,7 @@ class Administration(commands.Cog):
     @commands.command(help = "Clears an amount of messages.")
     @commands.has_permissions(manage_messages = True)
     @commands.cooldown(rate = 1, per = 5)
-    async def clear(self, ctx, amount = 5):
+    async def clear(self, ctx, amount: int):
         if (amount > Admin.clearlimit):
             embed = discord.Embed (
                 description = f'Woah! too many requests! Try something less than or equal to {Admin.clearlimit}.',
@@ -37,11 +37,6 @@ class Administration(commands.Cog):
         else:
             await ctx.channel.purge(limit = amount)
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - CLEAR: Channel #{ctx.channel} was cleared {amount} times using this command!')
-    
-    @clear.error
-    async def clear_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.reply('Please specify an amount of messages to delete.')
 
     # KICK METHOD
     @commands.command(help = "Kicks a person from the server.")
