@@ -1,11 +1,11 @@
 import os
+import sys
+import time
 import discord
 import asyncio
 
 import itertools
 import threading
-import time
-import sys
 
 def animate():
     for c in itertools.cycle(['|', '/', '-', '\\']):
