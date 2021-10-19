@@ -2,7 +2,8 @@ import discord
 from discord.ext import commands
 
 from library.ConsoleLib import Time
-from library.AnimeSelect import AnimeGelbooru
+from library.AnimeSelect import AnimeGel
+from library.ConsoleLib import Roundtrip
 
 class Booru(commands.Cog):
     def __init__(self, client):
@@ -13,7 +14,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Some safe for work wallpapers.")
     @commands.cooldown(rate = 1, per = 1.0)
     async def wallpaper(self, ctx):
-        WALLPAPER = await AnimeGelbooru.WALLPAPER()
+        WALLPAPER = await AnimeGel.WALLPAPER()
         embed = discord.Embed (
             title = "Wallpaper Image", 
             description = "Here is the image!", 
@@ -30,16 +31,16 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized! \n[Raw Data: {WALLPAPER}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {WALLPAPER}]')
 
     # ZETTAI RYOUIKI - SFW  
     @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
     @commands.cooldown( rate = 1, per = 1.0 )
     async def zettairyouiki(self, ctx):
-        ZETTAI = await AnimeGelbooru.ZETTAI()
+        ZETTAI = await AnimeGel.ZETTAI()
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
@@ -56,18 +57,18 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized! \n[Raw Data: {ZETTAI}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized in #{ctx.channel}! \n[Raw Data: {ZETTAI}]')
 
 
     # UNIFORM - SFW
     @commands.command(help = "Uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
     async def uniform(self, ctx):
-        UNIFORM = await AnimeGelbooru.UNIFORM()
+        UNIFORM = await AnimeGel.UNIFORM()
         embed = discord.Embed (
             title = "Uniform", 
             description = "Here is the image!", 
@@ -84,18 +85,18 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized! \n[Raw Data: {UNIFORM}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized in #{ctx.channel}! \n[Raw Data: {UNIFORM}]')
 
 
     # CAR - SFW
     @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def car(self, ctx):
-        CAR = await AnimeGelbooru.CAR()
+        CAR = await AnimeGel.CAR()
         embed = discord.Embed (
             title = "Car Image", 
             description = "Here is the image!", 
@@ -112,17 +113,17 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized! \n[Raw Data: {CAR}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized in #{ctx.channel}! \n[Raw Data: {CAR}]')
 
     # GUN - SFW
     @commands.command(help = 'Gun images.', aliases = ['pew'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def gun(self, ctx):
-        GUN = await AnimeGelbooru.GUN()
+        GUN = await AnimeGel.GUN()
         embed = discord.Embed (
             title = "Gun Image", 
             description = "Here is the image!", 
@@ -139,17 +140,17 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized! \n[Raw Data: {GUN}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized in #{ctx.channel}! \n[Raw Data: {GUN}]')
 
     # CATGIRL - SFW
     @commands.command(help = "Catgirls.", aliases = ['cat'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def catgirl(self, ctx):
-        CATGIRL = await AnimeGelbooru.CATGIRL()
+        CATGIRL = await AnimeGel.CATGIRL()
         embed = discord.Embed (
             title = "Catgirl Image", 
             description = "Here is the image!", 
@@ -166,11 +167,11 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized! \n[Raw Data: {CATGIRL}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized in #{ctx.channel}! \n[Raw Data: {CATGIRL}]')
 
 def setup(client):
     client.add_cog(Booru(client))

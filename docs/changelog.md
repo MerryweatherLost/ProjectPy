@@ -105,3 +105,39 @@
 - Seperated Development build 'Project PY' and 'Tachibana'. They operate independently now.
 
 - From now on, pull requests will be used for new changes.
+
+## [1.1.0] - 2021-10-15 - 2021-10-19
+
+- New `Roundtrip (class)` to facilitate latency and make code cleaner.
+
+- `Color (class)` additions.
+
+- New `akaneko` Commands.
+
+  - `nsfwschool` command, which returns schoolgirls.
+  
+  - `nsfwmaid` command, which returns maids.
+  
+  - `nsfwgif`, command, which returns gifs.
+
+- This ones a big one. Added `states and territories (classes)` and all state flags and territory flags of the United States of America.
+  
+- Added PoliticalSelect to suppliment the afformentioned.
+  
+- Refractor, and forced "tachi" color.
+
+- Refractor in `AnimeSelect (library)`, and new defs and new `AnimeNSFWGel (class)` to handle requests in `nsfwbooru`.
+  
+- Amazing progress bar.
+
+- Music added on startup.
+
+- Major shortening of words and a large refractor for stuff to make sense.
+
+- New `math` and `mathround` commands added. Arithmetic only (for now.)
+
+- New `weather` command. Advanced weather command achieved.
+
+- Visualizes the way initialization is done.
+
+- Weather and Math refractor.

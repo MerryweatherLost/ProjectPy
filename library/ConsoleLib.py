@@ -1,7 +1,13 @@
-from datetime import datetime
-from discord.ext import commands
+import sys
+import time
 import random
 import discord
+
+from datetime import datetime
+from discord.ext import commands
+
+def __init__(self, client):
+    self.client = client
 
 class Time:
     """
@@ -12,7 +18,7 @@ class Time:
     Created by: Raymond Allison
     """
     
-    def timeFormat():
+    def timeCST():
         """
         Sets the time format and returns a String version for the console.
 
@@ -25,7 +31,7 @@ class Time:
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
         return formTime
-    def timeFormatUniversial():
+    def dateTimeUTC():
         """
         Sets the time format, UTC.
 
@@ -38,7 +44,7 @@ class Time:
         date_object = datetime.utcnow()
         formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
         return formTime
-    def pureTimeUniversial():
+    def timeUTC():
         """
         Sets the time format, UTC.
 
@@ -51,8 +57,8 @@ class Time:
         formTime = date_object.strftime("%H:%M UTC")
         return formTime
 
-class Essentials:
-    def response8ball():
+class Essentials():
+    def eightball():
         """
         Responses handler for a randomized 8ball.
 
@@ -92,10 +98,6 @@ class Essentials:
 
         Variables
         ---------
-        responses: `str`, `list`,
-
-        List of literal strings to pull from later on.
-
         coinflip: `var`,
 
         Picks one literal string from a `random.choice` function.
@@ -103,6 +105,32 @@ class Essentials:
         responses = [ 'Heads.','Tails.' ]
         coinflip = random.choice(responses)
         return coinflip
+    
+    def Math(num1: float, op, num2: float):
+        """Math Calculations to process for math.py."""
+        valid = True
+        if (op == '+' or op == 'plus'):
+            result = num1 + num2
+        elif (op == '-' or op == 'minus'):
+            result = num1 - num2
+        elif (op == '*' or op == 'x' or op == 'times'):
+            result = num1 * num2
+        elif (op == '/' or op == 'divide'):
+            result = num1 / num2
+        elif (op == '%' or op == 'remainder'):
+            result = num1 % num2
+        elif (op == '**' or op == 'exponent'):
+            result = num1 ** num2
+        elif (op == '//' or op == 'floor'):
+            result = num1 // num2
+        else: valid = False
+
+        if (valid == False):
+            embed = '**Invalid Operator!**'
+            return embed
+        elif (valid == True): 
+            embed = f'**The result is:** {result}'
+            return embed
 
 class Color:
     """`class` meant to handle requests for colors."""
@@ -110,6 +138,8 @@ class Color:
     """Returns a factory setting of a white color for RGB. `tuple`"""
     tachi = discord.Color.from_rgb(235, 179, 82)
     """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
+    weather = discord.Color.from_rgb(113, 175, 222)
+    """Returns a factory setting of a signature Weather color for RGB. `tuple`"""
 
 class DurationConverter(commands.Converter):
     """
@@ -141,3 +171,26 @@ class DurationConverter(commands.Converter):
             return (int(amount), unit)
         
         raise commands.BadArgument(message = 'Not a valid duration.')
+
+class Roundtrip: 
+    def rt(self):
+        roundtrip = round(self.client.latency * 1000)
+        return roundtrip
+
+class InitProg:
+    def startProgress(title):
+        global progress_x
+        sys.stdout.write(title + ": |" + " "*44 + "|" + chr(8)*45)
+        sys.stdout.flush()
+        progress_x = 0
+
+    def progress(x):
+        global progress_x
+        x = int(x * 44 // 100)
+        sys.stdout.write("█" * (x - progress_x))
+        sys.stdout.flush()
+        progress_x = x
+
+    def endProgress():
+        sys.stdout.write("█" * (44 - progress_x) + "|\n")
+        sys.stdout.flush()    

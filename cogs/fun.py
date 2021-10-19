@@ -6,6 +6,9 @@ from discord.ext import commands
 
 from library.ConsoleLib import Time
 from library.ConsoleLib import Essentials
+from library.ConsoleLib import Roundtrip
+
+from library.PoliticalSelect import States
 
 class Fun(commands.Cog):
     def __init__(self, client):
@@ -18,7 +21,7 @@ class Fun(commands.Cog):
         answer = Essentials.CoinToss()
         await message.edit(content = f'{answer}')
 
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized! [ Coin: {answer} ]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized in #{ctx.channel}! [ Coin: {answer} ]')
    
     # PYTHON METHOD
     @commands.command( help = "The language it was programmed in.", aliases = ['py'] )
@@ -29,7 +32,7 @@ class Fun(commands.Cog):
             url = 'https://www.python.org/',
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed) 
 
@@ -45,7 +48,7 @@ class Fun(commands.Cog):
 
         message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')    
 
-        answer = Essentials.response8ball()
+        answer = Essentials.eightball()
         embed = discord.Embed (
             title = "8-Ball", 
             description = f'Question: **{question}**\nAnswer: **{answer}**',
@@ -59,14 +62,14 @@ class Fun(commands.Cog):
             icon_url = AUTHOR_IMAGE
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await asyncio.sleep(1)   
 
         await message.delete()
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeFormat()}] [Roundtrip: {round(self.client.latency * 1000)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized! [ Question: {question} ] [ Answer: {answer} ]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {question} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
@@ -101,7 +104,23 @@ class Fun(commands.Cog):
             url = IMAGE
         )
         await ctx.reply(embed = embed)
+    
+    @commands.command(help = 'Returns state flags. (information coming soon...)')
+    async def state(self, ctx, *, name):
+        embed = discord.Embed ()
+        embed.set_image(url = States.states(str.lower(name)))
+
+        await ctx.reply(embed = embed)
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {name}]')
+
+    @commands.command(help = 'Returns territory flags. (information coming soon...)')
+    async def territory(self, ctx, *, name):
+        embed = discord.Embed ()
+        embed.set_image(url = States.territories(str.lower(name)))
         
+        await ctx.reply(embed = embed)
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {name}]')
+
     # .
     @commands.command(name = '.', help = '.')
     async def dot(self, ctx):

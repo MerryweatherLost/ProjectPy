@@ -5,6 +5,7 @@ from waifu import WaifuAioClient
 from discord.ext import commands
 
 from library.ConsoleLib import Time
+from library.ConsoleLib import Roundtrip
 
 class Waifu(commands.Cog):
     def __init__(self, client):
@@ -17,7 +18,6 @@ class Waifu(commands.Cog):
     async def waifu(self, ctx):
         async with WaifuAioClient() as client:
             WAIFU: str = await client.sfw(category='waifu')
-            ROUNDTRIP = round(self.client.latency * 1000)
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
@@ -29,11 +29,11 @@ class Waifu(commands.Cog):
                 url = WAIFU, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
     
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized! \n[Raw Data: {WAIFU}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized in #{ctx.channel}! \n[Raw Data: {WAIFU}]')
 
     
     # NSFW
@@ -42,7 +42,6 @@ class Waifu(commands.Cog):
     async def nsfwwaifu(self, ctx):
         async with WaifuAioClient() as client:
             NSFW_WAIFU: str = await client.nsfw(category='waifu')
-            ROUNDTRIP = round(self.client.latency * 1000)
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
@@ -54,11 +53,11 @@ class Waifu(commands.Cog):
                 url = NSFW_WAIFU, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized! \n[Raw Data: {NSFW_WAIFU}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_WAIFU}]')
 
 
     # NEKO
@@ -66,7 +65,6 @@ class Waifu(commands.Cog):
     async def neko(self, ctx):
         async with WaifuAioClient() as client:
             NEKO: str = await client.sfw(category='neko')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -82,11 +80,11 @@ class Waifu(commands.Cog):
                 url = NEKO, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized! \n[Raw Data: {NEKO}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized in #{ctx.channel}! \n[Raw Data: {NEKO}]')
 
     # NEKO - NSFW
     @commands.command(help = 'Neko Waifu image.', aliases = ['nsfwneko', 'nekomiminsfw'])
@@ -94,7 +92,6 @@ class Waifu(commands.Cog):
     async def nekonsfw(self, ctx):
         async with WaifuAioClient() as client:
             NSFW_NEKO: str = await client.nsfw(category = 'neko')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -110,18 +107,17 @@ class Waifu(commands.Cog):
                 url = NSFW_NEKO, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized! \n[Raw Data: {NSFW_NEKO}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_NEKO}]')
     
     # HAPPY
     @commands.command(help = 'Happy image of a waifu.')
     async def happy(self, ctx):
         async with WaifuAioClient() as client:
             HAPPY: str = await client.sfw(category = 'happy')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -137,18 +133,17 @@ class Waifu(commands.Cog):
                 url = HAPPY, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
         
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized! \n[Raw Data: {HAPPY}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized in #{ctx.channel}! \n[Raw Data: {HAPPY}]')
     
     # SMILE
     @commands.command(help = 'Smiling image of a waifu.', aliases = ['🙂'])
     async def smile(self, ctx):
         async with WaifuAioClient() as client:
             SMILE: str = await client.sfw(category = 'smile')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -164,18 +159,17 @@ class Waifu(commands.Cog):
                 url = SMILE, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized! \n[Raw Data: {SMILE}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized in #{ctx.channel}! \n[Raw Data: {SMILE}]')
 
     # SMUG
     @commands.command(help = 'Smug image of a waifu. - My personal favorite.')
     async def smug(self, ctx):
         async with WaifuAioClient() as client:
             SMUG: str = await client.sfw(category = 'smug')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -191,18 +185,17 @@ class Waifu(commands.Cog):
                 url = SMUG, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized! \n[Raw Data: {SMUG}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized in #{ctx.channel}! \n[Raw Data: {SMUG}]')
 
     # DANCE
     @commands.command(help = 'Dance image of a waifu.')
     async def dance(self, ctx):
         async with WaifuAioClient() as client:
             DANCE: str = await client.sfw(category = 'smile')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -218,18 +211,17 @@ class Waifu(commands.Cog):
                 url = DANCE, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized! \n[Raw Data: {DANCE}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized in #{ctx.channel}! \n[Raw Data: {DANCE}]')
 
     # CRY
     @commands.command(help = 'Crying image of a waifu.')
     async def cry(self, ctx):
         async with WaifuAioClient() as client:
             CRY: str = await client.sfw(category = 'cry')
-            ROUNDTRIP = round(self.client.latency * 1000)
             AUTHOR_NAME = ctx.author.display_name
             AUTHOR_IMAGE = ctx.author.avatar_url
 
@@ -245,11 +237,11 @@ class Waifu(commands.Cog):
                 url = CRY, 
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized! \n[Raw Data: {CRY}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized in #{ctx.channel}! \n[Raw Data: {CRY}]')
 
 
     # HIGHFIVE
@@ -260,7 +252,6 @@ class Waifu(commands.Cog):
             MENTION = member.mention
             DISPLAY = member.display_name
             AUTHOR = ctx.author.display_name
-            ROUNDTRIP = round(self.client.latency * 1000)
             
             embed = discord.Embed (
                 title = 'Highfive',
@@ -275,12 +266,12 @@ class Waifu(commands.Cog):
                 url = HIGHFIVE
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
 
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
 
     # KILL
     @commands.command(help = 'Kill a member in chat. EX: :kill @member.', aliases = ['murder', 'slaughter'] )
@@ -290,7 +281,6 @@ class Waifu(commands.Cog):
             MENTION = member.mention
             DISPLAY = member.display_name
             AUTHOR = ctx.author.display_name
-            ROUNDTRIP = round(self.client.latency * 1000)
             
             embed = discord.Embed (
                 title = 'Kill',
@@ -305,12 +295,12 @@ class Waifu(commands.Cog):
                 url = KILL
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
 
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Kill was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {KILL}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Kill was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {KILL}]')
     
     # HUG
     @commands.command(help = 'Hug a member in chat. EX: :hug @member.',)
@@ -320,7 +310,6 @@ class Waifu(commands.Cog):
             MENTION = member.mention
             DISPLAY = member.display_name
             AUTHOR = ctx.author.display_name
-            ROUNDTRIP = round(self.client.latency * 1000)
 
             embed = discord.Embed (
                 title = 'Hug',
@@ -335,12 +324,12 @@ class Waifu(commands.Cog):
                 url = HUG
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
 
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Hug was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HUG}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Hug was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HUG}]')
 
     
     # WAVE
@@ -351,7 +340,6 @@ class Waifu(commands.Cog):
             MENTION = member.mention
             DISPLAY = member.display_name
             AUTHOR = ctx.author.display_name
-            ROUNDTRIP = round(self.client.latency * 1000)
 
             embed = discord.Embed (
                 title = 'Wave',
@@ -366,12 +354,12 @@ class Waifu(commands.Cog):
                 url = WAVE
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
 
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Wave was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WAVE}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wave was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WAVE}]')
     
     # BONK
     @commands.command(help = 'Bonk a member in chat. EX: :bonk @member.')
@@ -381,7 +369,6 @@ class Waifu(commands.Cog):
             MENTION = member.mention
             DISPLAY = member.display_name
             AUTHOR = ctx.author.display_name
-            ROUNDTRIP = round(self.client.latency * 1000)
 
             embed = discord.Embed (
                 title = 'Bonk',
@@ -396,12 +383,12 @@ class Waifu(commands.Cog):
                 url = BONK
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.timeFormatUniversial()}'
+                text = f'Tachibana: {Time.dateTimeUTC()}'
             )
 
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeFormat()}] [Roundtrip: {ROUNDTRIP}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
         
     # DEPRESSION
     @commands.command(help = 'Simulate crippiling depression.')
@@ -417,7 +404,7 @@ class Waifu(commands.Cog):
             url = hmtai.useHM("2_9","depression"), 
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.timeFormatUniversial()}'
+            text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 

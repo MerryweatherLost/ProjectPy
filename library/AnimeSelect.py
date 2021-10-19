@@ -1,5 +1,5 @@
 import random
-
+import akaneko
 from pygelbooru import Gelbooru
 
 gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
@@ -49,17 +49,16 @@ class AnimeList:
         """Girls holding apple juice. - Request"""
         apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
         return apple
-    def Dhar():
-        """Dhars most famous quotes and his FACE."""
-        dharquote = ['Your life doesn’t get better by chance. It gets better by change.','You can’t turn a negative mindset into positive actions.','Your past does not equal your future unless you decide to live there.',
-        'Failure is an event, not a person.','Water the flowers, not the weeds.','Train your mind. Your body will follow.']
-
-        dharrand = random.choice(dharquote)
-
-        return dharrand
     def Positivity():
         quotes = [
-            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient."
+            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient.",
+            "Miracles happen to those who believe in them.",
+            "One small positive thought can change your whole day.",
+            "Believe you can and you’re halfway there.",
+            "If you are positive, you’ll see opportunities instead of obstacles.",
+            "Write it on your heart that every day is the best day in the year.",
+            "Accentuate the positive, Eliminate the Negative, latch onto the affirmative.",
+            "A positive atmosphere nurtures a positive attitude, which is required to take positive action.",
             ]
         randquote = random.choice(quotes)
 
@@ -108,11 +107,10 @@ class AnimeList:
             ]
         waifuspecial = random.choice(list)
         return waifuspecial
-    def HatersGonnaHate() -> str:
-        img = 'https://cdn.discordapp.com/attachments/576096750331494420/898361152306814976/hgh.gif'
-        return img
-class AnimeGelbooru:
-    """Returns images specified through Gelbooru."""
+
+class AnimeGel:
+    """Returns images specified through Gelbooru.
+    This inherits from: :exc:`Gelbooru`"""
     async def WALLPAPER() -> str:
         wallpaper = await gelbooru.random_post ( 
             tags = ['wallpaper'], 
@@ -154,5 +152,81 @@ class AnimeGelbooru:
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
         )
         return cat
+class AnimeNSFWGel:
+    """Imports not safe for work images.\n
+    This inherits from: :exc:`Gelbooru`"""
+    async def nsfwzettai() -> str:
+        """Imports NSFW thighhighs."""
+        zettairyo = await gelbooru.random_post ( 
+            tags = ['1girl','zettai_ryouiki','highres'],
+            exclude_tags = ['comic']
+        )
+        return zettairyo
+    async def nsfwuniform() -> str:
+        """Returns NSFW uniform types. School, nurses, military..."""
+        uniform = await gelbooru.random_post ( 
+            tags = ['1girl','uniform','highres'],
+            exclude_tags = ['comic']
+        )
+        return uniform
+    async def ahegao() -> str:
+        """Ahegao images, mainly facial."""
+        ahegao = await gelbooru.random_post ( 
+            tags = ['ahegao','highres'],
+            exclude_tags = ['comic']
+        )
+        return ahegao
+    async def nsfwgif() -> str:
+        """Not safe for work gif images."""
+        gif = await gelbooru.random_post ( 
+            tags = ['animated_gif','highres']
+        )
+        return gif
+    async def doujinshi() -> str:
+        """Not safe for work comics."""
+        doujin = await gelbooru.random_post ( 
+            tags = ['comic','highres']
+        )
+        return doujin
+    async def nsfwcatgirl() -> str:
+        """Not safe for work catgirls."""
+        catgirl = await gelbooru.random_post ( 
+            tags = ['cat_girl','highres'],
+            exclude_tags = ['comic']
+        )
+        return catgirl
+class AkaNSFW:
+    def school():
+        """NSFW Schoolgirls."""
+        school = akaneko.nsfw.school()
+        return school
+    def maid():
+        """NSFW Maid."""
+        maid = akaneko.nsfw.maid()
+        return maid
+    def gif():
+        """NSFW gifs."""
+        gif = akaneko.nsfw.gif()
+        return gif
 
-    
+class DharMann:
+    def DharQuote():
+        """Dhars most famous quotes."""
+        dharquote = [
+            'Your life doesn’t get better by chance. It gets better by change.',
+            'You can’t turn a negative mindset into positive actions.',
+            'Your past does not equal your future unless you decide to live there.',
+            'Failure is an event, not a person.',
+            'Water the flowers, not the weeds.',
+            'Train your mind. Your body will follow.'
+        ]
+        dharrand = random.choice(dharquote)
+        return dharrand
+    def DharImage():
+        """Dhar Collage."""
+        dharimg = [
+            'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png',
+            'https://cdn.discordapp.com/attachments/895302028375490596/899660726740865055/EtbPOwSVEAA9uUC.jpg',
+        ]
+        imgrand = random.choice(dharimg)
+        return imgrand
