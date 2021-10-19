@@ -57,7 +57,7 @@ class Time:
         formTime = date_object.strftime("%H:%M UTC")
         return formTime
 
-class Essentials:
+class Essentials():
     def eightball():
         """
         Responses handler for a randomized 8ball.
@@ -105,6 +105,32 @@ class Essentials:
         responses = [ 'Heads.','Tails.' ]
         coinflip = random.choice(responses)
         return coinflip
+    
+    def Math(num1: float, op, num2: float):
+        """Math Calculations to process for math.py."""
+        valid = True
+        if (op == '+' or op == 'plus'):
+            result = num1 + num2
+        elif (op == '-' or op == 'minus'):
+            result = num1 - num2
+        elif (op == '*' or op == 'x' or op == 'times'):
+            result = num1 * num2
+        elif (op == '/' or op == 'divide'):
+            result = num1 / num2
+        elif (op == '%' or op == 'remainder'):
+            result = num1 % num2
+        elif (op == '**' or op == 'exponent'):
+            result = num1 ** num2
+        elif (op == '//' or op == 'floor'):
+            result = num1 // num2
+        else: valid = False
+
+        if (valid == False):
+            embed = '**Invalid Operator!**'
+            return embed
+        elif (valid == True): 
+            embed = f'**The result is:** {result}'
+            return embed
 
 class Color:
     """`class` meant to handle requests for colors."""

@@ -106,7 +106,7 @@
 
 - From now on, pull requests will be used for new changes.
 
-## [1.1.0] - 2021-10-15 - 2021-10-20
+## [1.1.0] - 2021-10-15 - 2021-10-19
 
 - New `Roundtrip (class)` to facilitate latency and make code cleaner.
 
@@ -139,3 +139,5 @@
 - New `weather` command. Advanced weather command achieved.
 
 - Visualizes the way initialization is done.
+
+- Weather and Math refractor.

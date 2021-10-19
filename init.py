@@ -7,15 +7,6 @@ import asyncio
 import itertools
 import threading
 
-def animate():
-    for c in itertools.cycle(['|', '/', '-', '\\']):
-        if done:
-            break
-        sys.stdout.write('\rFinding Command: ' + c)
-        sys.stdout.flush()
-        time.sleep(0.2)
-    sys.stdout.write('\rDone. Starting Client...')
-
 from discord.ext import commands
 
 from private.config import config
@@ -27,6 +18,15 @@ from library.ConsoleLib import Color
 
 from pretty_help import PrettyHelp
 
+def animate():
+    for c in itertools.cycle(['|', '/', '-', '\\']):
+        if done:
+            break
+        sys.stdout.write('\rFinding Command: ' + c)
+        sys.stdout.flush()
+        time.sleep(0.2)
+    sys.stdout.write('\rDone. Starting Client...')
+    
 client = commands.Bot (
     command_prefix = prefix, 
     help_command = PrettyHelp (color = Color.tachi), 
