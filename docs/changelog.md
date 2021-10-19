@@ -141,3 +141,5 @@
 - Visualizes the way initialization is done.
 
 - Weather and Math refractor.
+
+## [1.2.0] - 2021-10-19 - 2021-10-**
