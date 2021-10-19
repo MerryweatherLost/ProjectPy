@@ -50,8 +50,8 @@ class General(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/899394919012118548/wther.png'
         )
         # TOP FIELD
-        wembed.add_field (name = 'Skies ☁️', value = weather.current.sky_text)
-        wembed.add_field (name = 'Precipitation 🌧️', value = f'{weather.current.humidity}{"%"}')
+        wembed.add_field (name = 'Skies ⛅', value = weather.current.sky_text)
+        wembed.add_field (name = 'Precipitation 🌦️', value = f'{weather.current.humidity}{"%"}')
         wembed.add_field (name = 'Wind Display 🚩', value = weather.current.wind_display)
         
         # BOTTOM FIELD
