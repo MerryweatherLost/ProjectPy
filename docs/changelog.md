@@ -143,3 +143,5 @@
 - Weather and Math refractor.
 
 ## [1.2.0] - 2021-10-19 - 2021-10-**
+
+- Added version to keep track of version.

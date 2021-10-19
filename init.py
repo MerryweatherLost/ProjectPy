@@ -59,12 +59,12 @@ async def reload(extension):
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
-        t = threading.Thread(target=animate)
+        t = threading.Thread(target = animate)
         done = False
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' Finished loading {filename}!')
+        print(f' > Finished loading {filename}!')
 
 @client.event
 async def on_member_join(member: discord.Member):

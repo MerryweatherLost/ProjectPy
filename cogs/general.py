@@ -10,6 +10,8 @@ from library.ConsoleLib import Roundtrip
 
 from library.WeatherSelect import Weather
 
+from settings.Settings import version
+
 # GENERAL COMMANDS
 
 class General(commands.Cog):
@@ -72,6 +74,12 @@ class General(commands.Cog):
             await ctx.reply(f'**Highest Role:** {ctx.author.top_role}')
         else:
             await ctx.reply(f'**Highest Role:** {member.top_role}')
+
+    # VERSION
+    @commands.command(help = 'Shows the current version of the bot.')
+    async def version(self, ctx):
+        embed = discord.Embed(description = f'The current version is: **{version}**')
+        await ctx.reply(embed = embed)
 
     @commands.command(help = 'Checks for voice status.')
     @is_owner()

@@ -2,6 +2,8 @@ import random
 
 # ADMINISTRATION
 
+version = '1.1.0'
+
 class Admin:
     """Administration Settings"""
     clearlimit = 20
