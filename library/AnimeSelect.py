@@ -49,14 +49,6 @@ class AnimeList:
         """Girls holding apple juice. - Request"""
         apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
         return apple
-    def Dhar():
-        """Dhars most famous quotes and his FACE."""
-        dharquote = ['Your life doesn’t get better by chance. It gets better by change.','You can’t turn a negative mindset into positive actions.','Your past does not equal your future unless you decide to live there.',
-        'Failure is an event, not a person.','Water the flowers, not the weeds.','Train your mind. Your body will follow.']
-
-        dharrand = random.choice(dharquote)
-
-        return dharrand
     def Positivity():
         quotes = [
             "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient.",
@@ -203,7 +195,6 @@ class AnimeNSFWGel:
             exclude_tags = ['comic']
         )
         return catgirl
-
 class AkaNSFW:
     def school():
         """NSFW Schoolgirls."""
@@ -217,3 +208,25 @@ class AkaNSFW:
         """NSFW gifs."""
         gif = akaneko.nsfw.gif()
         return gif
+
+class DharMann:
+    def DharQuote():
+        """Dhars most famous quotes."""
+        dharquote = [
+            'Your life doesn’t get better by chance. It gets better by change.',
+            'You can’t turn a negative mindset into positive actions.',
+            'Your past does not equal your future unless you decide to live there.',
+            'Failure is an event, not a person.',
+            'Water the flowers, not the weeds.',
+            'Train your mind. Your body will follow.'
+        ]
+        dharrand = random.choice(dharquote)
+        return dharrand
+    def DharImage():
+        """Dhar Collage."""
+        dharimg = [
+            'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png',
+            'https://cdn.discordapp.com/attachments/895302028375490596/899660726740865055/EtbPOwSVEAA9uUC.jpg',
+        ]
+        imgrand = random.choice(dharimg)
+        return imgrand

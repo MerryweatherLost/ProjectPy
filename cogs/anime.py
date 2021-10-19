@@ -5,6 +5,7 @@ from library.ConsoleLib import Time
 from library.ConsoleLib import Essentials
 from library.ConsoleLib import Roundtrip
 
+from library.AnimeSelect import DharMann
 from library.AnimeSelect import AnimeList
 
 from discord.ext import commands
@@ -62,7 +63,8 @@ class Anime(commands.Cog):
     # DHARMANN - SFW
     @commands.command(help = 'Emotional Relief.')
     async def dhar(self, ctx):
-        DHAR = AnimeList.Dhar()        
+        DHAR = DharMann.DharQuote()   
+        DHARIMG = DharMann.DharImage()    
         embed = discord.Embed (
             title = 'Dhar Mann',
             description = f'**Hey Dhar Mann fam!** \n**Quote:** {DHAR}',
@@ -73,7 +75,7 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = 'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png'
+            url = DHARIMG
         )
         embed.set_footer (
             text = f'Tachibana: {Time.dateTimeUTC()}'
