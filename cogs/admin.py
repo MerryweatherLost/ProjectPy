@@ -134,5 +134,13 @@ class Administration(commands.Cog):
                     print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned in #{ctx.channel}! [{member}]')
                     return  
 
+    # # ADD ROLES - METHOD
+    # @commands.command(help = 'Adds a role to a user.')
+    # @commands.has_permissions(ban_members = True)
+    # async def addroles(self, ctx, member: discord.Member, *role):
+    #     await member.add_roles(reason = None, roles = role)
+
+    #     await ctx.reply(f'Added roles to {member.mention}! {role}')
+
 def setup(client):
     client.add_cog(Administration(client))
