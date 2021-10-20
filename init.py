@@ -55,7 +55,8 @@ async def unload(extension):
 async def reload(extension):
     client.reload_extension(f'cogs.{extension}')
 
-# COMMAND HANDLER
+# GENERAL LOAD HANDLER
+print(f'< Loading all files within the Cogs Folder >')
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
@@ -64,7 +65,45 @@ for filename in os.listdir('./cogs'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' > Finished loading {filename}!')
+        print(f' > Loaded {filename}!')
+
+# ADMINISTRATION LOAD
+print(f'\n< Loading all files within the Administration Folder >')
+for filename in os.listdir('./cogs/admin'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.admin.{filename[:-3]}')
+        t = threading.Thread(target = animate)
+        done = False
+        t.start()
+        time.sleep(0.1)
+        done = True
+        print(f' > Loaded {filename}!')
+
+# CLIENT LOAD
+print(f'\n< Loading all files within the Client Folder >')
+for filename in os.listdir('./cogs/client'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.client.{filename[:-3]}')
+        t = threading.Thread(target = animate)
+        done = False
+        t.start()
+        time.sleep(0.1)
+        done = True
+        print(f' > Loaded {filename}!')
+
+# CONTENT LOAD
+print(f'\n< Loading all files within the Content Folder >')
+for filename in os.listdir('./cogs/content'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.content.{filename[:-3]}')
+        t = threading.Thread(target = animate)
+        done = False
+        t.start()
+        time.sleep(0.1)
+        done = True
+        print(f' > Loaded {filename}!')
+
+print('\nCompleted all loading tasks!')
 
 @client.event
 async def on_member_join(member: discord.Member):
