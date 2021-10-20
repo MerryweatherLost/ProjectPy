@@ -4,9 +4,9 @@ import python_weather
 from discord.ext import commands
 from discord.ext.commands.core import is_owner
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Color
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Color
+from library.ConsoleSelect import Roundtrip
 
 from library.WeatherSelect import Weather
 

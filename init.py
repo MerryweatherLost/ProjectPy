@@ -13,8 +13,8 @@ from private.config import config
 from private.config import prefix
 from private.config import consoleclr
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Color
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Color
 
 from pretty_help import PrettyHelp
 

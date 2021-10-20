@@ -11,7 +11,7 @@ def __init__(self, client):
 
 class Time:
     """
-    ConsoleLib.Time
+    ConsoleSelect.Time
     ~~~~~~~~~~~~~~~~~~~~~
     Time class for the Console Library.
 

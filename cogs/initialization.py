@@ -6,9 +6,9 @@ from playsound import playsound
 
 from discord.ext import commands, tasks
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import InitProg
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import InitProg
+from library.ConsoleSelect import Roundtrip
 
 from itertools import cycle
 

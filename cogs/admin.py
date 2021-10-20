@@ -3,10 +3,10 @@ import asyncio
 import discord
 from discord.ext import commands
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Color
-from library.ConsoleLib import DurationConverter
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Color
+from library.ConsoleSelect import DurationConverter
+from library.ConsoleSelect import Roundtrip
 
 from settings.Settings import Admin
 
