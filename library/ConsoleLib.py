@@ -167,7 +167,7 @@ class DurationConverter(commands.Converter):
         amount = argument[:-1]
         unit = argument[-1]
 
-        if amount.isdigit() and unit in ['s','m']:
+        if amount.isdigit() and unit in ['s','m','h','d']:
             return (int(amount), unit)
         
         raise commands.BadArgument(message = 'Not a valid duration.')
