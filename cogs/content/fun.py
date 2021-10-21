@@ -7,6 +7,7 @@ from discord.ext import commands
 from library.ConsoleSelect import Time
 from library.ConsoleSelect import Essentials
 from library.ConsoleSelect import Roundtrip
+from library.GenshinSelect import Genshin
 
 from library.PoliticalSelect import States
 
@@ -105,21 +106,33 @@ class Fun(commands.Cog):
         )
         await ctx.reply(embed = embed)
     
+    # STATE METHOD
     @commands.command(help = 'Returns state flags. (information coming soon...)')
     async def state(self, ctx, *, name):
-        embed = discord.Embed ()
+        embed = discord.Embed()
         embed.set_image(url = States.states(str.lower(name)))
 
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {name}]')
 
+    # TERRITORY METHOD
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
     async def territory(self, ctx, *, name):
-        embed = discord.Embed ()
+        embed = discord.Embed()
         embed.set_image(url = States.territories(str.lower(name)))
         
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {name}]')
+
+    # GENSHIN IMPACT METHOD
+    @commands.command(help = 'Returns genshin impact images.')
+    async def genshin(self, ctx, *, name):
+        embed = discord.Embed()
+        embed.set_image(url = Genshin.characters(str.lower(name)))
+
+        await ctx.reply(embed = embed)
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {name}]')
+     
 
     # .
     @commands.command(name = '.', help = '.')
