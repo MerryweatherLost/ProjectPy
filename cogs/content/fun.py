@@ -9,7 +9,7 @@ from library.ConsoleSelect import Essentials
 from library.ConsoleSelect import Roundtrip
 from library.GenshinSelect import Genshin
 
-from library.PoliticalSelect import States
+from library.PoliticalSelect import USA
 
 class Fun(commands.Cog):
     def __init__(self, client):
@@ -86,16 +86,19 @@ class Fun(commands.Cog):
 
     # AVATAR METHOD
     @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
-    async def avatar(self, ctx, member: commands.MemberConverter = None):
+    async def avatar(self, ctx, member: discord.Member = None):
         if (member == None):
             PROFILE = ctx.author.display_name
             IMAGE = ctx.author.avatar_url
+            COLOR = ctx.author.color
         else:
             PROFILE = member.display_name
             IMAGE = member.avatar_url
+            COLOR = member.color
 
         embed = discord.Embed (
             title = f"{PROFILE}'s Profile Image",
+            color = COLOR
         )
         embed.set_author (
             name = ctx.author.display_name,
@@ -110,7 +113,7 @@ class Fun(commands.Cog):
     @commands.command(help = 'Returns state flags. (information coming soon...)')
     async def state(self, ctx, *, name):
         embed = discord.Embed()
-        embed.set_image(url = States.states(str.lower(name)))
+        embed.set_image(url = USA.states(str.lower(name)))
 
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {name}]')
@@ -119,7 +122,7 @@ class Fun(commands.Cog):
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
     async def territory(self, ctx, *, name):
         embed = discord.Embed()
-        embed.set_image(url = States.territories(str.lower(name)))
+        embed.set_image(url = USA.territories(str.lower(name)))
         
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {name}]')
@@ -132,7 +135,6 @@ class Fun(commands.Cog):
 
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {name}]')
-     
 
     # .
     @commands.command(name = '.', help = '.')

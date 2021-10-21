@@ -389,7 +389,7 @@ class Waifu(commands.Cog):
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
-        
+
     # DEPRESSION
     @commands.command(help = 'Simulate crippiling depression.')
     async def depression(self, ctx):
@@ -407,7 +407,6 @@ class Waifu(commands.Cog):
             text = f'Tachibana: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
-
 
 def setup(client):
     client.add_cog(Waifu(client))
