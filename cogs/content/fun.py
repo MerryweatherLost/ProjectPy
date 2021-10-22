@@ -70,7 +70,7 @@ class Fun(commands.Cog):
         await message.delete()
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {question} ] [ Answer: {answer} ]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {str.upper(question)} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
@@ -113,7 +113,7 @@ class Fun(commands.Cog):
         embed.set_image(url = States.states(str.lower(name)))
 
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {name}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {str.title(name)}]')
 
     # TERRITORY METHOD
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
@@ -122,7 +122,7 @@ class Fun(commands.Cog):
         embed.set_image(url = States.territories(str.lower(name)))
         
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {name}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {str.title(name)}]')
 
     # GENSHIN IMPACT METHOD
     @commands.command(help = 'Returns genshin impact images.')
@@ -131,7 +131,7 @@ class Fun(commands.Cog):
         embed.set_image(url = Genshin.characters(str.lower(name)))
 
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {name}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {str.title(name)}]')
      
 
     # .
