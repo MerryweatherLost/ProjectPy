@@ -81,6 +81,7 @@ class General(commands.Cog):
         embed = discord.Embed(description = f'The current version is: **{version}**')
         await ctx.reply(embed = embed)
 
+    # VOICE STATUS
     @commands.command(help = 'Checks for voice status.')
     @is_owner()
     async def voicestatus(self, ctx, member: commands.MemberConverter = None):
@@ -93,6 +94,7 @@ class General(commands.Cog):
 
         embed = discord.Embed (description = f'**{ADDRESS} status in voice is:** {VOICE}')
         await ctx.reply(embed = embed)
+
     # ROLES
     @commands.command(help = 'Returns a number roles of a user or if not implimented, yours.')
     async def roles(self, ctx, member: commands.MemberConverter = None):
