@@ -25,7 +25,6 @@ def animate():
         sys.stdout.write('\rFinding Command: ' + c)
         sys.stdout.flush()
         time.sleep(0.2)
-    sys.stdout.write('\rDone. Starting Client...')
     
 client = commands.Bot (
     command_prefix = prefix, 

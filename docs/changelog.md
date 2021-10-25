@@ -147,3 +147,5 @@
 - Added version to keep track of version.
 
 - New `genshin` command to return genshin characters.
+
+- Added `mute` command to mute people with.
