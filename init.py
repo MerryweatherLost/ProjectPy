@@ -179,7 +179,7 @@ async def on_command_error(ctx, error):
         )
 
     else:
-        msg = "I can not pick up this error from my handler! Notify **Edelweiss#1337!**"
+        msg = f'I can not pick up this error from my handler! Notify **Edelweiss#1337!**\nError Specified: {error}'
         embed = discord.Embed (
             description = msg
         )
