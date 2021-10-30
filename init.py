@@ -9,12 +9,8 @@ import threading
 
 from discord.ext import commands
 
-from private.config import config
-from private.config import prefix
-from private.config import consoleclr
-
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Color
+from private.config import *
+from library.ConsoleSelect import *
 
 from pretty_help import PrettyHelp
 
