@@ -41,6 +41,7 @@ class AnimeList:
             'https://cdn.discordapp.com/attachments/576096750331494420/897501220640530452/11d52368e8e1446073e6ed0e3604f209.jpg',
             'https://cdn.discordapp.com/attachments/576096750331494420/897501220380495872/58924ca6a0a559f01c720e3fec640ec8.jpg',
             'https://cdn.discordapp.com/attachments/576096750331494420/898168752061952040/f507e8e194925763c0e369652798f1d8.jpg',
+            'https://i.waifu.pics/NOJicBh.png',
             ]
         coffeerand = random.choice(coffee)
 
