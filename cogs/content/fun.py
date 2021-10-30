@@ -44,10 +44,7 @@ class Fun(commands.Cog):
         aliases = ['eightball','🎱'] 
     )
     async def _8ball(self, ctx, *, question):
-        AUTHOR_NAME = ctx.author.display_name
-        AUTHOR_IMAGE = ctx.author.avatar_url
-
-        message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')    
+        message: discord.Message = await ctx.reply('8ball is thinking... <a:checkmark:903852585360949289>')    
 
         answer = Essentials.eightball()
         embed = discord.Embed (
@@ -59,8 +56,8 @@ class Fun(commands.Cog):
             url = Essentials.ballImage(),            
         )
         embed.set_author (
-            name = AUTHOR_NAME,
-            icon_url = AUTHOR_IMAGE
+            name = ctx.author.display_name,
+            icon_url = ctx.author.avatar_url
         )
         embed.set_footer (
             text = f'Tachibana: {Time.dateTimeUTC()}'
@@ -70,7 +67,7 @@ class Fun(commands.Cog):
         await message.delete()
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {str.upper(question)} ] [ Answer: {answer} ]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {str.capitalize(question)} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
@@ -87,25 +84,17 @@ class Fun(commands.Cog):
     # AVATAR METHOD
     @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
     async def avatar(self, ctx, member: discord.Member = None):
-        if (member == None):
-            PROFILE = ctx.author.display_name
-            IMAGE = ctx.author.avatar_url
-            COLOR = ctx.author.color
-        else:
-            PROFILE = member.display_name
-            IMAGE = member.avatar_url
-            COLOR = member.color
-
+        member = member or ctx.author
         embed = discord.Embed (
-            title = f"{PROFILE}'s Profile Image",
-            color = COLOR
+            title = f"{member.display_name}'s Profile Image",
+            color = member.color
         )
         embed.set_author (
-            name = ctx.author.display_name,
-            icon_url = ctx.author.avatar_url
+            name = member.display_name,
+            icon_url = member.avatar_url
         )
         embed.set_image (
-            url = IMAGE
+            url = member.avatar_url
         )
         await ctx.reply(embed = embed)
     
