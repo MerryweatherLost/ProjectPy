@@ -8,6 +8,7 @@ from library.ConsoleSelect import Time
 from library.ConsoleSelect import Color
 from library.ConsoleSelect import Roundtrip
 
+from library.ConsoleSelect import *
 from library.WeatherSelect import Weather
 
 from settings.Settings import version
@@ -95,13 +96,38 @@ class General(commands.Cog):
         embed = discord.Embed (description = f'**{ADDRESS} status in voice is:** {VOICE}')
         await ctx.reply(embed = embed)
 
-    # ROLES
+    # ROLE COUNT
     @commands.command(help = 'Returns a number roles of a user or if not implimented, yours.')
-    async def roles(self, ctx, member: commands.MemberConverter = None):
+    async def rolecount(self, ctx, member: commands.MemberConverter = None):
         if (member == None):
             await ctx.reply(f'**Number of Roles:** {len(ctx.author.roles)} roles detected for the user.')
         else:
             await ctx.reply(f'**Number of Roles:** {len(member.roles)} roles detected for the user.')
+
+    # ROLES
+    @commands.command(help = 'Returns a number roles of a user or if not implimented, yours.')
+    async def roles(self, ctx, member: commands.MemberConverter = None):
+        if (member == None):
+            rolelist = [r.mention for r in ctx.author.roles if r != ctx.guild.default_role]
+            roles = ", ".join(rolelist)
+            embed = discord.Embed (
+                title = f'Roles for {ctx.author.display_name}', 
+                description = f'{roles}', color = ctx.author.color
+            )
+            embed.add_field(name = 'Role Count', value = f'{len(ctx.author.roles)} roles present for the user.', inline = True)
+            embed.set_footer(text = f'Timestamp: {Time.timeUTC()}')
+            await ctx.reply(embed = embed)
+        else:
+            rolelist = [r.mention for r in member.roles if r != ctx.guild.default_role]
+            roles = ", ".join(rolelist)
+            embed = discord.Embed (
+                title = f'Roles for {member.display_name}', 
+                description = f'{roles}', color = member.color
+            )
+            embed.add_field(name = 'Role Count', value = f'{len(member.roles)} roles present for the user.', inline = True)
+            embed.set_footer(text = f'Timestamp: {Time.timeUTC()}')
+            await ctx.reply(embed = embed)
+
 
 def setup(client):
     client.add_cog(General(client))

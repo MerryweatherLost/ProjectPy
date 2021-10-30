@@ -149,3 +149,9 @@
 - New `genshin` command to return genshin characters.
 
 - Added `mute` command to mute people with.
+
+- `SauceSelect (library)` `SauceNow (class)`, and three saucenao commands, Pixiv, Booru, and Anime respectively.
+
+- Wildcard Refractor (*I'm dumb for not using them. (kinda).*)
+
+- `roles` and `rolecount` work as intended now.
