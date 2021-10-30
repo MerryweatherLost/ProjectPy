@@ -116,17 +116,76 @@ class General(commands.Cog):
             )
             embed.add_field(name = 'Role Count', value = f'{len(ctx.author.roles)} roles present for the user.', inline = True)
             embed.set_footer(text = f'Timestamp: {Time.timeUTC()}')
-            await ctx.reply(embed = embed)
         else:
             rolelist = [r.mention for r in member.roles if r != ctx.guild.default_role]
-            roles = ", ".join(rolelist)
+            roles = " ".join(rolelist)
             embed = discord.Embed (
                 title = f'Roles for {member.display_name}', 
                 description = f'{roles}', color = member.color
             )
             embed.add_field(name = 'Role Count', value = f'{len(member.roles)} roles present for the user.', inline = True)
             embed.set_footer(text = f'Timestamp: {Time.timeUTC()}')
-            await ctx.reply(embed = embed)
+        await ctx.reply(embed = embed)
+    
+    # WHOIS
+    @commands.command(help = 'Gets information about a person.')
+    async def whois(self, ctx, member: discord.Member = None):
+        if (member == None):
+            rolelist = [r.mention for r in ctx.author.roles if r != ctx.guild.default_role]
+            roles = " ".join(rolelist)
+            em = discord.Embed (
+                title = f"{ctx.author.display_name}'s Information",
+                color = ctx.author.color
+            )
+            em.set_thumbnail (
+                url = ctx.author.avatar_url
+            )
+            em.add_field (
+                name = "Join Date",
+                value = f'{ctx.author.joined_at.strftime("%H:%M UTC - %b %d, %Y")}',
+            )
+            em.add_field (
+                name = "Creation Date",
+                value = f'{ctx.author.created_at.strftime("%H:%M UTC - %b %d, %Y")}',
+            )
+            em.add_field (
+                name = f"Roles List [{len(ctx.author.roles[1:])}]",
+                value = f"{roles}",
+                inline = False
+            )
+            em.set_footer (
+                text = f'ID: {ctx.author.id} - Timestamp: {Time.timeUTC()}',
+            )
+        else:
+            rolelist = [r.mention for r in member.roles if r != ctx.guild.default_role]
+            roles = " ".join(rolelist)
+            if (member.display_name == 'Tachibana'): desc = "*Why are you looking me up...?*" 
+            else: desc = ""
+            em = discord.Embed (
+                title = f"{member.display_name}'s Information",
+                color = member.color,
+                description = desc
+            )
+            em.set_thumbnail (
+                url = member.avatar_url
+            )
+            em.add_field (
+                name = "Guild Join Date",
+                value = f'{member.joined_at.strftime("%H:%M UTC - %b %d, %Y")}',
+            )
+            em.add_field (
+                name = "Creation Date",
+                value = f'{member.created_at.strftime("%H:%M UTC - %b %d, %Y")}',
+            )
+            em.add_field (
+                name = f"Roles List [{len(member.roles[1:])}]",
+                value = f"{roles}",
+                inline = False
+            )
+            em.set_footer (
+                text = f'ID: {member.id} - Timestamp: {Time.timeUTC()}',
+            )
+        await ctx.reply(embed = em)
 
 
 def setup(client):
