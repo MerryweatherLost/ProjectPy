@@ -142,7 +142,7 @@
 
 - Weather and Math refractor.
 
-## [1.2.0] - 2021-10-19 - 2021-10-**
+## [1.2.0] - 2021-10-19 - 2021-10-31
 
 - Added version to keep track of version.
 
@@ -161,3 +161,7 @@
 - `track` command, and `Spotify (class)`
 
 - Event Handiling Changes, and listeners to fix other stuff.
+
+## [1.3.0] - 2021-10-31 - 2021-11-**
+
+- TBD
