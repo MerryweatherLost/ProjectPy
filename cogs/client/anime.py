@@ -1,9 +1,9 @@
 import asyncio
 import discord
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Essentials
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Essentials
+from library.ConsoleSelect import Roundtrip
 
 from library.AnimeSelect import DharMann
 from library.AnimeSelect import AnimeList
@@ -22,14 +22,14 @@ class Anime(commands.Cog):
             title = 'Coffee',
             description = 'Have some coffee! ☕',
             color = discord.Color.green()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name,
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = COFFEE
-            )
+        )
         embed.set_footer (
             text = f'Tachibana: {Time.dateTimeUTC()}'
         )
@@ -45,14 +45,14 @@ class Anime(commands.Cog):
             title = 'Apple Juice',
             description = 'Have some apple juice! 🍎',
             color = discord.Color.red()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name,
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = APPL
-            )
+        )
         embed.set_footer (
             text = f'Tachibana: {Time.dateTimeUTC()}'
         )
@@ -92,7 +92,7 @@ class Anime(commands.Cog):
             title = 'DDLC',
             description = 'Here is the image!',
             color = discord.Color.red()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name,
             icon_url = ctx.author.avatar_url

@@ -3,8 +3,8 @@ import discord
 
 from discord.ext import commands
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Essentials
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Essentials
 
 from library.MemeSelect import MemeList
 

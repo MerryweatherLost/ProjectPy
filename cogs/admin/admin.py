@@ -3,10 +3,10 @@ import asyncio
 import discord
 from discord.ext import commands
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Color
-from library.ConsoleLib import DurationConverter
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Color
+from library.ConsoleSelect import DurationConverter
+from library.ConsoleSelect import Roundtrip
 
 from settings.Settings import Admin
 
@@ -63,10 +63,10 @@ class Administration(commands.Cog):
             rebed = discord.Embed(description = 'You can not ban yourself!')
             await ctx.reply(embed = rebed)
         else:
-            if (reason): reasonbeing = f', with the reason being **{reason}.**'
-            else: reasonbeing = '.'
+            if (reason): rb = f', with the reason being **{reason}.**'
+            else: rb = '.'
             embed = discord.Embed (
-                description = f'Banned **{member}**{reasonbeing}',
+                description = f'Banned **{member}**{rb}',
                 color = Color.tachi
             )
             embed.set_footer (
@@ -87,10 +87,10 @@ class Administration(commands.Cog):
             multiplier = {'s': 1, 'm': 60, 'h': 3600, 'd': 86400}
             amount, unit = duration
 
-            if (reason): reasonbeing = f', with the reason being **{reason}.**'
-            else: reasonbeing = '.'
+            if (reason): rb = f', with the reason being **{reason}.**'
+            else: rb = '.'
             embed = discord.Embed (
-                description = f'**{member}** has been banned for **{amount}{unit}**{reasonbeing}',
+                description = f'**{member}** has been banned for **{amount}{unit}**{rb}',
                 color = Color.tachi
             )
             embed.set_footer (
@@ -133,6 +133,38 @@ class Administration(commands.Cog):
                     
                     print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned in #{ctx.channel}! [{member}]')
                     return  
+
+    # MUTE METHOD
+    @commands.command(help = "Adds a mute role to a person for a specified duration or none.")
+    @commands.has_any_role('Admin','House of Lords')
+    async def mute(self, ctx, member: discord.Member, duration: DurationConverter, *, reason = None):
+        mute = 843662762600431637
+        if (member == ctx.author):
+            await ctx.reply("Listen, can you not mute yourself...?")
+        else:
+            multiplier = {'s': 1, 'm': 60, 'h': 3600, 'd': 86400}
+            amount, unit = duration
+
+            if (reason): rb = f', with the reason being {str.capitalize(reason)}'
+            else: rb = '.'
+
+            em = discord.Embed (
+                description = f'**{member}** has been muted for {amount}{unit}{rb}'
+            )
+            em.set_footer (
+                text = f'Tachibana Administration Protocol: {Time.dateTimeUTC()}'
+            )
+            await member.add_roles(roles = mute, reason = reason)
+            await asyncio.sleep(amount * multiplier[unit])
+            await member.remove_roles(roles = mute, reason = 'The specified time is over.')
+            
+    # # ADD ROLES - METHOD
+    # @commands.command(help = 'Adds a role to a user.')
+    # @commands.has_permissions(ban_members = True)
+    # async def addroles(self, ctx, member: discord.Member, *role):
+    #     await member.add_roles(reason = None, roles = role)
+
+    #     await ctx.reply(f'Added roles to {member.mention}! {role}')
 
 def setup(client):
     client.add_cog(Administration(client))

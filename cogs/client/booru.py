@@ -1,33 +1,57 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.AnimeSelect import AnimeGel
+from library.ConsoleSelect import Roundtrip
 
-from library.AnimeSelect import AnimeNSFWGel
-
-class nsfwBooru(commands.Cog):
+class Booru(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-# NOT SAFE FOR WORK SECTION
-    # ZETTAI RYOUIKI - NSFW
-    @commands.command(help = "(NSFW ONLY) Do I even need to explain?", aliases = ['nsfwthighhighs','nsfwthigh-highs','nsfwzr'])
+# SAFE FOR WORK SECTION
+    # WALLPAPER - SFW
+    @commands.command(help = "Some safe for work wallpapers.")
+    @commands.cooldown(rate = 1, per = 1.0)
+    async def wallpaper(self, ctx):
+        WALLPAPER = await AnimeGel.WALLPAPER()
+        embed = discord.Embed (
+            title = "Wallpaper Image", 
+            description = "Here is the image!", 
+            color = discord.Color.light_grey()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = WALLPAPER, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        embed.set_footer (
+            text = f'Tachibana: {Time.dateTimeUTC()}'
+        )
+        await ctx.reply(embed = embed)
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {WALLPAPER}]')
+
+    # ZETTAI RYOUIKI - SFW  
+    @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
     @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def nsfwzettairyouiki(self, ctx):
-        NSFWZETTAI = await AnimeNSFWGel.nsfwzettai()
+    async def zettairyouiki(self, ctx):
+        ZETTAI = await AnimeGel.ZETTAI()
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
-            color = discord.Color.gold()
+            color = discord.Color.light_grey()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = NSFWZETTAI, 
+            url = ZETTAI, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -37,26 +61,25 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWZETTAI}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized in #{ctx.channel}! \n[Raw Data: {ZETTAI}]')
 
-    
-    # UNIFORM - NSFW
-    @commands.command(help = "(NSFW ONLY) uniform time.")
+
+    # UNIFORM - SFW
+    @commands.command(help = "Uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def nsfwuniform(self, ctx):
-        NSFWUNIFORM = AnimeNSFWGel.nsfwuniform()
+    async def uniform(self, ctx):
+        UNIFORM = await AnimeGel.UNIFORM()
         embed = discord.Embed (
-            title = "Uniform Image", 
+            title = "Uniform", 
             description = "Here is the image!", 
-            color = discord.Color.gold()
+            color = discord.Color.light_grey()
             )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
             )
         embed.set_image (
-            url = NSFWUNIFORM, 
+            url = UNIFORM, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -66,100 +89,68 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWUNIFORM}]')
-
-    
-    # AHEGAO - NSFW
-    @commands.command(help = "(NSFW ONLY) facial expressions.")
-    @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def ahegao(self, ctx):
-        AHEGAO = AnimeNSFWGel.ahegao()
-        embed = discord.Embed (
-            title = "Ahegao Image", 
-            description = "Here is the image!", 
-            color = discord.Color.gold()
-            )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-            )
-        embed.set_image (
-            url = AHEGAO, 
-        )
-        embed.set_thumbnail (
-            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
-        )
-        embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
-        )
-        await ctx.reply(embed = embed)
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {AHEGAO}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized in #{ctx.channel}! \n[Raw Data: {UNIFORM}]')
 
 
-    # GIF - NSFW
-    @commands.command(help = "(NSFW ONLY) GIF images.", aliases = ['gifnsfw'])
-    @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def nsfwgif(self, ctx):
-        GIF = AnimeNSFWGel.nsfwgif()
-        embed = discord.Embed (
-            title = "GIF Image", 
-            description = "Here is the image!", 
-            color = discord.Color.gold()
-            )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-            )
-        embed.set_image (
-            url = GIF, 
-        )
-        embed.set_thumbnail (
-            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
-        )
-        embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
-        )
-        await ctx.reply(embed = embed)
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {GIF}]')
-
-    # DOUJIN - NSFW
-    @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
-    @commands.cooldown( rate = 1, per = 1.0 )
-    @commands.is_nsfw()
-    async def doujin(self, ctx):
-        MANGA = AnimeNSFWGel.doujinshi()
-        embed = discord.Embed (
-            title = "Doujin Image", 
-            description = "Here is the image!", 
-            color = discord.Color.gold()
-            )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-            )
-        embed.set_image (
-            url = MANGA, 
-        )
-        embed.set_thumbnail (
-            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
-        )
-        embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
-        )
-        await ctx.reply(embed = embed)
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {MANGA}]')
-
-    # CATGIRL - NSFW
-    @commands.command(help = "(NSFW ONLY) catgirls.", aliases = ['nsfwcat','catgirlnsfw'])
+    # CAR - SFW
+    @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
     @commands.cooldown(rate = 1, per = 1.0)
-    @commands.is_nsfw()
-    async def nsfwcatgirl(self, ctx):
-        NSFWCATGIRL = AnimeNSFWGel.nsfwcatgirl()
+    async def car(self, ctx):
+        CAR = await AnimeGel.CAR()
+        embed = discord.Embed (
+            title = "Car Image", 
+            description = "Here is the image!", 
+            color = discord.Color.light_grey()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = CAR, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        embed.set_footer (
+            text = f'Tachibana: {Time.dateTimeUTC()}'
+        )
+        await ctx.reply(embed = embed)
+
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized in #{ctx.channel}! \n[Raw Data: {CAR}]')
+
+    # GUN - SFW
+    @commands.command(help = 'Gun images.', aliases = ['pew'])
+    @commands.cooldown(rate = 1, per = 1.0)
+    async def gun(self, ctx):
+        GUN = await AnimeGel.GUN()
+        embed = discord.Embed (
+            title = "Gun Image", 
+            description = "Here is the image!", 
+            color = discord.Color.light_grey()
+            )
+        embed.set_author (
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url
+            )
+        embed.set_image (
+            url = GUN, 
+        )
+        embed.set_thumbnail (
+            url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
+        )
+        embed.set_footer (
+            text = f'Tachibana: {Time.dateTimeUTC()}'
+        )
+        await ctx.reply(embed = embed)
+        
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized in #{ctx.channel}! \n[Raw Data: {GUN}]')
+
+    # CATGIRL - SFW
+    @commands.command(help = "Catgirls.", aliases = ['cat'])
+    @commands.cooldown(rate = 1, per = 1.0)
+    async def catgirl(self, ctx):
+        CATGIRL = await AnimeGel.CATGIRL()
         embed = discord.Embed (
             title = "Catgirl Image", 
             description = "Here is the image!", 
@@ -170,7 +161,7 @@ class nsfwBooru(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = NSFWCATGIRL, 
+            url = CATGIRL, 
         )
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
@@ -180,7 +171,7 @@ class nsfwBooru(commands.Cog):
         )
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWCATGIRL}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized in #{ctx.channel}! \n[Raw Data: {CATGIRL}]')
 
 def setup(client):
-    client.add_cog(nsfwBooru(client))
+    client.add_cog(Booru(client))

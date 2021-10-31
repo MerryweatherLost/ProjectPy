@@ -41,6 +41,8 @@ class AnimeList:
             'https://cdn.discordapp.com/attachments/576096750331494420/897501220640530452/11d52368e8e1446073e6ed0e3604f209.jpg',
             'https://cdn.discordapp.com/attachments/576096750331494420/897501220380495872/58924ca6a0a559f01c720e3fec640ec8.jpg',
             'https://cdn.discordapp.com/attachments/576096750331494420/898168752061952040/f507e8e194925763c0e369652798f1d8.jpg',
+            'https://i.waifu.pics/NOJicBh.png',
+            'https://cdn.discordapp.com/attachments/894676653291229224/904273442789031967/f6c6cc196eb5662eea86d909684eac08.png',
             ]
         coffeerand = random.choice(coffee)
 
@@ -103,7 +105,7 @@ class AnimeList:
             'https://cdn.discordapp.com/attachments/576096750331494420/898361805385109544/unknown.png',
             'https://cdn.discordapp.com/attachments/576096750331494420/898361933135245392/unknown.png',
             'https://cdn.discordapp.com/attachments/576096750331494420/898407034842656808/ac4ad612e6958cf5403d17a6b4e00cca.png',
-            ''
+            'https://cdn.discordapp.com/attachments/894676653291229224/904273442789031967/f6c6cc196eb5662eea86d909684eac08.png',
             ]
         waifuspecial = random.choice(list)
         return waifuspecial

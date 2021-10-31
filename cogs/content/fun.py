@@ -4,11 +4,12 @@ import discord
 
 from discord.ext import commands
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Essentials
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Essentials
+from library.ConsoleSelect import Roundtrip
+from library.GenshinSelect import Genshin
 
-from library.PoliticalSelect import States
+from library.PoliticalSelect import USA
 
 class Fun(commands.Cog):
     def __init__(self, client):
@@ -43,10 +44,7 @@ class Fun(commands.Cog):
         aliases = ['eightball','🎱'] 
     )
     async def _8ball(self, ctx, *, question):
-        AUTHOR_NAME = ctx.author.display_name
-        AUTHOR_IMAGE = ctx.author.avatar_url
-
-        message: discord.Message = await ctx.reply('8ball is thinking... <a:loading:893139868157354034>')    
+        message: discord.Message = await ctx.reply('8ball is thinking... <a:checkmark:903852585360949289>')    
 
         answer = Essentials.eightball()
         embed = discord.Embed (
@@ -58,8 +56,8 @@ class Fun(commands.Cog):
             url = Essentials.ballImage(),            
         )
         embed.set_author (
-            name = AUTHOR_NAME,
-            icon_url = AUTHOR_IMAGE
+            name = ctx.author.display_name,
+            icon_url = ctx.author.avatar_url
         )
         embed.set_footer (
             text = f'Tachibana: {Time.dateTimeUTC()}'
@@ -69,7 +67,7 @@ class Fun(commands.Cog):
         await message.delete()
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {question} ] [ Answer: {answer} ]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {str.capitalize(question)} ] [ Answer: {answer} ]')
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
@@ -85,41 +83,48 @@ class Fun(commands.Cog):
 
     # AVATAR METHOD
     @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
-    async def avatar(self, ctx, member: commands.MemberConverter = None):
-        if (member == None):
-            PROFILE = ctx.author.display_name
-            IMAGE = ctx.author.avatar_url
-        else:
-            PROFILE = member.display_name
-            IMAGE = member.avatar_url
-
+    async def avatar(self, ctx, member: discord.Member = None):
+        member = member or ctx.author
         embed = discord.Embed (
-            title = f"{PROFILE}'s Profile Image",
+            title = f"{member.display_name}'s Profile Image",
+            color = member.color
         )
         embed.set_author (
-            name = ctx.author.display_name,
-            icon_url = ctx.author.avatar_url
+            name = member.display_name,
+            icon_url = member.avatar_url
         )
         embed.set_image (
-            url = IMAGE
+            url = member.avatar_url
         )
         await ctx.reply(embed = embed)
     
+    # STATE METHOD
     @commands.command(help = 'Returns state flags. (information coming soon...)')
     async def state(self, ctx, *, name):
-        embed = discord.Embed ()
-        embed.set_image(url = States.states(str.lower(name)))
+        embed = discord.Embed()
+        embed.set_image(url = USA.states(str.lower(name)))
 
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {name}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {str.title(name)}]')
 
+    # TERRITORY METHOD
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
     async def territory(self, ctx, *, name):
-        embed = discord.Embed ()
-        embed.set_image(url = States.territories(str.lower(name)))
+        embed = discord.Embed()
+        embed.set_image(url = USA.territories(str.lower(name)))
         
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {name}]')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {str.title(name)}]')
+
+    # GENSHIN IMPACT METHOD
+    @commands.command(help = 'Returns genshin impact images.')
+    async def genshin(self, ctx, *, name):
+        embed = discord.Embed()
+        embed.set_image(url = Genshin.characters(str.lower(name)))
+
+        await ctx.reply(embed = embed)
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {str.title(name)}]')
+     
 
     # .
     @commands.command(name = '.', help = '.')
