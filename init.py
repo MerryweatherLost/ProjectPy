@@ -6,7 +6,6 @@ import asyncio
 
 import itertools
 import threading
-
 from discord.ext import commands
 
 from private.config import *
@@ -22,11 +21,15 @@ def animate():
         sys.stdout.flush()
         time.sleep(0.2)
     
+intents = discord.Intents().all() 
+intents.members = True 
+
 client = commands.Bot (
     command_prefix = prefix, 
     help_command = PrettyHelp (color = Color.tachi), 
     case_insensitive = True,
-    strip_after_prefix = True
+    strip_after_prefix = True,
+    intents = intents
 )
 
 clear = lambda: os.system(consoleclr)

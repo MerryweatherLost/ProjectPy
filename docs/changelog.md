@@ -155,3 +155,7 @@
 - Wildcard Refractor (*I'm dumb for not using them. (kinda).*)
 
 - `roles` and `rolecount` work as intended now.
+
+- `whois` command.
+
+- `track` command, and `Spotify (class)`
