@@ -159,3 +159,5 @@
 - `whois` command.
 
 - `track` command, and `Spotify (class)`
+
+- Event Handiling Changes, and listeners to fix other stuff.
