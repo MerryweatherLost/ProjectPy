@@ -104,7 +104,7 @@ class AnimeList:
             'https://cdn.discordapp.com/attachments/576096750331494420/898361805385109544/unknown.png',
             'https://cdn.discordapp.com/attachments/576096750331494420/898361933135245392/unknown.png',
             'https://cdn.discordapp.com/attachments/576096750331494420/898407034842656808/ac4ad612e6958cf5403d17a6b4e00cca.png',
-            ''
+            'https://cdn.discordapp.com/attachments/894676653291229224/904273442789031967/f6c6cc196eb5662eea86d909684eac08.png',
             ]
         waifuspecial = random.choice(list)
         return waifuspecial
