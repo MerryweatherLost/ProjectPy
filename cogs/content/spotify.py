@@ -5,7 +5,7 @@ from discord.ext import commands
 from PIL import Image, ImageFont, ImageDraw
 
 
-class SpotifyC(commands.Cog):
+class Spotify(commands.Cog):
     def __init__(self, client):
         self.client = client
 
@@ -22,7 +22,7 @@ class SpotifyC(commands.Cog):
         album_image = Image.open(requests.get(spotify_result.album_cover_url, stream=True).raw).convert('RGBA')
 
         # Fonts
-        title_font = ImageFont.truetype('arial.ttf', 27)
+        title_font = ImageFont.truetype('arial.ttf', 18)
         artist_font = ImageFont.truetype('arial.ttf', 14)
         album_font = ImageFont.truetype('arial.ttf', 14)
         start_duration_font = ImageFont.truetype('arial.ttf', 12)
@@ -61,4 +61,4 @@ class SpotifyC(commands.Cog):
 
 
 def setup(client):
-    client.add_cog(SpotifyC(client))
+    client.add_cog(Spotify(client))

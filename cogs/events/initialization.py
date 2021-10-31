@@ -5,14 +5,13 @@ import asyncio
 from playsound import playsound
 
 from discord.ext import commands, tasks
+from itertools import cycle
 
+from private.config import status
 from library.ConsoleSelect import Time
 from library.ConsoleSelect import InitProg
 from library.ConsoleSelect import Roundtrip
 
-from itertools import cycle
-
-from private.config import status
 from private.config import consoleclr
 
 from settings.Settings import General
@@ -29,8 +28,8 @@ class Initialization(commands.Cog):
     # FIRST ARGUMENT THAT YOUR FUNCTIONS 
     # IN YOUR CLASS TAKES!
     async def on_ready(self):
-        # CLEAR COMMAND
         self.change_status.start()
+        # CLEAR COMMAND
         clear = lambda: os.system(consoleclr)
         clear()
 
@@ -55,11 +54,10 @@ class Initialization(commands.Cog):
 
         # PRINT ESTABLISHMENT
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED.')
-   
+
     @tasks.loop(seconds = 4)
     async def change_status(self):
         await self.client.change_presence(activity = discord.Game(next(self.status)))
-
 
 def setup(client):
     client.add_cog(Initialization(client))
