@@ -2,17 +2,14 @@
 ## What to do with Project Py?
 
 ### FINISHING THE BOT
-This is complete, time to build upon it.
+This is now complete, and routine updates will be practiced on the bot from now on.
 
 #### EXTRA HANDS
 - Find another maintainer. `-PRIORITY!-`
-- Get some quality assurance. (Almost there...)
+
 #### REFRACTORING
 
 - Sort out the documentation.
-
-
-- Something that has been bothering me is that I can not use a class with my roundtrip. `-PRIORITY!-`
 
 #### GELBOORU TASK
 

@@ -141,3 +141,23 @@
 - Visualizes the way initialization is done.
 
 - Weather and Math refractor.
+
+## [1.2.0] - 2021-10-19 - 2021-10-**
+
+- Added version to keep track of version.
+
+- New `genshin` command to return genshin characters.
+
+- Added `mute` command to mute people with.
+
+- `SauceSelect (library)` `SauceNow (class)`, and three saucenao commands, Pixiv, Booru, and Anime respectively.
+
+- Wildcard Refractor (*I'm dumb for not using them. (kinda).*)
+
+- `roles` and `rolecount` work as intended now.
+
+- `whois` command.
+
+- `track` command, and `Spotify (class)`
+
+- Event Handiling Changes, and listeners to fix other stuff.

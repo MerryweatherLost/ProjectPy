@@ -4,8 +4,8 @@ import hmtai
 from waifu import WaifuAioClient
 from discord.ext import commands
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Roundtrip
 
 class Waifu(commands.Cog):
     def __init__(self, client):
@@ -243,6 +243,25 @@ class Waifu(commands.Cog):
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized in #{ctx.channel}! \n[Raw Data: {CRY}]')
 
+    # DEPRESSION
+    @commands.command(help = 'Simulate crippiling depression.')
+    async def depression(self, ctx):
+        embed=discord.Embed(
+            title = "Depression Image", 
+            description = "Here is the image!", 
+            color = discord.Color.dark_teal())
+        embed.set_author(
+            name = ctx.author.display_name, 
+            icon_url = ctx.author.avatar_url)
+        embed.set_image(
+            url = hmtai.useHM("2_9","depression"), 
+        )
+        embed.set_footer (
+            text = f'Tachibana: {Time.dateTimeUTC()}'
+        )
+        await ctx.reply(embed = embed)
+
+    # MODULAR COMMAND LIST - ACCEPTS MEMBER
 
     # HIGHFIVE
     @commands.command(help = 'Give a high five to someone. EX: :highfive @member.', aliases = ['hifive','high-five','hf'] )
@@ -256,7 +275,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = 'Highfive',
                 description = f'Heya {MENTION}, here is a high five!',
-                color = discord.Color.red()
+                color = ctx.author.color
             )
             embed.set_author (
                 name = ctx.author.display_name, 
@@ -285,7 +304,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = 'Kill',
                 description = f'{MENTION} was killed by {AUTHOR}!',
-                color = discord.Color.red()
+                color = ctx.author.color
             )
             embed.set_author (
                 name = ctx.author.display_name, 
@@ -314,7 +333,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = 'Hug',
                 description = f'{MENTION} was hugged by {AUTHOR}!',
-                color = discord.Colour.red()
+                color = ctx.author.color
             )
             embed.set_author (
                 name = ctx.author.display_name, 
@@ -344,7 +363,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = 'Wave',
                 description = f'{AUTHOR} just waved at {MENTION}!',
-                color = discord.Colour.red()
+                color = ctx.author.color
             )
             embed.set_author (
                 name = ctx.author.display_name, 
@@ -373,7 +392,7 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = 'Bonk',
                 description = f'{MENTION} just got bonked by {AUTHOR}!',
-                color = discord.Colour.red()
+                color = ctx.author.color
             )
             embed.set_author (
                 name = ctx.author.display_name, 
@@ -389,25 +408,64 @@ class Waifu(commands.Cog):
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
-        
-    # DEPRESSION
-    @commands.command(help = 'Simulate crippiling depression.')
-    async def depression(self, ctx):
-        embed=discord.Embed(
-            title = "Depression Image", 
-            description = "Here is the image!", 
-            color = discord.Color.dark_teal())
-        embed.set_author(
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url)
-        embed.set_image(
-            url = hmtai.useHM("2_9","depression"), 
-        )
-        embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
-        )
-        await ctx.reply(embed = embed)
 
+    # SLAP
+    @commands.command(help = 'Slap a member. No questions asked.')
+    async def slap(self, ctx, member: discord.Member):
+        async with WaifuAioClient() as client:
+            SLAP: str = await client.sfw(category = 'slap')
+            MENTION = member.mention
+            DISPLAY = member.display_name
+            AUTHOR = ctx.author.display_name
+
+            embed = discord.Embed (
+                title = 'Slap',
+                description = f'{AUTHOR} has just slapped {MENTION} right across the face!',
+                color = ctx.author.color
+            )            
+            embed.set_author (
+                name = ctx.author.display_name,
+                icon_url = ctx.author.avatar_url
+            )
+            embed.set_image (
+                url = SLAP
+            )
+            embed.set_footer (
+                text = f'Tachibana: {Time.dateTimeUTC()}'
+            )
+
+            await ctx.reply(embed = embed)   
+
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Slap was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {SLAP}]')
+    
+    # WINK
+    @commands.command(help = 'Slap a member. No questions asked.')
+    async def wink(self, ctx, member: discord.Member):
+        async with WaifuAioClient() as client:
+            WINK: str = await client.sfw(category = 'wink')
+            MENTION = member.mention
+            DISPLAY = member.display_name
+            AUTHOR = ctx.author.display_name
+
+            embed = discord.Embed (
+                title = 'Wink',
+                description = f'{AUTHOR} just winked right at {MENTION}!',
+                color = ctx.author.color
+            )            
+            embed.set_author (
+                name = ctx.author.display_name,
+                icon_url = ctx.author.avatar_url
+            )
+            embed.set_image (
+                url = WINK
+            )
+            embed.set_footer (
+                text = f'Tachibana: {Time.dateTimeUTC()}'
+            )
+
+            await ctx.reply(embed = embed)   
+
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wink was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WINK}]')
 
 def setup(client):
     client.add_cog(Waifu(client))

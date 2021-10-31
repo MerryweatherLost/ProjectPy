@@ -1,9 +1,9 @@
 import discord
 import akaneko
 
-from library.ConsoleLib import Time
-from library.ConsoleLib import Color
-from library.ConsoleLib import Roundtrip
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Color
+from library.ConsoleSelect import Roundtrip
 
 from library.AnimeSelect import AkaNSFW
 
