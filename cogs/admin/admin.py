@@ -110,9 +110,7 @@ class Administration(commands.Cog):
     @commands.command(help = "Unbans a person from the server.")
     @commands.has_permissions(ban_members = True)
     async def unban(self, ctx, *, member):
-        if (member == ctx.author):
-            rebed = discord.Embed(description = 'You can not unban yourself dummy!')
-            await ctx.reply(embed = rebed)
+        if member == ctx.author: return
         else:
             banned_users = await ctx.guild.bans()
             member_name, member_discriminator = member.split('#')
