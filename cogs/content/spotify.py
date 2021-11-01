@@ -45,7 +45,7 @@ class Spotify(commands.Cog):
                            f"{dateutil.parser.parse(str(spotify_result.duration)).strftime('%M:%S')}",
                            'black', font=end_duration_font)
 
-        # Background colour
+        # Background Color
         album_color = album_image.getpixel((250, 100))
         background_image_color = Image.new('RGBA', track_background_image.size, album_color)
         background_image_color.paste(track_background_image, (0, 0), track_background_image)
@@ -54,7 +54,7 @@ class Spotify(commands.Cog):
         album_image_resize = album_image.resize((140, 156))
         background_image_color.paste(album_image_resize, (0, 0), album_image_resize)
 
-        # Save image
+        # Save Image
         background_image_color.convert('RGB').save('spotify.png', 'PNG')
 
         await ctx.send(file=discord.File('spotify.png'))

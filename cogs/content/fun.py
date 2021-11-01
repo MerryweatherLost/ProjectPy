@@ -125,7 +125,6 @@ class Fun(commands.Cog):
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {str.title(name)}]')
      
-
     # .
     @commands.command(name = '.', help = '.')
     async def dot(self, ctx):

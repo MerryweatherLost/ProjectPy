@@ -120,9 +120,9 @@ class General(commands.Cog):
     @commands.command(help = 'Gets information about a person.')
     async def whois(self, ctx, member: discord.Member = None):
         member = member or ctx.author
-        rolelist = [r.mention for r in member.roles if r != ctx.guild.default_role]
+        rolelist = [list.mention for list in member.roles if list != ctx.guild.default_role]
         roles = " ".join(rolelist)
-        if (member.display_name == 'Tachibana'): desc = "*Why are you looking me up...?*" 
+        if member.display_name == 'Tachibana': desc = "*Why are you looking me up...?*" 
         else: desc = ""
         em = discord.Embed (
             title = f"{member.display_name}'s Information",
