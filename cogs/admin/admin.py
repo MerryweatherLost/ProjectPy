@@ -3,11 +3,7 @@ import asyncio
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Color
-from library.ConsoleSelect import DurationConverter
-from library.ConsoleSelect import Roundtrip
-
+from library.ConsoleSelect import *
 from settings.Settings import Admin
 
 

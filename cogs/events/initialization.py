@@ -8,9 +8,7 @@ from discord.ext import commands, tasks
 from itertools import cycle
 
 from private.config import status
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import InitProg
-from library.ConsoleSelect import Roundtrip
+from library.ConsoleSelect import *
 
 from private.config import consoleclr
 

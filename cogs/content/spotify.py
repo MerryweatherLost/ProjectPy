@@ -1,3 +1,4 @@
+import os
 import discord
 import requests
 import dateutil.parser
@@ -57,8 +58,7 @@ class Spotify(commands.Cog):
         # Save Image
         background_image_color.convert('RGB').save('spotify.png', 'PNG')
 
-        await ctx.send(file=discord.File('spotify.png'))
-
+        await ctx.reply(file = discord.File('spotify.png'))
 
 def setup(client):
     client.add_cog(Spotify(client))
