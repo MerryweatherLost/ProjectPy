@@ -1,5 +1,6 @@
 import discord
 import asyncio
+from audioplayer import AudioPlayer
 from discord.ext import commands, tasks
 from PIL import Image, ImageFont, ImageDraw
 from discord.ext.commands.errors import CommandInvokeError
@@ -61,6 +62,7 @@ class Events(commands.Cog):
         await asyncio.sleep(1)
         await message.delete()
         await ctx.reply(embed = embed)
+        AudioPlayer("sounds/error.wav").play(block=True)
 
 # ALL GENERAL EVENTS
     @commands.Cog.listener()

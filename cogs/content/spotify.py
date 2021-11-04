@@ -35,7 +35,7 @@ class Spotify(commands.Cog):
         artist_text_position = 195, 75
         album_text_position = 195, 100
         start_duration_text_position = 190, 163
-        end_duration_text_position = 554, 163
+        end_duration_text_position = 552, 163
 
         # CONDITION TO FIX LENGTH
         if (len(spotify_result.artist) > 35):
@@ -46,9 +46,10 @@ class Spotify(commands.Cog):
 
         if (len(spotify_result.title) > 18):
             spotititle = textwrap.fill(spotify_result.title, 18) 
+
             title_text_position = 195, 25
-            artist_text_position = 195, 85
-            album_text_position = 195, 130
+            artist_text_position = 195, 112
+            album_text_position = 195, 137
         else:
             spotititle = spotify_result.title
 
@@ -72,9 +73,9 @@ class Spotify(commands.Cog):
         background_image_color.paste(album_image_resize, (0, 20), album_image_resize)
 
         # Save Image
-        background_image_color.convert('RGB').save('spotify_render.png', 'PNG')
+        background_image_color.convert('RGB').save('cache/spotify_render.png', 'PNG')
 
-        await ctx.reply(file = discord.File('spotify_render.png'))
+        await ctx.reply(file = discord.File('cache/spotify_render.png'))
         await ctx.send(f"https://open.spotify.com/track/{spotify_result.track_id}")
 
 def setup(client):

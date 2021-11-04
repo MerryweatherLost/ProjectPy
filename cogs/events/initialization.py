@@ -2,8 +2,7 @@ import os
 import discord
 import asyncio 
 
-from playsound import playsound
-
+from audioplayer import AudioPlayer
 from discord.ext import commands, tasks
 from itertools import cycle
 
@@ -33,7 +32,7 @@ class Initialization(commands.Cog):
 
         # START PROCESS
         print(General.quote())
-        playsound('setup.wav')
+        AudioPlayer("sounds/setup.wav").play(block=True)
         clear()
         await Console.startProgress(u'\u001b[33;1m Initializing Client  ⚡\u001b[0m')
         set = 0
