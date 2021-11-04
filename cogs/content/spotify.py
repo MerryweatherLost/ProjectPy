@@ -46,7 +46,8 @@ class Spotify(commands.Cog):
 
         if (len(spotify_result.title) > 18):
             spotititle = textwrap.fill(spotify_result.title, 18) 
-            artist_text_position = 195, 105
+            title_text_position = 195, 25
+            artist_text_position = 195, 85
             album_text_position = 195, 130
         else:
             spotititle = spotify_result.title

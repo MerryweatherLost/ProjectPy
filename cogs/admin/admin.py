@@ -34,10 +34,12 @@ class Administration(commands.Cog):
             message: discord.Message = await ctx.reply(embed = embed)
             await asyncio.sleep(3)
             await message.delete()
-            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, extra = f'#{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clearlimit}]')
+            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
+            extra = f'#{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clearlimit}]')
         else:
             await ctx.channel.purge(limit = amount)
-            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, extra = f"#{ctx.channel} was cleared {amount} times using this command!")
+            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
+            extra = f"#{ctx.channel} was cleared {amount} times using this command!")
 
     # KICK METHOD
     @commands.command(help = "Kicks a person from the server.")
@@ -49,8 +51,9 @@ class Administration(commands.Cog):
         else:
             await member.kick(reason = reason)
             await ctx.reply(f'Kicked **{member}!**')
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - KICK: A user was kicked in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
-        
+            Console.log(Time.timeCST, Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
+            extra = f'A user by the name of {member.mention} was kicked! - Reason: {reason}')
+
     @kick.error
     async def kick_error(ctx, error):
         if isinstance(error, commands.MissingPermissions):
@@ -75,7 +78,8 @@ class Administration(commands.Cog):
             )    
             await ctx.guild.ban(member, reason = reason)
             await ctx.reply(f'Banned **{member}!**')
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - BAN: A user was banned in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
+            Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", ctx.channel,
+            extra = f'A user by the name of {member.mention} was banned! - Reason: {reason}')
     
     # TEMP BAN METHOD
     @commands.command(help = "Temporarily bans a person from the server. - (UNSTABLE)")

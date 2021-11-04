@@ -176,27 +176,9 @@ class Roundtrip:
     def rt(self):
         roundtrip = round(self.client.latency * 1000)
         return roundtrip
-
-class InitProg:
-    def startProgress(title):
-        global progress_x
-        sys.stdout.write(title + ": |" + " "*44 + "|" + chr(8)*45)
-        sys.stdout.flush()
-        progress_x = 0
-
-    def progress(x):
-        global progress_x
-        x = int(x * 44 // 100)
-        sys.stdout.write("█" * (x - progress_x))
-        sys.stdout.flush()
-        progress_x = x
-
-    def endProgress():
-        sys.stdout.write("█" * (44 - progress_x) + "|\n")
-        sys.stdout.flush()    
-
+        
 class Console:
-    async def log(timestamp, roundtrip, filename: str, cmd: str, channel, extra: None or str):
+    async def log(timestamp, roundtrip, filename, cmd, channel, extra: None) -> str:
         """
         ### Meant to be a global log for printing statements. ###
         `timestamp:` Returns the time from the parameter argument.
@@ -207,3 +189,20 @@ class Console:
         `extra: -> None or str. Normally fstring is used to display other information.`
         """
         print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE: {filename} - LOG: {cmd} was utilized in #{channel}! {extra}")
+    
+    async def startProgress(title):
+        global progress_x
+        sys.stdout.write(title + ": |" + " "*44 + "|" + chr(8)*45)
+        sys.stdout.flush()
+        progress_x = 0
+
+    async def progress(x):
+        global progress_x
+        x = int(x * 44 // 100)
+        sys.stdout.write("█" * (x - progress_x))
+        sys.stdout.flush()
+        progress_x = x
+
+    async def endProgress():
+        sys.stdout.write("█" * (44 - progress_x) + "|\n")
+        sys.stdout.flush()    

@@ -7,6 +7,7 @@ from discord.ext import commands
 from library.ConsoleSelect import Time
 from library.ConsoleSelect import Essentials
 from library.ConsoleSelect import Roundtrip
+from library.ConsoleSelect import Console
 from library.GenshinSelect import Genshin
 
 from library.PoliticalSelect import USA
@@ -21,8 +22,6 @@ class Fun(commands.Cog):
         await asyncio.sleep(1)
         answer = Essentials.CoinToss()
         await message.edit(content = f'{answer}')
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: COINTOSS - LOG: cointoss was utilized in #{ctx.channel}! [ Coin: {answer} ]')
    
     # PYTHON METHOD
     @commands.command( help = "The language it was programmed in.", aliases = ['py'] )
@@ -67,7 +66,7 @@ class Fun(commands.Cog):
         await message.delete()
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: EIGHTBALL - LOG: 8ball was utilized in #{ctx.channel}! [ Question: {str.capitalize(question)} ] [ Answer: {answer} ]')
+        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "8Ball", ctx.channel, f"[Question: {str.capitalize(question)}] [Answer: {answer}]")
     
     # POPPY METHOD
     @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
@@ -105,7 +104,7 @@ class Fun(commands.Cog):
         embed.set_image(url = USA.states(str.lower(name)))
 
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: STATE - LOG: State was utilized in #{ctx.channel}! [State Flag: {str.title(name)}]')
+        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "State", ctx.channel, f"[State Flag: {str.title(name)}]")
 
     # TERRITORY METHOD
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
@@ -114,7 +113,7 @@ class Fun(commands.Cog):
         embed.set_image(url = USA.territories(str.lower(name)))
         
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: TERRITORY - LOG: Territory was utilized in #{ctx.channel}! [Territory Flag: {str.title(name)}]')
+        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
 
     # GENSHIN IMPACT METHOD
     @commands.command(help = 'Returns genshin impact images.')
@@ -123,12 +122,13 @@ class Fun(commands.Cog):
         embed.set_image(url = Genshin.characters(str.lower(name)))
 
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: GENSHIN - LOG: Genshin was utilized in #{ctx.channel}! [Genshin Impact Character: {str.title(name)}]')
+        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
      
     # .
     @commands.command(name = '.', help = '.')
     async def dot(self, ctx):
-        await ctx.reply('.')  
+        message: discord.Message = await ctx.reply('.')  
+        await asyncio.sleep(1); message.delete()
 
 def setup(client):
     client.add_cog(Fun(client))

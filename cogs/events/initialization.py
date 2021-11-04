@@ -35,23 +35,23 @@ class Initialization(commands.Cog):
         print(General.quote())
         playsound('setup.wav')
         clear()
-        InitProg.startProgress(u'\u001b[33;1mInitializing Client\u001b[0m')
+        await Console.startProgress(u'\u001b[33;1m Initializing Client  ⚡\u001b[0m')
         set = 0
 
         # LOOP TO REACH PROCESS
         while (set != 100):
             await asyncio.sleep(0.01)
-            InitProg.progress(x = set)
+            await Console.progress(x = set)
             set += 1
 
         # COMPLETE PROCESS
-        InitProg.endProgress()
+        await Console.endProgress()
         clear()
         print(f'Loading Complete! Welcome Back, Edelweiss!\n')
         await asyncio.sleep(0.5)
 
         # PRINT ESTABLISHMENT
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED.')
+        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED. ⚡')
 
     @tasks.loop(seconds = 4)
     async def change_status(self):

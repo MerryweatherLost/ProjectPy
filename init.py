@@ -62,7 +62,7 @@ for filename in os.listdir('./cogs'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' > Loaded {filename}!')
+        print(f' » Loaded {filename}!')
 
 # EVENT LOAD
 print(f'\n< Loading all files within the Events Folder >')
@@ -74,7 +74,7 @@ for filename in os.listdir('./cogs/events'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' > Loaded {filename}!')
+        print(f' » Loaded {filename}!')
 
 # ADMINISTRATION LOAD
 print(f'\n< Loading all files within the Administration Folder >')
@@ -86,7 +86,7 @@ for filename in os.listdir('./cogs/admin'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' > Loaded {filename}!')
+        print(f' » Loaded {filename}!')
 
 # CLIENT LOAD
 print(f'\n< Loading all files within the Client Folder >')
@@ -98,7 +98,7 @@ for filename in os.listdir('./cogs/client'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' > Loaded {filename}!')
+        print(f' » Loaded {filename}!')
 
 # CONTENT LOAD
 print(f'\n< Loading all files within the Content Folder >')
@@ -110,7 +110,7 @@ for filename in os.listdir('./cogs/content'):
         t.start()
         time.sleep(0.1)
         done = True
-        print(f' > Loaded {filename}!')
+        print(f' » Loaded {filename}!')
 
 print('\nCompleted all loading tasks!')
 
