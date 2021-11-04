@@ -3,7 +3,12 @@ import asyncio
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import *
+from library.ConsoleSelect import Time
+from library.ConsoleSelect import Color
+from library.ConsoleSelect import DurationConverter
+from library.ConsoleSelect import Roundtrip
+from library.ConsoleSelect import Console
+
 from settings.Settings import Admin
 
 
@@ -29,10 +34,10 @@ class Administration(commands.Cog):
             message: discord.Message = await ctx.reply(embed = embed)
             await asyncio.sleep(3)
             await message.delete()
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - CLEAR: Channel #{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clearlimit}]')
+            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, extra = f'#{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clearlimit}]')
         else:
             await ctx.channel.purge(limit = amount)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - CLEAR: Channel #{ctx.channel} was cleared {amount} times using this command!')
+            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, extra = f"#{ctx.channel} was cleared {amount} times using this command!")
 
     # KICK METHOD
     @commands.command(help = "Kicks a person from the server.")

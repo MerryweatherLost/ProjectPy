@@ -19,3 +19,17 @@ This is now complete, and routine updates will be practiced on the bot from now 
 #### FRIENDS IDEAS
 - What else? Maybe some more command ideas.
 - I'll try to find some from my friends.
+
+
+#### IMPORTS
+-m pip install py-cord
+-m pip install Pillow
+-m pip install discord-pretty-help
+-m pip install python-weather
+-m pip install akanekopy
+-m pip install pysaucenao
+-m pip install pygelbooru
+-m pip install playsound
+-m pip install hmtai
+-m pip install waifu-py
+-m pip install python-dateutil

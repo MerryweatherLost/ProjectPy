@@ -194,3 +194,16 @@ class InitProg:
     def endProgress():
         sys.stdout.write("█" * (44 - progress_x) + "|\n")
         sys.stdout.flush()    
+
+class Console:
+    async def log(timestamp, roundtrip, filename: str, cmd: str, channel, extra: None or str):
+        """
+        ### Meant to be a global log for printing statements. ###
+        `timestamp:` Returns the time from the parameter argument.
+        `roundtrip:` Returns the miliseconds of latency.
+        `filename:` Filename of the library of commands.
+        `cmd:` Name of the command.
+        `channel:` Channel of the belonging `ctx.channel`.
+        `extra: -> None or str. Normally fstring is used to display other information.`
+        """
+        print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE: {filename} - LOG: {cmd} was utilized in #{channel}! {extra}")
