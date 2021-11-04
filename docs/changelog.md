@@ -164,4 +164,16 @@
 
 ## [1.3.0] - 2021-10-31 - 2021-11-**
 
-- TBD
+- `spotify` command replacing the `track` command.
+
+- ⚡ These things. cool... ⚡
+
+- Better music library to run multiple audio files without problem. (still need an asynchronous one without C++).
+
+- Spotify UI and image return.
+
+- Avatar circle image, which will be used as a greeting tool when I read over guild and channel docs.
+
+- `Console (class)` and `log (function)` to handle my console logs from now on, and no more printing. `async` for all!
+
+- Cache folder to hold all my images that are not assets. They are temp files and will be refreshed routinely.
