@@ -9,7 +9,7 @@ from library.ConsoleSelect import DurationConverter
 from library.ConsoleSelect import Roundtrip
 from library.ConsoleSelect import Console
 
-from settings.Settings import Admin
+from settings.config import Admin
 
 
 class Administration(commands.Cog):

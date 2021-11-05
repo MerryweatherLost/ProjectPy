@@ -11,7 +11,7 @@ from library.ConsoleSelect import *
 
 from private.config import consoleclr
 
-from settings.Settings import General
+from settings.config import General
 
 # INITIALIZATION 
 
@@ -21,9 +21,6 @@ class Initialization(commands.Cog):
         self.status = cycle(status)
 
     @commands.Cog.listener()
-    # SELF MUST BE THE FIRST ARGUMENT IN THE 
-    # FIRST ARGUMENT THAT YOUR FUNCTIONS 
-    # IN YOUR CLASS TAKES!
     async def on_ready(self):
         self.change_status.start()
         # CLEAR COMMAND

@@ -11,7 +11,7 @@ from library.ConsoleSelect import Roundtrip
 from library.ConsoleSelect import *
 from library.WeatherSelect import Weather
 
-from settings.Settings import version
+from settings.config import version
 
 # GENERAL COMMANDS
 
