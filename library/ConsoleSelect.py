@@ -189,6 +189,16 @@ class Console:
         `extra: -> None or str. Normally fstring is used to display other information.`
         """
         print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE: {filename} - LOG: {cmd} was utilized in #{channel}! {extra}")
+        
+    async def event(timestamp, roundtrip, context: None) -> str:
+        """
+        ### Meant to be a global log for printing statements. (Event Variant) ###
+        `timestamp:` Returns the time from the parameter argument.
+        `roundtrip:` Returns the miliseconds of latency.
+        `context: -> None or str. Normally fstring is used to display other information.`
+        """        
+        print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE - EVENT: {context}")
+
     
     async def startProgress(title):
         global progress_x

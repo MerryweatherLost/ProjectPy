@@ -8,12 +8,9 @@ This is now complete, and routine updates will be practiced on the bot from now 
 - Find another maintainer. `-PRIORITY!-`
 
 #### REFRACTORING
-
 - Sort out the documentation.
 
 #### GELBOORU TASK
-
-- Add more Gelbooru commands.
 - Find a good handler with an explicit rating to safe `-PRIORITY!-`
 
 #### FRIENDS IDEAS
@@ -29,7 +26,7 @@ This is now complete, and routine updates will be practiced on the bot from now 
 -m pip install akanekopy
 -m pip install pysaucenao
 -m pip install pygelbooru
--m pip install playsound
 -m pip install hmtai
 -m pip install waifu-py
 -m pip install python-dateutil
+-m pip install audioplayer

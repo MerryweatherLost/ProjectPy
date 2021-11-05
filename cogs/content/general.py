@@ -23,8 +23,8 @@ class General(commands.Cog):
     @commands.command(help = 'Pings the round client latency.', aliases = ['🏓'])
     async def ping(self, ctx):
         embed = discord.Embed (
-            description = f'⚪ **Pong! {Roundtrip.rt(self)}ms.**',
-            color = Color.white
+            description = f'🟠 **Pong! {Roundtrip.rt(self)}ms.**', 
+            color = Color.tachi
         )
         embed.set_footer (
             text = f"Tachibana: {Time.timeUTC()}"
@@ -65,7 +65,7 @@ class General(commands.Cog):
         wembed.set_footer (text = f'Date 🗓️: {weather.current.date} - Alerts ⚠️: {weather.alert_message}')
 
         await ctx.reply(embed = wembed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WEATHER - LOG: weather was utilized in #{ctx.channel}!\n[Location: {weather.current.observation_point} ] [Temperature: {weather.current.temperature}°{STN}] [Windspeed: {weather.current.wind_display}]')
+        await Console.log(Time.timeCST(), Roundtrip.rt(self), "GENERAL.PY", "Weather", ctx.channel, f'[Location[↗]: {weather.current.observation_point}] [Temperature: {weather.current.temperature}°{STN}] [Windspeed: {weather.current.wind_display}]')
         await client.close()
 
     # TOP DOG METHOD
@@ -79,7 +79,7 @@ class General(commands.Cog):
     # VERSION
     @commands.command(help = 'Shows the current version of the bot.')
     async def version(self, ctx):
-        embed = discord.Embed(description = f'The current version is: **{version}**')
+        embed = discord.Embed(description = f'The current version is: **{version}**', color = Color.tachi)
         await ctx.reply(embed = embed)
 
     # VOICE STATUS

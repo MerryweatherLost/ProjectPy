@@ -4,12 +4,8 @@ import discord
 
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Essentials
-from library.ConsoleSelect import Roundtrip
-from library.ConsoleSelect import Console
+from library.ConsoleSelect import *
 from library.GenshinSelect import Genshin
-
 from library.PoliticalSelect import USA
 
 class Fun(commands.Cog):
@@ -29,7 +25,8 @@ class Fun(commands.Cog):
         embed = discord.Embed (
             title = 'Python Website',
             description = 'Python is the language I was programmed in.',
-            url = 'https://www.python.org/',
+            url = 'https://www.python.org/', 
+            color = Color.tachi
         )
         embed.set_footer (
             text = f'Tachibana: {Time.dateTimeUTC()}'
@@ -109,7 +106,7 @@ class Fun(commands.Cog):
     # TERRITORY METHOD
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
     async def territory(self, ctx, *, name):
-        embed = discord.Embed()
+        embed = discord.Embed(color = Color.tachi)
         embed.set_image(url = USA.territories(str.lower(name)))
         
         await ctx.reply(embed = embed)
@@ -118,7 +115,7 @@ class Fun(commands.Cog):
     # GENSHIN IMPACT METHOD
     @commands.command(help = 'Returns genshin impact images.')
     async def genshin(self, ctx, *, name):
-        embed = discord.Embed()
+        embed = discord.Embed(color = Color.tachi)
         embed.set_image(url = Genshin.characters(str.lower(name)))
 
         await ctx.reply(embed = embed)

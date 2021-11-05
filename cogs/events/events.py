@@ -56,7 +56,7 @@ class Events(commands.Cog):
             embed = discord.Embed (description = msg)
             embed.set_footer (text = f'Tachibana Error Reporting: {Time.timeUTC()}')
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: Required Attention to Unknown Error!')   
+            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: ⊖ Required Attention to [Unknown Error] ⊖')   
             print(error)
 
         await asyncio.sleep(1)
@@ -67,11 +67,11 @@ class Events(commands.Cog):
 # ALL GENERAL EVENTS
     @commands.Cog.listener()
     async def on_member_join(self, member: discord.Member):
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - JOIN: Member {member} has joined the server!')
+        await Console.event(Time.timeCST(), Roundtrip.rt(self), f"Member {member} has joined the server.")
 
     @commands.Cog.listener()
     async def on_member_remove(self, member: discord.Member):
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: | LOG - LEAVE: Member {member} has left the server!')
+        await Console.event(Time.timeCST(), Roundtrip.rt(self), f"Member {member} has left the server.")
 
 def setup(client):
     client.add_cog(Events(client))
