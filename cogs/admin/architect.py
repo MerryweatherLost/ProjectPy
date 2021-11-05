@@ -19,7 +19,7 @@ class Architect(commands.Cog):
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ARCHITECT.PY - LOG: ABan was utilized in #{ctx.channel}! [Member: {member}]')
     
     @commands.command()
-    @commands.has_any_role('The Architect')
+    @commands.is_owner()
     async def avarch(self, ctx, member : discord.Member = None):
         member = member or ctx.author
 
