@@ -19,42 +19,50 @@ class Events(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             msg = 'Please pass in the required arguments.'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, commands.MissingPermissions):
             msg = 'You are missing permissions for this command.'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, commands.UserNotFound):
             msg = 'Unfortunately, I can not find this member, try again and check the user.'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, commands.TooManyArguments):
             msg = 'Too many arguments within this response, check the required amount.'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, commands.CommandNotFound):
             msg = 'Whoops, looks like I can not find that command! Try inputting it correctly, or check t!help or ask **Edelweiss#1337** for assistance!'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, commands.CommandOnCooldown):
             msg = 'This command is on a cooldown! Wait a moment...'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, commands.NSFWChannelRequired):
             msg = 'Seems like this command needs a NSFW channel.'  
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
         if isinstance(error, CommandInvokeError):
             msg = f'I can not pick up this error from my handler! Notify **Edelweiss#1337!**\nError Specified: {error}'
             embed = discord.Embed (description = msg)
-            embed.set_footer (text = f'{self.client.user.name} Error Reporting: {Time.timeUTC()}')
+            embed.set_footer (text = f'{self.client.user.name}')
+            embed.timestamp = ctx.message
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: ⊖ Required Attention to [Unknown Error] ⊖')   
             print(error)
