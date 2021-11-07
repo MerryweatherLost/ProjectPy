@@ -38,25 +38,25 @@ clear()
 @commands.is_owner()
 # LOAD_EXTENSION: Loading the 'cog' folder
 async def load(extension):
-    client.load_extension(f'cogs.{extension}')
+    client.load_extension(f'commands.{extension}')
 
 @client.command(help = 'Unloads package.')
 @commands.is_owner()
 # EXTENSION: Unloading the 'cog' folder
 async def unload(extension):
-    client.unload_extension(f'cogs.{extension}')
+    client.unload_extension(f'commands.{extension}')
 
 @client.command(help = 'Reloads package.')
 @commands.is_owner()
 # EXTENSIONS: Reloading the 'cog' folder
 async def reload(extension):
-    client.reload_extension(f'cogs.{extension}')
+    client.reload_extension(f'commands.{extension}')
 
 # GENERAL LOAD HANDLER
-print(f'< Loading all files within the Cogs Folder >')
-for filename in os.listdir('./cogs'):
+print(f'< Loading all files within the Commands Folder >')
+for filename in os.listdir('./commands'):
     if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}')
+        client.load_extension(f'commands.{filename[:-3]}')
         t = threading.Thread(target = animate)
         done = False
         t.start()
@@ -66,9 +66,9 @@ for filename in os.listdir('./cogs'):
 
 # EVENT LOAD
 print(f'\n< Loading all files within the Events Folder >')
-for filename in os.listdir('./cogs/events'):
+for filename in os.listdir('./commands/events'):
     if filename.endswith('.py'):
-        client.load_extension(f'cogs.events.{filename[:-3]}')
+        client.load_extension(f'commands.events.{filename[:-3]}')
         t = threading.Thread(target = animate)
         done = False
         t.start()
@@ -78,9 +78,9 @@ for filename in os.listdir('./cogs/events'):
 
 # ADMINISTRATION LOAD
 print(f'\n< Loading all files within the Administration Folder >')
-for filename in os.listdir('./cogs/admin'):
+for filename in os.listdir('./commands/admin'):
     if filename.endswith('.py'):
-        client.load_extension(f'cogs.admin.{filename[:-3]}')
+        client.load_extension(f'commands.admin.{filename[:-3]}')
         t = threading.Thread(target = animate)
         done = False
         t.start()
@@ -90,9 +90,9 @@ for filename in os.listdir('./cogs/admin'):
 
 # CLIENT LOAD
 print(f'\n< Loading all files within the Client Folder >')
-for filename in os.listdir('./cogs/client'):
+for filename in os.listdir('./commands/client'):
     if filename.endswith('.py'):
-        client.load_extension(f'cogs.client.{filename[:-3]}')
+        client.load_extension(f'commands.client.{filename[:-3]}')
         t = threading.Thread(target = animate)
         done = False
         t.start()
@@ -102,9 +102,9 @@ for filename in os.listdir('./cogs/client'):
 
 # CONTENT LOAD
 print(f'\n< Loading all files within the Content Folder >')
-for filename in os.listdir('./cogs/content'):
+for filename in os.listdir('./commands/content'):
     if filename.endswith('.py'):
-        client.load_extension(f'cogs.content.{filename[:-3]}')
+        client.load_extension(f'commands.content.{filename[:-3]}')
         t = threading.Thread(target = animate)
         done = False
         t.start()

@@ -32,6 +32,7 @@ class General(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
     # GITHUB
@@ -149,8 +150,9 @@ class General(commands.Cog):
             inline = False
         )
         em.set_footer (
-            text = f'ID: {member.id} - Timestamp: {Time.timeUTC()}',
+            text = f'ID: {member.id}'
         )
+        em.timestamp = ctx.message.created_at
         await ctx.reply(embed = em)
 
     @commands.command()
