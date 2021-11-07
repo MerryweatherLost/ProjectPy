@@ -11,6 +11,9 @@ from library.ConsoleSelect import Roundtrip
 from library.ConsoleSelect import *
 from library.WeatherSelect import Weather
 
+from PIL import Image, ImageChops, ImageDraw
+import requests
+
 from settings.config import version
 
 # GENERAL COMMANDS
@@ -150,6 +153,23 @@ class General(commands.Cog):
         )
         await ctx.reply(embed = em)
 
+    @commands.command()
+    async def avarch(self, ctx, member : discord.Member = None):
+        member = member or ctx.author
+
+        def crop_to_circle(im):
+            bigsize = (im.size[0] * 3, im.size[1] * 3)
+            mask = Image.new('L', bigsize, 0)
+            ImageDraw.Draw(mask).ellipse((0, 0) + bigsize, fill=255)
+            mask = mask.resize(im.size, Image.ANTIALIAS)
+            mask = ImageChops.darker(mask, im.split()[-1])
+            im.putalpha(mask)
+
+        im = Image.open(requests.get(member.avatar_url, stream = True).raw).convert('RGBA')
+        crop_to_circle(im)
+        im.save('cache/cropped.png')
+        
+        await ctx.reply(file = discord.File('cache/cropped.png'))
 
 def setup(client):
     client.add_cog(General(client))

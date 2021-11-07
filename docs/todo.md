@@ -30,3 +30,7 @@ This is now complete, and routine updates will be practiced on the bot from now 
 -m pip install waifu-py
 -m pip install python-dateutil
 -m pip install audioplayer
+
+### Spotify Integration
+
+`(255, 180, 0)` - November Colors for Spotify
