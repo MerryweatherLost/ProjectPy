@@ -31,7 +31,7 @@ class Anime(commands.Cog):
             url = COFFEE
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -54,7 +54,7 @@ class Anime(commands.Cog):
             url = APPL
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -78,7 +78,7 @@ class Anime(commands.Cog):
             url = DHARIMG
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -101,7 +101,7 @@ class Anime(commands.Cog):
             url = DDLC
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -122,7 +122,7 @@ class Anime(commands.Cog):
             url = POSIMG
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -145,7 +145,7 @@ class Anime(commands.Cog):
             url = WAIFUSPECIAL
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 

@@ -33,7 +33,7 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -62,7 +62,7 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -91,7 +91,7 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -120,7 +120,7 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -148,7 +148,7 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -176,7 +176,7 @@ class nsfwBooru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 

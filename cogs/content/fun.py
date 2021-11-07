@@ -29,7 +29,7 @@ class Fun(commands.Cog):
             color = Color.tachi
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed) 
 
@@ -56,7 +56,7 @@ class Fun(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await asyncio.sleep(1)   
 

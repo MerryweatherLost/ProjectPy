@@ -6,6 +6,8 @@ import discord
 from datetime import datetime
 from discord.ext import commands
 
+from private.config import signature
+
 def __init__(self, client):
     self.client = client
 
@@ -136,7 +138,7 @@ class Color:
     """`class` meant to handle requests for colors."""
     white = discord.Color.from_rgb(230,230,230)
     """Returns a factory setting of a white color for RGB. `tuple`"""
-    tachi = discord.Color.from_rgb(235, 179, 82)
+    tachi = signature
     """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
     weather = discord.Color.from_rgb(113, 175, 222)
     """Returns a factory setting of a signature Weather color for RGB. `tuple`"""

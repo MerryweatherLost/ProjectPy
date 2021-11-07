@@ -23,11 +23,11 @@ class General(commands.Cog):
     @commands.command(help = 'Pings the round client latency.', aliases = ['🏓'])
     async def ping(self, ctx):
         embed = discord.Embed (
-            description = f'🟠 **Pong! {Roundtrip.rt(self)}ms.**', 
+            description = f'**Pong! {Roundtrip.rt(self)}ms.**', 
             color = Color.tachi
         )
         embed.set_footer (
-            text = f"Tachibana: {Time.timeUTC()}"
+            text = f"{self.client.user.name}: {Time.timeUTC()}"
         )
         await ctx.reply(embed = embed)
 
@@ -122,7 +122,7 @@ class General(commands.Cog):
         member = member or ctx.author
         rolelist = [list.mention for list in member.roles if list != ctx.guild.default_role]
         roles = " ".join(rolelist)
-        if member.display_name == 'Tachibana': desc = "*Why are you looking me up...?*" 
+        if member.display_name == '{self.client.user.name}': desc = "*Why are you looking me up...?*" 
         else: desc = ""
         em = discord.Embed (
             title = f"{member.display_name}'s Information",

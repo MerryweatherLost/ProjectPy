@@ -28,7 +28,7 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
         
@@ -49,7 +49,7 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
     
@@ -70,7 +70,7 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = embed)
 
@@ -93,7 +93,7 @@ class Akaneko(commands.Cog):
             url = AKASCHOOL
         )
         school.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = school)        
 
@@ -116,7 +116,7 @@ class Akaneko(commands.Cog):
             url = AKAMAID
         )
         school.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = school)        
 
@@ -139,7 +139,7 @@ class Akaneko(commands.Cog):
             url = AKAGIF
         )
         school.set_footer (
-            text = f'Tachibana: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
         )
         await ctx.reply(embed = school)        
 

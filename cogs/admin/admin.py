@@ -29,7 +29,7 @@ class Administration(commands.Cog):
                 color = Color.tachi
             )
             embed.set_footer (
-                text = f'Tachibana: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
             )            
             message: discord.Message = await ctx.reply(embed = embed)
             await asyncio.sleep(3)
@@ -74,7 +74,7 @@ class Administration(commands.Cog):
                 color = Color.tachi
             )
             embed.set_footer (
-                text = f'Tachibana Administration Protocol: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
             )    
             await ctx.guild.ban(member, reason = reason)
             await ctx.reply(f'Banned **{member}!**')
@@ -99,7 +99,7 @@ class Administration(commands.Cog):
                 color = Color.tachi
             )
             embed.set_footer (
-                text = f'Tachibana Administration Protocol: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
             )
 
             await ctx.guild.ban(member, reason = reason)
@@ -131,7 +131,7 @@ class Administration(commands.Cog):
                         color = Color.tachi
                     )
                     embed.set_footer (
-                        text = f'Tachibana Administration Protocol: {Time.dateTimeUTC()}'
+                        text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
                     )
                     await ctx.guild.unban(user)
                     await ctx.reply(embed = embed)
@@ -157,7 +157,7 @@ class Administration(commands.Cog):
                 description = f'**{member}** has been muted for {amount}{unit}{rb}'
             )
             em.set_footer (
-                text = f'Tachibana Administration Protocol: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
             )
             await member.add_roles(roles = mute, reason = reason)
             await asyncio.sleep(amount * multiplier[unit])
