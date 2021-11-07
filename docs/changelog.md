@@ -177,3 +177,5 @@
 - `Console (class)` and `log (function)` to handle my console logs from now on, and no more printing. `async` for all!
 
 - Cache folder to hold all my images that are not assets. They are temp files and will be refreshed routinely.
+
+- Changed the way time works so that way it timestamps from other peoples time to prevent confusion.
