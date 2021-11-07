@@ -30,7 +30,7 @@ class General(commands.Cog):
             color = Color.tachi
         )
         embed.set_footer (
-            text = f"{self.client.user.name}: {Time.timeUTC()}"
+            text = f'{self.client.user.name}'
         )
         await ctx.reply(embed = embed)
 

@@ -29,8 +29,10 @@ class Administration(commands.Cog):
                 color = Color.tachi
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )            
+            message = ctx.message
+            embed.timestamp = message.created_at
             message: discord.Message = await ctx.reply(embed = embed)
             await asyncio.sleep(3)
             await message.delete()
@@ -74,8 +76,10 @@ class Administration(commands.Cog):
                 color = Color.tachi
             )
             embed.set_footer (
-                text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name} Administration Protocol'
             )    
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.guild.ban(member, reason = reason)
             await ctx.reply(f'Banned **{member}!**')
             Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", ctx.channel,
@@ -99,9 +103,10 @@ class Administration(commands.Cog):
                 color = Color.tachi
             )
             embed.set_footer (
-                text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name} Administration Protocol'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.guild.ban(member, reason = reason)
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
             await ctx.reply(embed = embed)
@@ -157,8 +162,10 @@ class Administration(commands.Cog):
                 description = f'**{member}** has been muted for {amount}{unit}{rb}'
             )
             em.set_footer (
-                text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name} Administration Protocol'
             )
+            message = ctx.message
+            em.timestamp = message.created_at
             await member.add_roles(roles = mute, reason = reason)
             await asyncio.sleep(amount * multiplier[unit])
             await member.remove_roles(roles = mute, reason = 'The specified time is over.')

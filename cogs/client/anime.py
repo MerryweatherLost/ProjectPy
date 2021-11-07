@@ -31,8 +31,10 @@ class Anime(commands.Cog):
             url = COFFEE
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized in #{ctx.channel}! \n[Raw Data: {COFFEE}]')
@@ -54,8 +56,10 @@ class Anime(commands.Cog):
             url = APPL
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized in #{ctx.channel}! \n[Raw Data: {APPL}]')
@@ -78,8 +82,10 @@ class Anime(commands.Cog):
             url = DHARIMG
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized in #{ctx.channel}! \n[Raw Data: {DHAR}]')
@@ -101,8 +107,10 @@ class Anime(commands.Cog):
             url = DDLC
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized in #{ctx.channel}! \n[Raw Data: {DDLC}]')
@@ -122,8 +130,10 @@ class Anime(commands.Cog):
             url = POSIMG
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized in #{ctx.channel}! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
@@ -145,8 +155,10 @@ class Anime(commands.Cog):
             url = WAIFUSPECIAL
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized in #{ctx.channel}! \n[Raw Data: {WAIFUSPECIAL}]')

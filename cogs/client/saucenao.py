@@ -34,7 +34,7 @@ class SauceNow(commands.Cog):
             embed.add_field (name = 'Author Link', value = f'[Link]({results[0].author_url})')
             embed.add_field (name = 'Result Count', value = f'{len(results)}')
             embed.add_field (name = 'Index ID', value = f'{results[0].index_id}')
-
+            embed.timestamp = message.created_at
             await message.delete()
             await ctx.reply(embed = embed)
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Pixiv] was utilized in #{ctx.channel}! \n[Raw Data: {results[0].url}]')
@@ -65,7 +65,7 @@ class SauceNow(commands.Cog):
             embed.add_field (name = 'Author Name', value = f'{results[0].author_name}')
             embed.add_field (name = 'Author Link', value = f'[Link]({results[0].author_url})')
             embed.add_field (name = 'Index ID', value = f'{results[0].index_id}')
-
+            embed.timestamp = message.created_at
             embed.set_footer (
                 text = f'Source URL: {results[0].source_url} Index: {results[0].index}'
             )
@@ -99,7 +99,7 @@ class SauceNow(commands.Cog):
     #         embed.add_field (name = 'Author Name', value = f'{results[4].author_name}')
     #         embed.add_field (name = 'Author Link', value = f'[Link]({results[4].author_url})')
     #         embed.add_field (name = 'Index ID', value = f'{results[4].index_id}')
-
+    #         embed.timestamp = message.created_at
     #         embed.set_footer (
     #             text = f'Source URL: {results[4].source_url} Index: {results[4].index}'
     #         )

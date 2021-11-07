@@ -19,11 +19,11 @@ class Booru(commands.Cog):
             title = "Wallpaper Image", 
             description = "Here is the image!", 
             color = discord.Color.light_grey()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = WALLPAPER, 
         )
@@ -31,8 +31,10 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {WALLPAPER}]')
 
@@ -45,11 +47,11 @@ class Booru(commands.Cog):
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
             color = discord.Color.light_grey()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = ZETTAI, 
         )
@@ -57,8 +59,10 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized in #{ctx.channel}! \n[Raw Data: {ZETTAI}]')
@@ -73,11 +77,11 @@ class Booru(commands.Cog):
             title = "Uniform", 
             description = "Here is the image!", 
             color = discord.Color.light_grey()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = UNIFORM, 
         )
@@ -85,8 +89,10 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized in #{ctx.channel}! \n[Raw Data: {UNIFORM}]')
@@ -101,11 +107,11 @@ class Booru(commands.Cog):
             title = "Car Image", 
             description = "Here is the image!", 
             color = discord.Color.light_grey()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = CAR, 
         )
@@ -113,8 +119,10 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized in #{ctx.channel}! \n[Raw Data: {CAR}]')
@@ -128,11 +136,11 @@ class Booru(commands.Cog):
             title = "Gun Image", 
             description = "Here is the image!", 
             color = discord.Color.light_grey()
-            )
+        )
         embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
-            )
+        )
         embed.set_image (
             url = GUN, 
         )
@@ -140,8 +148,10 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
         
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized in #{ctx.channel}! \n[Raw Data: {GUN}]')
@@ -167,8 +177,10 @@ class Booru(commands.Cog):
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized in #{ctx.channel}! \n[Raw Data: {CATGIRL}]')

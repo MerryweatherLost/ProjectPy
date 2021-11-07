@@ -28,8 +28,10 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
         
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
@@ -49,8 +51,10 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
     
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
@@ -70,8 +74,10 @@ class Akaneko(commands.Cog):
             url = AKANEKO
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
@@ -80,22 +86,24 @@ class Akaneko(commands.Cog):
     @commands.command(help = 'Not safe for work school images.')
     async def akaschool(self, ctx):
         AKASCHOOL = AkaNSFW.school()
-        school = discord.Embed (
+        embed = discord.Embed (
             title = "School Image",
             description = "Here is the image!",
             color = Color.tachi
         )
-        school.set_author ( 
+        embed.set_author ( 
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
         )
-        school.set_image (
+        embed.set_image (
             url = AKASCHOOL
         )
-        school.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+        embed.set_footer (
+            text = f'{self.client.user.name}'
         )
-        await ctx.reply(embed = school)        
+        message = ctx.message
+        embed.timestamp = message.created_at
+        await ctx.reply(embed = embed)        
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: School was utilized in #{ctx.channel}! \n[Raw Data: {AKASCHOOL}]')
 
@@ -103,22 +111,24 @@ class Akaneko(commands.Cog):
     @commands.command(help = 'Not safe for work school images.')
     async def akamaid(self, ctx):
         AKAMAID = AkaNSFW.maid()
-        school = discord.Embed (
+        embed = discord.Embed (
             title = "Maid Image",
             description = "Here is the image!",
             color = Color.tachi
         )
-        school.set_author ( 
+        embed.set_author ( 
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
         )
-        school.set_image (
+        embed.set_image (
             url = AKAMAID
         )
-        school.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+        embed.set_footer (
+            text = f'{self.client.user.name}'
         )
-        await ctx.reply(embed = school)        
+        message = ctx.message
+        embed.timestamp = message.created_at
+        await ctx.reply(embed = embed)        
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akamaid was utilized in #{ctx.channel}! \n[Raw Data: {AKAMAID}]')
         
@@ -126,22 +136,24 @@ class Akaneko(commands.Cog):
     @commands.command(help = 'Not safe for work school images.')
     async def akagif(self, ctx):
         AKAGIF = AkaNSFW.gif()
-        school = discord.Embed (
+        embed = discord.Embed (
             title = "GIF Image",
             description = "Here is the image!",
             color = Color.tachi
         )
-        school.set_author ( 
+        embed.set_author ( 
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url
         )
-        school.set_image (
+        embed.set_image (
             url = AKAGIF
         )
-        school.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+        embed.set_footer (
+            text = f'{self.client.user.name}'
         )
-        await ctx.reply(embed = school)        
+        message = ctx.message
+        embed.timestamp = message.created_at
+        await ctx.reply(embed = embed)        
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akagif was utilized in #{ctx.channel}! \n[Raw Data: {AKAGIF}]')
 

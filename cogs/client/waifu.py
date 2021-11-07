@@ -7,6 +7,8 @@ from discord.ext import commands
 from library.ConsoleSelect import Time
 from library.ConsoleSelect import Roundtrip
 
+from private.config import signature
+
 class Waifu(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -21,7 +23,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -29,8 +32,10 @@ class Waifu(commands.Cog):
                 url = WAIFU, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
     
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized in #{ctx.channel}! \n[Raw Data: {WAIFU}]')
@@ -45,7 +50,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Waifu Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name = ctx.author.display_name, 
                 icon_url = ctx.author.avatar_url)
@@ -53,8 +59,10 @@ class Waifu(commands.Cog):
                 url = NSFW_WAIFU, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_WAIFU}]')
@@ -71,7 +79,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Neko Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name = AUTHOR_NAME, 
                 icon_url = AUTHOR_IMAGE
@@ -80,8 +89,10 @@ class Waifu(commands.Cog):
                 url = NEKO, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized in #{ctx.channel}! \n[Raw Data: {NEKO}]')
@@ -98,7 +109,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Neko Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name =  AUTHOR_NAME,
                 icon_url = AUTHOR_IMAGE
@@ -107,8 +119,10 @@ class Waifu(commands.Cog):
                 url = NSFW_NEKO, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_NEKO}]')
@@ -124,7 +138,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Happy Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name =  AUTHOR_NAME,
                 icon_url = AUTHOR_IMAGE
@@ -133,8 +148,10 @@ class Waifu(commands.Cog):
                 url = HAPPY, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
         
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized in #{ctx.channel}! \n[Raw Data: {HAPPY}]')
@@ -150,7 +167,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Smile Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name =  AUTHOR_NAME,
                 icon_url = AUTHOR_IMAGE
@@ -159,8 +177,10 @@ class Waifu(commands.Cog):
                 url = SMILE, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized in #{ctx.channel}! \n[Raw Data: {SMILE}]')
@@ -176,7 +196,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Smug Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name = AUTHOR_NAME,
                 icon_url = AUTHOR_IMAGE
@@ -185,8 +206,10 @@ class Waifu(commands.Cog):
                 url = SMUG, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized in #{ctx.channel}! \n[Raw Data: {SMUG}]')
@@ -202,7 +225,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Dancing Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name = AUTHOR_NAME,
                 icon_url = AUTHOR_IMAGE
@@ -211,8 +235,10 @@ class Waifu(commands.Cog):
                 url = DANCE, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized in #{ctx.channel}! \n[Raw Data: {DANCE}]')
@@ -228,7 +254,8 @@ class Waifu(commands.Cog):
             embed = discord.Embed (
                 title = "Crying Image", 
                 description = "Here is the image!", 
-                color = discord.Color.dark_teal())
+                color = signature
+            )
             embed.set_author (
                 name = AUTHOR_NAME, 
                 icon_url = AUTHOR_IMAGE
@@ -237,8 +264,10 @@ class Waifu(commands.Cog):
                 url = CRY, 
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized in #{ctx.channel}! \n[Raw Data: {CRY}]')
@@ -246,19 +275,22 @@ class Waifu(commands.Cog):
     # DEPRESSION
     @commands.command(help = 'Simulate crippiling depression.')
     async def depression(self, ctx):
-        embed=discord.Embed(
+        embed = discord.Embed(
             title = "Depression Image", 
             description = "Here is the image!", 
-            color = discord.Color.dark_teal())
-        embed.set_author(
+            color = signature
+        )
+        embed.set_author (
             name = ctx.author.display_name, 
             icon_url = ctx.author.avatar_url)
-        embed.set_image(
+        embed.set_image (
             url = hmtai.useHM("2_9","depression"), 
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
     # MODULAR COMMAND LIST - ACCEPTS MEMBER
@@ -285,9 +317,10 @@ class Waifu(commands.Cog):
                 url = HIGHFIVE
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
@@ -314,9 +347,10 @@ class Waifu(commands.Cog):
                 url = KILL
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Kill was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {KILL}]')
@@ -343,9 +377,10 @@ class Waifu(commands.Cog):
                 url = HUG
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Hug was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HUG}]')
@@ -373,9 +408,10 @@ class Waifu(commands.Cog):
                 url = WAVE
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wave was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WAVE}]')
@@ -402,9 +438,10 @@ class Waifu(commands.Cog):
                 url = BONK
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
@@ -431,9 +468,10 @@ class Waifu(commands.Cog):
                 url = SLAP
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Slap was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {SLAP}]')
@@ -460,9 +498,10 @@ class Waifu(commands.Cog):
                 url = WINK
             )
             embed.set_footer (
-                text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+                text = f'{self.client.user.name}'
             )
-
+            message = ctx.message
+            embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wink was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WINK}]')

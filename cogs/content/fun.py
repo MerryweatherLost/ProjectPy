@@ -29,7 +29,7 @@ class Fun(commands.Cog):
             color = Color.tachi
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
         await ctx.reply(embed = embed) 
 
@@ -41,7 +41,6 @@ class Fun(commands.Cog):
     )
     async def _8ball(self, ctx, *, question):
         message: discord.Message = await ctx.reply('8ball is thinking... <a:checkmark:903852585360949289>')    
-
         answer = Essentials.eightball()
         embed = discord.Embed (
             title = "8-Ball", 
@@ -56,26 +55,15 @@ class Fun(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        embed.timestamp = message.created_at
         await asyncio.sleep(1)   
 
         await message.delete()
         await ctx.reply(embed = embed)
         
         await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "8Ball", ctx.channel, f"[Question: {str.capitalize(question)}] [Answer: {answer}]")
-    
-    # POPPY METHOD
-    @commands.command( help = 'You know what I am talking about.', aliases = ['hitler','fascist'] )
-    @commands.has_any_role('The Architect')
-    async def poppy(self, ctx):
-        responses = [
-            'Literally Poppy.','Last time I heard of Poppy was when he was meeting David Duke.',
-            'Poppy is a true Neo-Confederate.','Poppy? Why he is the biggest nationalist you have ever seen.',
-            'How come Poppy is a Neanderthal?'
-        ]
-        answer = random.choice(responses)   
-        await ctx.reply(answer)
 
     # AVATAR METHOD
     @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
@@ -99,7 +87,11 @@ class Fun(commands.Cog):
     async def state(self, ctx, *, name):
         embed = discord.Embed()
         embed.set_image(url = USA.states(str.lower(name)))
-
+        embed.set_footer (
+            text = f'{self.client.user.name}'
+        )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
         await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "State", ctx.channel, f"[State Flag: {str.title(name)}]")
 
@@ -108,7 +100,11 @@ class Fun(commands.Cog):
     async def territory(self, ctx, *, name):
         embed = discord.Embed(color = Color.tachi)
         embed.set_image(url = USA.territories(str.lower(name)))
-        
+        embed.set_footer (
+            text = f'{self.client.user.name}'
+        )
+        message = ctx.message
+        embed.timestamp = message.created_at        
         await ctx.reply(embed = embed)
         await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
 
@@ -117,7 +113,11 @@ class Fun(commands.Cog):
     async def genshin(self, ctx, *, name):
         embed = discord.Embed(color = Color.tachi)
         embed.set_image(url = Genshin.characters(str.lower(name)))
-
+        embed.set_footer (
+            text = f'{self.client.user.name}'
+        )
+        message = ctx.message
+        embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
         await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
      

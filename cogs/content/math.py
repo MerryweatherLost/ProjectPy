@@ -17,8 +17,10 @@ class Math(commands.Cog):
             description = f'{Essentials.Math(num1, op, num2)}'
         )
         mathembed.set_footer (
-            text = f'Tachibana: {Time.timeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        mathembed.timestamp = message.created_at
         await ctx.reply(embed = mathembed)
 
     @commands.command(aliases = ['mathr'], help = 'Rounds the math before calculating.')
@@ -29,8 +31,10 @@ class Math(commands.Cog):
             description = f'{Essentials.Math(num1, op, num2)}'
         )
         mathembed.set_footer (
-            text = f'Tachibana: {Time.timeUTC()}'
+            text = f'{self.client.user.name}'
         )
+        message = ctx.message
+        mathembed.timestamp = message.created_at
         await ctx.reply(embed = mathembed)
 
 def setup(client):
