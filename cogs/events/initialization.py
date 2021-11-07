@@ -10,6 +10,7 @@ from private.config import status
 from library.ConsoleSelect import *
 
 from private.config import consoleclr
+from private.config import name
 
 from settings.config import General
 
@@ -43,7 +44,9 @@ class Initialization(commands.Cog):
         # COMPLETE PROCESS
         await Console.endProgress()
         clear()
-        print(f'Loading Complete! Welcome Back, Edelweiss!\n')
+        print(f'Loading Complete! Welcome Back, Edelweiss!')
+        if (name == 'cleo'): print(u'\u001b[35;1mSeems like you are using the test build of Tachibana (Cleo).\u001b[0m \n')
+        elif (name == 'tachibana'): print(u'\u001b[33;1mYou are using the stable version of Tachibana.\u001b[0m \n')
         await asyncio.sleep(0.5)
 
         # PRINT ESTABLISHMENT
