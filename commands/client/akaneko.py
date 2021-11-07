@@ -30,8 +30,7 @@ class Akaneko(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
         
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
@@ -53,8 +52,8 @@ class Akaneko(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
     
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
@@ -76,8 +75,8 @@ class Akaneko(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
@@ -101,8 +100,8 @@ class Akaneko(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)        
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: School was utilized in #{ctx.channel}! \n[Raw Data: {AKASCHOOL}]')
@@ -126,8 +125,8 @@ class Akaneko(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)        
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akamaid was utilized in #{ctx.channel}! \n[Raw Data: {AKAMAID}]')
@@ -151,8 +150,8 @@ class Akaneko(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)        
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akagif was utilized in #{ctx.channel}! \n[Raw Data: {AKAGIF}]')
