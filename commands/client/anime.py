@@ -33,8 +33,7 @@ class Anime(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized in #{ctx.channel}! \n[Raw Data: {COFFEE}]')
@@ -58,8 +57,7 @@ class Anime(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized in #{ctx.channel}! \n[Raw Data: {APPL}]')
@@ -67,8 +65,7 @@ class Anime(commands.Cog):
     # DHARMANN - SFW
     @commands.command(help = 'Emotional Relief.')
     async def dhar(self, ctx):
-        DHAR = DharMann.DharQuote()   
-        DHARIMG = DharMann.DharImage()    
+        DHAR = DharMann.DharQuote()
         embed = discord.Embed (
             title = 'Dhar Mann',
             description = f'**Hey Dhar Mann fam!** \n**Quote:** {DHAR}',
@@ -79,13 +76,12 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = DHARIMG
+            url = DharMann.DharImage()  
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized in #{ctx.channel}! \n[Raw Data: {DHAR}]')
@@ -109,8 +105,7 @@ class Anime(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized in #{ctx.channel}! \n[Raw Data: {DDLC}]')
@@ -132,8 +127,7 @@ class Anime(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized in #{ctx.channel}! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
@@ -157,8 +151,7 @@ class Anime(commands.Cog):
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized in #{ctx.channel}! \n[Raw Data: {WAIFUSPECIAL}]')

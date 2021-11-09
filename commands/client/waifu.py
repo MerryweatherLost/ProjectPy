@@ -1,5 +1,4 @@
 import discord
-import hmtai
 
 from waifu import WaifuAioClient
 from discord.ext import commands
@@ -13,38 +12,40 @@ class Waifu(commands.Cog):
     def __init__(self, client):
         self.client = client
         
-    ## WAIFU GENERATOR
-
-    # GENERAL
-    @commands.command( help = 'General Waifu image.', aliases = ['waifugen','wgen'] )
+    # WAIFU GROUP
+    @commands.group (
+        help = 'Waifu group that contains all single waifu commands. If called without context, then returns general waifu.',
+        pass_context = True
+    )
     async def waifu(self, ctx):
-        async with WaifuAioClient() as client:
-            WAIFU: str = await client.sfw(category='waifu')
-            embed = discord.Embed (
-                title = "Waifu Image", 
-                description = "Here is the image!", 
-                color = signature
-            )
-            embed.set_author (
-                name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
-            embed.set_image (
-                url = WAIFU, 
-            )
-            embed.set_footer (
-                text = f'{self.client.user.name}'
-            )
-            message = ctx.message
-            embed.timestamp = message.created_at
-            await ctx.reply(embed = embed)
-    
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized in #{ctx.channel}! \n[Raw Data: {WAIFU}]')
+        if ctx.invoked_subcommand is None:
+            async with WaifuAioClient() as client:
+                WAIFU: str = await client.sfw(category='waifu')
+                embed = discord.Embed (
+                    title = "Waifu Image", 
+                    description = "Here is the image!", 
+                    color = signature
+                )
+                embed.set_author (
+                    name = ctx.author.display_name, 
+                    icon_url = ctx.author.avatar_url
+                )
+                embed.set_image (
+                    url = WAIFU, 
+                )
+                embed.set_footer (
+                    text = f'{self.client.user.name}'
+                )
+                message = ctx.message
+                embed.timestamp = message.created_at
+                await ctx.reply(embed = embed)
+        
+                print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized in #{ctx.channel}! \n[Raw Data: {WAIFU}]')
 
-    
     # NSFW
-    @commands.command( help = 'General Waifu image.', aliases = ['waifunsfw'] )
+    @waifu.command( help = 'General Waifu image.', aliases = ['waifunsfw'] )
     @commands.is_nsfw()
-    async def nsfwwaifu(self, ctx):
+    async def nsfw(self, ctx):
         async with WaifuAioClient() as client:
             NSFW_WAIFU: str = await client.nsfw(category='waifu')
             embed = discord.Embed (
@@ -67,9 +68,8 @@ class Waifu(commands.Cog):
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_WAIFU}]')
 
-
     # NEKO
-    @commands.command(help = 'Neko Waifu image.', aliases = ['nekomimi'])
+    @waifu.command(help = 'Neko Waifu image.', aliases = ['nekomimi'])
     async def neko(self, ctx):
         async with WaifuAioClient() as client:
             NEKO: str = await client.sfw(category='neko')
@@ -98,7 +98,7 @@ class Waifu(commands.Cog):
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized in #{ctx.channel}! \n[Raw Data: {NEKO}]')
 
     # NEKO - NSFW
-    @commands.command(help = 'Neko Waifu image.', aliases = ['nsfwneko', 'nekomiminsfw'])
+    @waifu.command(help = 'Neko Waifu image.', aliases = ['nsfwneko', 'nekomiminsfw'])
     @commands.is_nsfw()
     async def nekonsfw(self, ctx):
         async with WaifuAioClient() as client:
@@ -128,7 +128,7 @@ class Waifu(commands.Cog):
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_NEKO}]')
     
     # HAPPY
-    @commands.command(help = 'Happy image of a waifu.')
+    @waifu.command(help = 'Happy image of a waifu.')
     async def happy(self, ctx):
         async with WaifuAioClient() as client:
             HAPPY: str = await client.sfw(category = 'happy')
@@ -157,7 +157,7 @@ class Waifu(commands.Cog):
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized in #{ctx.channel}! \n[Raw Data: {HAPPY}]')
     
     # SMILE
-    @commands.command(help = 'Smiling image of a waifu.', aliases = ['🙂'])
+    @waifu.command(help = 'Smiling image of a waifu.', aliases = ['🙂'])
     async def smile(self, ctx):
         async with WaifuAioClient() as client:
             SMILE: str = await client.sfw(category = 'smile')
@@ -186,7 +186,7 @@ class Waifu(commands.Cog):
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized in #{ctx.channel}! \n[Raw Data: {SMILE}]')
 
     # SMUG
-    @commands.command(help = 'Smug image of a waifu. - My personal favorite.')
+    @waifu.command(help = 'Smug image of a waifu. - My personal favorite.')
     async def smug(self, ctx):
         async with WaifuAioClient() as client:
             SMUG: str = await client.sfw(category = 'smug')
@@ -215,7 +215,7 @@ class Waifu(commands.Cog):
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized in #{ctx.channel}! \n[Raw Data: {SMUG}]')
 
     # DANCE
-    @commands.command(help = 'Dance image of a waifu.')
+    @waifu.command(help = 'Dance image of a waifu.')
     async def dance(self, ctx):
         async with WaifuAioClient() as client:
             DANCE: str = await client.sfw(category = 'smile')
@@ -244,7 +244,7 @@ class Waifu(commands.Cog):
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized in #{ctx.channel}! \n[Raw Data: {DANCE}]')
 
     # CRY
-    @commands.command(help = 'Crying image of a waifu.')
+    @waifu.command(help = 'Crying image of a waifu.')
     async def cry(self, ctx):
         async with WaifuAioClient() as client:
             CRY: str = await client.sfw(category = 'cry')
@@ -271,27 +271,6 @@ class Waifu(commands.Cog):
             await ctx.reply(embed = embed)
 
             print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized in #{ctx.channel}! \n[Raw Data: {CRY}]')
-
-    # DEPRESSION
-    @commands.command(help = 'Simulate crippiling depression.')
-    async def depression(self, ctx):
-        embed = discord.Embed(
-            title = "Depression Image", 
-            description = "Here is the image!", 
-            color = signature
-        )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url)
-        embed.set_image (
-            url = hmtai.useHM("2_9","depression"), 
-        )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
-        await ctx.reply(embed = embed)
 
     # MODULAR COMMAND LIST - ACCEPTS MEMBER
 

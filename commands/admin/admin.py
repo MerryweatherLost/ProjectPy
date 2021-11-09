@@ -31,8 +31,7 @@ class Administration(commands.Cog):
             embed.set_footer (
                 text = f'{self.client.user.name}'
             )            
-            message = ctx.message
-            embed.timestamp = message.created_at
+            embed.timestamp = ctx.message.created_at
             message: discord.Message = await ctx.reply(embed = embed)
             await asyncio.sleep(3)
             await message.delete()
@@ -48,8 +47,8 @@ class Administration(commands.Cog):
     @commands.has_permissions(kick_members = True)
     async def kick(self, ctx, member : commands.MemberConverter, *, reason = None):
         if (member == ctx.author):
-            rebed = discord.Embed(description = 'You can not kick yourself!')
-            await ctx.reply(embed = rebed)
+            embed = discord.Embed(description = 'You can not kick yourself!')
+            await ctx.reply(embed = embed)
         else:
             await member.kick(reason = reason)
             await ctx.reply(f'Kicked **{member}!**')
@@ -66,8 +65,8 @@ class Administration(commands.Cog):
     @commands.has_permissions(ban_members = True)
     async def ban(self, ctx, member : commands.MemberConverter, *, reason = None):
         if (member == ctx.author):
-            rebed = discord.Embed(description = 'You can not ban yourself!')
-            await ctx.reply(embed = rebed)
+            embed = discord.Embed(description = 'You can not ban yourself!')
+            await ctx.reply(embed = embed)
         else:
             if (reason): rb = f', with the reason being **{reason}.**'
             else: rb = '.'
@@ -90,8 +89,8 @@ class Administration(commands.Cog):
     @commands.has_permissions(ban_members = True)
     async def tempban(self, ctx, member: commands.MemberConverter, duration: DurationConverter, *, reason = None):
         if (member == ctx.author):
-            rebed = discord.Embed(description = 'You can not tempban yourself dummy!')
-            await ctx.reply(embed = rebed)
+            embed = discord.Embed(description = 'You can not tempban yourself dummy!')
+            await ctx.reply(embed = embed)
         else:
             multiplier = {'s': 1, 'm': 60, 'h': 3600, 'd': 86400}
             amount, unit = duration
@@ -121,8 +120,8 @@ class Administration(commands.Cog):
     @commands.has_permissions(ban_members = True)
     async def unban(self, ctx, *, member):
         if (member == ctx.author):
-            rebed = discord.Embed(description = 'You can not unban yourself dummy!')
-            await ctx.reply(embed = rebed)
+            embed = discord.Embed(description = 'You can not unban yourself dummy!')
+            await ctx.reply(embed = embed)
         else:
             banned_users = await ctx.guild.bans()
             member_name, member_discriminator = member.split('#')
@@ -164,8 +163,7 @@ class Administration(commands.Cog):
             em.set_footer (
                 text = f'{self.client.user.name} Administration Protocol'
             )
-            message = ctx.message
-            em.timestamp = message.created_at
+            em.timestamp = ctx.message.created_at
             await member.add_roles(roles = mute, reason = reason)
             await asyncio.sleep(amount * multiplier[unit])
             await member.remove_roles(roles = mute, reason = 'The specified time is over.')

@@ -20,10 +20,12 @@ class Akaneko(commands.Cog):
         embed = discord.Embed (
             title = "Mobile Wallpaper", 
             description = "Here is the image!", 
-            color = discord.Color.blue())
+            color = discord.Color.blue()
+        )
         embed.set_author (
             name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url)
+            icon_url = ctx.author.avatar_url
+        )
         embed.set_image (
             url = AKANEKO
         )
@@ -42,17 +44,18 @@ class Akaneko(commands.Cog):
         embed = discord.Embed (
             title = "Neko", 
             description = "Here is the image!", 
-            color = discord.Color.blue())
+            color = discord.Color.blue()
+        )
         embed.set_author (
             name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url)
+            icon_url = ctx.author.avatar_url
+        )
         embed.set_image (
             url = AKANEKO
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
     
@@ -65,17 +68,18 @@ class Akaneko(commands.Cog):
         embed = discord.Embed (
             title = "Foxgirl", 
             description = "Here is the image!", 
-            color = discord.Color.blue())
+            color = discord.Color.blue()
+        )
         embed.set_author ( 
             name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url)
+            icon_url = ctx.author.avatar_url
+        )
         embed.set_image (
             url = AKANEKO
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
-        
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
@@ -99,8 +103,7 @@ class Akaneko(commands.Cog):
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
-        )
-        
+        )    
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)        
 
@@ -124,8 +127,7 @@ class Akaneko(commands.Cog):
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
-        )
-        
+        )     
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)        
 
@@ -149,8 +151,7 @@ class Akaneko(commands.Cog):
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
-        )
-        
+        )       
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)        
 

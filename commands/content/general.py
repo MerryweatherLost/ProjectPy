@@ -11,7 +11,9 @@ from library.ConsoleSelect import Roundtrip
 from library.ConsoleSelect import *
 from library.WeatherSelect import Weather
 
-from PIL import Image, ImageChops, ImageDraw
+from library.PillowSelect import Avatar
+
+from PIL import Image
 import requests
 
 from settings.config import version
@@ -123,18 +125,31 @@ class General(commands.Cog):
     # WHOIS
     @commands.command(help = 'Gets information about a person.')
     async def whois(self, ctx, member: discord.Member = None):
+        # DEFINE MEMBER OR CONTEXT.AUTHOR AS MEMBER
         member = member or ctx.author
+        # SET ROLE LIST AS LIST.MENTION @Rolenamehere FOR LIST :IN: MEMBER.ROLES :IF: LIST != @EVERYONE
         rolelist = [list.mention for list in member.roles if list != ctx.guild.default_role]
+        # SPACE OUT, JOIN ROLELIST
         roles = " ".join(rolelist)
+
         if member.display_name == '{self.client.user.name}': desc = "*Why are you looking me up...?*" 
         else: desc = ""
+        
+        image = Image.open(requests.get(member.avatar_url, stream = True).raw).convert('RGBA')
+        Avatar.crop_to_circle(image)
+
+        imageresize = image.resize((250, 250))
+        
+        imageresize.save('cache/whois.png', 'PNG')
+        file = discord.File("cache/whois.png", filename="whois.png")
+
         em = discord.Embed (
             title = f"{member.display_name}'s Information",
             color = member.color,
             description = desc
         )
         em.set_thumbnail (
-            url = member.avatar_url
+            url = ('attachment://whois.png')
         )
         em.add_field (
             name = "Guild Join Date",
@@ -153,24 +168,52 @@ class General(commands.Cog):
             text = f'ID: {member.id}'
         )
         em.timestamp = ctx.message.created_at
-        await ctx.reply(embed = em)
+        await ctx.reply(file = file, embed = em)
 
-    @commands.command()
-    async def avarch(self, ctx, member : discord.Member = None):
+    # AVATAR GROUP
+    @commands.group(help = 'Avatar group that holds different ways of displaying avatars.')
+    async def avatar(self, ctx):
+        if ctx.invoked_subcommand is None:
+            embed = discord.Embed (description = 'That is not a visible subcommand.', color = signature)
+            await ctx.reply(embed = embed)
+
+    # SQUARE AVATAR
+    @avatar.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
+    async def square(self, ctx, member: discord.Member = None):
         member = member or ctx.author
+        embed = discord.Embed (
+            title = f"{member.display_name}'s Profile Image",
+            color = member.color
+        )
+        embed.set_author (
+            name = member.display_name,
+            icon_url = member.avatar_url
+        )
+        embed.set_image (
+            url = member.avatar_url
+        )
+        await ctx.reply(embed = embed)
 
-        def crop_to_circle(im):
-            bigsize = (im.size[0] * 3, im.size[1] * 3)
-            mask = Image.new('L', bigsize, 0)
-            ImageDraw.Draw(mask).ellipse((0, 0) + bigsize, fill=255)
-            mask = mask.resize(im.size, Image.ANTIALIAS)
-            mask = ImageChops.darker(mask, im.split()[-1])
-            im.putalpha(mask)
-
+    # CIRCLE AVATAR
+    @avatar.command(help = 'Returns your avatar image in a circle.', aliases = ['avcircle','avc'])
+    async def circle(self, ctx, member : discord.Member = None):
+        # DEFINE MEMBER OR CONTEXT.AUTHOR AS MEMBER
+        member = member or ctx.author
+        # OPEN IMAGE, GET THE AVATAR URL AND CONVERT
         im = Image.open(requests.get(member.avatar_url, stream = True).raw).convert('RGBA')
-        crop_to_circle(im)
-        im.save('cache/cropped.png')
-        
+        # CALL FUNCTION
+        Avatar.crop_to_circle(im)
+        # RESIZE IMAGE
+        imageresize = im.resize((250, 250))
+        # SAVE TO CACHE
+        imageresize.save('cache/cropped.png')
+
+        # EMBED FILE
+        embed = discord.Embed (
+            title = 'Avatar Circle'
+        )
+        embed.timestamp = ctx.message.created_at
+        # AWAIT COROUTINE 
         await ctx.reply(file = discord.File('cache/cropped.png'))
 
 def setup(client):

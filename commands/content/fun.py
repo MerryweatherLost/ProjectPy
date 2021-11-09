@@ -64,23 +64,6 @@ class Fun(commands.Cog):
         await ctx.reply(embed = embed)
         
         await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "8Ball", ctx.channel, f"[Question: {str.capitalize(question)}] [Answer: {answer}]")
-
-    # AVATAR METHOD
-    @commands.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
-    async def avatar(self, ctx, member: discord.Member = None):
-        member = member or ctx.author
-        embed = discord.Embed (
-            title = f"{member.display_name}'s Profile Image",
-            color = member.color
-        )
-        embed.set_author (
-            name = member.display_name,
-            icon_url = member.avatar_url
-        )
-        embed.set_image (
-            url = member.avatar_url
-        )
-        await ctx.reply(embed = embed)
     
     # STATE METHOD
     @commands.command(help = 'Returns state flags. (information coming soon...)')

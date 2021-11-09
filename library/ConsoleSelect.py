@@ -125,13 +125,15 @@ class Essentials():
             result = num1 ** num2
         elif (op == '//' or op == 'floor'):
             result = num1 // num2
+        elif (op == 'ceil'):
+            result = -(num1 // -num2)
         else: valid = False
 
         if (valid == False):
             embed = '**Invalid Operator!**'
             return embed
         elif (valid == True): 
-            embed = f'**The result is:** {result}'
+            embed = f'**The result is:** {format(result, ".2f")}'
             return embed
 
 class Color:
