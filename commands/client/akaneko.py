@@ -87,6 +87,7 @@ class Akaneko(commands.Cog):
 
     # SCHOOL - NSFW
     @commands.command(help = 'Not safe for work school images.')
+    @commands.is_nsfw()
     async def akaschool(self, ctx):
         AKASCHOOL = AkaNSFW.school()
         embed = discord.Embed (
@@ -111,6 +112,7 @@ class Akaneko(commands.Cog):
 
     # MAID - NSFW
     @commands.command(help = 'Not safe for work school images.')
+    @commands.is_nsfw()
     async def akamaid(self, ctx):
         AKAMAID = AkaNSFW.maid()
         embed = discord.Embed (
@@ -135,6 +137,7 @@ class Akaneko(commands.Cog):
         
     # GIF - NSFW
     @commands.command(help = 'Not safe for work school images.')
+    @commands.is_nsfw()
     async def akagif(self, ctx):
         AKAGIF = AkaNSFW.gif()
         embed = discord.Embed (
