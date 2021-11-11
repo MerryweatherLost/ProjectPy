@@ -2,6 +2,7 @@ import asyncio
 
 import discord
 from discord.ext import commands
+from discord.utils import get
 
 from library.ConsoleSelect import Time
 from library.ConsoleSelect import Color
@@ -168,13 +169,11 @@ class Administration(commands.Cog):
             await asyncio.sleep(amount * multiplier[unit])
             await member.remove_roles(roles = mute, reason = 'The specified time is over.')
             
-    # # ADD ROLES - METHOD
-    # @commands.command(help = 'Adds a role to a user.')
-    # @commands.has_permissions(ban_members = True)
-    # async def addroles(self, ctx, member: discord.Member, *role):
-    #     await member.add_roles(reason = None, roles = role)
-
-    #     await ctx.reply(f'Added roles to {member.mention}! {role}')
+    # @commands.command(help = 'Adds roles to users.')
+    # async def addrole(self, ctx, member: discord.Member, role):
+    #     role = get(member.guild.roles, name=f"{role}")
+    #     await member.add_roles(*role, reason = None)
+    #     await ctx.reply(f'Added roles to {member.mention}!')
 
 def setup(client):
     client.add_cog(Administration(client))

@@ -17,18 +17,6 @@ class Hmtai(commands.Cog):
         if ctx.invoked_subcommand is None:
             em = discord.Embed (description = 'Unable to find that subcommand! Please use `help htmai` to view them!')
             await ctx.reply(embed = em)
-    
-    # DLC - VEIN05'S LIBRARY
-    @hmtai.command(help = 'DLC imagery from the port.')
-    @commands.is_nsfw()
-    async def dlc(self, ctx):
-        em = discord.Embed (title = "HMTAI - DLC")
-        em.set_author (name = ctx.author.display_name, icon_url = ctx.author.avatar_url)
-        em.set_image  (url = hmtai.useHM("dlc", "vein05"))
-        em.set_footer (text = f'{self.client.user.name}')
-
-        em.timestamp = ctx.message.created_at
-        await ctx.reply(embed = em)
         
     # DEPRESSION
     @hmtai.command(help = 'Simulate crippiling depression.')
@@ -85,8 +73,19 @@ class Hmtai(commands.Cog):
         em.set_footer (text = f'{self.client.user.name}')
 
         em.timestamp = ctx.message.created_at
-        await ctx.reply(embed = em)    
+        await ctx.reply(embed = em)
+        
+    # DLC - VEIN05'S LIBRARY
+    @hmtai.command(help = 'DLC imagery from the port.')
+    @commands.is_nsfw()
+    async def dlc(self, ctx):
+        em = discord.Embed (title = "HMTAI - DLC")
+        em.set_author (name = ctx.author.display_name, icon_url = ctx.author.avatar_url)
+        em.set_image  (url = hmtai.useHM("dlc", "vein05"))
+        em.set_footer (text = f'{self.client.user.name}')
 
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
     # # TEMPLATE
     # @hmtai.command(help = '')
     # async def name(self, ctx):

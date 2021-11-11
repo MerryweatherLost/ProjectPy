@@ -174,12 +174,11 @@ class General(commands.Cog):
     @commands.group(help = 'Avatar group that holds different ways of displaying avatars.')
     async def avatar(self, ctx):
         if ctx.invoked_subcommand is None:
-            embed = discord.Embed (description = 'That is not a visible subcommand.', color = signature)
-            await ctx.reply(embed = embed)
-
-    # SQUARE AVATAR
-    @avatar.command(help = 'Pulls the avatar of yourself.', aliases = ['av'])
-    async def square(self, ctx, member: discord.Member = None):
+            em = discord.Embed (description = 'Unable to find that subcommand! Please use `help avatar` to view them!')
+            await ctx.reply(embed = em)
+            
+    @avatar.command(help = 'square', aliases = ['sq'])
+    async def square(self, ctx, member: discord.Member = None):        
         member = member or ctx.author
         embed = discord.Embed (
             title = f"{member.display_name}'s Profile Image",
@@ -192,28 +191,17 @@ class General(commands.Cog):
         embed.set_image (
             url = member.avatar_url
         )
-        await ctx.reply(embed = embed)
-
+        await ctx.reply(embed = embed)   
+         
     # CIRCLE AVATAR
     @avatar.command(help = 'Returns your avatar image in a circle.', aliases = ['avcircle','avc'])
     async def circle(self, ctx, member : discord.Member = None):
-        # DEFINE MEMBER OR CONTEXT.AUTHOR AS MEMBER
         member = member or ctx.author
-        # OPEN IMAGE, GET THE AVATAR URL AND CONVERT
         im = Image.open(requests.get(member.avatar_url, stream = True).raw).convert('RGBA')
-        # CALL FUNCTION
         Avatar.crop_to_circle(im)
-        # RESIZE IMAGE
         imageresize = im.resize((250, 250))
-        # SAVE TO CACHE
         imageresize.save('cache/cropped.png')
 
-        # EMBED FILE
-        embed = discord.Embed (
-            title = 'Avatar Circle'
-        )
-        embed.timestamp = ctx.message.created_at
-        # AWAIT COROUTINE 
         await ctx.reply(file = discord.File('cache/cropped.png'))
 
 def setup(client):
