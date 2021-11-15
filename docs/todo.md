@@ -17,6 +17,8 @@ This is now complete, and routine updates will be practiced on the bot from now 
 - What else? Maybe some more command ideas.
 - I'll try to find some from my friends.
 
+#### Make A Game
+- Card game or a fast game tic tac toe or something.
 
 #### IMPORTS
 -m pip install py-cord
@@ -30,6 +32,8 @@ This is now complete, and routine updates will be practiced on the bot from now 
 -m pip install waifu-py
 -m pip install python-dateutil
 -m pip install audioplayer
+-m pip install -U git+https://github.com/Nekos-life/Async-nekos.life-wrapper
+-m pip install kitsu-wrapper
 
 ### Spotify Integration
 

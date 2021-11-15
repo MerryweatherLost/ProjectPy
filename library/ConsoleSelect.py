@@ -33,6 +33,13 @@ class Time:
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
         return formTime
+
+    def CST():
+        """Sets the datetime to `CST` (Central Standard Time)."""
+        date_object = datetime.now()
+        formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
+        return formTime
+    
     def dateTimeUTC():
         """
         Sets the time format, UTC.
@@ -97,11 +104,6 @@ class Essentials():
     def CoinToss():
         """
         Responses handler for a randomized coinflip.
-
-        Variables
-        ---------
-        coinflip: `var`,
-
         Picks one literal string from a `random.choice` function.
         """
         responses = [ 'Heads.','Tails.' ]

@@ -1,164 +1,210 @@
 import discord
 import akaneko
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Color
-from library.ConsoleSelect import Roundtrip
-
-from library.AnimeSelect import AkaNSFW
-
+from library.ConsoleSelect import *
 from discord.ext import commands
+from private.config import signature
 
 class Akaneko(commands.Cog):
     def __init__(self, client):
         self.client = client
-    
-    # MOBILE WALLPAPER - SFW
-    @commands.command(help = "Some safe for work mobile walpapers.")
-    async def mobilewallpaper(self, ctx):
-        AKANEKO = akaneko.sfw.mobileWallpapers()
-        embed = discord.Embed (
-            title = "Mobile Wallpaper", 
-            description = "Here is the image!", 
-            color = discord.Color.blue()
-        )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-        )
-        embed.set_image (
-            url = AKANEKO
-        )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )
-        embed.timestamp = ctx.message.created_at
-        await ctx.reply(embed = embed)
+        # AKANEKO = akaneko.nsfw.ass()
+        # AKANEKO = akaneko.nsfw.bdsm()
+        # AKANEKO = akaneko.nsfw.blowjob()
+        # AKANEKO = akaneko.nsfw.bondage()
+        # AKANEKO = akaneko.nsfw.netorare()
+        # AKANEKO = akaneko.nsfw.doujin()
+        # AKANEKO = akaneko.nsfw.yuri()
+        # AKANEKO = akaneko.nsfw.thighs()
+        # AKANEKO = akaneko.nsfw.succubus()
+        # AKANEKO = akaneko.nsfw.gangbang()
+        # AKANEKO = akaneko.nsfw.tentacles()
+        # AKANEKO = akaneko.nsfw.foxgirl()
         
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Mobile Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
-        
-    # NEKO - SFW
-    @commands.command(help = 'Some safe for work neko images.')
+    # Akaneko Group - SFW / Nekomimi if invoked without subcommand.
+    @commands.group(help = 'Group that contains all the safe for work commands in this library. Otherwise, it returns a nekomimi if no subcommand is invoked.')
     async def akaneko(self, ctx):
-        AKANEKO = akaneko.sfw.neko()
-        embed = discord.Embed (
-            title = "Neko", 
-            description = "Here is the image!", 
-            color = discord.Color.blue()
-        )
-        embed.set_author (
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-        )
-        embed.set_image (
-            url = AKANEKO
-        )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )
-        embed.timestamp = ctx.message.created_at
-        await ctx.reply(embed = embed)
+        if ctx.invoked_subcommand is None:
+            img = akaneko.sfw.neko()
+            em = discord.Embed (
+                title = "Nekomimi",
+                description = "If you were trying to access other commands, do so by `prefix` akaneko `subcommand`!",
+                color = Color.white
+            )
+            em.set_image  (url = img)
+            em.set_footer (text = f'{self.client.user.name}')
+            em.timestamp = ctx.message.created_at
+            await ctx.reply(embed = em)
+            await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Foxgirl", ctx.channel, f"[Raw Data: {img}]")
     
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Neko was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
+    # Foxgirl
+    @akaneko.command(help = 'Images of a foxgirl.')
+    async def foxgirl(self, ctx):
+        img = akaneko.sfw.foxgirl()
+        em = discord.Embed (
+            title = "Foxgirl",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Foxgirl", ctx.channel, f"[Raw Data: {img}]")
     
-    # FOXGIRL - SFW
-    @commands.command(help = 'Some safe for work foxgirl images.')
-    async def akafoxgirl(self, ctx):
-        AKANEKO = akaneko.sfw.foxgirl()
-        embed = discord.Embed (
-            title = "Foxgirl", 
-            description = "Here is the image!", 
-            color = discord.Color.blue()
+    # Wallpaper / Desktop
+    @akaneko.command(help = 'Desktop oriented wallpapers.')
+    async def wallpaper(self, ctx):
+        img = akaneko.sfw.wallpapers()
+        em = discord.Embed (
+            title = "Wallpaper",
+            color = Color.white
         )
-        embed.set_author ( 
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-        )
-        embed.set_image (
-            url = AKANEKO
-        )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )
-        embed.timestamp = ctx.message.created_at
-        await ctx.reply(embed = embed)
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: Foxgirl was utilized in #{ctx.channel}! \n[Raw Data: {AKANEKO}]')
-
-    # SCHOOL - NSFW
-    @commands.command(help = 'Not safe for work school images.')
-    @commands.is_nsfw()
-    async def akaschool(self, ctx):
-        AKASCHOOL = AkaNSFW.school()
-        embed = discord.Embed (
-            title = "School Image",
-            description = "Here is the image!",
-            color = Color.tachi
-        )
-        embed.set_author ( 
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-        )
-        embed.set_image (
-            url = AKASCHOOL
-        )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )    
-        embed.timestamp = ctx.message.created_at
-        await ctx.reply(embed = embed)        
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: School was utilized in #{ctx.channel}! \n[Raw Data: {AKASCHOOL}]')
-
-    # MAID - NSFW
-    @commands.command(help = 'Not safe for work school images.')
-    @commands.is_nsfw()
-    async def akamaid(self, ctx):
-        AKAMAID = AkaNSFW.maid()
-        embed = discord.Embed (
-            title = "Maid Image",
-            description = "Here is the image!",
-            color = Color.tachi
-        )
-        embed.set_author ( 
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
-        )
-        embed.set_image (
-            url = AKAMAID
-        )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )     
-        embed.timestamp = ctx.message.created_at
-        await ctx.reply(embed = embed)        
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akamaid was utilized in #{ctx.channel}! \n[Raw Data: {AKAMAID}]')
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Wallpaper - Desktop", ctx.channel, f"[Raw Data: {img}]")
         
-    # GIF - NSFW
-    @commands.command(help = 'Not safe for work school images.')
+    # Wallpaper - Mobile
+    @akaneko.command(help = 'Mobile oriented wallpapers.')
+    async def mobilewallpaper(self, ctx):
+        img = akaneko.sfw.mobileWallpapers()
+        em = discord.Embed (
+            title = "Mobile Wallpaper",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Wallpaper - Mobile", ctx.channel, f"[Raw Data: {img}]")
+    
+    # Akaneko - NSFW Commands
+    @commands.group(help = 'Group that contains all the not safe for work commands in this library.')
     @commands.is_nsfw()
-    async def akagif(self, ctx):
-        AKAGIF = AkaNSFW.gif()
-        embed = discord.Embed (
-            title = "GIF Image",
-            description = "Here is the image!",
-            color = Color.tachi
+    async def akansfw(self, ctx):
+        if ctx.invoked_subcommand is None:
+            embed = discord.Embed (description = 'That is not a visible subcommand.', color = signature)
+            await ctx.reply(embed = embed)
+        
+    @akansfw.command(help = 'Desktop oriented wallpapers. (NSFW)')
+    async def nsfwwallpaper(self, ctx):
+        img = akaneko.nsfw.wallpapers()
+        em = discord.Embed (
+            title = "Wallpaper (NSFW)",
+            color = Color.white
         )
-        embed.set_author ( 
-            name = ctx.author.display_name, 
-            icon_url = ctx.author.avatar_url
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Wallpaper - Desktop (NSFW)", ctx.channel, f"[Raw Data: {img}]")
+        
+    @akansfw.command(help = 'Mobile oriented wallpapers. (NSFW)')
+    async def nsfwmobilewallpaper(self, ctx):
+        img = akaneko.nsfw.mobileWallpapers()
+        em = discord.Embed (
+            title = "Mobile Wallpaper (NSFW)",
+            color = Color.white
         )
-        embed.set_image (
-            url = AKAGIF
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Wallpaper - Mobile (NSFW)", ctx.channel, f"[Raw Data: {img}]")
+        
+    @akansfw.command(help = 'Returns uniform images. (NSFW)')
+    async def uniform(self, ctx):
+        img = akaneko.nsfw.uniform()
+        em = discord.Embed (
+            title = "Uniform (NSFW)",
+            color = Color.white
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}'
-        )       
-        embed.timestamp = ctx.message.created_at
-        await ctx.reply(embed = embed)        
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Uniform (NSFW)", ctx.channel, f"[Raw Data: {img}]")
+        
+    @akansfw.command(help = 'Returns maid images. (NSFW)')
+    async def maid(self, ctx):
+        img = akaneko.nsfw.maid()
+        em = discord.Embed (
+            title = "Maid (NSFW)",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Maid (NSFW)", ctx.channel, f"[Raw Data: {img}]")
+    
+    @akansfw.command(help = 'Returns school oriented settings or imagery. (NSFW)')
+    async def school(self, ctx):
+        img = akaneko.nsfw.school()
+        em = discord.Embed (
+            title = "School (NSFW)",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "School (NSFW)", ctx.channel, f"[Raw Data: {img}]")
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: AKANEKO.PY - LOG: akagif was utilized in #{ctx.channel}! \n[Raw Data: {AKAGIF}]')
+    @akansfw.command(help = 'Returns images with glasses involved. (NSFW)')
+    async def glasses(self, ctx):
+        img = akaneko.nsfw.glasses()
+        em = discord.Embed (
+            title = "Glasses (NSFW)",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Glasses (NSFW)", ctx.channel, f"[Raw Data: {img}]")
+ 
+    @akansfw.command(help = 'Returns hentai imagery. (NSFW)')
+    async def hentai(self, ctx):
+        img = akaneko.nsfw.hentai()
+        em = discord.Embed (
+            title = "Hentai (NSFW)",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Hentai (NSFW)", ctx.channel, f"[Raw Data: {img}]")       
 
+    @akansfw.command(help = 'Returns gif images. (NSFW)')
+    async def gif(self, ctx):
+        img = akaneko.nsfw.gif()
+        em = discord.Embed (
+            title = "Gif (NSFW)",
+            color = Color.white
+        )
+        em.set_image  (url = img)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "Gif (NSFW)", ctx.channel, f"[Raw Data: {img}]")
+        
+    # @akansfw.command()
+    # async def name(self, ctx):
+    #     img = EDIT
+    #     em = discord.Embed (
+    #         title = "EDIT (NSFW)",
+    #         color = Color.white
+    #     )
+    #     em.set_image  (url = img)
+    #     em.set_footer (text = f'{self.client.user.name}')
+    #     em.timestamp = ctx.message.created_at
+    #     await ctx.reply(embed = em)
+    #     Console.log(Time.CST(), Roundtrip.rt(self), "AKANEKO.PY", "EDIT", ctx.channel, f"[Raw Data: {img}]")
+                
+        
+    
 def setup(client):
     client.add_cog(Akaneko(client))
