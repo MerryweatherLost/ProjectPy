@@ -33,6 +33,8 @@ class Neko(commands.Cog):
             await ctx.reply(embed = em)
             await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Neko", ctx.channel, f"[Raw Data: {res.url}]")
     
+    # -- Neko Text -- #          
+    
     # Neko Owoify
     @neko.command(help = 'Owoify a message.')
     async def owoify(self, ctx, *, text: str):
@@ -53,6 +55,21 @@ class Neko(commands.Cog):
     async def fact(self, ctx):
         result = await self.nya.random_fact_text()
         await ctx.reply(result.text)
+    
+    # -- Neko Images - SFW Branch -- #    
+    
+    # Neko Random
+    @neko.command(help = 'Returns a random image.')
+    async def random(self, ctx):
+        result = await self.nya.random_image(sfw = True, nsfw = False)
+        em = discord.Embed (
+            title = "Random",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = result.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
         
     # Neko Meow
     @neko.command(help = 'Images of actual cats.')
@@ -138,6 +155,88 @@ class Neko(commands.Cog):
         await ctx.reply(embed = em)
         await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Cuddle", ctx.channel, f"[Raw Data: {res.url}]")
 
+    # Neko Feed
+    @neko.command(help = 'Feeding images.')
+    async def feed(self, ctx):
+        res = await self.nya.image(SFWImageTags.FEED)  
+        em = discord.Embed (
+            title = "Feed",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = res.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Feed", ctx.channel, f"[Raw Data: {res.url}]")
+
+    # Neko Waifu
+    @neko.command(help = 'Waifu images.')
+    async def waifu(self, ctx):
+        res = await self.nya.image(SFWImageTags.WAIFU)
+        em = discord.Embed (
+            title = "Waifu",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = res.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Waifu", ctx.channel, f"[Raw Data: {res.url}]")
+        
+    # Neko Slap
+    @neko.command(help = 'Slapping images.')
+    async def slap(self, ctx):
+        res = await self.nya.image(SFWImageTags.SLAP)
+        em = discord.Embed (
+            title = "Waifu",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = res.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Slap", ctx.channel, f"[Raw Data: {res.url}]")     
+           
+    # Neko Pat
+    @neko.command(help = 'Patting images.')
+    async def pat(self, ctx):
+        res = await self.nya.image(SFWImageTags.PAT)    
+        em = discord.Embed (
+            title = "Pat",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = res.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Pat", ctx.channel, f"[Raw Data: {res.url}]")
+        
+    @neko.command(help = 'Poking images.')
+    async def poke(self, ctx):
+        res = await self.nya.image(SFWImageTags.POKE)
+        em = discord.Embed (
+            title = "Poke",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = res.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Poke", ctx.channel, f"[Raw Data: {res.url}]")
+    
+    @neko.command(help = 'Kissing images.')
+    async def kiss(self, ctx):
+        res = await self.nya.image(SFWImageTags.KISS)  
+        em = discord.Embed (
+            title = "Kiss",
+            color = discord.Color.dark_grey()
+        )
+        em.set_image  (url = res.url)
+        em.set_footer (text = f'{self.client.user.name}')
+        em.timestamp = ctx.message.created_at
+        await ctx.reply(embed = em)
+        await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Cuddle", ctx.channel, f"[Raw Data: {res.url}]")
+        
     # Neko Wallpaper
     @neko.command(help = 'Cuddling images.')
     async def wallpaper(self, ctx):
@@ -151,7 +250,7 @@ class Neko(commands.Cog):
         em.timestamp = ctx.message.created_at
         await ctx.reply(embed = em)
         await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Wallpaper", ctx.channel, f"[Raw Data: {res.url}]")
-                           
+                      
     # ------------------               
     # NSFW Image Library
     # ------------------      

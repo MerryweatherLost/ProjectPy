@@ -33,7 +33,7 @@ This is now complete, and routine updates will be practiced on the bot from now 
 -m pip install python-dateutil
 -m pip install audioplayer
 -m pip install -U git+https://github.com/Nekos-life/Async-nekos.life-wrapper
--m pip install kitsu-wrapper
+-m pip install kitsu.py
 
 ### Spotify Integration
 
