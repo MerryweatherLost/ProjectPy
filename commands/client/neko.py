@@ -188,7 +188,7 @@ class Neko(commands.Cog):
     async def slap(self, ctx):
         res = await self.nya.image(SFWImageTags.SLAP)
         em = discord.Embed (
-            title = "Waifu",
+            title = "Slap",
             color = discord.Color.dark_grey()
         )
         em.set_image  (url = res.url)
