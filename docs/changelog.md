@@ -162,7 +162,7 @@
 
 - Event Handiling Changes, and listeners to fix other stuff.
 
-## [1.3.0] - 2021-10-31 - 2021-11-14
+## [1.3.0] - 2021-10-31 - 2021-11-17
 
 - `spotify` command replacing the `track` command.
 
