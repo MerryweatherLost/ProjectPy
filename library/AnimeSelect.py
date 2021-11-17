@@ -114,6 +114,7 @@ class AnimeGel:
     """Returns images specified through Gelbooru.
     This inherits from: :exc:`Gelbooru`"""
     async def WALLPAPER() -> str:
+        """Wallpapers."""
         wallpaper = await gelbooru.random_post ( 
             tags = ['wallpaper'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','cleavage'] 
