@@ -154,6 +154,7 @@ class AnimeGel:
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm'] 
         )
         return cat
+    
 class AnimeNSFWGel:
     """Imports not safe for work images.\n
     This inherits from: :exc:`Gelbooru`"""
@@ -197,19 +198,6 @@ class AnimeNSFWGel:
             exclude_tags = ['comic']
         )
         return catgirl
-class AkaNSFW:
-    def school():
-        """NSFW Schoolgirls."""
-        school = akaneko.nsfw.school()
-        return school
-    def maid():
-        """NSFW Maid."""
-        maid = akaneko.nsfw.maid()
-        return maid
-    def gif():
-        """NSFW gifs."""
-        gif = akaneko.nsfw.gif()
-        return gif
 
 class DharMann:
     def DharQuote():

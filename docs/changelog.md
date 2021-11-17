@@ -142,7 +142,7 @@
 
 - Weather and Math refractor.
 
-## [1.2.0] - 2021-10-19 - 2021-10-**
+## [1.2.0] - 2021-10-19 - 2021-10-31
 
 - Added version to keep track of version.
 
@@ -161,3 +161,27 @@
 - `track` command, and `Spotify (class)`
 
 - Event Handiling Changes, and listeners to fix other stuff.
+
+## [1.3.0] - 2021-10-31 - 2021-11-17
+
+- `spotify` command replacing the `track` command.
+
+- ⚡ These things. cool... ⚡
+
+- Better music library to run multiple audio files without problem. (still need an asynchronous one without C++).
+
+- Spotify UI and image return.
+
+- Avatar circle image, which will be used as a greeting tool when I read over guild and channel docs.
+
+- `Console (class)` and `log (function)` to handle my console logs from now on, and no more printing. `async` for all!
+
+- Cache folder to hold all my images that are not assets. They are temp files and will be refreshed routinely.
+
+- Changed the way time works so that way it timestamps from other peoples time to prevent confusion.
+
+- Akaneko was refractored and given way more commands.
+
+- New `Neko (library)` and many neko commands incoming.
+
+- Group command features.

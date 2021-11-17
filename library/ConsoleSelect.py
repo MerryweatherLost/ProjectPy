@@ -6,6 +6,8 @@ import discord
 from datetime import datetime
 from discord.ext import commands
 
+from private.config import signature
+
 def __init__(self, client):
     self.client = client
 
@@ -31,6 +33,13 @@ class Time:
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
         return formTime
+
+    def CST():
+        """Sets the datetime to `CST` (Central Standard Time)."""
+        date_object = datetime.now()
+        formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
+        return formTime
+    
     def dateTimeUTC():
         """
         Sets the time format, UTC.
@@ -95,11 +104,6 @@ class Essentials():
     def CoinToss():
         """
         Responses handler for a randomized coinflip.
-
-        Variables
-        ---------
-        coinflip: `var`,
-
         Picks one literal string from a `random.choice` function.
         """
         responses = [ 'Heads.','Tails.' ]
@@ -123,20 +127,22 @@ class Essentials():
             result = num1 ** num2
         elif (op == '//' or op == 'floor'):
             result = num1 // num2
+        elif (op == 'ceil'):
+            result = -(num1 // -num2)
         else: valid = False
 
         if (valid == False):
             embed = '**Invalid Operator!**'
             return embed
         elif (valid == True): 
-            embed = f'**The result is:** {result}'
+            embed = f'**The result is:** {format(result, ".2f")}'
             return embed
 
 class Color:
     """`class` meant to handle requests for colors."""
     white = discord.Color.from_rgb(230,230,230)
     """Returns a factory setting of a white color for RGB. `tuple`"""
-    tachi = discord.Color.from_rgb(235, 179, 82)
+    tachi = signature
     """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
     weather = discord.Color.from_rgb(113, 175, 222)
     """Returns a factory setting of a signature Weather color for RGB. `tuple`"""
@@ -176,21 +182,52 @@ class Roundtrip:
     def rt(self):
         roundtrip = round(self.client.latency * 1000)
         return roundtrip
+        
+class Console:
+    async def log(timestamp, roundtrip, filename, cmd, channel, extra: None) -> str:
+        """
+        ### Meant to be a global log for printing statements. ###
+        `timestamp:` Returns the time from the parameter argument.
+        `roundtrip:` Returns the miliseconds of latency.
+        `filename:` Filename of the library of commands.
+        `cmd:` Name of the command.
+        `channel:` Channel of the belonging `ctx.channel`.
+        `extra: -> None or str. Normally fstring is used to display other information.`
+        """
+        print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE: {filename} - LOG: {cmd} was utilized in #{channel}! {extra}")
+        
+    async def event(timestamp, roundtrip, context: None) -> str:
+        """
+        ### Meant to be a global log for printing statements. (Event Variant) ###
+        `timestamp:` Returns the time from the parameter argument.
+        `roundtrip:` Returns the miliseconds of latency.
+        `context: -> None or str. Normally fstring is used to display other information.`
+        """        
+        print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE - EVENT: {context}")
 
-class InitProg:
-    def startProgress(title):
+    async def error(timestamp, roundtrip, type, context: None) -> str:
+        """
+        ### Meant to be a global log for printing statements. (Error Variant) ###
+        `timestamp:` Returns the time from the parameter argument.
+        `roundtrip:` Returns the miliseconds of latency.
+        `type:` Returns the type of error.
+        `context: -> None or str. Normally fstring is used to display other information.`
+        """        
+        print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE - ERROR: {type} - LOG: {context}")
+            
+    async def startProgress(title):
         global progress_x
         sys.stdout.write(title + ": |" + " "*44 + "|" + chr(8)*45)
         sys.stdout.flush()
         progress_x = 0
 
-    def progress(x):
+    async def progress(x):
         global progress_x
         x = int(x * 44 // 100)
         sys.stdout.write("█" * (x - progress_x))
         sys.stdout.flush()
         progress_x = x
 
-    def endProgress():
+    async def endProgress():
         sys.stdout.write("█" * (44 - progress_x) + "|\n")
         sys.stdout.flush()    
