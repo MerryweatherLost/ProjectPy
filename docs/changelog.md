@@ -185,3 +185,9 @@
 - New `Neko (library)` and many neko commands incoming.
 
 - Group command features.
+
+## [1.4.0] - 2021-11-17 - 2021-12-03
+
+- Setting the stage for 1.4, which will be the biggest cleanup of code to make it readable.
+
+- Planning to optimize code, etc.

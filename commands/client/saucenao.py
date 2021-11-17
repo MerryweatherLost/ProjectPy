@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 
 from library.ConsoleSelect import *
-from library.SauceSelect import *
+from library.RatingSelect import *
 
 from pysaucenao import *
 from private.config import signature
@@ -36,7 +36,7 @@ class SauceNow(commands.Cog):
                 url = f'{results[0].thumbnail}'
             )
             embed.add_field (name = 'Type', value = f'{results[0].type.capitalize()}')
-            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {SauceSelect.similarEmoji(sim = results[0].similarity)}')
+            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {Rating.similarEmoji(sim = results[0].similarity)}')
             embed.add_field (name = 'Author Name', value = f'{results[0].author_name}')
             embed.add_field (name = 'Author Link', value = f'[Link]({results[0].author_url})')
             embed.add_field (name = 'Result Count', value = f'{len(results)}')

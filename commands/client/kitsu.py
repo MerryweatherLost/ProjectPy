@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 
 from library.ConsoleSelect import *
+from library.RatingSelect import Rating
 
 from discord.ext import commands
 from private.config import signature
@@ -49,7 +50,7 @@ class Kitsu(commands.Cog):
         
         em.add_field     (name = "Episode Count", value = f"{kya.episode_count}")
         em.add_field     (name = "Episode Length", value = f"{kya.episode_length} min.")
-        em.add_field     (name = "Average Rating", value = f"{kya.average_rating}%")
+        em.add_field     (name = "Average Rating", value = f"{kya.average_rating}% {Rating.similarEmoji(kya.average_rating)}")
         
         em.add_field     (name = "NSFW Themes? (Not Accurate)", value = f"{unsafe}")
         em.add_field     (name = "Age Rating", value = f"{kya.age_rating_guide}")

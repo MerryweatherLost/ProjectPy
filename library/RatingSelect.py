@@ -1,7 +1,6 @@
-from pysaucenao import *
 from library.ConsoleSelect import *
 
-class SauceSelect:
+class Rating:
     def similarEmoji(sim: float):
         """To handle simple emojis based on probability count. `float`."""
         if (sim > 90):
