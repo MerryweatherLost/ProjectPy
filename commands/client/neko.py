@@ -238,7 +238,7 @@ class Neko(commands.Cog):
         await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Cuddle", ctx.channel, f"[Raw Data: {res.url}]")
         
     # Neko Wallpaper
-    @neko.command(help = 'Cuddling images.')
+    @neko.command(help = 'Wallpaper images.')
     async def wallpaper(self, ctx):
         res = await self.nya.image(SFWImageTags.WALLPAPER)
         em = discord.Embed (

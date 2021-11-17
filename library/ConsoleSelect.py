@@ -205,7 +205,16 @@ class Console:
         """        
         print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE - EVENT: {context}")
 
-    
+    async def error(timestamp, roundtrip, type, context: None) -> str:
+        """
+        ### Meant to be a global log for printing statements. (Error Variant) ###
+        `timestamp:` Returns the time from the parameter argument.
+        `roundtrip:` Returns the miliseconds of latency.
+        `type:` Returns the type of error.
+        `context: -> None or str. Normally fstring is used to display other information.`
+        """        
+        print(f"[{timestamp}] [Roundtrip: {roundtrip}ms.] CONSOLE - ERROR: {type} - LOG: {context}")
+            
     async def startProgress(title):
         global progress_x
         sys.stdout.write(title + ": |" + " "*44 + "|" + chr(8)*45)

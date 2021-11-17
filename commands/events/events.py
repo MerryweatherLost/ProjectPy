@@ -2,6 +2,7 @@ import discord
 import asyncio
 from audioplayer import AudioPlayer
 from discord.ext import commands, tasks
+
 from PIL import Image, ImageFont, ImageDraw
 from discord.ext.commands.errors import CommandInvokeError
 
@@ -64,8 +65,7 @@ class Events(commands.Cog):
             embed.set_footer (text = f'{self.client.user.name}')
             embed.timestamp = message.created_at
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ERROR: ATTENTION! | LOG: ⊖ Required Attention to [Unknown Error] ⊖')   
-            print(error)
+            await Console.error(Time.CST(), Roundtrip.rt(self), "Command Invoke Error ⊖ Required Attention ⊖", f"\n{error}")
 
         await asyncio.sleep(1)
         await message.delete()

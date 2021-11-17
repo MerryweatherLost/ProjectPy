@@ -7,8 +7,8 @@ from discord.ext import commands
 from private.config import signature
 
 import kitsu
-import asyncio
 
+import asyncio
 
 class Kitsu(commands.Cog):
     def __init__(self, client):
