@@ -11,6 +11,7 @@ from private.config import signature
 class SauceNow(commands.Cog):
     def __init__(self, client):
         self.client = client
+        self.sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')
 
     # SAUCENAO GROUP
     @commands.group()
@@ -22,8 +23,7 @@ class SauceNow(commands.Cog):
     # PIXNAO - METHOD
     @saucenao.command(help = 'Delivers the sauce by image. [Pixiv]', aliases = ['pix'])
     async def pixiv(self, ctx, image: str):
-        sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')
-        results = await sauce.from_url(url = image)
+        results = await self.sauce.from_url(url = image)
         
         if isinstance(results[0], PixivSource):
             message: discord.Message = await ctx.reply('I found a match... <a:checkmark:903852585360949289> gimmie me a second... <a:cleo:902025889179631637>')
@@ -54,8 +54,7 @@ class SauceNow(commands.Cog):
     # BOORUNAO - METHOD
     @saucenao.command(help = 'Delivers the sauce by image. [Gelbooru/Danbooru]')
     async def booru(self, ctx, image: str):
-        sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')
-        results = await sauce.from_url(url = image); len(results)
+        results = await self.sauce.from_url(url = image); len(results)
 
         if isinstance(results[0], BooruSource):
             message: discord.Message = await ctx.reply('I found a match... <a:checkmark:903852585360949289> gimmie me a second... <a:cleo:902025889179631637>')
@@ -68,7 +67,7 @@ class SauceNow(commands.Cog):
                 url = f'{results[0].thumbnail}'
             )
             embed.add_field (name = 'Type', value = f'{results[0].type.capitalize()}')
-            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {SauceSelect.similarEmoji(sim = results[0].similarity)}')
+            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {Rating.similarEmoji(sim = results[0].similarity)}')
             embed.add_field (name = 'Author Name', value = f'{results[0].author_name}')
             embed.add_field (name = 'Author Link', value = f'[Link]({results[0].author_url})')
             embed.add_field (name = 'Index ID', value = f'{results[0].index_id}')
