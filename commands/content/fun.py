@@ -4,6 +4,8 @@ import discord
 from discord.ext import commands
 
 from library.ConsoleSelect import *
+from library.FunSelect import _Fun
+
 from library.GenshinSelect import Genshin
 from library.PoliticalSelect import USA
 
@@ -15,7 +17,7 @@ class Fun(commands.Cog):
     async def cointoss(self, ctx,):
         message: discord.Message = await ctx.reply("**Flipping Coin...** <a:CoinToss:893194255345012818>")
         await asyncio.sleep(1)
-        answer = Essentials.CoinToss()
+        answer = _Fun.coin_toss()
         await message.edit(content = f'{answer}')
    
     # PYTHON METHOD
@@ -40,14 +42,14 @@ class Fun(commands.Cog):
     )
     async def _8ball(self, ctx, *, question):
         message: discord.Message = await ctx.reply('8ball is thinking... <a:checkmark:903852585360949289>')    
-        answer = Essentials.eightball()
+        answer = _Fun.eight_ball('txt')
         embed = discord.Embed (
             title = "8-Ball", 
             description = f'Question: **{question}**\nAnswer: **{answer}**',
             color = discord.Color.default()
         )
         embed.set_thumbnail (
-            url = Essentials.ballImage(),            
+            url = _Fun.eight_ball('url')           
         )
         embed.set_author (
             name = ctx.author.display_name,

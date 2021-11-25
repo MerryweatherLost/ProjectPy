@@ -3,6 +3,8 @@ import time
 import random
 import discord
 
+import deprecation
+
 from datetime import datetime
 from discord.ext import commands
 
@@ -10,7 +12,7 @@ from private.config import signature
 
 def __init__(self, client):
     self.client = client
-
+    
 class Time:
     """
     ConsoleSelect.Time
@@ -20,6 +22,7 @@ class Time:
     Created by: Raymond Allison
     """
     
+    @deprecation.deprecated(deprecated_in = "1.3", removed_in = '1.4', details = "Use CST instead.")
     def timeCST():
         """
         Sets the time format and returns a String version for the console.
@@ -67,49 +70,6 @@ class Time:
         return formTime
 
 class Essentials():
-    def eightball():
-        """
-        Responses handler for a randomized 8ball.
-
-        Variables
-        ---------
-        responses: `str`, `list`,
-
-        List of literal strings to pull from later on.
-
-        response8ball: `var`,
-
-        Picks one literal string from a `random.choice` function.
-        """
-        responses = [
-            # POSITIVES
-            'It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes.',
-            'Outlook good.', 'Signs point to yes.', 'That is correct.',
-            'Indeed.', 'Affirmative.',
-            # NEUTRALS
-            'Reply hazy, try again.',
-            'Ask again later.','Can not predict now.', 
-            'I can not find a result for that, try again.','Try again.',
-            # NEGATIVES
-            "Don't count on it.", 'My reply is no.', 'My sources say no.', 
-            'Obviously not.', 'Negative.','Absolutely false.','Decidedly not.',
-            'No.', 'That is incorrect.'
-        ]
-        response8ball = random.choice(responses)
-        return response8ball
-    def ballImage():
-        """Just returns an 8ball image."""
-        ballImage = 'https://cdn.discordapp.com/attachments/576096750331494420/896414018133196800/8b.png'
-        return ballImage
-    def CoinToss():
-        """
-        Responses handler for a randomized coinflip.
-        Picks one literal string from a `random.choice` function.
-        """
-        responses = [ 'Heads.','Tails.' ]
-        coinflip = random.choice(responses)
-        return coinflip
-    
     def Math(num1: float, op, num2: float):
         """Math Calculations to process for math.py."""
         valid = True

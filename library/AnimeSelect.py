@@ -1,5 +1,5 @@
 import random
-import akaneko
+
 from pygelbooru import Gelbooru
 
 gelbooru = Gelbooru('7a143b6b8021d138af296847f1354d36c893132b805a213b716c32677133b9ad', '847623')
@@ -51,34 +51,6 @@ class AnimeList:
         """Girls holding apple juice. - Request"""
         apple = 'https://cdn.discordapp.com/attachments/576096750331494420/896979723161337886/snapshot20061006181001.png'
         return apple
-    def Positivity():
-        quotes = [
-            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient.",
-            "Miracles happen to those who believe in them.",
-            "One small positive thought can change your whole day.",
-            "Believe you can and you’re halfway there.",
-            "If you are positive, you’ll see opportunities instead of obstacles.",
-            "Write it on your heart that every day is the best day in the year.",
-            "Accentuate the positive, Eliminate the Negative, latch onto the affirmative.",
-            "A positive atmosphere nurtures a positive attitude, which is required to take positive action.",
-            ]
-        randquote = random.choice(quotes)
-
-        return randquote
-    def PositivityInfo():
-        desc = [
-            'Here is the random quote for today!',
-            'Hello, here is the random quote for today!',
-            'Good day, here is the random quote.',
-            'I hope you enjoy this random quote!',
-            'I believe you will find inspiration in this quote!',
-            'I hope you find use of this quote!'
-            ]
-        description = random.choice(desc)
-        return description
-    def PositivityImage():
-        image = 'https://cdn.discordapp.com/attachments/576096750331494420/898168889949683712/aea15abed7ea5b475c484af72102f70c.jpg'
-        return image
     def SpecialWaifu():
         """My best images I could find."""
         list = [
@@ -113,42 +85,42 @@ class AnimeList:
 class AnimeGel:
     """Returns images specified through Gelbooru.
     This inherits from: :exc:`Gelbooru`"""
-    async def WALLPAPER() -> str:
+    async def wallpaper() -> str:
         """Wallpapers."""
         wallpaper = await gelbooru.random_post ( 
             tags = ['wallpaper'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','cleavage'] 
         )
         return wallpaper
-    async def ZETTAI() -> str:
+    async def zettai() -> str:
         """Absolute Territory, Absolute Territory..."""
         zettai = await gelbooru.random_post ( 
             tags = ['1girl','thighhighs','highres'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         return zettai
-    async def UNIFORM() -> str:
+    async def uniform() -> str:
         """Returns uniform images through Gelbooru."""
         uniform = await gelbooru.random_post ( 
             tags = ['1girl','uniform','highres'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         return uniform
-    async def CAR() -> str:
+    async def car() -> str:
         """Returns a car image through Gelbooru."""
         car = await gelbooru.random_post ( 
             tags = ['car'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         return car
-    async def GUN() -> str:
+    async def gun() -> str:
         """Returns a gun image through Gelbooru."""
         gun = await gelbooru.random_post ( 
             tags = ['gun'], 
             exclude_tags = ['nude','sex','nipples','panties','anus','vaginal','comic','penis','bdsm']
         )
         return gun
-    async def CATGIRL() -> str:
+    async def catgirl() -> str:
         """Returns a catgirl image through Gelbooru."""    
         cat = await gelbooru.random_post ( 
             tags = ['cat_girl','highres'],
@@ -221,3 +193,33 @@ class DharMann:
         ]
         imgrand = random.choice(dharimg)
         return imgrand
+
+class Positivity:
+    def random_quote():
+        quotes = [
+            "It's a wonderful thing to be optimistic. It keeps you healthy and it keeps you resilient.",
+            "Miracles happen to those who believe in them.",
+            "One small positive thought can change your whole day.",
+            "Believe you can and you’re halfway there.",
+            "If you are positive, you’ll see opportunities instead of obstacles.",
+            "Write it on your heart that every day is the best day in the year.",
+            "Accentuate the positive, Eliminate the Negative, latch onto the affirmative.",
+            "A positive atmosphere nurtures a positive attitude, which is required to take positive action.",
+        ]
+        randquote = random.choice(quotes)
+
+        return randquote
+    def random_desc():
+        desc = [
+            'Here is the random quote for today!',
+            'Hello, here is the random quote for today!',
+            'Good day, here is the random quote.',
+            'I hope you enjoy this random quote!',
+            'I believe you will find inspiration in this quote!',
+            'I hope you find use of this quote!'
+        ]
+        description = random.choice(desc)
+        return description
+    def image():
+        image = 'https://cdn.discordapp.com/attachments/576096750331494420/898168889949683712/aea15abed7ea5b475c484af72102f70c.jpg'
+        return image

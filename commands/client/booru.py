@@ -8,13 +8,14 @@ from library.ConsoleSelect import Roundtrip
 class Booru(commands.Cog):
     def __init__(self, client):
         self.client = client
+        self.booru = AnimeGel
 
 # SAFE FOR WORK SECTION
     # WALLPAPER - SFW
     @commands.command(help = "Some safe for work wallpapers.")
     @commands.cooldown(rate = 1, per = 1.0)
     async def wallpaper(self, ctx):
-        WALLPAPER = await AnimeGel.WALLPAPER()
+        WALLPAPER = await self.booru.wallpaper()
         embed = discord.Embed (
             title = "Wallpaper Image", 
             description = "Here is the image!", 
@@ -42,7 +43,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
     @commands.cooldown( rate = 1, per = 1.0 )
     async def zettairyouiki(self, ctx):
-        ZETTAI = await AnimeGel.ZETTAI()
+        ZETTAI = await self.booru.zettai()
         embed = discord.Embed (
             title = "Zettai Ryouiki", 
             description = "Here is the image!", 
@@ -72,7 +73,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Uniform time.")
     @commands.cooldown( rate = 1, per = 1.0 )
     async def uniform(self, ctx):
-        UNIFORM = await AnimeGel.UNIFORM()
+        UNIFORM = await self.booru.uniform()
         embed = discord.Embed (
             title = "Uniform", 
             description = "Here is the image!", 
@@ -102,7 +103,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'Car images. 🚗', aliases = ['vroom'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def car(self, ctx):
-        CAR = await AnimeGel.CAR()
+        CAR = await self.booru.car()
         embed = discord.Embed (
             title = "Car Image", 
             description = "Here is the image!", 
@@ -131,7 +132,7 @@ class Booru(commands.Cog):
     @commands.command(help = 'Gun images.', aliases = ['pew'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def gun(self, ctx):
-        GUN = await AnimeGel.GUN()
+        GUN = await self.booru.gun()
         embed = discord.Embed (
             title = "Gun Image", 
             description = "Here is the image!", 
@@ -160,7 +161,7 @@ class Booru(commands.Cog):
     @commands.command(help = "Catgirls.", aliases = ['cat'])
     @commands.cooldown(rate = 1, per = 1.0)
     async def catgirl(self, ctx):
-        CATGIRL = await AnimeGel.CATGIRL()
+        CATGIRL = await self.booru.catgirl()
         embed = discord.Embed (
             title = "Catgirl Image", 
             description = "Here is the image!", 

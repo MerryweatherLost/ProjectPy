@@ -7,6 +7,7 @@ from library.ConsoleSelect import Roundtrip
 
 from library.AnimeSelect import DharMann
 from library.AnimeSelect import AnimeList
+from library.AnimeSelect import Positivity
 
 from discord.ext import commands
     
@@ -16,8 +17,7 @@ class Anime(commands.Cog):
 
     # COFFEE - SFW
     @commands.command(help = 'Emotional Relief.')
-    async def coffee(self, ctx):
-        COFFEE = AnimeList.Coffee()       
+    async def coffee(self, ctx):  
         embed = discord.Embed (
             title = 'Coffee',
             description = 'Have some coffee! ☕',
@@ -28,7 +28,7 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = COFFEE
+            url = AnimeList.Coffee()    
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
@@ -36,12 +36,9 @@ class Anime(commands.Cog):
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Coffee was utilized in #{ctx.channel}! \n[Raw Data: {COFFEE}]')
-
     # APPLEJUICE - SFW
     @commands.command(help = 'Emotional Relief.')
-    async def applejuice(self, ctx):
-        APPL = AnimeList.AppleJuice()        
+    async def applejuice(self, ctx):   
         embed = discord.Embed (
             title = 'Apple Juice',
             description = 'Have some apple juice! 🍎',
@@ -52,7 +49,7 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = APPL
+            url = AnimeList.AppleJuice()     
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
@@ -60,15 +57,12 @@ class Anime(commands.Cog):
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Apple Juice was utilized in #{ctx.channel}! \n[Raw Data: {APPL}]')
-
     # DHARMANN - SFW
     @commands.command(help = 'Emotional Relief.')
     async def dhar(self, ctx):
-        DHAR = DharMann.DharQuote()
         embed = discord.Embed (
             title = 'Dhar Mann',
-            description = f'**Hey Dhar Mann fam!** \n**Quote:** {DHAR}',
+            description = f'**Hey Dhar Mann fam!** \n**Quote:** {DharMann.DharQuote()}',
             color = discord.Color.default()
         )
         embed.set_author (
@@ -84,12 +78,9 @@ class Anime(commands.Cog):
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: Dhar was utilized in #{ctx.channel}! \n[Raw Data: {DHAR}]')
-
     # DDLC - SFW
     @commands.command(help = 'Images of the Doki Doki Literature Club characters.')
-    async def ddlc(self, ctx):
-        DDLC = AnimeList.DokiDoki()       
+    async def ddlc(self, ctx):    
         embed = discord.Embed (
             title = 'DDLC',
             description = 'Here is the image!',
@@ -100,7 +91,7 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = DDLC
+            url = AnimeList.DokiDoki()   
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
@@ -108,34 +99,26 @@ class Anime(commands.Cog):
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: DDLC was utilized in #{ctx.channel}! \n[Raw Data: {DDLC}]')
-    
     # POSITIVITY - SFW
     @commands.command(help = 'Sends positive message.')
     async def positivity(self, ctx):     
-        POSIMG = AnimeList.PositivityImage()
-        POSINFO = AnimeList.PositivityInfo()
-        POSMSG = AnimeList.Positivity()
         embed = discord.Embed (
             title = 'Positive Message',
-            description = f'**{POSINFO}** \n{POSMSG}',
+            description = f'**{Positivity.random_desc()}** \n{Positivity.random_quote()}',
             color = discord.Color.green()
         )
         embed.set_image (
-            url = POSIMG
+            url = Positivity.image()
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: POSITIVITY was utilized in #{ctx.channel}! \n[Raw Data: {POSIMG}] \n[Quote: {POSMSG}]')
     
     # SPECIALWAIFU - SFW
     @commands.command(help = 'List of handpicked, pristine waifus.', aliases = ['waifuspec','specwaifu','wspec'])
     async def specialwaifu(self, ctx):   
-        WAIFUSPECIAL = AnimeList.SpecialWaifu()
         embed = discord.Embed (
             title = 'Special Waifu Image',
             description = 'Here is the image!',
@@ -146,15 +129,13 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = WAIFUSPECIAL
+            url = AnimeList.SpecialWaifu()
         )
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
         embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
-
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: ANIME.PY - LOG: SPECIALWAIFU was utilized in #{ctx.channel}! \n[Raw Data: {WAIFUSPECIAL}]')
 
 def setup(client):
     client.add_cog(Anime(client))

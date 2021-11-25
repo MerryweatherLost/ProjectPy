@@ -1,11 +1,9 @@
 import asyncio
-from asyncio.tasks import sleep
 import discord
 
 from library.ConsoleSelect import *
 
 from discord.ext import commands
-from private.config import signature
 
 from anekos import NekosLifeClient, SFWImageTags, NSFWImageTags
 
@@ -273,7 +271,7 @@ class Neko(commands.Cog):
   
     # Neko Gif (NSFW)
     @nekonsfw.command(help = 'Not safe for work nekos. (NSFW) (Animated)')
-    async def gif(self, ctx):
+    async def nsfwgif(self, ctx):
         res = await self.nya.image(NSFWImageTags.NSFW_NEKO_GIF)
         em = discord.Embed (
             title = "Neko Gif (NSFW)",
@@ -287,7 +285,7 @@ class Neko(commands.Cog):
  
     # Neko Avatar (NSFW)
     @nekonsfw.command(help = 'Images of neko avatars. (NSFW)')
-    async def avatar(self, ctx):
+    async def nsfwavatar(self, ctx):
         res = await self.nya.image(NSFWImageTags.AVATAR)
         em = discord.Embed (
             title = "Avatar (NSFW)",
