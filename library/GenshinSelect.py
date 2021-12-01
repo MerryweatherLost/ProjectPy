@@ -1,5 +1,5 @@
 class Genshin:
-    def characters(name):
+    async def characters(name):
         if (name == 'albedo'):
             character = 'https://static.wikia.nocookie.net/gensin-impact/images/f/f8/Character_Albedo_Card.png/revision/latest/scale-to-width-down/1000?cb=20210302092013'
         elif (name == 'aloy'):

@@ -37,7 +37,7 @@ class Booru(commands.Cog):
         message = ctx.message
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {WALLPAPER}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Wallpaper was utilized in #{ctx.channel}! \n[Raw Data: {WALLPAPER}]')
 
     # ZETTAI RYOUIKI - SFW  
     @commands.command(help = 'I do not need to explain.', aliases = ['thighhighs','thigh-highs','zr'])
@@ -66,7 +66,7 @@ class Booru(commands.Cog):
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized in #{ctx.channel}! \n[Raw Data: {ZETTAI}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki was utilized in #{ctx.channel}! \n[Raw Data: {ZETTAI}]')
 
 
     # UNIFORM - SFW
@@ -96,7 +96,7 @@ class Booru(commands.Cog):
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized in #{ctx.channel}! \n[Raw Data: {UNIFORM}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform was utilized in #{ctx.channel}! \n[Raw Data: {UNIFORM}]')
 
 
     # CAR - SFW
@@ -126,7 +126,7 @@ class Booru(commands.Cog):
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized in #{ctx.channel}! \n[Raw Data: {CAR}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Car was utilized in #{ctx.channel}! \n[Raw Data: {CAR}]')
 
     # GUN - SFW
     @commands.command(help = 'Gun images.', aliases = ['pew'])
@@ -155,7 +155,7 @@ class Booru(commands.Cog):
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
         
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized in #{ctx.channel}! \n[Raw Data: {GUN}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gun was utilized in #{ctx.channel}! \n[Raw Data: {GUN}]')
 
     # CATGIRL - SFW
     @commands.command(help = "Catgirls.", aliases = ['cat'])
@@ -184,7 +184,7 @@ class Booru(commands.Cog):
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized in #{ctx.channel}! \n[Raw Data: {CATGIRL}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl was utilized in #{ctx.channel}! \n[Raw Data: {CATGIRL}]')
 
 def setup(client):
     client.add_cog(Booru(client))

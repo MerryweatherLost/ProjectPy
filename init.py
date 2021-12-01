@@ -1,10 +1,6 @@
 import os
-import sys
-import time
-import discord
 
-import itertools
-import threading
+import discord
 from discord.ext import commands
 
 from private.config import *

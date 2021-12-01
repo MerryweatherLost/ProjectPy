@@ -45,7 +45,7 @@ class SauceNow(commands.Cog):
             
             await message.delete()
             await ctx.reply(embed = embed)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Pixiv] was utilized in #{ctx.channel}! \n[Raw Data: {results[0].url}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Pixiv] was utilized in #{ctx.channel}! \n[Raw Data: {results[0].url}]')
             print(f'[Short Remainder: {results.short_remaining}] [Long Remainder: {results.long_remaining}]')
         else:
             embed = discord.Embed(description = 'I can not find this within the Pixiv Category, try another one or get a clearer image.')
@@ -78,7 +78,7 @@ class SauceNow(commands.Cog):
             
             await message.delete()
             await ctx.reply(embed = embed)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Gelbooru/Danbooru] was utilized in #{ctx.channel}!')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Gelbooru/Danbooru] was utilized in #{ctx.channel}!')
             print(f'[Raw Data: {results[0].url}] [Short Remainder: {results.short_remaining}] [Long Remainder: {results.long_remaining}]')
         else:
             embed = discord.Embed(description = 'I can not find this within the Booru Category, try another one or get a clearer image.')
@@ -112,7 +112,7 @@ class SauceNow(commands.Cog):
     #         )
     #         await message.delete()
     #         await ctx.reply(embed = embed)
-    #         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Anime] was utilized in #{ctx.channel}! \n[Raw Data: {results[4].url}]')
+    #         print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Anime] was utilized in #{ctx.channel}! \n[Raw Data: {results[4].url}]')
     #         print(f'[Short Remainder: {results.short_remaining}] [Long Remainder: {results.long_remaining}]')
     #     else:
     #         embed = discord.Embed(description = 'I can not find this within the Anime Category, try another one or get a clearer image.')

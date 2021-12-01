@@ -40,7 +40,7 @@ class Waifu(commands.Cog):
                 embed.timestamp = message.created_at
                 await ctx.reply(embed = embed)
         
-                print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized in #{ctx.channel}! \n[Raw Data: {WAIFU}]')
+                print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu was utilized in #{ctx.channel}! \n[Raw Data: {WAIFU}]')
 
     # NSFW
     @waifu.command( help = 'General Waifu image.', aliases = ['waifunsfw'] )
@@ -66,7 +66,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_WAIFU}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Waifu (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_WAIFU}]')
 
     # NEKO
     @waifu.command(help = 'Neko Waifu image.', aliases = ['nekomimi'])
@@ -95,7 +95,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized in #{ctx.channel}! \n[Raw Data: {NEKO}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi was utilized in #{ctx.channel}! \n[Raw Data: {NEKO}]')
 
     # NEKO - NSFW
     @waifu.command(help = 'Neko Waifu image.', aliases = ['nsfwneko', 'nekomiminsfw'])
@@ -125,7 +125,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_NEKO}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Nekomimi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFW_NEKO}]')
     
     # HAPPY
     @waifu.command(help = 'Happy image of a waifu.')
@@ -154,7 +154,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
         
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized in #{ctx.channel}! \n[Raw Data: {HAPPY}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Happy was utilized in #{ctx.channel}! \n[Raw Data: {HAPPY}]')
     
     # SMILE
     @waifu.command(help = 'Smiling image of a waifu.', aliases = ['🙂'])
@@ -183,7 +183,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized in #{ctx.channel}! \n[Raw Data: {SMILE}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smile was utilized in #{ctx.channel}! \n[Raw Data: {SMILE}]')
 
     # SMUG
     @waifu.command(help = 'Smug image of a waifu. - My personal favorite.')
@@ -212,7 +212,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized in #{ctx.channel}! \n[Raw Data: {SMUG}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Smug was utilized in #{ctx.channel}! \n[Raw Data: {SMUG}]')
 
     # DANCE
     @waifu.command(help = 'Dance image of a waifu.')
@@ -241,7 +241,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized in #{ctx.channel}! \n[Raw Data: {DANCE}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Dance was utilized in #{ctx.channel}! \n[Raw Data: {DANCE}]')
 
     # CRY
     @waifu.command(help = 'Crying image of a waifu.')
@@ -270,7 +270,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized in #{ctx.channel}! \n[Raw Data: {CRY}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Cry was utilized in #{ctx.channel}! \n[Raw Data: {CRY}]')
 
     # MODULAR COMMAND LIST - ACCEPTS MEMBER
 
@@ -302,7 +302,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Highfive was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HIGHFIVE}]')
 
     # KILL
     @commands.command(help = 'Kill a member in chat. EX: :kill @member.', aliases = ['murder', 'slaughter'] )
@@ -332,7 +332,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Kill was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {KILL}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Kill was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {KILL}]')
     
     # HUG
     @commands.command(help = 'Hug a member in chat. EX: :hug @member.',)
@@ -362,7 +362,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Hug was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HUG}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Hug was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {HUG}]')
 
     
     # WAVE
@@ -393,7 +393,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wave was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WAVE}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wave was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WAVE}]')
     
     # BONK
     @commands.command(help = 'Bonk a member in chat. EX: :bonk @member.')
@@ -423,7 +423,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Bonk was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {BONK}]')
 
     # SLAP
     @commands.command(help = 'Slap a member. No questions asked.')
@@ -453,7 +453,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Slap was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {SLAP}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Slap was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {SLAP}]')
     
     # WINK
     @commands.command(help = 'Slap a member. No questions asked.')
@@ -483,7 +483,7 @@ class Waifu(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.reply(embed = embed)   
 
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wink was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WINK}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: WAIFU.PY - LOG: Wink was utilized in #{ctx.channel}! \n[Author: {AUTHOR}] [Mentioned: {DISPLAY}] [Raw Data: {WINK}]')
 
 def setup(client):
     client.add_cog(Waifu(client))

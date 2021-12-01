@@ -1,10 +1,5 @@
 import sys
-import time
-import random
 import discord
-
-import deprecation
-
 from datetime import datetime
 from discord.ext import commands
 
@@ -14,59 +9,10 @@ def __init__(self, client):
     self.client = client
     
 class Time:
-    """
-    ConsoleSelect.Time
-    ~~~~~~~~~~~~~~~~~~~~~
-    Time class for the Console Library.
-
-    Created by: Raymond Allison
-    """
-    
-    @deprecation.deprecated(deprecated_in = "1.3", removed_in = '1.4', details = "Use CST instead.")
-    def timeCST():
-        """
-        Sets the time format and returns a String version for the console.
-
-        Variables
-        -----------
-        formTime:
-            variable from `date_object.strftime()` to cut down drastically on size. 
-            It will be used in console logging. 
-        """
-        date_object = datetime.now()
-        formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
-        return formTime
-
     def CST():
         """Sets the datetime to `CST` (Central Standard Time)."""
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
-        return formTime
-    
-    def dateTimeUTC():
-        """
-        Sets the time format, UTC.
-
-        Variables
-        -----------
-        formTime:
-            variable from date_object.strftime("%H:%M:%S - %b %d %Y") to cut down drastically on size. 
-            It will be used in console logging. 
-        """
-        date_object = datetime.utcnow()
-        formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
-        return formTime
-    def timeUTC():
-        """
-        Sets the time format, UTC.
-
-        Variables
-        -----------
-        formTime:
-            variable from date_object.strftime("%H:%M:%S) in UTC to cut down on size.
-        """
-        date_object = datetime.utcnow()
-        formTime = date_object.strftime("%H:%M UTC")
         return formTime
 
 class Essentials():

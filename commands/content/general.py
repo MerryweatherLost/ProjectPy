@@ -86,7 +86,7 @@ class General(commands.Cog):
             description = f'{roles}', color = member.color
         )
         embed.add_field(name = 'Role Count', value = f'{len(member.roles)} roles present for the user.', inline = True)
-        embed.set_footer(text = f'Timestamp: {Time.timeUTC()}')
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
     
     # WHOIS

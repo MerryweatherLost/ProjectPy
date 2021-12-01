@@ -55,7 +55,7 @@ class WeatherStats(commands.Cog):
         )
         
         await ctx.reply(embed = em)
-        await Console.log(Time.timeCST(), Roundtrip.rt(self), "GENERAL.PY", "Weather", ctx.channel, f'[Location[↗]: {weather.current.observation_point}] [Temperature: {weather.current.temperature}°{stn}] [Windspeed: {weather.current.wind_display}]')
+        await Console.log(Time.CST(), Roundtrip.rt(self), "GENERAL.PY", "Weather", ctx.channel, f'[Location[↗]: {weather.current.observation_point}] [Temperature: {weather.current.temperature}°{stn}] [Windspeed: {weather.current.wind_display}]')
         await client.close()
         
     @weather.command(help = 'Sends the weather in metric formatting.')
@@ -89,7 +89,7 @@ class WeatherStats(commands.Cog):
         )
         
         await ctx.reply(embed = em)
-        await Console.log(Time.timeCST(), Roundtrip.rt(self), "GENERAL.PY", "Weather", ctx.channel, f'[Location[↗]: {weather.current.observation_point}] [Temperature: {weather.current.temperature}°{stn}] [Windspeed: {weather.current.wind_display}]')
+        await Console.log(Time.CST(), Roundtrip.rt(self), "GENERAL.PY", "Weather", ctx.channel, f'[Location[↗]: {weather.current.observation_point}] [Temperature: {weather.current.temperature}°{stn}] [Windspeed: {weather.current.wind_display}]')
         await client.close()
     
     @commands.command(help = 'Checks the temperature in the area.', aliases = ['temp'])

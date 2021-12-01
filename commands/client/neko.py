@@ -298,7 +298,7 @@ class Neko(commands.Cog):
         await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Avatar (NSFW)", ctx.channel, f"[Raw Data: {res.url}]")
      
     # Neko Boobs (NSFW)
-    @nekonsfw.command(help = 'Images of neko avatars. (NSFW)')
+    @nekonsfw.command(help = 'Images of nekos with prominent attention to the chest area. (NSFW)')
     async def boobs(self, ctx, size = None):
         if size != None: str.lower(size)
         if (size == 'small'): res = await self.nya.image(NSFWImageTags.SMALLBOOBS); si = 'Small'

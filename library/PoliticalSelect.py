@@ -1,7 +1,7 @@
 
 class USA:
     """The United States of America and its states and territories."""
-    def states(name):
+    async def states(name):
         """All current states of the United States of America."""
         if (name == 'alabama'):
             stateflag = 'https://cdn.discordapp.com/attachments/898666991806726175/898667677437005924/2560px-Flag_of_Alabama.png'
@@ -106,7 +106,7 @@ class USA:
         else:
             stateflag = 'https://cdn.discordapp.com/attachments/898666991806726175/898667373475811349/Feed-Test-SIC-Feed-20142_news_large.png'
         return stateflag
-    def territories(name):
+    async def territories(name):
         """All other territories official and unofficial flags within the United States of America."""
         if (name == 'puerto rico'):
             territory = 'https://cdn.discordapp.com/attachments/898666991806726175/898684646232031232/1280px-Flag_of_Puerto_Rico.png'

@@ -64,46 +64,46 @@ class Fun(commands.Cog):
         await message.delete()
         await ctx.reply(embed = embed)
         
-        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "8Ball", ctx.channel, f"[Question: {str.capitalize(question)}] [Answer: {answer}]")
+        await Console.log(Time.CST(), Roundtrip.rt(self), "FUN.PY", "8Ball", ctx.channel, f"[Question: {str.capitalize(question)}] [Answer: {answer}]")
     
     # STATE METHOD
     @commands.command(help = 'Returns state flags. (information coming soon...)')
     async def state(self, ctx, *, name):
         embed = discord.Embed()
-        embed.set_image(url = USA.states(str.lower(name)))
+        embed.set_image(url = await USA.states(str.lower(name)))
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
         message = ctx.message
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
-        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "State", ctx.channel, f"[State Flag: {str.title(name)}]")
+        await Console.log(Time.CST(), Roundtrip.rt(self), "FUN.PY", "State", ctx.channel, f"[State Flag: {str.title(name)}]")
 
     # TERRITORY METHOD
     @commands.command(help = 'Returns territory flags. (information coming soon...)')
     async def territory(self, ctx, *, name):
         embed = discord.Embed(color = Color.tachi)
-        embed.set_image(url = USA.territories(str.lower(name)))
+        embed.set_image(url = await USA.territories(str.lower(name)))
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
         message = ctx.message
         embed.timestamp = message.created_at        
         await ctx.reply(embed = embed)
-        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
+        await Console.log(Time.CST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
 
     # GENSHIN IMPACT METHOD
     @commands.command(help = 'Returns genshin impact images.')
     async def genshin(self, ctx, *, name):
         embed = discord.Embed(color = Color.tachi)
-        embed.set_image(url = Genshin.characters(str.lower(name)))
+        embed.set_image(url = await Genshin.characters(str.lower(name)))
         embed.set_footer (
             text = f'{self.client.user.name}'
         )
         message = ctx.message
         embed.timestamp = message.created_at
         await ctx.reply(embed = embed)
-        await Console.log(Time.timeCST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
+        await Console.log(Time.CST(), Roundtrip.rt(self), "FUN.PY", "Territory", ctx.channel, f"[Territory Flag: {str.title(name)}]")
      
     # .
     @commands.command(name = '.', help = '.')

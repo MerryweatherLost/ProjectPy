@@ -54,7 +54,7 @@ class Initialization(commands.Cog):
         await asyncio.sleep(0.5)
 
         # PRINT ESTABLISHMENT
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED. ⚡')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED. ⚡')
 
     @tasks.loop(seconds = 4)
     async def change_status(self):

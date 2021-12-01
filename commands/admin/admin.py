@@ -36,11 +36,11 @@ class Administration(commands.Cog):
             message: discord.Message = await ctx.reply(embed = embed)
             await asyncio.sleep(3)
             await message.delete()
-            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
+            await Console.log(Time.CST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
             extra = f'#{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clearlimit}]')
         else:
             await ctx.channel.purge(limit = amount)
-            await Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
+            await Console.log(Time.CST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
             extra = f"#{ctx.channel} was cleared {amount} times using this command!")
 
     # KICK METHOD
@@ -53,7 +53,7 @@ class Administration(commands.Cog):
         else:
             await member.kick(reason = reason)
             await ctx.reply(f'Kicked **{member}!**')
-            Console.log(Time.timeCST, Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
+            Console.log(Time.CST, Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
             extra = f'A user by the name of {member.mention} was kicked! - Reason: {reason}')
 
     @kick.error
@@ -82,7 +82,7 @@ class Administration(commands.Cog):
             embed.timestamp = message.created_at
             await ctx.guild.ban(member, reason = reason)
             await ctx.reply(f'Banned **{member}!**')
-            Console.log(Time.timeCST(), Roundtrip.rt(self), "ADMIN.PY", ctx.channel,
+            Console.log(Time.CST(), Roundtrip.rt(self), "ADMIN.PY", ctx.channel,
             extra = f'A user by the name of {member.mention} was banned! - Reason: {reason}')
     
     # TEMP BAN METHOD
@@ -108,13 +108,13 @@ class Administration(commands.Cog):
             message = ctx.message
             embed.timestamp = message.created_at
             await ctx.guild.ban(member, reason = reason)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was temporarily banned in #{ctx.channel}! [Member: {member}] [Reason: {reason}]')
             await ctx.reply(embed = embed)
 
             await asyncio.sleep(amount * multiplier[unit])
 
             await ctx.guild.unban(member)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was unbanned due to the amount being reached. [Member: {member}] [Afformentioned Reason: {reason}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - TEMPBAN: A user was unbanned due to the amount being reached. [Member: {member}] [Afformentioned Reason: {reason}]')
 
     # UNBAN METHOD
     @commands.command(help = "Unbans a person from the server.")
@@ -135,13 +135,11 @@ class Administration(commands.Cog):
                         description = f'Unbanned **{user.mention}!**',
                         color = Color.tachi
                     )
-                    embed.set_footer (
-                        text = f'{self.client.user.name} Administration Protocol: {Time.dateTimeUTC()}'
-                    )
+                    embed.timestamp = ctx.message.created_at
                     await ctx.guild.unban(user)
                     await ctx.reply(embed = embed)
                     
-                    print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned in #{ctx.channel}! [{member}]')
+                    print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE | LOG - UNBAN: A user was unbanned in #{ctx.channel}! [{member}]')
                     return  
 
     # MUTE METHOD

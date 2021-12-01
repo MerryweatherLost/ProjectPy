@@ -75,11 +75,11 @@ class Events(commands.Cog):
 # ALL GENERAL EVENTS
     @commands.Cog.listener()
     async def on_member_join(self, member: discord.Member):
-        await Console.event(Time.timeCST(), Roundtrip.rt(self), f"Member {member} has joined the server.")
+        await Console.event(Time.CST(), Roundtrip.rt(self), f"Member {member} has joined the server.")
 
     @commands.Cog.listener()
     async def on_member_remove(self, member: discord.Member):
-        await Console.event(Time.timeCST(), Roundtrip.rt(self), f"Member {member} has left the server.")
+        await Console.event(Time.CST(), Roundtrip.rt(self), f"Member {member} has left the server.")
 
 def setup(client):
     client.add_cog(Events(client))
