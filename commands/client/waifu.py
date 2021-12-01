@@ -55,7 +55,8 @@ class Waifu(commands.Cog):
             )
             embed.set_author (
                 name = ctx.author.display_name, 
-                icon_url = ctx.author.avatar_url)
+                icon_url = ctx.author.avatar_url
+            )
             embed.set_image (
                 url = NSFW_WAIFU, 
             )

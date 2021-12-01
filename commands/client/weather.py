@@ -16,7 +16,7 @@ from library.WeatherSelect import Weather
 class WeatherStats(commands.Cog):
     def __init__(self, client):
         self.client = client
-        self.pw = Client
+        self.pyweather = Client
 
     @commands.group(help = 'Sends weather information of a city. (Quotes needed in the city parameter.)')
     async def weather(self, ctx):
@@ -26,7 +26,7 @@ class WeatherStats(commands.Cog):
         
     @weather.command(help = 'Sends the weather in imperial formatting.')
     async def imperial(self, ctx, *, city):
-        client = self.pw(format = 'F')
+        client = self.pyweather(format = 'F')
         weather = await client.find(city)
         stn = python_weather.IMPERIAL
                 
@@ -60,7 +60,7 @@ class WeatherStats(commands.Cog):
         
     @weather.command(help = 'Sends the weather in metric formatting.')
     async def metric(self, ctx, *, city):
-        client = self.pw(format = 'C')
+        client = self.pyweather(format = 'C')
         weather = await client.find(city)
         stn = python_weather.METRIC
                 
@@ -95,7 +95,7 @@ class WeatherStats(commands.Cog):
     @commands.command(help = 'Checks the temperature in the area.', aliases = ['temp'])
     async def temperature(self, ctx, stn, *, city:str):
         st = Weather.standard(stn)  
-        client = self.pw(format = st)
+        client = self.pyweather(format = st)
         weather = await client.find(city)
         
         em = discord.Embed (color = discord.Color.red())
@@ -112,7 +112,7 @@ class WeatherStats(commands.Cog):
         yesterday = yeast.strftime('%A')
         
         st = Weather.standard(stn)
-        client = self.pw(format = st)       
+        client = self.pyweather(format = st)       
         weather = await client.find(city) 
         
         em = discord.Embed (

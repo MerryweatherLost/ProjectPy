@@ -37,7 +37,7 @@ class Rating:
             return "☔"
         elif (precip <= 29 and precip >= 5):
             return "💧"
-        else:
+        else: 
             return ""        
     
     def checkNum(num: float):
