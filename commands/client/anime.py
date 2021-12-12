@@ -5,7 +5,6 @@ from library.ConsoleSelect import Time
 from library.ConsoleSelect import Essentials
 from library.ConsoleSelect import Roundtrip
 
-from library.AnimeSelect import DharMann
 from library.AnimeSelect import AnimeList
 from library.AnimeSelect import Positivity
 
@@ -62,7 +61,7 @@ class Anime(commands.Cog):
     async def dhar(self, ctx):
         embed = discord.Embed (
             title = 'Dhar Mann',
-            description = f'**Hey Dhar Mann fam!** \n**Quote:** {DharMann.DharQuote()}',
+            description = f'**Hey Dhar Mann fam!** \n**Quote:** {AnimeList.dharMann("txt")}',
             color = discord.Color.default()
         )
         embed.set_author (
@@ -70,7 +69,7 @@ class Anime(commands.Cog):
             icon_url = ctx.author.avatar_url
         )
         embed.set_image (
-            url = DharMann.DharImage()  
+            url = AnimeList.dharMann("img")
         )
         embed.set_footer (
             text = f'{self.client.user.name}'

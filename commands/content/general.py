@@ -92,14 +92,11 @@ class General(commands.Cog):
     # WHOIS
     @commands.command(help = 'Gets information about a person.')
     async def whois(self, ctx, member: discord.Member = None):
-        # DEFINE MEMBER OR CONTEXT.AUTHOR AS MEMBER
         member = member or ctx.author
-        # SET ROLE LIST AS LIST.MENTION @Rolenamehere FOR LIST :IN: MEMBER.ROLES :IF: LIST != @EVERYONE
         rolelist = [list.mention for list in member.roles if list != ctx.guild.default_role]
-        # SPACE OUT, JOIN ROLELIST
         roles = " ".join(rolelist)
 
-        if member.display_name == '{self.client.user.name}': desc = "*Why are you looking me up...?*" 
+        if member.display_name == f'{self.client.user.name}': desc = "*Why are you looking me up...?*" 
         else: desc = ""
         
         image = Image.open(requests.get(member.avatar_url, stream = True).raw).convert('RGBA')

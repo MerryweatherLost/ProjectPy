@@ -75,12 +75,12 @@ class WeatherStats(commands.Cog):
         # TOP FIELD
         em.add_field (name = 'Skies ⛅', value = weather.current.sky_text)
         em.add_field (name = 'Precipitation 🌦️', value = f'{weather.current.humidity}{"%"}')
-        em.add_field (name = 'Wind Display 🚩', value = weather.current.wind_display)
+        em.add_field (name = 'Wind Display 🚩', value = f'{weather.current.wind_display}')
         
         # BOTTOM FIELD
         em.add_field (name = 'Source', value = weather.provider)
         em.add_field (name = 'Feels Like', value = f'{weather.current.feels_like}{stn}')
-        em.add_field (name = 'Observation Point', value = weather.current.observation_point)
+        em.add_field (name = 'Observation Point', value = f'{weather.current.observation_point}')
 
         em.set_footer (text = f'Date 🗓️: {weather.current.date} • UTC: {weather.timezone_offset} • Alerts ⚠️: {weather.alert_message}')
 

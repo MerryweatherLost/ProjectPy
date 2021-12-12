@@ -81,6 +81,27 @@ class AnimeList:
             ]
         waifuspecial = random.choice(list)
         return waifuspecial
+    
+    def dharMann(cnt:str):
+        if cnt == 'quote':
+            dharquote = [
+                'Your life doesn’t get better by chance. It gets better by change.',
+                'You can’t turn a negative mindset into positive actions.',
+                'Your past does not equal your future unless you decide to live there.',
+                'Failure is an event, not a person.',
+                'Water the flowers, not the weeds.',
+                'Train your mind. Your body will follow.'
+            ]
+            quote = random.choice(dharquote)
+            return quote
+        if cnt == 'img':
+            dharimg = [
+                'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png',
+                'https://cdn.discordapp.com/attachments/895302028375490596/899660726740865055/EtbPOwSVEAA9uUC.jpg',
+            ]
+            img = random.choice(dharimg)
+            return img
+        else: return None
 
 class AnimeGel:
     """Returns images specified through Gelbooru.
@@ -171,28 +192,6 @@ class AnimeNSFWGel:
             exclude_tags = ['comic']
         )
         return catgirl
-
-class DharMann:
-    def DharQuote():
-        """Dhars most famous quotes."""
-        dharquote = [
-            'Your life doesn’t get better by chance. It gets better by change.',
-            'You can’t turn a negative mindset into positive actions.',
-            'Your past does not equal your future unless you decide to live there.',
-            'Failure is an event, not a person.',
-            'Water the flowers, not the weeds.',
-            'Train your mind. Your body will follow.'
-        ]
-        dharrand = random.choice(dharquote)
-        return dharrand
-    def DharImage():
-        """Dhar Collage."""
-        dharimg = [
-            'https://cdn.discordapp.com/attachments/576096750331494420/896981047848353812/unknown.png',
-            'https://cdn.discordapp.com/attachments/895302028375490596/899660726740865055/EtbPOwSVEAA9uUC.jpg',
-        ]
-        imgrand = random.choice(dharimg)
-        return imgrand
 
 class Positivity:
     def random_quote():
