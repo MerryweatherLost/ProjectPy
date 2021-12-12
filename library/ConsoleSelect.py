@@ -49,7 +49,7 @@ class Color:
     white = discord.Color.from_rgb(230,230,230)
     """Returns a factory setting of a white color for RGB. `tuple`"""
     tachi = signature
-    """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
+    """Returns a factory setting of a signature Kumatora color for RGB. `tuple`"""
     weather = discord.Color.from_rgb(113, 175, 222)
     """Returns a factory setting of a signature Weather color for RGB. `tuple`"""
 
