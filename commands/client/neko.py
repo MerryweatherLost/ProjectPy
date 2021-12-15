@@ -7,7 +7,7 @@ from discord.ext import commands
 
 from anekos import NekosLifeClient, SFWImageTags, NSFWImageTags
 
-class Neko(commands.Cog):
+class Neko(commands.Cog, description = 'Using the NekosLife Client for images and fun stuff.'):
     def __init__(self, client):
         self.client = client
         self.nya = NekosLifeClient()

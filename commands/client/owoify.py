@@ -6,7 +6,7 @@ from discord.ext import commands
 
 from owoify import owoify
 
-class Owoify(commands.Cog):
+class Owoify(commands.Cog, description = 'owo.'):
     def __init__(self, client):
         self.client = client
         self.owo = owoify

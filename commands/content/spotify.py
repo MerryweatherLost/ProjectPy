@@ -1,18 +1,25 @@
-import os
 import discord
 import requests
 import textwrap
 import dateutil.parser
+
 from discord.ext import commands
 from PIL import Image, ImageFont, ImageDraw
 
+from private.config import signature
 
-class Spotify(commands.Cog):
+class Spotify(commands.Cog, description = 'Spotify API that returns results of what you are playing.'):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(help = 'Sends spotify track from person.')
-    async def spotify(self, ctx, member: discord.Member = None):
+    @commands.group(help = 'Holds the spotify command list.')
+    async def spotify(self, ctx):
+        if ctx.invoked_subcommand is None:
+            em = discord.Embed (description = 'That is not a visible subcommand.', color = signature)
+            await ctx.reply(embed = em)  
+
+    @spotify.command(help = 'Sends spotify track from person.')
+    async def track(self, ctx, member: discord.Member = None):
         member = member or ctx.author
         spotify_result = next((activity for activity in member.activities if isinstance(activity, discord.Spotify)), None)
         if spotify_result is None:
@@ -44,8 +51,8 @@ class Spotify(commands.Cog):
         else:
             spotiartist = spotify_result.artist
 
-        if (len(spotify_result.title) > 18):
-            spotititle = textwrap.fill(spotify_result.title, 18) 
+        if (len(spotify_result.title) > 24):
+            spotititle = textwrap.fill(spotify_result.title, 24) 
 
             title_text_position = 195, 25
             artist_text_position = 195, 112
@@ -76,6 +83,13 @@ class Spotify(commands.Cog):
         background_image_color.convert('RGB').save('cache/spotify_render.png', 'PNG')
 
         await ctx.reply(file = discord.File('cache/spotify_render.png'))
+    
+    @spotify.command(help = 'Returns the link of the song the person is listening to.')
+    async def link(self, ctx, member: discord.Member = None):
+        member = member or ctx.author
+        spotify_result = next((activity for activity in member.activities if isinstance(activity, discord.Spotify)), None)        
+        if spotify_result is None:
+            await ctx.send(f'{member.name} is not listening to Spotify.'); return
         await ctx.send(f"https://open.spotify.com/track/{spotify_result.track_id}")
 
 def setup(client):

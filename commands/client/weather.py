@@ -13,7 +13,7 @@ from python_weather import Client
 
 from library.WeatherSelect import Weather
 
-class WeatherStats(commands.Cog):
+class WeatherStats(commands.Cog, name = 'Weather', description = 'Grabs weather data and statistics from the python_weather library.'):
     def __init__(self, client):
         self.client = client
         self.pyweather = Client

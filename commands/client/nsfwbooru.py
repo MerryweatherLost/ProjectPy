@@ -6,7 +6,7 @@ from library.ConsoleSelect import Roundtrip
 
 from library.AnimeSelect import AnimeNSFWGel
 
-class nsfwBooru(commands.Cog):
+class nsfwBooru(commands.Cog, name = 'NSFW Booru', description = 'The NSFW version of the Gelbooru framework.'):
     def __init__(self, client):
         self.client = client
 

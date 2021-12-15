@@ -8,7 +8,7 @@ from library.ConsoleSelect import Essentials
 
 from library.MemeSelect import MemeList
 
-class Meme(commands.Cog):
+class Meme(commands.Cog, description = 'Weird memes.'):
     def __init__(self, client):
         self.client = client
 

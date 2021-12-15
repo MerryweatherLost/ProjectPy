@@ -10,7 +10,7 @@ from library.AnimeSelect import Positivity
 
 from discord.ext import commands
     
-class Anime(commands.Cog):
+class Anime(commands.Cog, description = 'General anime nuisances.'):
     def __init__(self, client):
         self.client = client
 

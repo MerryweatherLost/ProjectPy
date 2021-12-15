@@ -9,7 +9,7 @@ from library.FunSelect import _Fun
 from library.GenshinSelect import Genshin
 from library.PoliticalSelect import USA
 
-class Fun(commands.Cog):
+class Fun(commands.Cog, description = 'A bunch of fun commands.'):
     def __init__(self, client):
         self.client = client
 

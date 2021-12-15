@@ -24,19 +24,19 @@ client = commands.Bot (
 clear = lambda: os.system(consoleclr)
 clear()
 
-@client.command(help = 'Loads package.')
+@client.command(hidden = True, help = 'Loads package.')
 @commands.is_owner()
 # LOAD_EXTENSION: Loading the 'cog' folder
 async def load(extension):
     client.load_extension(f'commands.{extension}')
 
-@client.command(help = 'Unloads package.')
+@client.command(hidden = True, help = 'Unloads package.')
 @commands.is_owner()
 # EXTENSION: Unloading the 'cog' folder
 async def unload(extension):
     client.unload_extension(f'commands.{extension}')
 
-@client.command(help = 'Reloads package.')
+@client.command(hidden = True, help = 'Reloads package.')
 @commands.is_owner()
 # EXTENSIONS: Reloading the 'cog' folder
 async def reload(extension):

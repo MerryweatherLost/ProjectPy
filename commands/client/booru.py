@@ -5,7 +5,7 @@ from library.ConsoleSelect import Time
 from library.AnimeSelect import AnimeGel
 from library.ConsoleSelect import Roundtrip
 
-class Booru(commands.Cog):
+class Booru(commands.Cog, description = 'Library involving the Gelbooru framework. (Safe for Work)'):
     def __init__(self, client):
         self.client = client
         self.booru = AnimeGel

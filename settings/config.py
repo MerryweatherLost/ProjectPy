@@ -6,7 +6,7 @@ version = '1.4.0'
 
 class Admin:
     """Administration Settings"""
-    clearlimit = 40
+    clear_limit = 40
     """Limit to clear messages."""
 
 class General:

@@ -13,7 +13,7 @@ from library.ConsoleSelect import Console
 from settings.config import Admin
 
 
-class Administration(commands.Cog):
+class Administration(commands.Cog, description = 'Administration commands for moderation usage.'):
     def __init__(self, client):
         self.client = client
     
@@ -24,9 +24,9 @@ class Administration(commands.Cog):
     @commands.has_permissions(manage_messages = True)
     @commands.cooldown(rate = 1, per = 5)
     async def clear(self, ctx, amount: int):
-        if (amount > Admin.clearlimit):
+        if (amount > Admin.clear_limit):
             embed = discord.Embed (
-                description = f'Woah! too many requests! Try something less than or equal to {Admin.clearlimit}.',
+                description = f'Woah! too many requests! Try something less than or equal to {Admin.clear_limit}.',
                 color = Color.tachi
             )
             embed.set_footer (
@@ -37,8 +37,9 @@ class Administration(commands.Cog):
             await asyncio.sleep(3)
             await message.delete()
             await Console.log(Time.CST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
-            extra = f'#{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clearlimit}]')
+            extra = f'#{ctx.channel} was unsuccessfully cleared! Larger amount than expected! [Amount: {amount}] [Limit: {Admin.clear_limit}]')
         else:
+            await ctx.message.delete()
             await ctx.channel.purge(limit = amount)
             await Console.log(Time.CST(), Roundtrip.rt(self), "ADMIN.PY", "Clear", ctx.channel, 
             extra = f"#{ctx.channel} was cleared {amount} times using this command!")

@@ -19,7 +19,7 @@ from settings.config import version
 
 # GENERAL COMMANDS
 
-class General(commands.Cog):
+class General(commands.Cog, description = 'Commands which involve general usages.'):
     def __init__(self, client):
         self.client = client
     

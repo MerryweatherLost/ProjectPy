@@ -8,7 +8,7 @@ from library.RatingSelect import *
 from pysaucenao import *
 from private.config import signature
 
-class SauceNow(commands.Cog):
+class SauceNow(commands.Cog, description = 'SauceNao API to connect you to your sauce location.'):
     def __init__(self, client):
         self.client = client
         self.sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')

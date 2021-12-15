@@ -8,7 +8,7 @@ from library.ConsoleSelect import Roundtrip
 
 from private.config import signature
 
-class Waifu(commands.Cog):
+class Waifu(commands.Cog, description = 'Get your waifus here.'):
     def __init__(self, client):
         self.client = client
         
