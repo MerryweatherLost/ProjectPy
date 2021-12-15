@@ -1,6 +1,6 @@
 import random
 
-class _Fun:
+class Fun:
     def coin_toss():
         """Responses handler for a randomized coinflip."""
         responses = ['Heads.', 'Tails.']

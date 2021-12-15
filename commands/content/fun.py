@@ -4,12 +4,12 @@ import discord
 from discord.ext import commands
 
 from library.ConsoleSelect import *
-from library.FunSelect import _Fun
+from library.FunSelect import Fun
 
 from library.GenshinSelect import Genshin
 from library.PoliticalSelect import USA
 
-class Fun(commands.Cog, description = 'A bunch of fun commands.'):
+class Fun_Command(commands.Cog, name = 'Fun', description = 'A bunch of fun commands.'):
     def __init__(self, client):
         self.client = client
 
@@ -17,7 +17,7 @@ class Fun(commands.Cog, description = 'A bunch of fun commands.'):
     async def cointoss(self, ctx,):
         message: discord.Message = await ctx.reply("**Flipping Coin...** <a:CoinToss:893194255345012818>")
         await asyncio.sleep(1)
-        answer = _Fun.coin_toss()
+        answer = Fun.coin_toss()
         await message.edit(content = f'{answer}')
    
     # PYTHON METHOD
@@ -42,14 +42,14 @@ class Fun(commands.Cog, description = 'A bunch of fun commands.'):
     )
     async def _8ball(self, ctx, *, question):
         message: discord.Message = await ctx.reply('8ball is thinking... <a:checkmark:903852585360949289>')    
-        answer = _Fun.eight_ball('txt')
+        answer = Fun.eight_ball('txt')
         embed = discord.Embed (
             title = "8-Ball", 
             description = f'Question: **{question}**\nAnswer: **{answer}**',
             color = discord.Color.default()
         )
         embed.set_thumbnail (
-            url = _Fun.eight_ball('url')           
+            url = Fun.eight_ball('url')           
         )
         embed.set_author (
             name = ctx.author.display_name,
@@ -112,4 +112,4 @@ class Fun(commands.Cog, description = 'A bunch of fun commands.'):
         await asyncio.sleep(1); message.delete()
 
 def setup(client):
-    client.add_cog(Fun(client))
+    client.add_cog(Fun_Command(client))
