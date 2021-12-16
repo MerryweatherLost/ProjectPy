@@ -1,4 +1,4 @@
-from library.ConsoleSelect import *
+from library.console import *
 
 class Rating:
     def similarEmoji(sim: float):

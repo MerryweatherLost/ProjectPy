@@ -1,12 +1,12 @@
 import asyncio
 import discord
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Essentials
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Essentials
+from library.console import Roundtrip
 
-from library.AnimeSelect import AnimeList
-from library.AnimeSelect import Positivity
+from library.anime import AnimeList
+from library.anime import Positivity
 
 from discord.ext import commands
     

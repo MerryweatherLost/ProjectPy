@@ -4,11 +4,11 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Color
-from library.ConsoleSelect import DurationConverter
-from library.ConsoleSelect import Roundtrip
-from library.ConsoleSelect import Console
+from library.console import Time
+from library.console import Color
+from library.console import DurationConverter
+from library.console import Roundtrip
+from library.console import Console
 
 from settings.config import Admin
 

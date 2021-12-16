@@ -36,7 +36,8 @@ This is now complete, and routine updates will be practiced on the bot from now 
 -m pip install kitsu.py
 -m pip install owoify-py
 -m pip install deprecation
-
+-m pip install isort
+-m pip install flake8
 ### Spotify Integration
 
 `(255, 180, 0)` - November Colors for Spotify

@@ -6,7 +6,7 @@ from audioplayer import AudioPlayer
 from discord.ext import commands, tasks
 from itertools import cycle
 
-from library.ConsoleSelect import *
+from library.console import *
 
 from settings.config import version 
 

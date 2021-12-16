@@ -3,10 +3,10 @@ import discord
 
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Essentials
+from library.console import Time
+from library.console import Essentials
 
-from library.MemeSelect import MemeList
+from library.meme import MemeList
 
 class Meme(commands.Cog, description = 'Weird memes.'):
     def __init__(self, client):

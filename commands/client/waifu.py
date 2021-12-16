@@ -3,8 +3,8 @@ import discord
 from waifu import WaifuAioClient
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Roundtrip
 
 from private.config import signature
 

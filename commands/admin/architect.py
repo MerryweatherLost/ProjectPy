@@ -1,8 +1,8 @@
 import discord
 
 from discord.ext import commands
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Roundtrip
 
 class Architect(commands.Cog, description = 'If you are reading this, the owner of the bot has access to this only.'):
     def __init__(self, client):

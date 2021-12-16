@@ -3,11 +3,11 @@ import discord
 
 from discord.ext import commands
 
-from library.ConsoleSelect import *
-from library.FunSelect import Fun
+from library.console import *
+from library.fun import Fun
 
-from library.GenshinSelect import Genshin
-from library.PoliticalSelect import USA
+from library.genshin import Genshin
+from library.political import USA
 
 class Fun_Command(commands.Cog, name = 'Fun', description = 'A bunch of fun commands.'):
     def __init__(self, client):
@@ -68,9 +68,9 @@ class Fun_Command(commands.Cog, name = 'Fun', description = 'A bunch of fun comm
     
     # STATE METHOD
     @commands.command(help = 'Returns state flags. (information coming soon...)')
-    async def state(self, ctx, *, name):
+    async def state(self, ctx, *, name: str):
         embed = discord.Embed()
-        embed.set_image(url = await USA.states(str.lower(name)))
+        embed.set_image(url = USA.states.get(name.title(), "https://cdn.discordapp.com/attachments/898666991806726175/898667373475811349/Feed-Test-SIC-Feed-20142_news_large.png"))
         embed.set_footer (
             text = f'{self.client.user.name}'
         )

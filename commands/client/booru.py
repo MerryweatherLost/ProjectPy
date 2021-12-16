@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.AnimeSelect import AnimeGel
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.anime import AnimeGel
+from library.console import Roundtrip
 
 class Booru(commands.Cog, description = 'Library involving the Gelbooru framework. (Safe for Work)'):
     def __init__(self, client):

@@ -1,7 +1,7 @@
 import asyncio
 import discord
 
-from library.ConsoleSelect import *
+from library.console import *
 
 from discord.ext import commands
 

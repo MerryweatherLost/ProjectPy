@@ -1,7 +1,7 @@
 import discord
 import akaneko
 
-from library.ConsoleSelect import *
+from library.console import *
 from discord.ext import commands
 from private.config import signature
 

@@ -1,7 +1,7 @@
 import discord
 from owoify.owoify import owoify
 
-from library.ConsoleSelect import *
+from library.console import *
 from discord.ext import commands
 
 from owoify import owoify

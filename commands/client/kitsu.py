@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import *
-from library.RatingSelect import Rating
+from library.console import *
+from library.rating import Rating
 
 from discord.ext import commands
 from private.config import signature

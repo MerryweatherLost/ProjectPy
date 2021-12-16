@@ -1,10 +1,10 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Roundtrip
 
-from library.AnimeSelect import AnimeNSFWGel
+from library.anime import AnimeNSFWGel
 
 class nsfwBooru(commands.Cog, name = 'NSFW Booru', description = 'The NSFW version of the Gelbooru framework.'):
     def __init__(self, client):

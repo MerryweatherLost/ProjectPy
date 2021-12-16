@@ -4,13 +4,13 @@ import python_weather
 from discord.ext import commands
 from discord.ext.commands.core import is_owner
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Color
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Color
+from library.console import Roundtrip
 
-from library.ConsoleSelect import *
+from library.console import *
 
-from library.PillowSelect import Avatar
+from library.pillow import Avatar
 
 from PIL import Image
 import requests

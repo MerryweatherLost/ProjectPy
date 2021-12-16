@@ -6,7 +6,7 @@ from discord.ext import commands, tasks
 from PIL import Image, ImageFont, ImageDraw
 from discord.ext.commands.errors import CommandInvokeError
 
-from library.ConsoleSelect import *
+from library.console import *
 
 # CLASS FOR ALL GENERAL EVENTS
 class Events(commands.Cog):

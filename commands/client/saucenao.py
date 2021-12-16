@@ -2,8 +2,8 @@ import asyncio
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import *
-from library.RatingSelect import *
+from library.console import *
+from library.rating import *
 
 from pysaucenao import *
 from private.config import signature

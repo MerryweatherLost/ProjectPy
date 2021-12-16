@@ -1,17 +1,17 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import *
+from library.console import *
 
 from datetime import date
 from datetime import timedelta
 
-from library.RatingSelect import Rating 
+from library.rating import Rating 
 
 import python_weather
 from python_weather import Client
 
-from library.WeatherSelect import Weather
+from library.weather import Weather
 
 class WeatherStats(commands.Cog, name = 'Weather', description = 'Grabs weather data and statistics from the python_weather library.'):
     def __init__(self, client):
