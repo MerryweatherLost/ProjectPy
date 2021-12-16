@@ -2,15 +2,16 @@ import asyncio
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import *
-from library.SauceSelect import *
+from library.console import *
+from library.rating import *
 
 from pysaucenao import *
 from private.config import signature
 
-class SauceNow(commands.Cog):
+class SauceNow(commands.Cog, description = 'SauceNao API to connect you to your sauce location.'):
     def __init__(self, client):
         self.client = client
+        self.sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')
 
     # SAUCENAO GROUP
     @commands.group()
@@ -22,8 +23,7 @@ class SauceNow(commands.Cog):
     # PIXNAO - METHOD
     @saucenao.command(help = 'Delivers the sauce by image. [Pixiv]', aliases = ['pix'])
     async def pixiv(self, ctx, image: str):
-        sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')
-        results = await sauce.from_url(url = image)
+        results = await self.sauce.from_url(url = image)
         
         if isinstance(results[0], PixivSource):
             message: discord.Message = await ctx.reply('I found a match... <a:checkmark:903852585360949289> gimmie me a second... <a:cleo:902025889179631637>')
@@ -36,7 +36,7 @@ class SauceNow(commands.Cog):
                 url = f'{results[0].thumbnail}'
             )
             embed.add_field (name = 'Type', value = f'{results[0].type.capitalize()}')
-            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {SauceSelect.similarEmoji(sim = results[0].similarity)}')
+            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {Rating.similarEmoji(sim = results[0].similarity)}')
             embed.add_field (name = 'Author Name', value = f'{results[0].author_name}')
             embed.add_field (name = 'Author Link', value = f'[Link]({results[0].author_url})')
             embed.add_field (name = 'Result Count', value = f'{len(results)}')
@@ -45,7 +45,7 @@ class SauceNow(commands.Cog):
             
             await message.delete()
             await ctx.reply(embed = embed)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Pixiv] was utilized in #{ctx.channel}! \n[Raw Data: {results[0].url}]')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Pixiv] was utilized in #{ctx.channel}! \n[Raw Data: {results[0].url}]')
             print(f'[Short Remainder: {results.short_remaining}] [Long Remainder: {results.long_remaining}]')
         else:
             embed = discord.Embed(description = 'I can not find this within the Pixiv Category, try another one or get a clearer image.')
@@ -54,8 +54,7 @@ class SauceNow(commands.Cog):
     # BOORUNAO - METHOD
     @saucenao.command(help = 'Delivers the sauce by image. [Gelbooru/Danbooru]')
     async def booru(self, ctx, image: str):
-        sauce = SauceNao(api_key = 'ad5dd123e3b1b2ccdd38575f2736287b0aea1e26')
-        results = await sauce.from_url(url = image); len(results)
+        results = await self.sauce.from_url(url = image); len(results)
 
         if isinstance(results[0], BooruSource):
             message: discord.Message = await ctx.reply('I found a match... <a:checkmark:903852585360949289> gimmie me a second... <a:cleo:902025889179631637>')
@@ -68,7 +67,7 @@ class SauceNow(commands.Cog):
                 url = f'{results[0].thumbnail}'
             )
             embed.add_field (name = 'Type', value = f'{results[0].type.capitalize()}')
-            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {SauceSelect.similarEmoji(sim = results[0].similarity)}')
+            embed.add_field (name = 'Similarity', value = f'{results[0].similarity}% {Rating.similarEmoji(sim = results[0].similarity)}')
             embed.add_field (name = 'Author Name', value = f'{results[0].author_name}')
             embed.add_field (name = 'Author Link', value = f'[Link]({results[0].author_url})')
             embed.add_field (name = 'Index ID', value = f'{results[0].index_id}')
@@ -79,7 +78,7 @@ class SauceNow(commands.Cog):
             
             await message.delete()
             await ctx.reply(embed = embed)
-            print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Gelbooru/Danbooru] was utilized in #{ctx.channel}!')
+            print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Gelbooru/Danbooru] was utilized in #{ctx.channel}!')
             print(f'[Raw Data: {results[0].url}] [Short Remainder: {results.short_remaining}] [Long Remainder: {results.long_remaining}]')
         else:
             embed = discord.Embed(description = 'I can not find this within the Booru Category, try another one or get a clearer image.')
@@ -113,7 +112,7 @@ class SauceNow(commands.Cog):
     #         )
     #         await message.delete()
     #         await ctx.reply(embed = embed)
-    #         print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Anime] was utilized in #{ctx.channel}! \n[Raw Data: {results[4].url}]')
+    #         print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: SAUCENAO.PY - LOG: SauceNao [Anime] was utilized in #{ctx.channel}! \n[Raw Data: {results[4].url}]')
     #         print(f'[Short Remainder: {results.short_remaining}] [Long Remainder: {results.long_remaining}]')
     #     else:
     #         embed = discord.Embed(description = 'I can not find this within the Anime Category, try another one or get a clearer image.')

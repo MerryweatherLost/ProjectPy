@@ -1,5 +1,5 @@
 class Genshin:
-    def characters(name):
+    async def characters(name):
         if (name == 'albedo'):
             character = 'https://static.wikia.nocookie.net/gensin-impact/images/f/f8/Character_Albedo_Card.png/revision/latest/scale-to-width-down/1000?cb=20210302092013'
         elif (name == 'aloy'):
@@ -84,6 +84,10 @@ class Genshin:
             character = 'https://static.wikia.nocookie.net/gensin-impact/images/4/4b/Character_Yoimiya_Card.png/revision/latest/scale-to-width-down/1000?cb=20210607100839'  
         elif (name == 'zhongli'):
             character = 'https://static.wikia.nocookie.net/gensin-impact/images/7/79/Character_Zhongli_Card.png/revision/latest/scale-to-width-down/1000?cb=20201217052506'  
+        elif (name == 'shenhe'):
+            character = 'https://static.wikia.nocookie.net/gensin-impact/images/0/05/Character_Shenhe_Card.jpg/revision/latest/scale-to-width-down/1000?cb=20211122100932'
+        elif (name == 'yun jin'):
+            character = 'https://static.wikia.nocookie.net/gensin-impact/images/a/a8/Character_Yun_Jin_Card.jpg/revision/latest/scale-to-width-down/1000?cb=20211122101013'
         else:
             character = 'https://cdn.discordapp.com/attachments/898666991806726175/898667373475811349/Feed-Test-SIC-Feed-20142_news_large.png'
         return character

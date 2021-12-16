@@ -1,12 +1,12 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Essentials
+from library.console import Time
+from library.console import Essentials
 
 from private.config import signature
 
-class Math(commands.Cog):
+class Math(commands.Cog, description = 'Math, feared by many, mastered by none.'):
     def __init__(self, client):
         self.client = client
     

@@ -1,12 +1,12 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Roundtrip
 
-from library.AnimeSelect import AnimeNSFWGel
+from library.anime import AnimeNSFWGel
 
-class nsfwBooru(commands.Cog):
+class nsfwBooru(commands.Cog, name = 'NSFW Booru', description = 'The NSFW version of the Gelbooru framework.'):
     def __init__(self, client):
         self.client = client
 
@@ -32,14 +32,10 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWZETTAI}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Zettai Ryouiki (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWZETTAI}]')
 
     
     # UNIFORM - NSFW
@@ -63,14 +59,10 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWUNIFORM}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Uniform (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWUNIFORM}]')
 
     
     # AHEGAO - NSFW
@@ -94,14 +86,10 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {AHEGAO}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Ahegao (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {AHEGAO}]')
 
 
     # GIF - NSFW
@@ -125,14 +113,10 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {GIF}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Gif (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {GIF}]')
 
     # DOUJIN - NSFW
     @commands.command(help = "(NSFW ONLY) Manga images.", aliases = ['doujinshi','nsfwmanga'])
@@ -155,14 +139,10 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {MANGA}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Doujinshi (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {MANGA}]')
 
     # CATGIRL - NSFW
     @commands.command(help = "(NSFW ONLY) catgirls.", aliases = ['nsfwcat','catgirlnsfw'])
@@ -185,14 +165,10 @@ class nsfwBooru(commands.Cog):
         embed.set_thumbnail (
             url = 'https://cdn.discordapp.com/attachments/576096750331494420/895122429087739924/booru.png'
         )
-        embed.set_footer (
-            text = f'{self.client.user.name}: {Time.dateTimeUTC()}'
-        )
-        message = ctx.message
-        embed.timestamp = message.created_at
+        embed.timestamp = ctx.message.created_at
         await ctx.reply(embed = embed)
 
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWCATGIRL}]')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONSOLE: BOORU.PY - LOG: Catgirl (NSFW) was utilized in #{ctx.channel}! \n[Raw Data: {NSFWCATGIRL}]')
 
 def setup(client):
     client.add_cog(nsfwBooru(client))

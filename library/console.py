@@ -1,8 +1,5 @@
 import sys
-import time
-import random
 import discord
-
 from datetime import datetime
 from discord.ext import commands
 
@@ -10,106 +7,15 @@ from private.config import signature
 
 def __init__(self, client):
     self.client = client
-
-class Time:
-    """
-    ConsoleSelect.Time
-    ~~~~~~~~~~~~~~~~~~~~~
-    Time class for the Console Library.
-
-    Created by: Raymond Allison
-    """
     
-    def timeCST():
-        """
-        Sets the time format and returns a String version for the console.
-
-        Variables
-        -----------
-        formTime:
-            variable from `date_object.strftime()` to cut down drastically on size. 
-            It will be used in console logging. 
-        """
-        date_object = datetime.now()
-        formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
-        return formTime
-
+class Time:
     def CST():
         """Sets the datetime to `CST` (Central Standard Time)."""
         date_object = datetime.now()
         formTime = date_object.strftime("%H:%M:%S - %b %d %Y")
         return formTime
-    
-    def dateTimeUTC():
-        """
-        Sets the time format, UTC.
-
-        Variables
-        -----------
-        formTime:
-            variable from date_object.strftime("%H:%M:%S - %b %d %Y") to cut down drastically on size. 
-            It will be used in console logging. 
-        """
-        date_object = datetime.utcnow()
-        formTime = date_object.strftime("%H:%M UTC - %b %d, %Y")
-        return formTime
-    def timeUTC():
-        """
-        Sets the time format, UTC.
-
-        Variables
-        -----------
-        formTime:
-            variable from date_object.strftime("%H:%M:%S) in UTC to cut down on size.
-        """
-        date_object = datetime.utcnow()
-        formTime = date_object.strftime("%H:%M UTC")
-        return formTime
 
 class Essentials():
-    def eightball():
-        """
-        Responses handler for a randomized 8ball.
-
-        Variables
-        ---------
-        responses: `str`, `list`,
-
-        List of literal strings to pull from later on.
-
-        response8ball: `var`,
-
-        Picks one literal string from a `random.choice` function.
-        """
-        responses = [
-            # POSITIVES
-            'It is certain.', 'It is decidedly so.', 'Without a doubt.', 'Yes.',
-            'Outlook good.', 'Signs point to yes.', 'That is correct.',
-            'Indeed.', 'Affirmative.',
-            # NEUTRALS
-            'Reply hazy, try again.',
-            'Ask again later.','Can not predict now.', 
-            'I can not find a result for that, try again.','Try again.',
-            # NEGATIVES
-            "Don't count on it.", 'My reply is no.', 'My sources say no.', 
-            'Obviously not.', 'Negative.','Absolutely false.','Decidedly not.',
-            'No.', 'That is incorrect.'
-        ]
-        response8ball = random.choice(responses)
-        return response8ball
-    def ballImage():
-        """Just returns an 8ball image."""
-        ballImage = 'https://cdn.discordapp.com/attachments/576096750331494420/896414018133196800/8b.png'
-        return ballImage
-    def CoinToss():
-        """
-        Responses handler for a randomized coinflip.
-        Picks one literal string from a `random.choice` function.
-        """
-        responses = [ 'Heads.','Tails.' ]
-        coinflip = random.choice(responses)
-        return coinflip
-    
     def Math(num1: float, op, num2: float):
         """Math Calculations to process for math.py."""
         valid = True
@@ -143,7 +49,7 @@ class Color:
     white = discord.Color.from_rgb(230,230,230)
     """Returns a factory setting of a white color for RGB. `tuple`"""
     tachi = signature
-    """Returns a factory setting of a signature Tachibana color for RGB. `tuple`"""
+    """Returns a factory setting of a signature Kumatora color for RGB. `tuple`"""
     weather = discord.Color.from_rgb(113, 175, 222)
     """Returns a factory setting of a signature Weather color for RGB. `tuple`"""
 

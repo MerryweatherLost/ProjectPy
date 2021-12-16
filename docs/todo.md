@@ -34,7 +34,18 @@ This is now complete, and routine updates will be practiced on the bot from now 
 -m pip install audioplayer
 -m pip install -U git+https://github.com/Nekos-life/Async-nekos.life-wrapper
 -m pip install kitsu.py
-
+-m pip install owoify-py
+-m pip install deprecation
+-m pip install isort
+-m pip install flake8
 ### Spotify Integration
 
 `(255, 180, 0)` - November Colors for Spotify
+
+### Change the Way Loading Works
+
+Maybe to a way that it does this:
+Loading the Client Folder... /
+Loading the Client Folder. |
+Loading the Client Folder.. \
+Loading the Client Folder... -

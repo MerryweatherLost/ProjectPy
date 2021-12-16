@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
 
-from library.ConsoleSelect import *
+from library.console import *
+from library.rating import Rating
 
 from discord.ext import commands
 from private.config import signature
@@ -28,16 +29,19 @@ class Kitsu(commands.Cog):
         await asyncio.sleep(1)
         
         if kya.nsfw == True: unsafe = 'Yes'
-        else: unsafe = 'No'
+        elif kya.nsfw == False: unsafe = 'No'
+        else: unsafe = 'Unsure'
+        
         synopsis = (kya.synopsis[:1021] + '...') if len(kya.synopsis) > 1021 else kya.synopsis
+        
         if len(kya.abbreviated_titles) == 0: titles = "No other titles were found."
         else: titles = ', '.join(kya.abbreviated_titles)
-            
+
         em = discord.Embed (
             title = f"{kya.title('en_jp')}",
             color = Color.white
         )
-        if kya.canonical_title == kya.title: 
+        if kya.canonical_title != kya.title: 
             em.add_field (name = f"Canonical Title", value = f"*{kya.canonical_title}*")
 
         em.add_field     (name = "Abbreviated Titles", value = f"{titles}" + "\u200b", inline = False) 
@@ -49,7 +53,7 @@ class Kitsu(commands.Cog):
         
         em.add_field     (name = "Episode Count", value = f"{kya.episode_count}")
         em.add_field     (name = "Episode Length", value = f"{kya.episode_length} min.")
-        em.add_field     (name = "Average Rating", value = f"{kya.average_rating}%")
+        em.add_field     (name = "Average Rating", value = f"{kya.average_rating}% {Rating.similarEmoji(kya.average_rating)}")
         
         em.add_field     (name = "NSFW Themes? (Not Accurate)", value = f"{unsafe}")
         em.add_field     (name = "Age Rating", value = f"{kya.age_rating_guide}")
@@ -76,5 +80,3 @@ class Kitsu(commands.Cog):
         
 def setup(client):
     client.add_cog(Kitsu(client))
-    
-# em.add_field (name = "", value = f"{}")

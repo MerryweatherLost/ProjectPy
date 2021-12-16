@@ -6,7 +6,7 @@ from audioplayer import AudioPlayer
 from discord.ext import commands, tasks
 from itertools import cycle
 
-from library.ConsoleSelect import *
+from library.console import *
 
 from settings.config import version 
 
@@ -47,14 +47,14 @@ class Initialization(commands.Cog):
         await Console.endProgress()
         clear()
         print(f'Loading Complete! Welcome Back, Edelweiss!')
-        if (name == 'cleo'): print(u'\u001b[35;1mSeems like you are using the test build of Tachibana (Cleo).\u001b[0m \n')
-        elif (name == 'tachibana'): print(u'\u001b[33;1mYou are using the stable version of Tachibana.\u001b[0m \n')
+        if (name == 'cleo'): print(u'\u001b[35;1mSeems like you are using the test build of Kumatora (Cleo).\u001b[0m \n')
+        elif (name == 'kumatora'): print(u'\u001b[33;1mYou are using the stable version of Kumatora.\u001b[0m \n')
         print(f'Version ↗ {version}')
         print(f'Build ↗ Passing \n')
         await asyncio.sleep(0.5)
 
         # PRINT ESTABLISHMENT
-        print(f'[{Time.timeCST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED. ⚡')
+        print(f'[{Time.CST()}] [Roundtrip: {Roundtrip.rt(self)}ms.] CONNECTION ESTABLISHED. ⚡')
 
     @tasks.loop(seconds = 4)
     async def change_status(self):

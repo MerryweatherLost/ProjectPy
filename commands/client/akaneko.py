@@ -1,11 +1,11 @@
 import discord
 import akaneko
 
-from library.ConsoleSelect import *
+from library.console import *
 from discord.ext import commands
 from private.config import signature
 
-class Akaneko(commands.Cog):
+class Akaneko(commands.Cog, description = 'Category involving the akaneko library.'):
     def __init__(self, client):
         self.client = client
         # AKANEKO = akaneko.nsfw.ass()

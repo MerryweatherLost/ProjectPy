@@ -4,10 +4,10 @@ import hmtai
 from discord.ext import commands
 from private.config import signature
 
-from library.ConsoleSelect import Time
-from library.ConsoleSelect import Roundtrip
+from library.console import Time
+from library.console import Roundtrip
 
-class Hmtai(commands.Cog):
+class Hmtai(commands.Cog, description = 'HMTAI library, which brings back unsafe images.'):
     def __init__(self, client):
         self.client = client
 

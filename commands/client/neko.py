@@ -1,15 +1,13 @@
 import asyncio
-from asyncio.tasks import sleep
 import discord
 
-from library.ConsoleSelect import *
+from library.console import *
 
 from discord.ext import commands
-from private.config import signature
 
 from anekos import NekosLifeClient, SFWImageTags, NSFWImageTags
 
-class Neko(commands.Cog):
+class Neko(commands.Cog, description = 'Using the NekosLife Client for images and fun stuff.'):
     def __init__(self, client):
         self.client = client
         self.nya = NekosLifeClient()
@@ -273,7 +271,7 @@ class Neko(commands.Cog):
   
     # Neko Gif (NSFW)
     @nekonsfw.command(help = 'Not safe for work nekos. (NSFW) (Animated)')
-    async def gif(self, ctx):
+    async def nsfwgif(self, ctx):
         res = await self.nya.image(NSFWImageTags.NSFW_NEKO_GIF)
         em = discord.Embed (
             title = "Neko Gif (NSFW)",
@@ -287,7 +285,7 @@ class Neko(commands.Cog):
  
     # Neko Avatar (NSFW)
     @nekonsfw.command(help = 'Images of neko avatars. (NSFW)')
-    async def avatar(self, ctx):
+    async def nsfwavatar(self, ctx):
         res = await self.nya.image(NSFWImageTags.AVATAR)
         em = discord.Embed (
             title = "Avatar (NSFW)",
@@ -300,7 +298,7 @@ class Neko(commands.Cog):
         await Console.log(Time.CST(), Roundtrip.rt(self), "NEKO.PY", "Avatar (NSFW)", ctx.channel, f"[Raw Data: {res.url}]")
      
     # Neko Boobs (NSFW)
-    @nekonsfw.command(help = 'Images of neko avatars. (NSFW)')
+    @nekonsfw.command(help = 'Images of nekos with prominent attention to the chest area. (NSFW)')
     async def boobs(self, ctx, size = None):
         if size != None: str.lower(size)
         if (size == 'small'): res = await self.nya.image(NSFWImageTags.SMALLBOOBS); si = 'Small'
