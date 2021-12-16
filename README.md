@@ -6,4 +6,4 @@ Closed source, not opened to anyone, and all contributors should not release thi
 
 ### Contributors
 
-MerryweatherLost - Owner and Creator of Tachibana (Project Py)
+MerryweatherLost - Owner and Creator of Kumatora (Project Py)
